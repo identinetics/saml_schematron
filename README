@@ -5,7 +5,7 @@ In addition it makes standard XSD validation easy.
 
 == Prerequisites ==
 XMl style sheet processor compliant to XSLT version 1, with support for the exsl:node-set extension.
-These schematron rules were tested with xerces-j and libxslt.
+These schematron rules were tested with xalan and libxslt.
 
 == Contents ==
 lib/base.xsl
