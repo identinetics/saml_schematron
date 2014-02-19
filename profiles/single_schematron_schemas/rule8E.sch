@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<iso:pattern id="Entity rules" xmlns:iso="http://purl.oclc.org/dsdl/schematron" >
+  <iso:rule context="md:EntityDescriptor">                                  
+    <iso:report test="descendant::rpi:*">
+Error (08): EntityDescriptor created by the entity operator must not contain elements from the mdrpi namespace (urn:oasis:names:tc:SAML:metadata:rpi); this is reserved for metadata publishers.
+    </iso:report>   
+  </iso:rule>
+</iso:pattern>

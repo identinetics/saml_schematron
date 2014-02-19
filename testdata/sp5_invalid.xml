@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- SP Entity Descriptor that is XSD schema valid but violates various schematron rules -->
+<md:EntitiesDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
+    <md:EntityDescriptor entityID="https://sp.example.org/sp.xml"
+                         xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport"
+                         xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+                         xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute"
+                         xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                         xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init">
+        <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"
+                            WantAssertionsSigned="true">
+            <md:Extensions>
+                <alg:DigestMethod Algorithm="http://www.grappa.org/digestif"/>
+                <alg:SigningMethod MinKeySize="128"
+                                   Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/>
+                <alg:SigningMethod MinKeySize="128" MaxKeySize="511"
+                                   Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/>
+                <alg:SigningMethod MinKeySize="1024" MaxKeySize="4096"
+                                   Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+                <alg:SigningMethod MinKeySize="2046" MaxKeySize="4096"
+                                   Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+                <mdattr:EntityAttributes>
+                    <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+                                    Name="http://macedir.org/entity-category"
+                                    NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+                        <saml:AttributeValue>should-be-recognized-value</saml:AttributeValue>
+                    </saml:Attribute>
+                </mdattr:EntityAttributes>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="de"></mdui:DisplayName>
+                    <mdui:Description xml:lang="de"></mdui:Description>
+                    <mdui:Logo height="16" width="16"></mdui:Logo>
+                </mdui:UIInfo>
+            </md:Extensions>
+            <md:KeyDescriptor>
+                <ds:KeyInfo>
+                    <ds:KeyName>sp.example.org</ds:KeyName>
+                    <ds:X509Data>
+                        <ds:X509IssuerSerial>
+                            <ds:X509IssuerName>GuP-CA</ds:X509IssuerName>
+                            <ds:X509SerialNumber>123</ds:X509SerialNumber>
+                        </ds:X509IssuerSerial>
+                        <!-- missing <ds:X509Certificate> -->  
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:sneakernet"
+                                    Location="https://sp.test.example.org/idp/profile/SAML2/Redirect/SLO"/>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:inexsistent</md:NameIDFormat>  <!-- invalid nameIDFormat -->
+            <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-PASTA"  
+                                         Location="https://sp.example.org/Shibboleth.sso/SAML2/POST" index="1"/> <!-- should be HTTP-POST -->
+            <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact"  
+                                         Location="https://sp.example.org/Shibboleth.sso/SAML2/Artifact" index="1"/> <!-- deprecated -->
+            <md:AttributeConsumingService index="1">
+               <md:ServiceName xml:lang="de">application1</md:ServiceName>
+               <md:ServiceDescription xml:lang="de">sends html responses on receiving HTTP requests</md:ServiceDescription>
+               <md:RequestedAttribute isRequired="true"
+                   NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
+                   Name="urn:oid:2.5.4.42"
+                   FriendlyName="givenName"/>
+            </md:AttributeConsumingService>
+        </md:SPSSODescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="de">SAML Testfederation</md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="de">SAML Test Federation</md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="de">http://www.example.org</md:OrganizationURL>
+        </md:Organization>
+        <md:ContactPerson contactType="technical">
+            <md:GivenName>Max</md:GivenName>
+            <md:SurName>Mustermann</md:SurName>
+            <md:EmailAddress>max.mustermann@example.org</md:EmailAddress>
+            <md:TelephoneNumber>+43 000 9999 0000</md:TelephoneNumber>
+        </md:ContactPerson>
+        <md:ContactPerson contactType="support">
+            <md:GivenName>Max</md:GivenName>
+            <md:SurName>Mustermann</md:SurName>
+            <md:EmailAddress>max.mustermann@example.org</md:EmailAddress>
+            <md:TelephoneNumber>+43 000 9999 0000</md:TelephoneNumber>
+        </md:ContactPerson>
+    </md:EntityDescriptor>
+</md:EntitiesDescriptor>

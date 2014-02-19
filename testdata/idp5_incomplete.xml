@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- this is a minimal entity descriptor for an IDP that is XSD schema valid -->
+<md:EntitiesDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"> 
+  <md:EntityDescriptor entityID="https://idp.example.org/idp.xml">
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <md:SingleSignOnService 
+            Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" 
+            Location="https://idp.example.org/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+  </md:EntityDescriptor>
+</md:EntitiesDescriptor>

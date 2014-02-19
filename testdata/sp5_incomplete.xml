@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- this is a minimal entity descriptor for an SP that is XSD schema valid -->
+<samlmd:EntitiesDescriptor xmlns:samlmd="urn:oasis:names:tc:SAML:2.0:metadata" >
+<samlmd:EntityDescriptor entityID="https://sp5.test.example.org/sp.xml">
+  <samlmd:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <samlmd:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp5.test.example.org/Shibboleth.sso/SAML2/POST" index="1"/>
+   </samlmd:SPSSODescriptor>
+ </samlmd:EntityDescriptor>
+</samlmd:EntitiesDescriptor>
