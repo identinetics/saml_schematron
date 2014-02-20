@@ -87,9 +87,9 @@ Warning (03): Each IDPSSODescriptor should contain NameIDFormatwith one or more 
        XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (md:NameIDFormat[text() != ''])</axsl:message></axsl:otherwise></axsl:choose>
 
 		<!--ASSERT -->
-<axsl:choose><axsl:when test="md:KeyDescriptor/ds:KeyInfo/ds:X509Data/ds:X509Certificate"/><axsl:otherwise><axsl:message>
+<axsl:choose><axsl:when test="md:KeyDescriptor[@use='signing' or not(@use)]/ds:KeyInfo/ds:X509Data/ds:X509Certificate"/><axsl:otherwise><axsl:message>
 Error (04): Each IDPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data)         
-         XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (md:KeyDescriptor/ds:KeyInfo/ds:X509Data/ds:X509Certificate)</axsl:message></axsl:otherwise></axsl:choose>
+         XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (md:KeyDescriptor[@use='signing' or not(@use)]/ds:KeyInfo/ds:X509Data/ds:X509Certificate)</axsl:message></axsl:otherwise></axsl:choose>
 
 		<!--ASSERT -->
 <axsl:choose><axsl:when test="md:SingleSignOnService"/><axsl:otherwise><axsl:message>

@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Selection of rules for SAML2INT.
+  Status: incomplete 
+  Rainer Hoerbe, 2014-02-19
+-->
+
 <iso:schema
         xmlns="http://purl.oclc.org/dsdl/schematron"
         xmlns:iso="http://purl.oclc.org/dsdl/schematron"
@@ -17,6 +24,7 @@
     <iso:ns prefix="mdattr" uri="urn:oasis:names:tc:SAML:metadata:attribute"/>
     <iso:ns prefix="init" uri="urn:oasis:names:tc:SAML:profiles:SSO:request-init"/>
     <iso:include-set>
+        <!-- CAVEAT: changing the rule set requires adaptaion of Makefile -->
         <iso:include href="single_schematron_schemas/rule4E.sch"/>
         <iso:include href="single_schematron_schemas/rule6W.sch"/>
         <iso:include href="single_schematron_schemas/rule7W.sch"/>
