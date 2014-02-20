@@ -24,6 +24,9 @@
     <iso:ns prefix="mdattr" uri="urn:oasis:names:tc:SAML:metadata:attribute"/>
     <iso:ns prefix="init" uri="urn:oasis:names:tc:SAML:profiles:SSO:request-init"/>
     <iso:include-set>
+
+        <iso:include href="single_schematron_schemas/reportEntity.sch" />
+
         <!-- CAVEAT: changing the rule set requires adaptaion of Makefile -->
         <iso:include href="single_schematron_schemas/rule4E.sch"/>
         <iso:include href="single_schematron_schemas/rule6W.sch"/>

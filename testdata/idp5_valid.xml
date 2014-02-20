@@ -73,7 +73,7 @@
         <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp5.test.example.org/idp/profile/SAML2/Redirect/SLO"/>
         <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
         <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
-        <!--md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp5.test.example.org/idp/profile/SAML2/POST/SSO"/-->
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp5.test.example.org/idp/profile/SAML2/POST/SSO"/>
         <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp5.test.example.org/idp/profile/SAML2/Redirect/SSO"/>
     </md:IDPSSODescriptor>
     <md:Organization>

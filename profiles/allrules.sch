@@ -18,6 +18,8 @@
     <iso:ns prefix="init" uri="urn:oasis:names:tc:SAML:profiles:SSO:request-init"/>
     <iso:include-set>
  
+        <iso:include href="single_schematron_schemas/reportEntity.sch" />
+        
         <iso:include href="single_schematron_schemas/rule1E.sch" />
         <iso:include href="single_schematron_schemas/rule2E.sch" />
         <iso:include href="single_schematron_schemas/rule3W.sch" />
