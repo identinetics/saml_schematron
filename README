@@ -7,7 +7,10 @@ In addition it makes standard XSD validation easy.
 XMl style sheet processor compliant to XSLT version 1, with support for the exsl:node-set extension.
 These schematron rules were tested with xalan and libxslt.
 
+xml-coreutils (only for the generation of doc/messages.txt)
+
 == Contents ==
+
 lib/base.xsl
     Extension of iso_schematron_skeleton_for_xslt1.xsl. Note that the extensions will definitely require 
     an xslt processor with support for exsl:node-set, although this is pretty universal for xslt 1.0 processors. 
@@ -54,13 +57,15 @@ validate
 xmlschema
     SAML metdata schema files modified to be read from local directory instead of URLs.
 
-== Run the validator using libxslt ==
-   1. Generate the validation style sheet from schematron rules
-      xsltproc lib/message.xsl profiles/allrules.sch > validate/allrules.xsl
+== Run the validator using libxslt (encapsulated in make) ==
+   1. Generate the validation style sheet from schematron rules (see Makefile for other make targets)
+      make genall
    2. Execute the validation style sheet 
-      xsltproc profiles/allrules.xsl testdata/idp5_valid.xml
+      make valall IN=testdata/idp5_valid.xml
+   Note: if all validation rules pass, the output will contain "Validating entityID https://idp5.test.example.org/idp.xml"
+   if the ruleset includes reportEntity.sch; otherwise it will be empty.
       
-== Run the validator using libxslt ==
+== Run the validator using xalan ==
    1. Generate the validation stylesheet from schematron rules 
       java -jar xalan.jar -OUT validate/allrules.xsl -IN profiles/allrules.sch -XSL lib/message.xsl
    2. Execute the validation stylesheet
