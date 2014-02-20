@@ -1,0 +1,46 @@
+Error (01): @entityID values must start with “https://”
+Error (02): NameIDFormat may contain only zero or more for following values: urn:oasis:names:tc:SAML:2.0:nameid-format:persistent urn:oasis:names:tc:SAML:2.0:nameid-format:transient urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified
+Warning (03): Each IDPSSODescriptor should contain NameIDFormatwith one or more values 
+Warning (03): Each SPSSODescriptor should contain NameIDFormat with one or more values
+Error (04): Each IDPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data) 
+Error (04): Each SPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data)
+Warning (05): EntityDescriptor should contain an Organization
+Warning (06): EntityDescriptor should contain ContactPerson with a contactType of "support" and at least one EmailAddress
+Warning (07): EntityDescriptor should contain ContactPerson with a contactType of "technical" and at least one EmailAddress
+Error (08): EntityDescriptor created by the entity operator must not contain elements from the mdrpi namespace (urn:oasis:names:tc:SAML:metadata:rpi); this is reserved for metadata publishers.
+Error (09): IDPSSODescriptor does not contain a SingleSignOnService“
+Error (09): IDPSSODescriptor must contain a SingleSignOnService with Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect“
+Warning (10): IDPSSODescriptor may contain <saml2:Attribute>elements; but their interpretation is not supported.
+Error (11): SPSSODescriptor must contain an AssertionConsumerService with Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+Error (12): IDPSSODescriptor must contain alg:DigestMethod
+Error (12): SPSSODescriptor must contain alg:DigestMethod
+Error (13): IDPSSODescriptor must contain SigningMethod
+Error (13): SPSSODescriptor must contain SigningMethod
+Warning (14): IDPSSODescriptor should contain DiscoHints including mdui:DomainHint
+Warning (15): IDPSSODescriptor should contain SingleLogoutService
+Warning (15): SPSSODescriptor should contain SingleLogoutService
+Warning (16): AttributeConsumingService is deprecated. Use EntityCategories instead.
+Warning (17): SPSSODescriptor should include Extensions/DiscoveryResponse
+Error (18): SPSSODescriptor must contain EntityAttributes with an AttributeValue of http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken
+Warning (19): SPSSODescriptor EntityAttributes are allowed to have on or more of the following attribute values: http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken, http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken-charge
+Warning (20): SPSSODescriptor should include init:RequestInitiator
+Warning (21): SPSSODescriptor should include <mdui:UIInfo>
+Error (22a): UIInfo must include a non-empty DisplayName
+Error (22b): UIInfo must include a non-empty Description
+Error (22c): UIInfo must include a non-empty Logo URL
+Error (23): alg:DigestMethod element may only contain following @Algorithm values: http://www.w3.org/2000/09/xmldsig#sha1 http://www.w3.org/2001/04/xmlenc#sha256 http://www.w3.org/2001/04/xmlenc#sha512 http://www.w3.org/2001/04/xmlenc#ripemd160
+Error (24): Each alg:SigningMethod may only contain following @Algorithm values: http://www.w3.org/2001/04/xmldsig-more#rsa-sha256 http://www.w3.org/2000/09/xmldsig#rsa-sha1 http://www.w3.org/2001/04/xmldsig-more#rsa-sha384 http://www.w3.org/2001/04/xmldsig-more#rsa-sha512 http://www.w3.org/2001/04/xmldsig-more#rsa-ripemd160http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256 http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384 http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512 
+Warning (25): DigestMethod element should not contain @Algorithm value http://www.w3.org/2000/09/xmldsig#sha1
+Warning (26): SigningMethod element should not contain @Algorithm value http://www.w3.org/2000/09/xmldsig#rsa-sha1
+Error (27): MinKeySize must be greater or equal to 2048 if Algorithm starts with "http://www.w3.org/2001/04/xmldsig-more#rsa"
+Error (28): MinKeySize must be greater or equal to 256 if Algorithm starts with "http://www.w3.org/2001/04/xmldsig-more#ecdsa"
+Error (29): alg:SigningMethod must have an attribute MaxKeySize
+Warning (30): AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" is deprecated
+Warning (31): @entityID length should not exceed 80 characters”
+Error (32): IDPSSODescriptor must contain a mdui:UIInfo element
+Warning (33): IDPSSODescriptor should contain alg:DigestMethod
+Warning (33): SPSSODescriptor should contain alg:DigestMethod
+Warning (34): IDPSSODescriptor should contain alg:SigningMethod
+Warning (34): SPSSODescriptor should contain alg:SigningMethod
+Error (35): protocolSupportEnumeration may contain only "urn:oasis:names:tc:SAML:2.0:protocol"
+Error (36): IDPSSODescriptor must contain a SingleSignOnService with Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST“
