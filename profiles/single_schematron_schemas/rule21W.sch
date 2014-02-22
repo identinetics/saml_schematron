@@ -2,7 +2,7 @@
 <iso:pattern id="Rule 21" xmlns:iso="http://purl.oclc.org/dsdl/schematron" >
   <iso:rule context="//md:SPSSODescriptor">                                  
     <iso:assert test="md:Extensions/mdui:UIInfo">
-Warning (21): SPSSODescriptor should include &lt;mdui:UIInfo&gt;
+Warning (21): SPSSODescriptor should include a mdui:UIInfo element
     </iso:assert>
   </iso:rule>
 </iso:pattern>  
