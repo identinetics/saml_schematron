@@ -45,7 +45,7 @@ reports
     Output directory for validations
     
 scripts
-    Sample command line invocations (using bourne shell)
+    Sample command line invocations (using bourne shell) and those called from the webapp
     
 testdata
     SAML metadata instance documents that are valid to XML Schema. Some contain violations of schematron rules to be
@@ -53,6 +53,9 @@ testdata
     
 validate
     Style sheets generated from schematron for step 2 of the validator.
+
+webapp
+    simple stand-alon web server to upload files for xsd and schematron validation
     
 xmlschema
     SAML metdata schema files modified to be read from local directory instead of URLs.

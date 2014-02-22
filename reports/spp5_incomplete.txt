@@ -1,0 +1,11 @@
+Error (04): Each SPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data)
+Error (12): SPSSODescriptor must contain alg:DigestMethod
+Error (13): SPSSODescriptor must contain SigningMethod
+Error (18): SPSSODescriptor must contain EntityAttributes with an AttributeValue of http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken
+Warning (03): Each SPSSODescriptor should contain NameIDFormat with one or more values
+Warning (05): EntityDescriptor should contain an Organization
+Warning (06): EntityDescriptor should contain ContactPerson with a contactType of "support" and at least one EmailAddress
+Warning (07): EntityDescriptor should contain ContactPerson with a contactType of "technical" and at least one EmailAddress
+Warning (15): SPSSODescriptor should contain SingleLogoutService
+Warning (20): SPSSODescriptor should include init:RequestInitiator
+Warning (21): SPSSODescriptor should include <mdui:UIInfo>

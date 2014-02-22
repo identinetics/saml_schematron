@@ -1,0 +1,124 @@
+
+Error (01): @entityID values must start with “https://”
+     XPATH: /md:EntitiesDescriptor[1]
+   /md:EntityDescriptor[1]
+    validation rule: (starts-with(@entityID,'https://'))
+
+Warning (05): EntityDescriptor should contain an Organization
+     XPATH: /md:EntitiesDescriptor[1]
+   /md:EntityDescriptor[1]
+    validation rule: (md:Organization)
+
+Warning (06): EntityDescriptor should contain ContactPerson with a contactType of "support" and at least one EmailAddress
+     XPATH: /md:EntitiesDescriptor[1]
+   /md:EntityDescriptor[1]
+    validation rule: (md:ContactPerson[normalize-space(@contactType)='support'][md:EmailAddress])
+
+Warning (07): EntityDescriptor should contain ContactPerson with a contactType of "technical" and at least one EmailAddress
+      XPATH: /md:EntitiesDescriptor[1]
+   /md:EntityDescriptor[1]
+    validation rule: (md:ContactPerson[normalize-space(@contactType)='technical'][md:EmailAddress])
+
+Error (08): EntityDescriptor created by the entity operator must not contain elements from the mdrpi namespace (urn:oasis:names:tc:SAML:metadata:rpi)
+     XPATH: /md:EntitiesDescriptor[1]
+   /md:EntityDescriptor[1]
+    validation rule: (descendant::rpi:*)
+
+Warning (31): @entityID length should not exceed 80 characters”
+     XPATH: /md:EntitiesDescriptor[1]
+   /md:EntityDescriptor[1]
+    validation rule: (string-length(@entityID) < 81)
+
+Error (04): Each IDPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data)         
+         XPATH: /md:EntitiesDescriptor[1]
+   /md:EntityDescriptor[1]
+   /md:IDPSSODescriptor[1]
+    validation rule: (md:KeyDescriptor/ds:KeyInfo/ds:X509Data/ds:X509Certificate)
+
+Warning (14): IDPSSODescriptor should contain DiscoHints including mdui:DomainHint
+     XPATH: /md:EntitiesDescriptor[1]
+   /md:EntityDescriptor[1]
+   /md:IDPSSODescriptor[1]
+    validation rule: (md:Extensions/mdui:DiscoHints/mdui:DomainHint)
+
+Warning (15): IDPSSODescriptor should contain SingleLogoutService
+     XPATH: /md:EntitiesDescriptor[1]
+   /md:EntityDescriptor[1]
+   /md:IDPSSODescriptor[1]
+    validation rule: (md:SingleLogoutService)
+
+Error (32): IDPSSODescriptor  must contain a mdui:UIInfo element
+     XPATH: /md:EntitiesDescriptor[1]
+   /md:EntityDescriptor[1]
+   /md:IDPSSODescriptor[1]
+    validation rule: (mdui:UIInfo)
+
+Error (23): alg:DigestMethod element may only contain following @Algorithm values: 
+    http://www.w3.org/2000/09/xmldsig#sha1 
+    http://www.w3.org/2001/04/xmlenc#sha256 
+    http://www.w3.org/2001/04/xmlenc#sha512 
+    http://www.w3.org/2001/04/xmlenc#ripemd160
+     XPATH: /md:EntitiesDescriptor[1]
+   /md:EntityDescriptor[1]
+   /md:IDPSSODescriptor[1]
+   /md:Extensions[1]
+   /alg:DigestMethod[1]
+    validation rule: (normalize-space(@Algorithm)='http://www.w3.org/2001/04/xmlenc#sha256' or normalize-space(@Algorithm)='http://www.w3.org/2000/09/xmldsig#sha1' or normalize-space(@Algorithm)='http://www.w3.org/2001/04/xmlenc#sha512' or normalize-space(@Algorithm)='http://www.w3.org/2001/04/xmlenc#ripemd160')
+
+Error (24): Each alg:SigningMethod may only contain following @Algorithm values: 
+    http://www.w3.org/2001/04/xmldsig-more#rsa-sha256 
+    http://www.w3.org/2000/09/xmldsig#rsa-sha1 
+    http://www.w3.org/2001/04/xmldsig-more#rsa-sha384 
+    http://www.w3.org/2001/04/xmldsig-more#rsa-sha512 
+    http://www.w3.org/2001/04/xmldsig-more#rsa-ripemd160
+    http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256 
+    http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384 
+    http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512    
+     XPATH: /md:EntitiesDescriptor[1]
+   /md:EntityDescriptor[1]
+   /md:IDPSSODescriptor[1]
+   /md:Extensions[1]
+   /alg:SigningMethod[1]
+    validation rule: (@Algorithm='http://www.w3.org/2001/04/xmldsig-more#rsa-sha256' or @Algorithm='http://www.w3.org/2000/09/xmldsig#rsa-sha1' or @Algorithm='http://www.w3.org/2001/04/xmldsig-more#rsa-sha384' or @Algorithm='http://www.w3.org/2001/04/xmldsig-more#rsa-sha512' or @Algorithm='http://www.w3.org/2001/04/xmldsig-more#rsa-ripemd160' or @Algorithm='http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256' or @Algorithm='http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384' or @Algorithm='http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512')
+
+Error (24): Each alg:SigningMethod may only contain following @Algorithm values: 
+    http://www.w3.org/2001/04/xmldsig-more#rsa-sha256 
+    http://www.w3.org/2000/09/xmldsig#rsa-sha1 
+    http://www.w3.org/2001/04/xmldsig-more#rsa-sha384 
+    http://www.w3.org/2001/04/xmldsig-more#rsa-sha512 
+    http://www.w3.org/2001/04/xmldsig-more#rsa-ripemd160
+    http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256 
+    http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384 
+    http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512    
+     XPATH: /md:EntitiesDescriptor[1]
+   /md:EntityDescriptor[1]
+   /md:IDPSSODescriptor[1]
+   /md:Extensions[1]
+   /alg:SigningMethod[2]
+    validation rule: (@Algorithm='http://www.w3.org/2001/04/xmldsig-more#rsa-sha256' or @Algorithm='http://www.w3.org/2000/09/xmldsig#rsa-sha1' or @Algorithm='http://www.w3.org/2001/04/xmldsig-more#rsa-sha384' or @Algorithm='http://www.w3.org/2001/04/xmldsig-more#rsa-sha512' or @Algorithm='http://www.w3.org/2001/04/xmldsig-more#rsa-ripemd160' or @Algorithm='http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256' or @Algorithm='http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384' or @Algorithm='http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512')
+
+Error (27): MinKeySize must be greater or equal to 2048 if Algorithm starts with "http://www.w3.org/2001/04/xmldsig-more#rsa"
+     XPATH: /md:EntitiesDescriptor[1]
+   /md:EntityDescriptor[1]
+   /md:IDPSSODescriptor[1]
+   /md:Extensions[1]
+   /alg:SigningMethod[2]
+    validation rule: (starts-with(@Algorithm, 'http://www.w3.org/2001/04/xmldsig-more#rsa') and @MinKeySize < 2048)
+
+Warning (26): SigningMethod element should not contain @Algorithm value http://www.w3.org/2000/09/xmldsig#rsa-sha1
+     XPATH: /md:EntitiesDescriptor[1]
+   /md:EntityDescriptor[1]
+   /md:IDPSSODescriptor[1]
+   /md:Extensions[1]
+   /alg:SigningMethod[3]
+    validation rule: (@Algorithm !='http://www.w3.org/2000/09/xmldsig#rsa-sha1')
+
+Error (02): NameIDFormat may contain only zero or more for following values: 
+    urn:oasis:names:tc:SAML:2.0:nameid-format:persistent 
+    urn:oasis:names:tc:SAML:2.0:nameid-format:transient 
+    urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified
+     XPATH: /md:EntitiesDescriptor[1]
+   /md:EntityDescriptor[1]
+   /md:IDPSSODescriptor[1]
+   /md:NameIDFormat[1]
+    validation rule: (normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent' or normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient' or normalize-space(text()) = 'urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified' or normalize-space(text()) = '')

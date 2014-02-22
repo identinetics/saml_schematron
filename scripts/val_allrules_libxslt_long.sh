@@ -1,5 +1,11 @@
 #!/bin/sh
-# validate and filter output for Error/Warning lines; sort by error number
+# validate using schematron
+
+SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PROJROOT="$(dirname "$SCRIPTDIR")"
+
+source $PROJROOT/scripts/init.sh
+
 file=`/bin/echo $1 | /usr/bin/sed -e 's/.xml$/.txt/'`
-xsltproc validate/allrules.xsl $1 >reports/$file 2>&1
+${RUNXSLTPROC}xsltproc $PROJROOT/validate/allrules.xsl $1 >$PROJROOT/reports/$file 2>&1
 echo "output written to reports/$file"
