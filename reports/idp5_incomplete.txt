@@ -1,7 +1,0 @@
-Error (04): Each IDPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data)         
-Error (12): IDPSSODescriptor must contain alg:DigestMethod
-Error (13): IDPSSODescriptor must contain SigningMethod
-Warning (03): Each IDPSSODescriptor should contain NameIDFormatwith one or more values  
-Warning (05): EntityDescriptor should contain an Organization
-Warning (06): EntityDescriptor should contain ContactPerson with a contactType of "support" and at least one EmailAddress
-Warning (07): EntityDescriptor should contain ContactPerson with a contactType of "technical" and at least one EmailAddress
