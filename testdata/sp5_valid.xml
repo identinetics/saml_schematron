@@ -7,23 +7,26 @@
                      xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" 
                      xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"          
                      xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" >
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+          Name="http://macedir.org/entity-category"
+          NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+        <saml:AttributeValue>http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken</saml:AttributeValue>
+       </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
   <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" WantAssertionsSigned="true">
     <md:Extensions>
       <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
       <alg:SigningMethod MinKeySize="256" MaxKeySize="511" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/>
       <alg:SigningMethod MinKeySize="2048" MaxKeySize="4096" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
-      <mdattr:EntityAttributes>
-        <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" 
-          Name="http://macedir.org/entity-category" 
-          NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
-        <saml:AttributeValue>http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken</saml:AttributeValue>
-       </saml:Attribute>
-      </mdattr:EntityAttributes>
       <mdui:UIInfo>
         <mdui:DisplayName xml:lang="de">sp5.test.example.org</mdui:DisplayName>
-        <mdui:Description xml:lang="de"> 
-            Testumgebung Echo Service (zentrales IdP Discovery Service)
-        </mdui:Description>
+        <mdui:DisplayName xml:lang="en">sp5.test.example.org</mdui:DisplayName>
+        <mdui:Description xml:lang="de">Testumgebung Echo Service (zentrales IdP Discovery Service)</mdui:Description>
+        <mdui:Description xml:lang="en">Testumgebung Echo Service (zentrales IdP Discovery Service)</mdui:Description>
+        <mdui:Logo xml:lang="de" height="70" width="79">http://md.test.example.org/logo.png</mdui:Logo>
         <mdui:Logo xml:lang="en" height="70" width="79">http://md.test.example.org/logo.png</mdui:Logo>
       </mdui:UIInfo>
       <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://sp5.test.example.org/Shibboleth.sso/Login" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init"/>
