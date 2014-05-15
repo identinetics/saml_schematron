@@ -59,6 +59,7 @@
         <iso:include href="single_schematron_schemas/rule34W.sch" />
         <iso:include href="single_schematron_schemas/rule35E.sch" />
         <iso:include href="single_schematron_schemas/rule36E.sch" />
-    
+        <iso:include href="single_schematron_schemas/rule37E.sch" />
+
     </iso:include-set>
 </iso:schema>
