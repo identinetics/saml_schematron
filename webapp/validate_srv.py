@@ -44,7 +44,10 @@ def post_handler(req):
     except subprocess.CalledProcessError:
         val_out = 'validation failed'
     os.remove(tmpfile)
-    html = res_template.render(validationType= validationType, fname=fname, val_out=val_out.replace("\n", "<br/>"))
+    # this assumes a platform where the shell is unsing utf-8 (like osx, centos)
+    html = res_template.render(validationType=validationType,
+                               fname=fname,
+                               val_out=val_out.decode('utf-8').replace("\n", "<br/>"))
     return BaseResponse(html,
                         mimetype='text/html',
                         direct_passthrough=False)
