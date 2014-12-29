@@ -28,7 +28,7 @@
         <iso:include href="single_schematron_schemas/reportEntity.sch" />
 
         <iso:include href="single_schematron_schemas/rule1E.sch" />
-        <iso:include href="single_schematron_schemas/rule2E.sch" />
+        <iso:include href="single_schematron_schemas/rule2W.sch" />
         <iso:include href="single_schematron_schemas/rule3W.sch" />
         <iso:include href="single_schematron_schemas/rule4E.sch" />
         <iso:include href="single_schematron_schemas/rule5W.sch" />
