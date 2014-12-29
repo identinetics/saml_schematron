@@ -6,7 +6,8 @@
                      xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"           
                      xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" 
                      xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"          
-                     xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" >
+                     xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init"
+                     xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
     <md:Extensions>
       <mdattr:EntityAttributes>
         <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
@@ -32,7 +33,7 @@
       <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://sp5.test.example.org/Shibboleth.sso/Login" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init"/>
       <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sp5.test.example.org/Shibboleth.sso/Login" index="1" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol"/>
     </md:Extensions>
-    <md:KeyDescriptor>
+    <md:KeyDescriptor use="signing">
       <ds:KeyInfo>
         <ds:KeyName>sp5.test.example.org</ds:KeyName>
         <ds:X509Data>
