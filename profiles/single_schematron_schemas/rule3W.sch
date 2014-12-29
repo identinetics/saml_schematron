@@ -3,7 +3,7 @@
    <iso:rule context="//md:IDPSSODescriptor">                                  
       <iso:assert 
          test="md:NameIDFormat[text() != '']">
-Warning (03): Each IDPSSODescriptor should contain NameIDFormatwith one or more values  
+Warning (03): Each IDPSSODescriptor should contain NameIDFormat with one or more values
       </iso:assert>   
    </iso:rule>
         
