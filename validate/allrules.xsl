@@ -41,7 +41,7 @@
 <axsl:template match="/"><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/><axsl:apply-templates select="/" mode="M0"/></axsl:template>
 
 <!--SCHEMATRON PATTERNS-->
-<axsl:template match="/" name="bryansgeneratedtemplate"><axsl:apply-templates mode="M10"/></axsl:template><axsl:template match="text()" mode="M10"/><axsl:template match="md:EntityDescriptor" priority="1009" mode="M10">
+<axsl:template match="/" name="bryansgeneratedtemplate"><axsl:apply-templates mode="M10"/></axsl:template><axsl:template match="text()" mode="M10"/><axsl:template match="md:EntityDescriptor" priority="1008" mode="M10">
 
 		<!--REPORT -->
 <axsl:if test="@entityID"><axsl:message>
@@ -81,30 +81,15 @@ Warning (31): @entityID length should not exceed 80 characters”
 		<!--ASSERT -->
 <axsl:choose><axsl:when test="descendant::mdattr:EntityAttributes[saml:Attribute[normalize-space(saml:AttributeValue)='http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken']]"/><axsl:otherwise><axsl:message>
 Warning (37): EntityDescriptor should contain EntityAttributes with an AttributeValue of http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken
-     XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (descendant::mdattr:EntityAttributes[saml:Attribute[normalize-space(saml:AttributeValue)='http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken']])</axsl:message></axsl:otherwise></axsl:choose>
-
-		<!--ASSERT -->
-<axsl:choose><axsl:when test="descendant::md:SPSSODescriptor"/><axsl:otherwise><axsl:message>
-A (37T1): Each EntityDescriptor must contain an SPSSODescriptor
-         XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (descendant::md:SPSSODescriptor)</axsl:message></axsl:otherwise></axsl:choose>
-
-		<!--REPORT -->
-<axsl:if test="descendant::md:SPSSODescriptor"><axsl:message>
-R (37T2): Each EntityDescriptor must contain an SPSSODescriptor
-         XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (descendant::md:SPSSODescriptor)</axsl:message></axsl:if>
-
-		<!--ASSERT -->
-<axsl:choose><axsl:when test="descendant::ds:X509Data/ds:X509Certificate"/><axsl:otherwise><axsl:message>
-Error (37T3): Each SPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data)
-         XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (descendant::ds:X509Data/ds:X509Certificate)</axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M10"/></axsl:template><axsl:template match="md:NameIDFormat" priority="1008" mode="M10">
+     XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (descendant::mdattr:EntityAttributes[saml:Attribute[normalize-space(saml:AttributeValue)='http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken']])</axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M10"/></axsl:template><axsl:template match="md:NameIDFormat" priority="1007" mode="M10">
 
 		<!--ASSERT -->
 <axsl:choose><axsl:when test="normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent'                 or normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient'                or normalize-space(text()) = 'urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified'                or normalize-space(text()) = '' "/><axsl:otherwise><axsl:message>
-Error (02): NameIDFormat may contain only zero or more for following values: 
+Warnung (02): This NameIDFormat may not be supported. Supported values for NameIDFormat are:
     urn:oasis:names:tc:SAML:2.0:nameid-format:persistent 
     urn:oasis:names:tc:SAML:2.0:nameid-format:transient 
     urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified
-     XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent' or normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient' or normalize-space(text()) = 'urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified' or normalize-space(text()) = '')</axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M10"/></axsl:template><axsl:template match="//md:IDPSSODescriptor" priority="1007" mode="M10">
+     XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent' or normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient' or normalize-space(text()) = 'urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified' or normalize-space(text()) = '')</axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M10"/></axsl:template><axsl:template match="//md:IDPSSODescriptor" priority="1006" mode="M10">
 
 		<!--ASSERT -->
 <axsl:choose><axsl:when test="md:NameIDFormat[text() != '']"/><axsl:otherwise><axsl:message>
@@ -164,7 +149,7 @@ Warning (34): IDPSSODescriptor should contain alg:SigningMethod
 		<!--ASSERT -->
 <axsl:choose><axsl:when test="normalize-space(@protocolSupportEnumeration)='urn:oasis:names:tc:SAML:2.0:protocol'"/><axsl:otherwise><axsl:message>
 Error (35): protocolSupportEnumeration may contain only "urn:oasis:names:tc:SAML:2.0:protocol"
-     XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (normalize-space(@protocolSupportEnumeration)='urn:oasis:names:tc:SAML:2.0:protocol')</axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M10"/></axsl:template><axsl:template match="//md:SPSSODescriptor" priority="1006" mode="M10">
+     XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (normalize-space(@protocolSupportEnumeration)='urn:oasis:names:tc:SAML:2.0:protocol')</axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M10"/></axsl:template><axsl:template match="//md:SPSSODescriptor" priority="1005" mode="M10">
 
 		<!--ASSERT -->
 <axsl:choose><axsl:when test="md:NameIDFormat[text() != '']"/><axsl:otherwise><axsl:message>
@@ -266,12 +251,7 @@ Warning (33): SPSSODescriptor should contain alg:DigestMethod
 		<!--ASSERT -->
 <axsl:choose><axsl:when test="md:Extensions/alg:SigningMethod"/><axsl:otherwise><axsl:message>
 Warning (34): SPSSODescriptor should contain alg:SigningMethod
-     XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (md:Extensions/alg:SigningMethod)</axsl:message></axsl:otherwise></axsl:choose>
-
-		<!--ASSERT -->
-<axsl:choose><axsl:when test="md:SingleLogoutService"/><axsl:otherwise><axsl:message>
-Warning (37T0): SPSSODescriptor should contain SingleLogoutService (test message 5)
-     XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (md:SingleLogoutService)</axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M10"/></axsl:template><axsl:template match="md:IDPSSODescriptor" priority="1005" mode="M10">
+     XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (md:Extensions/alg:SigningMethod)</axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M10"/></axsl:template><axsl:template match="md:IDPSSODescriptor" priority="1004" mode="M10">
 
 		<!--REPORT -->
 <axsl:if test="descendant::saml:Attribute"><axsl:message>
@@ -281,7 +261,7 @@ Warning (10): IDPSSODescriptor may contain &lt;saml2:Attribute&gt; elements; but
 		<!--ASSERT -->
 <axsl:choose><axsl:when test="md:SingleSignOnService[normalize-space(@Binding)='urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST']"/><axsl:otherwise><axsl:message>
 Error (36): IDPSSODescriptor must contain a SingleSignOnService with Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST“
-     XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (md:SingleSignOnService[normalize-space(@Binding)='urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'])</axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M10"/></axsl:template><axsl:template match="mdui:UIInfo" priority="1004" mode="M10">
+     XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (md:SingleSignOnService[normalize-space(@Binding)='urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'])</axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M10"/></axsl:template><axsl:template match="mdui:UIInfo" priority="1003" mode="M10">
 
 		<!--ASSERT -->
 <axsl:choose><axsl:when test="mdui:DisplayName[string-length() &gt; 0]"/><axsl:otherwise><axsl:message>
@@ -296,7 +276,7 @@ Error (22b): UIInfo must include a non-empty Description
 		<!--ASSERT -->
 <axsl:choose><axsl:when test="mdui:Logo[string-length() &gt; 0]"/><axsl:otherwise><axsl:message>
 Error (22c): UIInfo must include a non-empty Logo URL
-     XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (mdui:Logo[string-length() &gt; 0])</axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M10"/></axsl:template><axsl:template match="alg:DigestMethod" priority="1003" mode="M10">
+     XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (mdui:Logo[string-length() &gt; 0])</axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M10"/></axsl:template><axsl:template match="alg:DigestMethod" priority="1002" mode="M10">
 
 		<!--ASSERT -->
 <axsl:choose><axsl:when test="normalize-space(@Algorithm)='http://www.w3.org/2001/04/xmlenc#sha256'                     or normalize-space(@Algorithm)='http://www.w3.org/2000/09/xmldsig#sha1'                    or normalize-space(@Algorithm)='http://www.w3.org/2001/04/xmlenc#sha512'                    or normalize-space(@Algorithm)='http://www.w3.org/2001/04/xmlenc#ripemd160' "/><axsl:otherwise><axsl:message>
@@ -310,7 +290,7 @@ Error (23): alg:DigestMethod element may only contain following @Algorithm value
 		<!--ASSERT -->
 <axsl:choose><axsl:when test="@Algorithm !='http://www.w3.org/2000/09/xmldsig#sha1'"/><axsl:otherwise><axsl:message>
 Warning (25): DigestMethod element should not contain @Algorithm value http://www.w3.org/2000/09/xmldsig#sha1
-     XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (@Algorithm !='http://www.w3.org/2000/09/xmldsig#sha1')</axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M10"/></axsl:template><axsl:template match="alg:SigningMethod" priority="1002" mode="M10">
+     XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (@Algorithm !='http://www.w3.org/2000/09/xmldsig#sha1')</axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M10"/></axsl:template><axsl:template match="alg:SigningMethod" priority="1001" mode="M10">
 
 		<!--ASSERT -->
 <axsl:choose><axsl:when test=" @Algorithm='http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'                      or @Algorithm='http://www.w3.org/2000/09/xmldsig#rsa-sha1'                     or @Algorithm='http://www.w3.org/2001/04/xmldsig-more#rsa-sha384'                     or @Algorithm='http://www.w3.org/2001/04/xmldsig-more#rsa-sha512'                     or @Algorithm='http://www.w3.org/2001/04/xmldsig-more#rsa-ripemd160'                     or @Algorithm='http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256'                     or @Algorithm='http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384'                     or @Algorithm='http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512'     "/><axsl:otherwise><axsl:message>
@@ -343,14 +323,9 @@ Error (28): MinKeySize must be greater or equal to 256 if Algorithm starts with 
 		<!--ASSERT -->
 <axsl:choose><axsl:when test="@MaxKeySize"/><axsl:otherwise><axsl:message>
 Error (29): alg:SigningMethod must have an attribute MaxKeySize
-     XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (@MaxKeySize)</axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M10"/></axsl:template><axsl:template match="md:AssertionConsumerService" priority="1001" mode="M10">
+     XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (@MaxKeySize)</axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M10"/></axsl:template><axsl:template match="md:AssertionConsumerService" priority="1000" mode="M10">
 
 		<!--REPORT -->
 <axsl:if test="normalize-space(@Binding)='urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact'"><axsl:message>
 Warning (30): AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" is deprecated
-     XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (normalize-space(@Binding)='urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact')</axsl:message></axsl:if><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M10"/></axsl:template><axsl:template match="//md:EntityDescriptor" priority="1000" mode="M10">
-
-		<!--ASSERT -->
-<axsl:choose><axsl:when test="descendant::md:Organization"/><axsl:otherwise><axsl:message>
-Warning (37Tx): EntityDescriptor should contain an Organization
-     XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (descendant::md:Organization)</axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M10"/></axsl:template></axsl:stylesheet>
+     XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (normalize-space(@Binding)='urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact')</axsl:message></axsl:if><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M10"/></axsl:template></axsl:stylesheet>

@@ -4,4 +4,4 @@ PROJROOT="$(dirname "$SCRIPTDIR")"
 
 source $PROJROOT/scripts/init.sh
 
-${RUNXMLCOREUTILS}xml-strings $PROJROOT/profiles/single_schematron_schemas/rule* :/ | grep -v '^\s*$' |sort -k 2
+${RUNXMLCOREUTILS}xml-strings $PROJROOT/profiles/sch_unit/rule* :/ | grep -v '^\s*$' |sort -k 2

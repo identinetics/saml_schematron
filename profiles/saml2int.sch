@@ -25,11 +25,11 @@
     <iso:ns prefix="init" uri="urn:oasis:names:tc:SAML:profiles:SSO:request-init"/>
     <iso:include-set>
 
-        <iso:include href="single_schematron_schemas/reportEntity.sch" />
+        <iso:include href="sch_unit/reportEntity.sch" />
 
         <!-- CAVEAT: changing the rule set requires adaptaion of Makefile -->
-        <iso:include href="single_schematron_schemas/rule4E.sch"/>
-        <iso:include href="single_schematron_schemas/rule6W.sch"/>
-        <iso:include href="single_schematron_schemas/rule7W.sch"/>
+        <iso:include href="sch_unit/rule4E.sch"/>
+        <iso:include href="sch_unit/rule6W.sch"/>
+        <iso:include href="sch_unit/rule7W.sch"/>
     </iso:include-set>
 </iso:schema>

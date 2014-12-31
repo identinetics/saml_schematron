@@ -33,12 +33,12 @@ profiles
     Directory with saml md validation profiles. A profile is a set of extra validation rules.
 
 profiles/allrules.sch
-    Example that executes all rules contained in single_schematron_schemas
+    Example that executes all rules contained in sch_unit
 
 profiles/saml2int.sch
     Example that executes some rules specified by saml2int.org chapter 5
 
-profiles/single_schematron_schemas
+profiles/sch_unit
     Elementary schematron rules for extended SAML metadata validation
     
 reports

@@ -18,48 +18,48 @@
     <iso:ns prefix="init" uri="urn:oasis:names:tc:SAML:profiles:SSO:request-init"/>
     <iso:include-set>
  
-        <iso:include href="single_schematron_schemas/reportEntity.sch" />
+        <iso:include href="sch_unit/reportEntity.sch" />
         
-        <iso:include href="single_schematron_schemas/rule1E.sch" />
-        <iso:include href="single_schematron_schemas/rule2W.sch" />
-        <iso:include href="single_schematron_schemas/rule3W.sch" />
-        <iso:include href="single_schematron_schemas/rule4E.sch" />
-        <iso:include href="single_schematron_schemas/rule5W.sch" />
-        <iso:include href="single_schematron_schemas/rule6W.sch" />
-        <iso:include href="single_schematron_schemas/rule7W.sch" />
-        <iso:include href="single_schematron_schemas/rule8E.sch" />
-        <iso:include href="single_schematron_schemas/rule9E.sch" />
+        <iso:include href="sch_unit/rule1E.sch" />
+        <iso:include href="sch_unit/rule2W.sch" />
+        <iso:include href="sch_unit/rule3W.sch" />
+        <iso:include href="sch_unit/rule4E.sch" />
+        <iso:include href="sch_unit/rule5W.sch" />
+        <iso:include href="sch_unit/rule6W.sch" />
+        <iso:include href="sch_unit/rule7W.sch" />
+        <iso:include href="sch_unit/rule8E.sch" />
+        <iso:include href="sch_unit/rule9E.sch" />
 
-        <iso:include href="single_schematron_schemas/rule10W.sch" />
-        <iso:include href="single_schematron_schemas/rule11E.sch" />
-        <iso:include href="single_schematron_schemas/rule12E.sch" />
-        <iso:include href="single_schematron_schemas/rule13E.sch" />
-        <iso:include href="single_schematron_schemas/rule14E.sch" />
-        <iso:include href="single_schematron_schemas/rule15W.sch" />
-        <iso:include href="single_schematron_schemas/rule16W.sch" />
-        <iso:include href="single_schematron_schemas/rule17W.sch" />
-        <iso:include href="single_schematron_schemas/rule18E.sch" />
-        <iso:include href="single_schematron_schemas/rule19W.sch" />
+        <iso:include href="sch_unit/rule10W.sch" />
+        <iso:include href="sch_unit/rule11W.sch" />
+        <iso:include href="sch_unit/rule12E.sch" />
+        <iso:include href="sch_unit/rule13E.sch" />
+        <iso:include href="sch_unit/rule14W.sch" />
+        <iso:include href="sch_unit/rule15W.sch" />
+        <iso:include href="sch_unit/rule16W.sch" />
+        <iso:include href="sch_unit/rule17W.sch" />
+        <iso:include href="sch_unit/rule18E.sch" />
+        <iso:include href="sch_unit/rule19W.sch" />
 
-        <iso:include href="single_schematron_schemas/rule20W.sch" />
-        <iso:include href="single_schematron_schemas/rule21W.sch" />
-        <iso:include href="single_schematron_schemas/rule22E.sch" />
-        <iso:include href="single_schematron_schemas/rule23E.sch" />
-        <iso:include href="single_schematron_schemas/rule24E.sch" />
-        <iso:include href="single_schematron_schemas/rule25W.sch" />
-        <iso:include href="single_schematron_schemas/rule26W.sch" />
-        <iso:include href="single_schematron_schemas/rule27E.sch" />
-        <iso:include href="single_schematron_schemas/rule28E.sch" />
-        <iso:include href="single_schematron_schemas/rule29E.sch" />
-        <iso:include href="single_schematron_schemas/rule30W.sch" />
+        <iso:include href="sch_unit/rule20W.sch" />
+        <iso:include href="sch_unit/rule21W.sch" />
+        <iso:include href="sch_unit/rule22E.sch" />
+        <iso:include href="sch_unit/rule23E.sch" />
+        <iso:include href="sch_unit/rule24E.sch" />
+        <iso:include href="sch_unit/rule25W.sch" />
+        <iso:include href="sch_unit/rule26W.sch" />
+        <iso:include href="sch_unit/rule27E.sch" />
+        <iso:include href="sch_unit/rule28E.sch" />
+        <iso:include href="sch_unit/rule29E.sch" />
+        <iso:include href="sch_unit/rule30W.sch" />
 
-        <iso:include href="single_schematron_schemas/rule31W.sch" />
-        <iso:include href="single_schematron_schemas/rule32E.sch" />
-        <iso:include href="single_schematron_schemas/rule33W.sch" />
-        <iso:include href="single_schematron_schemas/rule34W.sch" />
-        <iso:include href="single_schematron_schemas/rule35E.sch" />
-        <iso:include href="single_schematron_schemas/rule36E.sch" />
-        <iso:include href="single_schematron_schemas/rule37E.sch" />
+        <iso:include href="sch_unit/rule31W.sch" />
+        <iso:include href="sch_unit/rule32E.sch" />
+        <iso:include href="sch_unit/rule33W.sch" />
+        <iso:include href="sch_unit/rule34W.sch" />
+        <iso:include href="sch_unit/rule35E.sch" />
+        <iso:include href="sch_unit/rule36E.sch" />
+        <iso:include href="sch_unit/rule37E.sch" />
 
     </iso:include-set>
 </iso:schema>
