@@ -70,7 +70,7 @@ def post_handler(req):
     # this assumes a platform where the shell is unsing utf-8 (like osx, centos)
     html = res_template.render(validationType=validationType,
                                fname=fname,
-                               val_out=val_out.decode('utf-8').replace("\n", "<br/>"))
+                               val_out=val_out.replace("\n", "<br/>"))
     return BaseResponse(html,
                         mimetype='text/html',
                         direct_passthrough=False)
@@ -93,10 +93,10 @@ if __name__ == '__main__':
     tempdir = config.Backend['tempdir']
     templatedir = config.Backend['templatedir']
 
-    with open(templatedir + '/validate_srv_req.html', 'r', encoding="latin-1") as f:
+    with open(templatedir + '/validate_srv_req.html', 'r', encoding="utf-8") as f:
         s = f.read()
         req_template = jinja2.Template(s)
-    with open(templatedir + '/validate_srv_res.html', 'r', encoding="latin-1") as f:
+    with open(templatedir + '/validate_srv_res.html', 'r', encoding="utf-8") as f:
         res_template = jinja2.Template(f.read())
 
     scriptdir = config.Backend['scriptdir']
