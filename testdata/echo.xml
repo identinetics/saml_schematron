@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<md:EntitiesDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
+                       xmlns:xrd="http://docs.oasis-open.org/ns/xri/xrd-1.0"
+                       xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute"
+                       xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                       xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+                       xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                       Name="/usr/local/pyFF/config/pvAt_aggregate_sign" ID="testPortalverbundGvAt_20140218T124002Z"
+                       validUntil="2014-02-28T12:40:02Z" cacheDuration="PT4H">
+    <md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init"
+                         entityID="https://echo.test.portalverbund.gv.at/sp.xml">
+        <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+            <md:Extensions>
+                <mdattr:EntityAttributes>
+                    <saml:Attribute Name="http://macedir.org/entity-category"
+                                    NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+                        <saml:AttributeValue>http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken</saml:AttributeValue>
+                    </saml:Attribute>
+                </mdattr:EntityAttributes>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="de">echo.test.portalverbund.gv.at</mdui:DisplayName>
+                    <mdui:Description xml:lang="de">
+                        PVP2 Testumgebung Echo Service (zentrales IdP Discovery Service)
+                    </mdui:Description>
+                    <mdui:Logo xml:lang="en" height="70" width="79">http://md.test.portalverbund.gv.at/pvpLogo.png
+                    </mdui:Logo>
+                </mdui:UIInfo>
+                <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init"
+                                       Location="https://echo.test.portalverbund.gv.at/Shibboleth.sso/Login"/>
+                <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol"
+                                           Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol"
+                                           Location="https://echo.test.portalverbund.gv.at/Shibboleth.sso/Login"
+                                           index="1"/>
+            </md:Extensions>
+            <md:KeyDescriptor>
+                <ds:KeyInfo>
+                    <ds:KeyName>echo.test.portalverbund.gv.at</ds:KeyName>
+                    <ds:X509Data>
+                        <ds:X509SubjectName>
+                            emailAddress=webmaster@portalverbund.gv.at,CN=echo.test.portalverbund.gv.at,C=AT,description=wslimsxy11WoQt4o
+                        </ds:X509SubjectName>
+                        <ds:X509Certificate>
+                            MIIGgTCCBWmgAwIBAgIDDWmbMA0GCSqGSIb3DQEBBQUAMIGMMQswCQYDVQQGEwJJ
+                            TDEWMBQGA1UEChMNU3RhcnRDb20gTHRkLjErMCkGA1UECxMiU2VjdXJlIERpZ2l0
+                            YWwgQ2VydGlmaWNhdGUgU2lnbmluZzE4MDYGA1UEAxMvU3RhcnRDb20gQ2xhc3Mg
+                            MSBQcmltYXJ5IEludGVybWVkaWF0ZSBTZXJ2ZXIgQ0EwHhcNMTMxMjEzMTkxMzE0
+                            WhcNMTQxMjE1MDMxNjQ0WjB+MRkwFwYDVQQNExB3c2xpbXN4eTExV29RdDRvMQsw
+                            CQYDVQQGEwJBVDEmMCQGA1UEAxMdZWNoby50ZXN0LnBvcnRhbHZlcmJ1bmQuZ3Yu
+                            YXQxLDAqBgkqhkiG9w0BCQEWHXdlYm1hc3RlckBwb3J0YWx2ZXJidW5kLmd2LmF0
+                            MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArSg73/Ok2QWNAJw7P4S8
+                            uONm5K584q6aeZsSQwEeYnTBIuuFCuaIqznZVEqbMVoWtnSoyVHP19BjQWhhm7kG
+                            Sn9A6gv/vvD5H2k+JnFSCMgXFEh5wHo70m6HNqo7XEGz3VrGH9mqNhabHYb7hH19
+                            xAZoZEBWOGuo+Y33N/tE1/Eoe4Dx5i06d7cLvMRWyyr6P2YBhmPPbmgjxtyUuGrI
+                            zaI0xx+Ptl3cukPZJBBLOH36nwNoRKSsm9YcgI9Dl2FMiheMaJiGrl7P/EIMfLu8
+                            TCblMJXESGmPHKKQvDhi4eUWL3E1Ec9eQD8nDdoluJIKox9E5pz822rRHP3YHEno
+                            KQIDAQABo4IC9zCCAvMwCQYDVR0TBAIwADALBgNVHQ8EBAMCA6gwEwYDVR0lBAww
+                            CgYIKwYBBQUHAwEwHQYDVR0OBBYEFEFOZq+QXTsefVp/A8Cp6Q2UCnB3MB8GA1Ud
+                            IwQYMBaAFOtCNNCYsKuf9BtrCPfMZC7vDixFMD0GA1UdEQQ2MDSCHWVjaG8udGVz
+                            dC5wb3J0YWx2ZXJidW5kLmd2LmF0ghNwb3J0YWx2ZXJidW5kLmd2LmF0MIIBVgYD
+                            VR0gBIIBTTCCAUkwCAYGZ4EMAQIBMIIBOwYLKwYBBAGBtTcBAgMwggEqMC4GCCsG
+                            AQUFBwIBFiJodHRwOi8vd3d3LnN0YXJ0c3NsLmNvbS9wb2xpY3kucGRmMIH3Bggr
+                            BgEFBQcCAjCB6jAnFiBTdGFydENvbSBDZXJ0aWZpY2F0aW9uIEF1dGhvcml0eTAD
+                            AgEBGoG+VGhpcyBjZXJ0aWZpY2F0ZSB3YXMgaXNzdWVkIGFjY29yZGluZyB0byB0
+                            aGUgQ2xhc3MgMSBWYWxpZGF0aW9uIHJlcXVpcmVtZW50cyBvZiB0aGUgU3RhcnRD
+                            b20gQ0EgcG9saWN5LCByZWxpYW5jZSBvbmx5IGZvciB0aGUgaW50ZW5kZWQgcHVy
+                            cG9zZSBpbiBjb21wbGlhbmNlIG9mIHRoZSByZWx5aW5nIHBhcnR5IG9ibGlnYXRp
+                            b25zLjA1BgNVHR8ELjAsMCqgKKAmhiRodHRwOi8vY3JsLnN0YXJ0c3NsLmNvbS9j
+                            cnQxLWNybC5jcmwwgY4GCCsGAQUFBwEBBIGBMH8wOQYIKwYBBQUHMAGGLWh0dHA6
+                            Ly9vY3NwLnN0YXJ0c3NsLmNvbS9zdWIvY2xhc3MxL3NlcnZlci9jYTBCBggrBgEF
+                            BQcwAoY2aHR0cDovL2FpYS5zdGFydHNzbC5jb20vY2VydHMvc3ViLmNsYXNzMS5z
+                            ZXJ2ZXIuY2EuY3J0MCMGA1UdEgQcMBqGGGh0dHA6Ly93d3cuc3RhcnRzc2wuY29t
+                            LzANBgkqhkiG9w0BAQUFAAOCAQEAiPzvJIzG0K1ZR+FjlFsN8PPZDvvyymNJVVDa
+                            /n+N+9fu1wO9e6+Qja6EoUGMok0nx6YstgaipenKC1d6wKdiqt5J1HXK4LQvSZ4n
+                            RHNwz/r8ZQ6pJxemUsFLt8AceD4ObY0bzQV1gBxCT6PmbmpF51simpXxAnz5WvXQ
+                            VKaJY6DggEQHwGSGZ2/1hVlRAW/z96DPyX8czaU9Nqid8z0b/I69deHFRPhTooQ2
+                            BgYzIRa4dPlgdYYEOfZQj4olDpqLa7la1DIWTwRkHh6hsHZ+z59M29c0QrVK/OWL
+                            BGcd/pg1dns7UYIBXWMmwvDsCnxZKGGYzCR9sBnoXr8ma52D9Q==
+                            <!-- Certificate:
+                            Data:
+                                Version: 3 (0x2)
+                                Serial Number: 879003 (0xd699b)
+                            Signature Algorithm: sha1WithRSAEncryption
+                                Issuer: C=IL, O=StartCom Ltd., OU=Secure Digital Certificate Signing, CN=StartCom Class 1 Primary Intermediate Server CA
+                                Validity
+                                    Not Before: Dec 13 19:13:14 2013 GMT
+                                    Not After : Dec 15 03:16:44 2014 GMT
+                                Subject: description=wslimsxy11WoQt4o, C=AT, CN=echo.test.portalverbund.gv.at/emailAddress=webmaster@portalverbund.gv.at
+                                Subject Public Key Info:
+                                    Public Key Algorithm: rsaEncryption
+                                Public-Key: (2048 bit) 
+                            -->
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+                <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+                <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep"/>
+                <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+            </md:KeyDescriptor>
+            <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+                                    Location="https://echo.test.portalverbund.gv.at/Shibboleth.sso/SLO/Redirect"/>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+            <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign"
+                                         Location="https://echo.test.portalverbund.gv.at/Shibboleth.sso/SAML2/POST-SimpleSign"
+                                         index="0"/>
+            <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+                                         Location="https://echo.test.portalverbund.gv.at/Shibboleth.sso/SAML2/POST"
+                                         index="1"/>
+            <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS"
+                                         Location="https://echo.test.portalverbund.gv.at/Shibboleth.sso/SAML2/ECP"
+                                         index="2"/>
+        </md:SPSSODescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="de">AG-IZ (egov.at/BLSG/AG Integration und Zugänge)</md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="de">AG-IZ</md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="de">http://www.portalverbund.at</md:OrganizationURL>
+        </md:Organization>
+        <md:ContactPerson contactType="technical">
+            <md:GivenName>Rainer</md:GivenName>
+            <md:SurName>Hoerbe</md:SurName>
+            <md:EmailAddress>rh_testfed_pv_at@mail.hoerbe.at</md:EmailAddress>
+        </md:ContactPerson>
+    </md:EntityDescriptor>
+</md:EntitiesDescriptor>
