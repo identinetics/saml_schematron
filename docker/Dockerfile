@@ -3,11 +3,14 @@ MAINTAINER r2h2 <rainer@hoerbe.at>
 
 # CentOS7 + prerequsites
 RUN yum -y install epel-release \
- && yum -y install java-1.8.0-openjdk-devel.x86_64 \
- && yum -y install curl gcc git libxslt-devel python-pip python-devel unzip
 
-RUN pip install --upgrade pip \
- && pip install jinja2 subprocess32 Werkzeug
+RUN yum -y install java-1.8.0-openjdk-devel.x86_64
+
+RUN yum -y install curl gcc git libxslt-devel python-pip python-devel unzip
+
+RUN yum -y install python34-devel \
+ && curl https://bootstrap.pypa.io/get-pip.py | python3.4 \
+ && pip3.4 install jinja2 Werkzeug
 
 # Application
 RUN groupadd webapp \

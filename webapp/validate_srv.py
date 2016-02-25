@@ -17,11 +17,34 @@ __author__ = "rhoerbe"
 from werkzeug.serving import run_simple
 from werkzeug.wrappers import BaseRequest, BaseResponse
 from werkzeug.exceptions import HTTPException, NotFound
-import ConfigParser
 import jinja2
 import os
 import random
 import subprocess
+#import config
+
+class Config(object):
+    def __init__(self):
+        self.HttpServer = {
+            'port': 8080,
+            'listen': '0.0.0.0'
+        }
+        self.Backend = {
+            # Note: always include trailing slash in directory definitions
+            # Directory where files are temporarily stored for valdation
+            'tempdir': '/tmp/',
+            'templatedir': './',
+            'scriptdir': '../scripts/',
+
+            # Scripts for XSD validation
+            'xsdxmllint': 'xsd_validation_xmllint.sh',
+            'xsdxmlsectool': 'xsd_validation_xmlsectool.sh',
+
+            # Scripts for Schematron validation
+            'pvp2schematron': 'val_pvp2_libxslt_stdout.sh',
+            'saml2intschematron': 'val_saml2int_libxslt_stdout.sh',
+        }
+
 
 def get_handler(req):
     return BaseResponse(req_template.render(), mimetype='text/html')
@@ -62,36 +85,32 @@ def application(environ, start_response):
         resp = get_handler(req)
     return resp(environ, start_response)
 
-def remove_quotes(s):
-    if s.startswith('"') and s.endswith('"'):
-        return s[1:-1]
-    if s.startswith("'") and s.endswith("'"):
-        return s[1:-1]
-    return s
 
 # start server
 if __name__ == '__main__':
-    config = ConfigParser.RawConfigParser()
-    config.read('validate_srv.config')
+    config = Config()
 
-    server_port = config.getint('HttpServer', 'port')
-    server_interface = remove_quotes(config.get('HttpServer', 'listen'))
-    tempdir = remove_quotes(config.get('Backend', 'tempdir'))
-    templatedir = remove_quotes(config.get('Backend', 'templatedir'))
-    req_template_file = open(templatedir + '/validate_srv_req.html', 'r')
-    req_template = jinja2.Template(req_template_file.read())
-    res_template_file = open(templatedir + '/validate_srv_res.html', 'r')
-    res_template = jinja2.Template(res_template_file.read())
+    tempdir = config.Backend['tempdir']
+    templatedir = config.Backend['templatedir']
 
-    scriptdir = remove_quotes(config.get('Backend', 'scriptdir'))
-    pvp2schematron = scriptdir + remove_quotes(config.get('Backend', 'pvp2schematron'))
-    saml2intschematron = scriptdir + remove_quotes(config.get('Backend', 'saml2intschematron'))
-    #xsdxmllint = scriptdir + remove_quotes(config.get('Backend', 'xsdxmllint'))
-    xsdxmlsectool = scriptdir + remove_quotes(config.get('Backend', 'xsdxmlsectool'))
+    with open(templatedir + '/validate_srv_req.html', 'r', encoding="latin-1") as f:
+        s = f.read()
+        req_template = jinja2.Template(s)
+    with open(templatedir + '/validate_srv_res.html', 'r', encoding="latin-1") as f:
+        res_template = jinja2.Template(f.read())
+
+    scriptdir = config.Backend['scriptdir']
+    pvp2schematron = scriptdir + config.Backend['pvp2schematron']
+    saml2intschematron = scriptdir + config.Backend['saml2intschematron']
+    #xsdxmllint = scriptdir + config.Backend['xsdxmllint']
+    xsdxmlsectool = scriptdir + config.Backend['xsdxmlsectool']
     valscript = {#'SAML XML Schema (xmllint)': xsdxmllint,
                  'SAML XML Schema': xsdxmlsectool,
                  'PVP2 Schematron': pvp2schematron,
                  'SAML2INT Schematron': saml2intschematron,
     }
 
-    run_simple(server_interface, server_port, application, use_debugger=True)
+    run_simple(config.HttpServer['listen'],
+               config.HttpServer['port'],
+               application,
+               use_debugger=True)
