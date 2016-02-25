@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<md:EntitiyDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" 
+    xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" 
+    xmlns:xrd="http://docs.oasis-open.org/ns/xri/xrd-1.0" 
+    xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" 
+    xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" 
+    xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport"   
+    xmlns:disco="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" 
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#" 
+    entityID="https://idp5.test.example.org/idp.xml">
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <md:Extensions>
+            <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+            <alg:SigningMethod MinKeySize="256" MaxKeySize="511" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256" />
+            <alg:SigningMethod MinKeySize="2048" MaxKeySize="4096" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+            <!-- blacklisted: http://www.w3.org/2000/09/xmldsig#rsa-sha1 -->
+            <mdui:UIInfo>
+                <mdui:DisplayName xml:lang="de">idp5.test.example.org</mdui:DisplayName>
+                <mdui:Description xml:lang="de">
+                    Simple Shibboleth testidp in der Domäne test.example.org
+                </mdui:Description>
+                <mdui:Logo xml:lang="en" height="70" width="79">http://md.example.org/logo.png</mdui:Logo>
+            </mdui:UIInfo>
+            <mdui:DiscoHints>
+                <mdui:DomainHint>example.org</mdui:DomainHint>
+                <mdui:IPHint>8.8.8.8/24</mdui:IPHint>
+                <mdui:GeolocationHint>geo:48.3308,16.0516</mdui:GeolocationHint>
+            </mdui:DiscoHints>
+        </md:Extensions>       
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>MIIGgTCCBWmgAwIBAgIDDUogMA0GCSqGSIb3DQEBBQUAMIGMMQswCQYDVQQGEwJJ
+                        TDEWMBQGA1UEChMNU3RhcnRDb20gTHRkLjErMCkGA1UECxMiU2VjdXJlIERpZ2l0
+                        YWwgQ2VydGlmaWNhdGUgU2lnbmluZzE4MDYGA1UEAxMvU3RhcnRDb20gQ2xhc3Mg
+                        MSBQcmltYXJ5IEludGVybWVkaWF0ZSBTZXJ2ZXIgQ0EwHhcNMTMxMjA1MTY1MTMx
+                        WhcNMTQxMjA3MDcxMjA5WjB+MRkwFwYDVQQNExBDQmw5U1Ewazh0SE1SOTFrMQsw
+                        CQYDVQQGEwJBVDEmMCQGA1UEAxMdaWRwNS50ZXN0LnBvcnRhbHZlcmJ1bmQuZ3Yu
+                        YXQxLDAqBgkqhkiG9w0BCQEWHXdlYm1hc3RlckBwb3J0YWx2ZXJidW5kLmd2LmF0
+                        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1vijtTMyYgun4oDSqiVp
+                        E5N4k0sJqBFzZg6oouf5jV9Hvxq1ZHmtKm/U8scttD1kRsM52kZ/RchHfrbUyv3b
+                        PHQor98EACvwdDOtdb4hWhOhaeKFVEjjEiERY9O5iCQ5SglLC6+HBEnBRX88juyF
+                        Hzm9ywXrUlExysyGrMz4S8/vrEBuQIqNTA9V2TPKmWdODkKhRVftmLf3ajfpLlhj
+                        fAuR6lIa66bCoqLXFcp7TtNhpGwpYA5V2wpFbSaVJMEC9Wp+FyzAPKxVXAwiHqPr
+                        ZAjVA1gXz1HawJyMXv7eA7S0kGq1bqhZ7JKWJ1KoZ0HJuaWPRQ0TD4RbKniagLYV
+                        cwIDAQABo4IC9zCCAvMwCQYDVR0TBAIwADALBgNVHQ8EBAMCA6gwEwYDVR0lBAww
+                        CgYIKwYBBQUHAwEwHQYDVR0OBBYEFMyXPSmFtYo/q9jlBiuc8gPls7NxMB8GA1Ud
+                        IwQYMBaAFOtCNNCYsKuf9BtrCPfMZC7vDixFMD0GA1UdEQQ2MDSCHWlkcDUudGVz
+                        dC5wb3J0YWx2ZXJidW5kLmd2LmF0ghNwb3J0YWx2ZXJidW5kLmd2LmF0MIIBVgYD
+                        VR0gBIIBTTCCAUkwCAYGZ4EMAQIBMIIBOwYLKwYBBAGBtTcBAgMwggEqMC4GCCsG
+                        AQUFBwIBFiJodHRwOi8vd3d3LnN0YXJ0c3NsLmNvbS9wb2xpY3kucGRmMIH3Bggr
+                        BgEFBQcCAjCB6jAnFiBTdGFydENvbSBDZXJ0aWZpY2F0aW9uIEF1dGhvcml0eTAD
+                        AgEBGoG+VGhpcyBjZXJ0aWZpY2F0ZSB3YXMgaXNzdWVkIGFjY29yZGluZyB0byB0
+                        aGUgQ2xhc3MgMSBWYWxpZGF0aW9uIHJlcXVpcmVtZW50cyBvZiB0aGUgU3RhcnRD
+                        b20gQ0EgcG9saWN5LCByZWxpYW5jZSBvbmx5IGZvciB0aGUgaW50ZW5kZWQgcHVy
+                        cG9zZSBpbiBjb21wbGlhbmNlIG9mIHRoZSByZWx5aW5nIHBhcnR5IG9ibGlnYXRp
+                        b25zLjA1BgNVHR8ELjAsMCqgKKAmhiRodHRwOi8vY3JsLnN0YXJ0c3NsLmNvbS9j
+                        cnQxLWNybC5jcmwwgY4GCCsGAQUFBwEBBIGBMH8wOQYIKwYBBQUHMAGGLWh0dHA6
+                        Ly9vY3NwLnN0YXJ0c3NsLmNvbS9zdWIvY2xhc3MxL3NlcnZlci9jYTBCBggrBgEF
+                        BQcwAoY2aHR0cDovL2FpYS5zdGFydHNzbC5jb20vY2VydHMvc3ViLmNsYXNzMS5z
+                        ZXJ2ZXIuY2EuY3J0MCMGA1UdEgQcMBqGGGh0dHA6Ly93d3cuc3RhcnRzc2wuY29t
+                        LzANBgkqhkiG9w0BAQUFAAOCAQEAAGlyoiVAAyWVEaK05R1aOwjq/xrg6wc0amhG
+                        nU5IBFmCD18sKYIzgsdKSbVvEzuSoBK7PdKvWgiFINdC3o7fzMeezxf87oVbKq2Q
+                        rZDgbh7/oHNF5CN5u1/U5IoQAtDKRs97pK3mk82ToJG5E/M4Wid4c2hXoVP/0+lK
+                        kfnamoI2l6/VKEbQFCaoPBTAAQIXHVIJlKyU9ryKP944lqlOctDPSEmazTrnpVvD
+                        4vGeDLTGFuhBs22ApNtCCOaVLhza2Ea0eGAIudflJnpncI5jpLCZ+edpAVP57kzq
+                        DTzsLQ/O0iErgkq3Kvnd/DrEXjagUjolu7rHSDD9390jqa6maA==
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp5.test.example.org:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+        <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp5.test.example.org/idp/profile/SAML2/Redirect/SLO"/>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+        <!--md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp5.test.example.org/idp/profile/SAML2/POST/SSO"/-->
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp5.test.example.org/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+        <md:OrganizationName xml:lang="de">SAML Testfederation</md:OrganizationName>
+        <md:OrganizationDisplayName xml:lang="de">SAML Test Federation</md:OrganizationDisplayName>
+        <md:OrganizationURL xml:lang="de">http://www.example.org</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+        <md:GivenName>Max</md:GivenName>
+        <md:SurName>Mustermann</md:SurName>
+        <md:EmailAddress>max.mustermann@example.org</md:EmailAddress>
+        <md:TelephoneNumber>+43 000 9999 0000</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+        <md:GivenName>Max</md:GivenName>
+        <md:SurName>Mustermann</md:SurName>
+        <md:EmailAddress>max.mustermann@example.org</md:EmailAddress>
+        <md:TelephoneNumber>+43 000 9999 0000</md:TelephoneNumber>
+    </md:ContactPerson>
+</md:EntityDescriptor>
