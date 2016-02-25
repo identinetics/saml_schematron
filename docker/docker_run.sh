@@ -1,16 +1,33 @@
 #!/usr/bin/env bash
 
-# there are 2 considerations for the use of the image
-# 1. To access the USB device the /dev/bus/usb is mapped to the host (you may want to map a single device)
-# 2. The container needs to be privileged to access the host devices
-# 3. To use the SafeNet Authentication Client X11 is required. Running X11 apps
-#    in the container is achieved by mapping the X11 socket to the container and
-#    setting $DISPLAY to the value of the host
+export CONTAINERNAME='mdvalTestPvAt'
+export IMAGENAME='saml_schematron'
+export INTERCONTAINER_NETWORK='http_proxy'
+export HOSTVOLROOT="/docker_volumes/$CONTAINERNAME"
+export WEBAPPURL='http://mdval.test.portalverbund.at/'
+
+# processes in container will run with user moinmoin, equivalent to host-user docker_moinwiki:
+#    groupadd docker_moinwiki
+#    adduser -g docker_moinwiki docker_moinwiki
+# both users need to have the same uid/gid!
 
 
-if [[ ! "$FRONTENDHOST" ]];  then echo "need to set FRONTENDHOST"; exit 1; fi
+runopt='-d --restart=unless-stopped'
 
-docker run -it --rm \
-    --privileged -v /dev/bus/usb:/dev/bus/usb \
-    -e FRONTENDHOST=$FRONTENDHOST \
-    -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix pvzdbe
+while getopts ":i" opt; do
+  case $opt in
+    i)
+      echo "starting docker container in interactive mode"
+      runopt='-it --rm'
+      docker rm httpd1 2>/dev/null
+      ;;
+  esac
+done
+shift $((OPTIND-1))
+
+docker run $runopt --hostname=$CONTAINERNAME \
+    --name=$CONTAINERNAME \
+    --net=$INTERCONTAINER_NETWORK \
+    -e "WEBAPPURL=$WEBAPPURL" \
+    -v "$HOSTVOLROOT/var/log/$CONTAINERNAME:/var/log:Z" \
+    $IMAGENAME $@

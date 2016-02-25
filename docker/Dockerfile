@@ -1,21 +1,23 @@
 FROM centos:centos7
 MAINTAINER r2h2 <rainer@hoerbe.at>
 
-# CentOS7
+# CentOS7 + prerequsites
 RUN yum -y install epel-release \
- && yum -y install curl unzip python-pip python-devel libxslt-devel \
+ && yum -y install curl git libxslt-devel python-pip python-devel unzip \
  && yum -y install java-1.8.0-openjdk-devel.x86_64 \
- && pip install Werkzeug \
- && mkdir -p /opt/saml_schematron \
- && groupadd webapp && \
-    adduser -g webapp --home /opt/saml_schematron webapp && \
-    chown webapp:webapp /opt/saml_schematron && \
-    chmod 750 /var/lib/git
+ && groupadd webapp \
+ && adduser -g webapp webapp \
+ && mkdir /opt/saml_schematron \
+ && chown webapp:webapp /opt/saml_schematron \
+ && chmod 750 /opt/saml_schematron
 
+RUN pip install Werkzeug jinja2
+
+# Application
 USER webapp
 WORKDIR /opt/
 RUN git clone https://github.com/rhoerbe/saml_schematron.git
 
 # === startup backend system
-#USER webapp
-#CMD ["/opt/saml_schematron/webapp/validate_srv.py"]
+USER root
+#CMD ["/start.sh"]
