@@ -28,5 +28,5 @@ COPY start.sh /
 RUN chmod +x /start.sh /opt/saml_schematron/scripts/*.sh /opt/saml_schematron/webapp/*.py
 
 # === startup backend system
-#USER webapp
-#CMD ["/start.sh"]
+USER webapp
+CMD ["/start.sh"]

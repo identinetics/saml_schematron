@@ -13,17 +13,18 @@
 <body>
     <header id="header">
       <hgroup>
-        <h1><a href="/">PVP Test Federation</a></h1>
+        <h1><a href="/">Portalverbund Test Federation</a></h1>
         <h2><a href="/">Metadata Validation Service</a></h2>
       </hgroup>
-        <p>Dieser Dienst validiert einen SAML2 EntityDescriptor nach folgenden Kriterien:<br>
-            1. XML Schema (mit den Schemaerweiterungen des OASIS SSTC)<br>
-            2. SAML Schematron (zusätzliche Regeln für PVP2)
-        </p>
       <ul id="user-actions">
             <!--li><a class="button" href="/accounts/register/">Sign up</a></li-->
       </ul>
     </header>
+    <p>Dieser Dienst validiert einen SAML2 EntityDescriptor nach folgenden Kriterien:<br>
+        1. XML Schema (mit den Schemaerweiterungen des OASIS SSTC)<br>
+        2. SAML Schematron (zusätzliche Regeln für PVP2)
+    </p>
+    <p></p>
     <form action="" method="post" enctype="multipart/form-data" name="upload">
         <input type="file" name="md_instance">
         <select name="ValidationType">
