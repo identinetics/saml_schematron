@@ -42,7 +42,7 @@ def post_handler(req):
         val_out = subprocess.check_output([valscript[validationType], tmpfile])
         #val_out = subprocess.check_output("/bin/echo", "blah")
     except subprocess.CalledProcessError:
-        val_out = 'validation subprocess failed'
+        val_out = 'validation failed'
     os.remove(tmpfile)
     # this assumes a platform where the shell is unsing utf-8 (like osx, centos)
     html = res_template.render(validationType=validationType,
@@ -89,7 +89,7 @@ if __name__ == '__main__':
     #xsdxmllint = scriptdir + remove_quotes(config.get('Backend', 'xsdxmllint'))
     xsdxmlsectool = scriptdir + remove_quotes(config.get('Backend', 'xsdxmlsectool'))
     valscript = {#'SAML XML Schema (xmllint)': xsdxmllint,
-                 'SAML XML Schema (xmlsectool)': xsdxmlsectool,
+                 'SAML XML Schema': xsdxmlsectool,
                  'PVP2 Schematron': pvp2schematron,
                  'SAML2INT Schematron': saml2intschematron,
     }

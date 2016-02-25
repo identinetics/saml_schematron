@@ -15,18 +15,22 @@
         <h1><a href="/">PVP Test Federation</a></h1>
         <h2><a href="/">Metadata Validation Service</a></h2>
       </hgroup>
+        <p>Dieser Dienst validiert einen SAML2 EntityDescriptor nach folgenden Kriterien:<br>
+            1. XML Schema (mit den Schemaerweiterungen des OASIS SSTC)<br>
+            2. SAML Schematron (zusätzliche Regeln für PVP2)
+        </p>
       <ul id="user-actions">
             <!--li><a class="button" href="/accounts/register/">Sign up</a></li-->
       </ul>
     </header>
     <form action="" method="post" enctype="multipart/form-data" name="upload">
+        <input type="file" name="md_instance">
         <select name="ValidationType">
           <!--option>SAML XML Schema (xmllint)</option--> <!-- libxml2 is not a complete xml parser! -->
-          <option>SAML XML Schema (xmlsectool)</option>
+          <option>SAML XML Schema</option>
           <option>PVP2 Schematron</option>
           <!--option>SAML2INT Schematron</option-->
         </select>
-        <input type="file" name="md_instance">
         <input type="submit" value="Validate">
     </form>
     <hr style="padding-top: 1em">

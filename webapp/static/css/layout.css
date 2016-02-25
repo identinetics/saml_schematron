@@ -1,0 +1,895 @@
+.clear {
+    clear: both;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.shadow {
+    padding: 10px;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.block {
+    width: 45%;
+}
+
+body {
+    width: 1024px;
+    padding: 0 30px;
+    margin: 0 auto;
+    font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    background-image: url(../images/light_content_bg.png), url(../images/body_bg.png);
+    background-position: center 90px, left top;
+    background-repeat: no-repeat, repeat;
+}
+
+#header {
+    background: url(../images/header_bg.png) left top no-repeat;
+    width: 100%;
+    height: 105px;
+}
+
+p {
+    margin: 0.5em 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+strong {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 16pt;
+    margin: 0.5em 0;
+    font-weight: 300;
+}
+
+h2 {
+    font-size: 12pt;
+    margin: 0.5em 0 0.3em;
+    font-weight: 300;
+    letter-spacing: 0.6px;
+}
+
+section {
+    clear: both;
+    padding-bottom: 10px;
+    margin: 34px 40px 0 40px;
+    padding-left: 20px;
+}
+
+section > section {
+    margin: 3em 0 3em 0;
+    padding: 0;
+}
+
+form.left {
+    width: 40%;
+}
+
+tr {
+    text-align: left;
+}
+
+table {
+    width: 100%;
+}
+
+textarea {
+    padding-left: 5px;
+}
+
+nav {
+    margin: 0;
+}
+
+nav ul {
+    padding: 10px 10px 60px;
+    width: 200px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    list-style: none;
+}
+
+input[type="checkbox"] {
+    border: none;
+    background: transparent;
+}
+
+div.bottomMenu {
+    position: absolute;
+    height: 60px;
+    left: -18px;
+    bottom: 10px;
+    width: 282px;
+    /* background: url(../images/actions_ribbon.png) no-repeat center bottom; */
+}
+
+div.bottomMenu:after {
+    content: "your actions";
+    visibility: hidden;
+}
+
+nav.right {
+    position: relative;
+}
+
+nav ul li {
+    padding: 8px 0;
+}
+
+nav ul li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+}
+
+nav #filters ul li {
+    border: 0;
+    line-height: 1.5em;
+}
+
+nav #filters ul li a {
+    border: 0;
+}
+
+nav #filters ul li a:hover {
+    border-radius: 0;
+    text-decoration: underline;
+}
+
+
+label,
+p.user-list-label {
+    display: block;
+    font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    padding-bottom: 5px;
+    letter-spacing: 0.5px;
+    padding-bottom: 3px;
+}
+
+fieldset {
+    border: none;
+    padding: 0 0 1em 0;
+}
+
+fieldset p {
+    margin: 1.2em 0;
+}
+
+.actionRow {
+    clear: left;
+    padding: 1em 0;
+}
+
+.helptext {
+    display: block;
+    font-size: 11px;
+    font-style: italic;
+    letter-spacing: 0.3px;
+    margin-top: 3px;
+    padding-left: 10px;
+    line-height: 17px;
+    background: transparent url(../images/help_icon.png) no-repeat left center;
+}
+
+span.ui-icon {
+    clear: left;
+    float: left;
+    margin-top: -2px;
+    margin-right: 6px;
+}
+
+span.inline-icon {
+    clear: none;
+    float: none;
+    display: inline;
+    margin: 0;
+    padding: 2px 14px 0 0;
+}
+
+dl {
+    margin-top: 2em;
+    padding: 1em;
+}
+
+dt {
+    float: left;
+    clear: left;
+}
+
+dd {
+    margin-left: 22px;
+    margin-bottom: 1.5em;
+    line-height: 1.5em;
+}
+
+dd:last-child {
+    margin-bottom: 0;
+}
+
+dd table {
+    width: auto;
+    line-height: 1em;
+}
+
+dd table td {
+    padding: 0.4em 1em 0.4em 0;
+    vertical-align: middle;
+}
+
+dd ul li {
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+    line-height: 1.5em;
+}
+
+dd ul li a {
+    display: inline !important;
+    border: 0 !important;
+}
+
+header hgroup {
+    float: left;
+}
+
+.welcome header hgroup {
+    display: none;
+}
+
+header #user-actions {
+    float: right;
+}
+
+#user-actions {
+    list-style: none;
+    margin: 58px 40px 0 0;
+}
+
+#user-actions li {
+    display: block;
+    float: left;
+    margin-right: 1em;
+}
+
+header#header hgroup {
+    position: relative;
+    margin-left: 50px;
+}
+
+header#header h1,
+footer hgroup h1 {
+    margin: 0;
+}
+
+header#header h1 a {
+    display: block;
+    font-weight: normal;
+    font-size: 17px;
+    padding: 40px 0 27px 100px;
+    letter-spacing: 0.8px;
+    background: transparent url(/staticcustom/draftPvpLogo_60px.png) no-repeat left 29px;
+}
+
+header#header h2 a {
+    padding-left: 25px;
+}
+
+header#header hgroup h2 {
+    font-weight: normal;
+    margin: -18px 0px 0 75px;
+    letter-spacing: 0.4px;
+    font-size: 13px;
+}
+
+.welcome {
+    border-top: none;
+    width: 960px;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 17px;
+}
+
+.welcome img.hello {
+    position: absolute;
+    right: 270px;
+    top: 0px;
+    display: none
+}
+
+.welcome header {
+    overflow: auto;
+    border-radius: 9px;
+    -moz-border-radius: 9px;
+    -webkit-border-radius: 9px;
+}
+
+.welcome hgroup {
+    padding: 24px;
+    width: 900px;
+    height: 113px;
+    background: transparent url(/staticcustom/austriamap.png) no-repeat right center;
+}
+
+.welcome header h1 {
+    font-size: 48px;
+    line-height: 29pt;
+    letter-spacing: 0.7pt;
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+
+.welcome header h1,
+.welcome header h2 {
+    font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: 300;
+}
+
+.welcome header h2 {
+    font-size: 25px;
+    line-height: 29px;
+    letter-spacing: 0.6px;
+    width: 390px;
+}
+
+.mainContent {
+    clear: left;
+    border: none;
+    margin: 34px 260px 15px 40px;
+}
+
+#home-content {
+    border-top: none;
+    margin-bottom: 1em;
+    margin: 20px 260px 15px 10px;
+    padding-left: 0;
+}
+
+section ul {
+    list-style: none;
+    margin: 0 1em 1em 0;
+}
+
+#search {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    float: right;
+    clear: right;
+    padding-bottom: 8px;
+    background: transparent url(../images/searcher_shadow.png) no-repeat center bottom;
+}
+
+#search input {
+    background: transparent url(../images/search-icon.png) no-repeat 224px center;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    padding: 2px 4px;
+    width: 234px;
+}
+
+#filters {
+    padding: 10px;
+    width: 200px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+#filters h3 {
+    font-size: 10pt;
+    font-style: italic;
+    font-weight: normal;
+    margin: 0.2em 0 0.5em;
+}
+
+#filters ul {
+    margin: 0;
+    border: none;
+    padding: 0;
+    list-style: none;
+}
+
+#filters ul li a {
+    padding: 0 0 0 8px;
+    font-size: 11px;
+}
+
+#filters ul li a:hover {
+    border-radius:0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+}
+
+#filters ul li {
+    border: none;
+    padding: 0;
+}
+
+#filters ul li.current a,
+#filters ul li.current a:hover {
+    line-height: 12px;
+    border-bottom-width: 0;
+    border-top-width: 0;
+}
+
+#filters ul li.current {
+    border: none;
+}
+
+footer {
+    bottom: 0;
+    margin-left: 50px;
+    clear: both;
+    width: 940px;
+    font-size: 10px;
+    float: left;
+    margin-top: 21px;
+}
+
+footer:after {
+   content: "";
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 1px;
+}
+
+footer ul {
+    list-style: none;
+    margin: 0 0 0 10px;
+    padding: 0;
+}
+
+footer ul li {
+    float: left;
+    padding: 6px 0;
+}
+
+footer ul li a {
+    text-decoration: none;
+    padding: 4px 10px 0 10px;
+}
+
+footer ul li:last-child a {
+    border-right: none;
+}
+
+footer hgroup {
+    float: right;
+    padding: 5px 0 5px 28px;
+    background: transparent url(../images/footer_logo_peer.png) no-repeat left 5px;
+}
+
+footer hgroup h1 {
+    line-height: 11px;
+}
+
+footer hgroup h1 a {
+    font-size: 11px;
+    padding: 0;
+}
+
+footer hgroup h2 {
+    margin: 0;
+    font-size: 10px;
+}
+
+footer hgroup h2 a {
+    font-size: 8px;
+}
+
+.separator {
+    padding-bottom: 2px;
+}
+
+.simpleList {
+    list-style: circle;
+    padding-left: 20px;
+}
+
+.fancyList li {
+    font-weight: 300;
+    font-size: 13px;
+    box-shadow: none;
+    margin-bottom: 1.2em;
+    height: 3em;
+}
+
+.fancyList form,
+.fancyList a.removeButton,
+.fancyList a.button {
+    float: right;
+    margin-top: 6px;
+    margin-right: 6px;
+}
+
+.steps {
+    padding-left: 3em;
+}
+
+.steps li {
+    line-height: 2em;
+}
+
+.entityList {
+    list-style: none;
+    margin: 0 1em 1em 0;
+}
+
+.entityList > li {
+    position: relative;
+    padding: 0;
+}
+
+.entityList > li div {
+    padding: 8px 1em 2px 0;
+}
+
+.entityList li ul {
+    margin: 8px 0 0 0;
+}
+
+.entityList li {
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+.entityList li li {
+    display: inline;
+    padding: 2px 1em;
+    font-size: 8pt;
+    font-weight: normal;
+}
+
+.entityList li ul li:first-child {
+    padding-left: 0;
+}
+
+.entityList .features {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.entityList .features li {
+    float: left;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+dl.examples dt {
+    float: none;
+    font-weight: bold;
+}
+
+/* Styles for specific views */
+.map {
+    width: 100%;
+    height: 400px;
+}
+
+/* Entity View */
+div.history {
+    margin-top: 2em;
+}
+
+.history h2 {
+    margin-bottom: 15px;
+    line-height: 21px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.history h2 a {
+    font-size: 13px;
+    border-radius: 2px;
+}
+
+.history thead tr th {
+    line-height: 23px;
+}
+
+.history tbody tr td {
+    line-height: 21px;
+    padding-top: 4px;
+}
+
+.history thead tr th.authorColumn {
+    width: 10em;
+}
+
+.history thead tr th.logMessageColumn {
+    width: 20em;
+}
+
+/* profile view */
+
+a.removeButton span.ui-button-text {
+    line-height: 1em;
+}
+
+li.notValidated a.button {
+    float: right;
+    margin-top: 6px;
+    margin-right: 6px;
+}
+
+ul.myEntities {
+    margin-top: 0;
+}
+
+ul.myEntities li {
+    list-style: none;
+    border-bottom: none;
+    margin: 0;
+    letter-spacing: 0;
+    max-height: 21px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+ul.myEntities li a {
+    padding: 0.5em 0 0 1em;
+}
+
+/* Metadata edit view */
+#metadata-tabs {
+    float: left;
+    width: 680px;
+}
+
+#metadata-tabs input[type=text], #metadata-tabs textarea {
+    width: 80%;
+}
+
+/* SAMLmetaJS customizations */
+div#tabs div.ui-tabs-panel {
+    padding-top: 6px;
+}
+
+div#tabs fieldset {
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    margin: 1em 0.3em;
+}
+
+div#tabs fieldset legend {
+    border: 0;
+}
+
+/*
+#metadata-tabs div#tabs input[type=text] {
+    width: auto;
+}
+*/
+
+div#tabs div#rawmetadata textarea#id_metadata_text {
+    width: 99%;
+    height: 350px;
+}
+
+div#tabs div#info div.infonamediv input,
+div#tabs div#info div.infologodiv input[type=url] {
+    width: 380px;
+}
+
+div#tabs div.infologodiv {
+    clear: both;
+}
+
+div#tabs div#attributes div.content {
+    padding-top: 8px;
+}
+
+/* Forms */
+input {
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    padding: 2px 4px;
+}
+
+input.longInput {
+    width: 90%;
+}
+
+textarea {
+    display: block;
+}
+
+p.invitation {
+    margin-bottom: 8px;
+    padding-top: 2em;
+}
+
+.list-users-form {
+    margin: 0.5em 0;
+    line-height: 19px;
+}
+
+ul#delegate-list {
+    overflow: hidden;
+}
+
+ul#superuser-list li,
+ul#delegate-list li {
+    float: left;
+    width: 100%;
+    padding-bottom: 0.3em;
+}
+
+.list-users-form span.user-name {
+    float: left;
+    max-width: 76%;
+}
+
+.list-users-form .ui-widget,
+#delegate-list .ui-widget {
+    font-weight: normal;
+    float: right;
+}
+
+ul.errorlist {
+    margin: 0;
+}
+
+ul.errorlist li {
+    border: none;
+    margin: 0;
+    margin: 5px 0;
+    padding: 2px 0 0 17px;
+    letter-spacing: 0.3px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+/* jQuery UI styles modifications */
+.ui-widget {
+    font-size: 12px;
+}
+
+div.content input[type="checkbox"] {
+    float: left;
+    font-size: 13px;
+    margin: 0 0.5em 0;
+}
+div.content#includeLocation {
+    margin-top: 0;
+}
+
+span.user-name {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+div#searchusers-box {
+    margin: 40px 0 20px;
+}
+
+input.button,
+.ui-button-text-only .ui-button-text {
+    padding: 0.1em 0.6em;
+}
+
+.ui-state-highlight,
+.ui-state-error {
+    padding: 0 10px;
+    margin: 0 auto;
+    width: 30%;
+}
+
+.ui-state-highlight .ui-icon {
+    float: left;
+    padding-left: 5px;
+    margin-top: -2px;
+}
+
+.ui-state-highlight span {
+    font-size: 12px;
+}
+
+.ui-tabs .ui-tabs-nav li a {
+    padding: 0.1em 0.3em;
+}
+
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+    margin: 0.5em 0;
+}
+
+.ui-widget input#id_metadata_file {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+input.ui-autocomplete-input {
+    float: left;
+    margin-right: 0.5em;
+}
+
+.ui-autocomplete a {
+    background-color: #DEDEDE;
+}
+
+/* paginator */
+
+.paginator {
+    float: left;
+    width: 100%;
+    margin: 1em;
+}
+
+.paginator a,
+.paginator span {
+    float: left;
+    margin: 0 0.5em;
+}
+
+.paginator .first,
+.paginator .previous {
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-right: 5px solid #b2b3b5;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid transparent;
+}
+
+.paginator .first {
+    border-left-width: 0px;
+    box-shadow: -1px 0 0  #b2b3b5;
+    -moz-box-shadow: -1px 0 0 #b2b3b5;
+    -webkit-box-shadow: -1px 0 0 #b2b3b5;
+}
+
+.paginator .next,
+.paginator .last {
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #b2b3b5;
+}
+
+.paginator .last {
+    border-right-width: 0px;
+    box-shadow: 1px 0 0  #b2b3b5;
+    -moz-box-shadow: 1px 0 0 #b2b3b5;
+    -webkit-box-shadow: 1px 0 0 #b2b3b5;
+}
