@@ -1,6 +1,7 @@
 #!/bin/bash
 # define system-dependend file locations
 
+ostype=${OSTYPE//[0-9.]/}
 if [[ "$ostype" == "linux-gnu" ]]; then
     #  tested with CentOS7
     export JAVA_HOME=/etc/alternatives/java_sdk_1.8.0
@@ -23,3 +24,8 @@ else
     exit 1
 fi
 
+workdir=$(dirname "$0")
+export PROJROOT=$(dirname "$workdir")
+export XMLSECTOOLDIR='/opt/xmlsectool-1.2.0'
+export XMLSECTOOL="${XMLSECTOOLDIR}/xmlsectool.sh"
+export SAMLMETAXMLSCHEMAPATH='../xmlschema/'

@@ -37,13 +37,23 @@ class Config(object):
             'scriptdir': '../scripts/',
 
             # Scripts for XSD validation
-            'xsdxmllint': 'xsd_validation_xmllint.sh',
+            #'xsdxmllint': 'xsd_validation_xmllint.sh',
             'xsdxmlsectool': 'xsd_validation_xmlsectool.sh',
 
             # Scripts for Schematron validation
             'pvp2schematron': 'val_pvp2_libxslt_stdout.sh',
             'saml2intschematron': 'val_saml2int_libxslt_stdout.sh',
         }
+        for fn in (self.Backend['xsdxmlsectool'],
+            self.Backend['pvp2schematron'], ):
+            self.check_executable(fn)
+
+    def check_executable(self, fpath):
+        fullpath = os.path.join(self.Backend['scriptdir'], fpath)
+        if not os.path.isfile(fullpath):
+            raise Exception('Cannot find script ' + fullpath)
+        if not os.access(fullpath, os.X_OK):
+            raise Exception('Cannot execute script ' + fullpath)
 
 
 def get_handler(req):
@@ -62,7 +72,7 @@ def post_handler(req):
     if not validationType in valscript:
         return BaseResponse('invalid Validation Type: ' + validationType, status=400)
     try:
-        val_out = subprocess.check_output([valscript[validationType], tmpfile])
+        val_out = subprocess.check_output([valscript[validationType], tmpfile]).decode('utf-8')
         #val_out = subprocess.check_output("/bin/echo", "blah")
     except subprocess.CalledProcessError:
         val_out = 'validation failed'

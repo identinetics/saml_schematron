@@ -1,9 +1,9 @@
 #!/bin/bash
 # validate saml md schema. wrapper for xmlsectool
 
-XMLSECTOOLDIR='xmlsectool-1.2.0'
-XMLSECTOOL="/opt/${XMLSECTOOLDIR}/xmlsectool.sh"
-SAMLMETAXMLSCHEMAPATH='../xmlschema/'
+workdir=$(dirname "$0")
+source "$workdir/init.sh"
+
 ostype=${OSTYPE//[0-9.]/}
 if [ -z "$JAVA_HOME" ]; then
     if [ "$ostype" == "linux-gnu" ]; then #  tested with CentOS7
