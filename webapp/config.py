@@ -22,12 +22,11 @@ class Config(object):
             'saml2intschematron': 'val_saml2int_libxslt_stdout.sh',
         }
         for fn in (self.Backend['xsdxmlsectool'],
-            self.Backend['pvp2schematron'],
-            self.Backend['saml2intschematron'],):
+            self.Backend['pvp2schematron'], ):
             self.check_executable(fn)
 
     def check_executable(self, fpath):
-        fullpath = os.join(self.Backend['scriptdir'], fpath)
+        fullpath = os.path.join(self.Backend['scriptdir'], fpath)
         if not os.path.isfile(fullpath):
             raise Exception('Cannot find script ' + fullpath)
         if not os.access(fullpath, os.X_OK):
