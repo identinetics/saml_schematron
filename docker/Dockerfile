@@ -13,10 +13,11 @@ RUN yum -y install python34-devel \
  && pip3.4 install jinja2 Werkzeug
 
 # Application
-RUN groupadd webapp \
- && adduser -g webapp webapp \
+RUN groupadd webapp && adduser -g webapp webapp \
  && mkdir -p /opt \
  && chmod 750 /opt
+
+RUN yum -y clean all
 
 WORKDIR /opt/
 RUN git clone https://github.com/rhoerbe/saml_schematron.git
