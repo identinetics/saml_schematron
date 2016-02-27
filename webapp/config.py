@@ -6,28 +6,22 @@ class Config(object):
             'port': 8080,
             'listen': '0.0.0.0'
         }
-        self.Backend = {
             # Note: always include trailing slash in directory definitions
             # Directory where files are temporarily stored for valdation
-            'tempdir': '/tmp/',
-            'templatedir': './',
-            'scriptdir': '../scripts/',
+        self.tempdir = '/tmp/'
+        self.templatedir = './'
+        self.val_script = '../scripts/val_schema_stdout.sh'
+        self.check_executable(self.val_script)
 
-            # Scripts for XSD validation
-            #'xsdxmllint': 'xsd_validation_xmllint.sh',
-            'xsdxmlsectool': 'xsd_validation_xmlsectool.sh',
-
-            # Scripts for Schematron validation
-            'pvp2schematron': 'val_pvp2_libxslt_stdout.sh',
-            'saml2intschematron': 'val_saml2int_libxslt_stdout.sh',
+        self.profiles = {
+            'PVP2 Schematron V0.1 (Verwaltungsportalverbund)': 'PVP2_V01',
+            'saml2int.org V0.2': 'SAML2INT_V02',
         }
-        for fn in (self.Backend['xsdxmlsectool'],
-            self.Backend['pvp2schematron'], ):
-            self.check_executable(fn)
 
     def check_executable(self, fpath):
-        fullpath = os.path.join(self.Backend['scriptdir'], fpath)
-        if not os.path.isfile(fullpath):
-            raise Exception('Cannot find script ' + fullpath)
-        if not os.access(fullpath, os.X_OK):
-            raise Exception('Cannot execute script ' + fullpath)
+        if not os.path.isfile(fpath):
+            raise Exception('Cannot find script ' + fpath)
+        if not os.access(fpath, os.X_OK):
+            raise Exception('Cannot execute script ' + fpath)
+
+

@@ -14,7 +14,7 @@
 """
 __author__ = "rhoerbe"
 
-from werkzeug.serving import run_simple
+import werkzeug.serving
 from werkzeug.wrappers import BaseRequest, BaseResponse
 from werkzeug.exceptions import HTTPException, NotFound
 import jinja2
@@ -29,23 +29,20 @@ def get_handler(req):
 def post_handler(req):
     file = req.files['md_instance']
     fname = file.filename
-    #if not file in req.files:
-    #    return BaseResponse('no file uploaded', status=400)
     if not fname:
         return BaseResponse('no file uploaded', status=400)
-    tmpfile = tempdir + fname + str(random.randrange(999999999999))
+    tmpfile = config.tempdir + fname + '_' + str(random.randrange(99999999))
     file.save(tmpfile)
-    validationType = req.form['ValidationType']
-    if not validationType in valscript:
-        return BaseResponse('invalid Validation Type: ' + validationType, status=400)
+    profile_display_text = req.form['md_profile']
+    if not profile_display_text in config.profiles.keys():
+        return BaseResponse('invalid metadata profile: ' + profile_display_text, status=400)
+    profile_key = config.profiles[profile_display_text]
     try:
-        val_out = subprocess.check_output([valscript[validationType], tmpfile]).decode('utf-8')
-        #val_out = subprocess.check_output("/bin/echo", "blah")
+        val_out = subprocess.check_output([config.val_script, tmpfile, profile_key]).decode('utf-8')
     except subprocess.CalledProcessError:
         val_out = 'validation failed'
     os.remove(tmpfile)
-    # this assumes a platform where the shell is unsing utf-8 (like osx, centos)
-    html = res_template.render(validationType=validationType,
+    html = res_template.render(validationType=profile_display_text,
                                fname=fname,
                                val_out=val_out.replace("\n", "<br/>"))
     return BaseResponse(html,
@@ -58,8 +55,10 @@ def application(environ, start_response):
     req = BaseRequest(environ)
     if req.method == 'POST':
         resp = post_handler(req)
-    else:
+    elif req.method == 'GET':
         resp = get_handler(req)
+    else:
+        return BaseResponse('HTTP method not supported', mimetype='text/plain')
     return resp(environ, start_response)
 
 
@@ -67,27 +66,13 @@ def application(environ, start_response):
 if __name__ == '__main__':
     config = Config()
 
-    tempdir = config.Backend['tempdir']
-    templatedir = config.Backend['templatedir']
-
-    with open(templatedir + '/validate_srv_req.html', 'r', encoding="utf-8") as f:
-        s = f.read()
-        req_template = jinja2.Template(s)
-    with open(templatedir + '/validate_srv_res.html', 'r', encoding="utf-8") as f:
+    with open(config.templatedir + '/validate_srv_req.html', 'r', encoding="utf-8") as f:
+        req_template = jinja2.Template(f.read())
+    with open(config.templatedir + '/validate_srv_res.html', 'r', encoding="utf-8") as f:
         res_template = jinja2.Template(f.read())
 
-    scriptdir = config.Backend['scriptdir']
-    pvp2schematron = scriptdir + config.Backend['pvp2schematron']
-    saml2intschematron = scriptdir + config.Backend['saml2intschematron']
-    #xsdxmllint = scriptdir + config.Backend['xsdxmllint']
-    xsdxmlsectool = scriptdir + config.Backend['xsdxmlsectool']
-    valscript = {#'SAML XML Schema (xmllint)': xsdxmllint,
-                 'SAML XML Schema': xsdxmlsectool,
-                 'PVP2 Schematron': pvp2schematron,
-                 'SAML2INT Schematron': saml2intschematron,
-    }
 
-    run_simple(config.HttpServer['listen'],
+    werkzeug.serving.run_simple(config.HttpServer['listen'],
                config.HttpServer['port'],
                application,
                use_debugger=True)
