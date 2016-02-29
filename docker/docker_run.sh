@@ -1,25 +1,27 @@
 #!/usr/bin/env bash
 
-export CONTAINERNAME='mdvalTestPvAt'
-export IMAGENAME='saml_schematron'
-export INTERCONTAINER_NETWORK='http_proxy'
-export HOSTVOLROOT="/docker_volumes/$CONTAINERNAME"
-export WEBAPPURL='http://mdval.test.portalverbund.at/'
+# get config
+SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source $SCRIPTDIR/conf.sh
 
-# processes in container will run with user moinmoin, equivalent to host-user docker_moinwiki:
-#    groupadd docker_moinwiki
-#    adduser -g docker_moinwiki docker_moinwiki
-# both users need to have the same uid/gid!
+# first start: create user/group/host directories
+if ! id -u $CONTAINERUSER &>/dev/null; then
+    groupadd -g $CONTAINERUID $CONTAINERUSER
+    adduser -M -g $CONTAINERUID -u $CONTAINERUID $CONTAINERUSER
+fi
+if [ -d $HOSTVOLROOT/var/log/$CONTAINERNAME ]; then
+    mkdir -p $HOSTVOLROOT/var/log
+    chown $CONTAINERUSER:$CONTAINERUSER $HOSTVOLROOT/var/log
+fi
 
-
+# default is to start in background; override with -i
 runopt='-d --restart=unless-stopped'
-
 while getopts ":i" opt; do
   case $opt in
     i)
       echo "starting docker container in interactive mode"
       runopt='-it --rm'
-      docker rm httpd1 2>/dev/null
+      docker rm $CONTAINERNAME 2>/dev/null
       ;;
   esac
 done
@@ -29,5 +31,5 @@ docker run $runopt --hostname=$CONTAINERNAME \
     --name=$CONTAINERNAME \
     --net=$INTERCONTAINER_NETWORK \
     -e "WEBAPPURL=$WEBAPPURL" \
-    -v "$HOSTVOLROOT/var/log/$CONTAINERNAME:/var/log:Z" \
+    -v "$HOSTVOLROOT/var/log:/var/log:Z" \
     $IMAGENAME $@
