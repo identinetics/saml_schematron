@@ -3,4 +3,11 @@
 SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $SCRIPTDIR/conf.sh
 
-docker build --build-arg ["USERNAME=$CONTAINERUSER", "UID=$CONTAINERUID"] -t=$IMAGENAME .
+if [ $(id -u) -ne 0 ]; then
+    sudo="sudo"
+fi
+${sudo} docker rmi -f $IMAGENAME
+${sudo} docker build
+    --build-arg "USERNAME=$CONTAINERUSER" \
+    --build-arg "UID=$CONTAINERUID" \
+    -t=$IMAGENAME .

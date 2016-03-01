@@ -16,18 +16,25 @@ fi
 
 # default is to start in background; override with -i
 runopt='-d --restart=unless-stopped'
-while getopts ":i" opt; do
+while getopts ":ir" opt; do
   case $opt in
     i)
       echo "starting docker container in interactive mode"
       runopt='-it --rm'
       docker rm $CONTAINERNAME 2>/dev/null
       ;;
+    r)
+      echo "container user is root"
+      useropt='-u 0'
+      ;;
   esac
 done
 shift $((OPTIND-1))
 
-docker run $runopt --hostname=$CONTAINERNAME \
+if [ $(id -u) -ne 0 ]; then
+    sudo="sudo"
+fi
+${sudo} docker run $runopt $useropt --hostname=$CONTAINERNAME \
     --name=$CONTAINERNAME \
     --net=$INTERCONTAINER_NETWORK \
     -e "WEBAPPURL=$WEBAPPURL" \
