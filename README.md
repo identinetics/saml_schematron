@@ -34,24 +34,26 @@ the other xslt implementations of schematron, so the step would be to
 Modified version of iso_schematron_message.xsl, outputting messages and xpath for the elements in the 
 instance document causing the message.
     
-#### profiles
-Directory with saml md validation profiles. A profile is a set of extra validation rules.
-
-* profiles/allrules.sch
-
-  Example that executes all rules contained in sch_unit
-
-* profiles/saml2int.sch
-  
-  Example that executes some rules specified by saml2int.org chapter 5
-
-* profiles/sch_unit
-  
-  Elementary schematron rules for extended SAML metadata validation
-    
 #### reports
 
 Output directory for validations
+    
+#### rules
+Directory with saml md validation profiles. A profile is a set of extra validation rules.
+
+* rules/allrules.sch
+
+  Example that executes all rules contained in sch_unit
+
+* rules/saml2int.sch
+  
+  Example that executes some rules specified by saml2int.org chapter 5
+
+* rules/sch_unit
+  
+  ** Elementary schematron rules for extended SAML metadata validation.
+  ** Makefile to generate xsl files (`make all`)
+  ** .xsl files
     
 #### scripts
 

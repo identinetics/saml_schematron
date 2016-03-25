@@ -42,7 +42,7 @@ class TestRule11(unittest.TestCase):
         ntf.close()
 
         # create xslt from schematron
-        self.schematronrule_filename = join(self.projroot, 'profiles/sch_unit/rule{r}.sch'.format(r = self.rule))
+        self.schematronrule_filename = join(self.projroot, 'rules/schtron/rule{r}.sch'.format(r = self.rule))
         xsltrule_filename = join(self.projroot, 'validate/rule{r}.xsl'.format(r = self.rule))
         xslt_filename = join(self.projroot, 'validate/rule{r}.xsl'.format(r = self.rule))
         xslt_file = open(xslt_filename, "w")
