@@ -1,9 +1,11 @@
 == Purpose
+
 SAML-Schematron provides additional rules to OASIS SSTC XML schemas to validate metadata against specific 
 profiles. Users may want to define their own profile-specific rule set reusing existing rules.
 In addition it makes standard XSD validation easy.
 
 == Prerequisites
+
 XMl style sheet processor compliant to XSLT version 1, with support for the exsl:node-set extension.
 These schematron rules were tested with xalan and libxslt.
 
@@ -61,7 +63,9 @@ xmlschema
     SAML metdata schema files modified to be read from local directory instead of URLs.
 
 == Usage
+
 === Run the validator as a web application
+
    Build a docker container as in docker/Dockerfile, or use the Dockerfile for your custom 
    installation. It execute the simple web application in the webapp directory currently only German).
    The default configuration assumes the you connect the container's webserver to a HTTP reverse 
@@ -70,6 +74,7 @@ xmlschema
    Execute the container using run.sh
       
 === Run the validator using libxslt (encapsulated in make)
+
    1. Generate the validation style sheet from schematron rules (see Makefile for other make targets)
       make genall
    2. Execute the validation style sheet 
@@ -78,15 +83,18 @@ xmlschema
    if the ruleset includes reportEntity.sch; otherwise it will be empty.
       
 === Run the validator using xalan
+
    1. Generate the validation stylesheet from schematron rules 
       java -jar xalan.jar -OUT validate/allrules.xsl -IN profiles/allrules.sch -XSL lib/message.xsl
    2. Execute the validation stylesheet
       java -jar xalan.jar -XSL validate/allrules.xsl -IN testdata/idp5_invalid.xml 
 
 === Use the validator using the Python API
+
     t.b.d.
 
 ==  Reference
+
 Following files were used as a template:
 
 iso_schematron_message.xsl
