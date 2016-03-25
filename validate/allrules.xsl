@@ -93,7 +93,7 @@ Warnung (02): This NameIDFormat may not be supported. Supported values for NameI
 
 		<!--ASSERT -->
 <axsl:choose><axsl:when test="md:NameIDFormat[text() != '']"/><axsl:otherwise><axsl:message>
-Warning (03): Each IDPSSODescriptor should contain NameIDFormatwith one or more values  
+Warning (03): Each IDPSSODescriptor should contain NameIDFormat with one or more values
        XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (md:NameIDFormat[text() != ''])</axsl:message></axsl:otherwise></axsl:choose>
 
 		<!--ASSERT -->
@@ -122,9 +122,9 @@ Error (13): IDPSSODescriptor must contain SigningMethod
      XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (descendant::alg:SigningMethod)</axsl:message></axsl:otherwise></axsl:choose>
 
 		<!--ASSERT -->
-<axsl:choose><axsl:when test="md:Extensions/mdui:DiscoHints/mdui:DomainHint"/><axsl:otherwise><axsl:message>
-Warning (14): IDPSSODescriptor should contain DiscoHints including mdui:DomainHint
-     XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (md:Extensions/mdui:DiscoHints/mdui:DomainHint)</axsl:message></axsl:otherwise></axsl:choose>
+<axsl:choose><axsl:when test="md:Extensions/mdui:DiscoHints"/><axsl:otherwise><axsl:message>
+Warning (14): IDPSSODescriptor should contain discovery hints
+     XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (md:Extensions/mdui:DiscoHints)</axsl:message></axsl:otherwise></axsl:choose>
 
 		<!--ASSERT -->
 <axsl:choose><axsl:when test="md:SingleLogoutService"/><axsl:otherwise><axsl:message>
@@ -163,7 +163,7 @@ Error (04): Each SPSSODescriptor must contain a signing key as X509Certificate (
 
 		<!--ASSERT -->
 <axsl:choose><axsl:when test="md:AssertionConsumerService[normalize-space(@Binding)='urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST']"/><axsl:otherwise><axsl:message>
-Error (11): SPSSODescriptor must contain an AssertionConsumerService with Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+Warning (11): SPSSODescriptor should contain an AssertionConsumerService with Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
      XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (md:AssertionConsumerService[normalize-space(@Binding)='urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'])</axsl:message></axsl:otherwise></axsl:choose>
 
 		<!--ASSERT -->
@@ -255,7 +255,7 @@ Warning (34): SPSSODescriptor should contain alg:SigningMethod
 
 		<!--REPORT -->
 <axsl:if test="descendant::saml:Attribute"><axsl:message>
-Warning (10): IDPSSODescriptor may contain &lt;saml2:Attribute&gt; elements; but their interpretation is not supported.
+Warning (10): IDPSSODescriptor contains &lt;saml2:Attribute&gt; elements; but implementations may not understand this.
      XPATH: <axsl:call-template name="xpathgetter"/> validation rule: (descendant::saml:Attribute)</axsl:message></axsl:if>
 
 		<!--ASSERT -->

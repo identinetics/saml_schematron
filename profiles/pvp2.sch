@@ -27,15 +27,15 @@
 
         <iso:include href="sch_unit/reportEntity.sch" />
 
-        <iso:include href="sch_unit/rule1E.sch" />
-        <iso:include href="sch_unit/rule2W.sch" />
-        <iso:include href="sch_unit/rule3W.sch" />
+        <iso:include href="sch_unit/rule01E.sch" />
+        <iso:include href="sch_unit/rule02W.sch" />
+        <iso:include href="sch_unit/rule03W.sch" />
         <!-- rule 4E replaced by 42E -->
-        <iso:include href="sch_unit/rule5W.sch" />
-        <iso:include href="sch_unit/rule6W.sch" />
-        <iso:include href="sch_unit/rule7W.sch" />
-        <iso:include href="sch_unit/rule8E.sch" />
-        <iso:include href="sch_unit/rule9E.sch" />
+        <iso:include href="sch_unit/rule05W.sch" />
+        <iso:include href="sch_unit/rule06W.sch" />
+        <iso:include href="sch_unit/rule07W.sch" />
+        <iso:include href="sch_unit/rule08E.sch" />
+        <iso:include href="sch_unit/rule09E.sch" />
 
         <iso:include href="sch_unit/rule10W.sch" />
         <iso:include href="sch_unit/rule11W.sch" />

@@ -28,8 +28,8 @@
         <iso:include href="sch_unit/reportEntity.sch" />
 
         <!-- CAVEAT: changing the rule set requires adaptaion of Makefile -->
-        <iso:include href="sch_unit/rule4E.sch"/>
-        <iso:include href="sch_unit/rule6W.sch"/>
-        <iso:include href="sch_unit/rule7W.sch"/>
+        <iso:include href="sch_unit/rule04E.sch"/>
+        <iso:include href="sch_unit/rule06W.sch"/>
+        <iso:include href="sch_unit/rule07W.sch"/>
     </iso:include-set>
 </iso:schema>
