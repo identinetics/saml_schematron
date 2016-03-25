@@ -20,7 +20,7 @@ an xslt processor with support for exsl:node-set, although this is pretty univer
 
 #### lib/svrl.xsl
 
-Outputs svrl schematron validation report language report of validation results - a renderer for 
+Outputs SVRL (schematron validation report language) report of validation results - a renderer for 
 the report format can be found at http://code.google.com/p/schematron/source/browse/trunk/converters/code/FromSVRL/SVRLReportRender.xsl?r=9eb8e4e286619a1dfb9c21a7e1010f07a5e73975 
 svrl.xsl can be used from the command line to output a validating stylesheet in the same way as 
 the other xslt implementations of schematron, so the step would be to
@@ -37,15 +37,17 @@ instance document causing the message.
 #### profiles
 Directory with saml md validation profiles. A profile is a set of extra validation rules.
 
-.profiles/allrules.sch
+* profiles/allrules.sch
 
-    Example that executes all rules contained in sch_unit
+  Example that executes all rules contained in sch_unit
 
-.profiles/saml2int.sch
-    Example that executes some rules specified by saml2int.org chapter 5
+* profiles/saml2int.sch
+  
+  Example that executes some rules specified by saml2int.org chapter 5
 
-.profiles/sch_unit
-    Elementary schematron rules for extended SAML metadata validation
+* profiles/sch_unit
+  
+  Elementary schematron rules for extended SAML metadata validation
     
 #### reports
 
@@ -85,18 +87,18 @@ Execute the container using run.sh
 ### Run the validator using libxslt (encapsulated in make)
 
 1. Generate the validation style sheet from schematron rules (see Makefile for other make targets)
-  make genall
+   make genall
 2. Execute the validation style sheet 
-  make valall IN=testdata/idp5_valid.xml
+   make valall IN=testdata/idp5_valid.xml
 Note: if all validation rules pass, the output will contain "Validating entityID https://idp5.test.example.org/idp.xml"
 if the ruleset includes reportEntity.sch; otherwise it will be empty.
       
 ### Run the validator using xalan
 
 1. Generate the validation stylesheet from schematron rules 
-  java -jar xalan.jar -OUT validate/allrules.xsl -IN profiles/allrules.sch -XSL lib/message.xsl
+   java -jar xalan.jar -OUT validate/allrules.xsl -IN profiles/allrules.sch -XSL lib/message.xsl
 2. Execute the validation stylesheet
-  java -jar xalan.jar -XSL validate/allrules.xsl -IN testdata/idp5_invalid.xml 
+   java -jar xalan.jar -XSL validate/allrules.xsl -IN testdata/idp5_invalid.xml 
 
 ### Use the validator using the Python API
 
