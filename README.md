@@ -1,15 +1,15 @@
-== Purpose ==
-SAML-Schematron provides additional rules to standard XML Schema validation to validate SAML metadata against specific 
+== Purpose
+SAML-Schematron provides additional rules to OASIS SSTC XML schemas to validate metadata against specific 
 profiles. Users may want to define their own profile-specific rule set reusing existing rules.
 In addition it makes standard XSD validation easy.
 
-== Prerequisites ==
+== Prerequisites
 XMl style sheet processor compliant to XSLT version 1, with support for the exsl:node-set extension.
 These schematron rules were tested with xalan and libxslt.
 
 xml-coreutils (only for the generation of doc/messages.txt)
 
-== Contents ==
+== Contents
 
 lib/base.xsl
     Extension of iso_schematron_skeleton_for_xslt1.xsl. Note that the extensions will definitely require 
@@ -60,7 +60,16 @@ webapp
 xmlschema
     SAML metdata schema files modified to be read from local directory instead of URLs.
 
-== Run the validator using libxslt (encapsulated in make) ==
+== Usage
+=== Run the validator as a web application
+   Build a docker container as in docker/Dockerfile, or use the Dockerfile for your custom 
+   installation. It execute the simple web application in the webapp directory currently only German).
+   The default configuration assumes the you connect the container's webserver to a HTTP reverse 
+   proxy such as Apache/mod_proxy or nginx.
+   Configure your settings in conf.sh
+   Execute the container using run.sh
+      
+=== Run the validator using libxslt (encapsulated in make)
    1. Generate the validation style sheet from schematron rules (see Makefile for other make targets)
       make genall
    2. Execute the validation style sheet 
@@ -68,13 +77,16 @@ xmlschema
    Note: if all validation rules pass, the output will contain "Validating entityID https://idp5.test.example.org/idp.xml"
    if the ruleset includes reportEntity.sch; otherwise it will be empty.
       
-== Run the validator using xalan ==
+=== Run the validator using xalan
    1. Generate the validation stylesheet from schematron rules 
       java -jar xalan.jar -OUT validate/allrules.xsl -IN profiles/allrules.sch -XSL lib/message.xsl
    2. Execute the validation stylesheet
       java -jar xalan.jar -XSL validate/allrules.xsl -IN testdata/idp5_invalid.xml 
 
-==  Reference ==
+=== Use the validator using the Python API
+    t.b.d.
+
+==  Reference
 Following files were used as a template:
 
 iso_schematron_message.xsl
@@ -82,6 +94,3 @@ iso_schematron_message.xsl
 
 iso_schematron_skeleton_for_xslt1.xsl
     'skeleton' XSLT scripts which implements Schematron (http://code.google.com/p/schematron/)
-    
-
-This file was modified by PyCharm 2.7.3 for binding GitHub repository
