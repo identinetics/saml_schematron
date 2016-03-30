@@ -33,6 +33,9 @@ the other xslt implementations of schematron, so the step would be to
      
 Modified version of iso_schematron_message.xsl, outputting messages and xpath for the elements in the 
 instance document causing the message.
+
+#### lib/xalan, lib/xmlsectool
+Library dependencies installed here
     
 #### reports
 
@@ -64,17 +67,17 @@ directory (filenames wihtout extension).
     
 #### scripts
 
-Sample command line invocations (using bourne shell) and those called from the webapp
+Sample command line invocations and script called from the webapp
+    
+#### test
+
+Unit tests
     
 #### testdata
 
 SAML metadata instance documents that are valid to XML Schema. Some contain violations of 
 schematron rules to be used for testing.
     
-#### validate
-
-Style sheets generated from schematron for step 2 of the validator.
-
 #### webapp
 
 simple stand-alon web server to upload files for xsd and schematron validation

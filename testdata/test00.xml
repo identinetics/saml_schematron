@@ -1,0 +1,44 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:xrd="http://docs.oasis-open.org/ns/xri/xrd-1.0" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:disco="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp5.test.example.org/idp.xml">
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <md:Extensions>
+            <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+            <alg:SigningMethod MinKeySize="256" MaxKeySize="511" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/>
+            <alg:SigningMethod MinKeySize="2048" MaxKeySize="4096" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+            <!-- blacklisted: http://www.w3.org/2000/09/xmldsig#rsa-sha1 -->
+            <mdui:UIInfo>
+                <mdui:DisplayName xml:lang="de">idp5.test.example.org</mdui:DisplayName>
+                <mdui:Description xml:lang="de">
+                    Simple Shibboleth testidp in der Domäne test.example.org
+                </mdui:Description>
+                <mdui:Logo xml:lang="en" height="70" width="79">http://md.example.org/logo.png</mdui:Logo>
+            </mdui:UIInfo>
+            <mdui:DiscoHints>
+                <mdui:DomainHint>example.org</mdui:DomainHint>
+                <mdui:IPHint>8.8.8.8/24</mdui:IPHint>
+                <mdui:GeolocationHint>geo:48.3308,16.0516</mdui:GeolocationHint>
+            </mdui:DiscoHints>
+        </md:Extensions>       
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp5.test.example.org:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+        <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp5.test.example.org/idp/profile/SAML2/Redirect/SLO"/>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp5.test.example.org/idp/profile/SAML2/POST/SSO"/>
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp5.test.example.org/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+        <md:OrganizationName xml:lang="de">SAML Testfederation</md:OrganizationName>
+        <md:OrganizationDisplayName xml:lang="de">SAML Test Federation</md:OrganizationDisplayName>
+        <md:OrganizationURL xml:lang="de">http://www.example.org</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+        <md:GivenName>Max</md:GivenName>
+        <md:SurName>Mustermann</md:SurName>
+        <md:EmailAddress>max.mustermann@example.org</md:EmailAddress>
+        <md:TelephoneNumber>+43 000 9999 0000</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+        <md:GivenName>Max</md:GivenName>
+        <md:SurName>Mustermann</md:SurName>
+        <md:EmailAddress>max.mustermann@example.org</md:EmailAddress>
+        <md:TelephoneNumber>+43 000 9999 0000</md:TelephoneNumber>
+    </md:ContactPerson>
+</md:EntityDescriptor>
