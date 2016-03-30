@@ -1,7 +1,18 @@
 <?xml version="1.0" standalone="yes"?>
-<axsl:stylesheet xmlns:axsl="http://www.w3.org/1999/XSL/Transform" xmlns:sch="http://www.ascc.net/xml/schematron" xmlns:iso="http://purl.oclc.org/dsdl/schematron" xmlns:xalan="http://xml.apache.org/xalan" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:rpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" version="1.0"><!--Implementers: please note that overriding process-prolog or process-root is 
+<axsl:stylesheet xmlns:axsl="http://www.w3.org/1999/XSL/Transform" xmlns:sch="http://www.ascc.net/xml/schematron"
+                 xmlns:iso="http://purl.oclc.org/dsdl/schematron" xmlns:xalan="http://xml.apache.org/xalan"
+                 xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+                 xmlns:rpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                 xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+                 xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol"
+                 xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute"
+                 xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" version="1.0">
+    <!--Implementers: please note that overriding process-prolog or process-root is
     the preferred method for meta-stylesheets to use where possible. -->
-<axsl:param name="archiveDirParameter"/><axsl:param name="archiveNameParameter"/><axsl:param name="fileNameParameter"/><axsl:param name="fileDirParameter"/>
+<axsl:param name="archiveDirParameter"/>
+<axsl:param name="archiveNameParameter"/>
+<axsl:param name="fileNameParameter"/>
+<axsl:param name="fileDirParameter"/>
 
 <!--PHASES-->
 
