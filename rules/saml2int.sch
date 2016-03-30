@@ -25,7 +25,7 @@
     <iso:ns prefix="init" uri="urn:oasis:names:tc:SAML:profiles:SSO:request-init"/>
     <iso:include-set>
 
-        <iso:include href="schtron/reportEntity.sch" />
+        <iso:include href="schtron/rule00I.sch" />
 
         <!-- CAVEAT: changing the rule set requires adaptaion of Makefile -->
         <iso:include href="schtron/rule04E.sch"/>

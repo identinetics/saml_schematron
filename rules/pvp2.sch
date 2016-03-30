@@ -25,7 +25,7 @@
 
     <iso:include-set>
 
-        <iso:include href="schtron/reportEntity.sch" />
+        <iso:include href="schtron/rule00I.sch" />
 
         <iso:include href="schtron/rule01E.sch" />
         <iso:include href="schtron/rule02W.sch" />
