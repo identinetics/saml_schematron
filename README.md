@@ -39,7 +39,14 @@ instance document causing the message.
 Output directory for validations
     
 #### rules
-Directory with saml md validation profiles. A profile is a set of extra validation rules.
+Directory with saml metadata validation profiles. A profile is a set of validation rules in the
+form <profilename.json>. The  profile JSON file contains an array of rule name from the schtron
+directory (filenames wihtout extension).
+
+* rules/schtron
+
+  Directory with schematron source rules (.sch) and generated XML style sheets (.xsl)
+  Makefile (make all) and accompaning scripts and templates.
 
 * rules/allrules.sch
 
