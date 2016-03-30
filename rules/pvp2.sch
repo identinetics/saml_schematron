@@ -67,12 +67,12 @@
         <iso:include href="schtron/rule36E.sch" />
 
         <iso:include href="schtron/rule37E.sch" />
-        <iso:include href="schtron/rule38E.sch" />
+        <!--iso:include href="schtron/rule38E.sch" />
         <iso:include href="schtron/rule39E.sch" />
         <iso:include href="schtron/rule40E.sch" />
         <iso:include href="schtron/rule41E.sch" />
         <iso:include href="schtron/rule42E.sch" />
-        <iso:include href="schtron/rule43E.sch" />
+        <iso:include href="schtron/rule43E.sch" /-->
         <!--iso:include href="schtron/rule44E.sch" not mandatory on deployment level/-->
 
     

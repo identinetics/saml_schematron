@@ -1,7 +1,6 @@
 #!/bin/sh
-SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-PROJROOT="$(dirname "$SCRIPTDIR")"
 
-source $PROJROOT/scripts/init.sh
+SCRIPTDIR=$(cd $(dirname $BASH_SOURCE[0]) && pwd)
+source $SCRIPTDIR/init.sh
 
-${RUNXMLCOREUTILS}xml-strings $PROJROOT/profiles/sch_unit/rule* :/ | grep -v '^\s*$' |sort -k 2
+${XMLSTARLET} sel -t -c '//text()'  $PROJROOT/rules/schtron/rule*.sch :/ | grep -v '^\s*$' |sort -k 2

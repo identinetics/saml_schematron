@@ -32,7 +32,7 @@ class TestValidator(TestCase):
         logging.info('  -- Test validate')
         PROJ_DIR = os.path.dirname(os.path.dirname(__file__))
         logging.debug('PROJ_DIR: ' + PROJ_DIR)
-        cliParser = CliParser(['-v', PROJ_DIR + '/testdata/rule4_test1_idp_missing_key.xml', 'rule04E'])
+        cliParser = CliParser(['-v', PROJ_DIR + '/testdata/idp5_incomplete.xml', 'rule04E'])
         validator = Validator(cliParser)
         fname = os.path.join(PROJ_DIR, 'work/rule04E_1.err')
         with open(fname, 'w') as fd:
