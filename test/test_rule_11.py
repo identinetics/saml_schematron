@@ -3,6 +3,8 @@ import unittest, subprocess, os, re
 from os.path import abspath, dirname, getsize, join
 from tempfile import NamedTemporaryFile
 
+# incomplete alternative to broken lxml version
+
 class StopAction(Exception):
     pass
 
