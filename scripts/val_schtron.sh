@@ -10,7 +10,7 @@ verbose=false
 
 read -r -d '' usage << EOM
 Validate a SAML metadata file against a rule set (xslt generated from schematron)
-usage: $0 [-h] [-j] xml-file xslt-file
+usage: $0 [-h] [-j] xslt-file xml-file
    -h  print this help text
    -j  use Java/Xalan instead of libxml2/xsltproc
    -s  output short form (message text only, no xpath and document location)
@@ -39,8 +39,8 @@ shift $((OPTIND-1))
 
 [ -z "$1" ] && [ -z "$2" ] && echo "missing argument\n$usage" && exit 1
 
-xmlfile=$1
-xsltfile=$2
+xsltfile=$1
+xmlfile=$2
 $verbose && echo "xmlfile:  $xmlfile"
 $verbose && echo "xsltfile: $xsltfile"
 
@@ -54,10 +54,10 @@ if [ "$runopt" == "xalan" ]; then
     fi
 else
     if [ $outform == 'short' ]; then
-        $verbose && echo "executing: xsltproc $xmlfile $xsltfile 2>&1 | grep '^[IWE]' | sort -u -k 2"
-                                     xsltproc $xmlfile $xsltfile 2>&1 | grep '^[IWE]' | sort -u -k 2
+        $verbose && echo "executing: xsltproc $xsltfile $xmlfile 2>&1 | grep '^[IWE]' | sort -u -k 2"
+                                     xsltproc $xsltfile $xmlfile 2>&1 | grep '^[IWE]' | sort -u -k 2
     else
-        $verbose && echo "executing: xsltproc $xmlfile $xsltfile"
-                                     xsltproc $xmlfile $xsltfile
+        $verbose && echo "executing: xsltproc $xsltfile $xmlfile"
+                                     xsltproc $xsltfile $xmlfile
     fi
 fi
