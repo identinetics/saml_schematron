@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<iso:pattern id="Rule 37" xmlns:iso="http://purl.oclc.org/dsdl/schematron" >
+<iso:pattern id="Rule37_EAval" xmlns:iso="http://purl.oclc.org/dsdl/schematron" >
 
 <!-- untested -->
 <!-- improve selection: select only ED with SPSSODscriptor, but not if explicit attribute values are given (EC is optional with IDPs) -->

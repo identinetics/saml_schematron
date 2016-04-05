@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?> 
-<iso:pattern id="Rule 24" xmlns:iso="http://purl.oclc.org/dsdl/schematron" >
+<iso:pattern id="Rule24_ALGSign" xmlns:iso="http://purl.oclc.org/dsdl/schematron" >
   <iso:rule context="alg:SigningMethod">
     <iso:assert test=" @Algorithm='http://www.w3.org/2001/04/xmldsig-more#rsa-sha256' 
                     or @Algorithm='http://www.w3.org/2000/09/xmldsig#rsa-sha1'

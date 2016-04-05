@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<iso:pattern id="single sign on" xmlns:iso="http://purl.oclc.org/dsdl/schematron" >
+<iso:pattern id="Rule09_SSOService" xmlns:iso="http://purl.oclc.org/dsdl/schematron" >
   <iso:rule context="//md:IDPSSODescriptor">                                  
     <iso:assert test="md:SingleSignOnService">
 Error (09): IDPSSODescriptor does not contain a SingleSignOnService“

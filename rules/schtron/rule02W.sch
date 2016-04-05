@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<iso:pattern id="rule 2" xmlns:iso="http://purl.oclc.org/dsdl/schematron" >
+<iso:pattern id="rule02" xmlns:iso="http://purl.oclc.org/dsdl/schematron" >
   <iso:rule context="md:NameIDFormat">                                  
     <iso:assert 
          test="normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent' 
