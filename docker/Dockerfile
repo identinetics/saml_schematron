@@ -3,8 +3,8 @@ MAINTAINER r2h2 <rainer@hoerbe.at>
 
 # CentOS7 + prerequsites
 RUN yum -y install epel-release \
- && yum -y install curl git ip lsof net-tools unzip xmlstarlet
-RUN yum -y install gcc libxslt-devel python-pip python34-devel \
+ && yum -y install curl git ip lsof net-tools unzip xmlstarlet \
+ && yum -y install gcc libxslt-devel python-pip python34-devel \
  && yum -y install java-1.8.0-openjdk-devel.x86_64
 RUN yum -y clean all \
  && curl https://bootstrap.pypa.io/get-pip.py | python3.4 \
