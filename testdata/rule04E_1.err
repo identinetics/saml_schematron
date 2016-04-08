@@ -1,9 +1,0 @@
-
-Info: Validating entityID https://idp5.test.example.org/idp.xml
-     XPATH: /md:EntityDescriptor[1]
-    validation rule: (@entityID)
-
-Error (04): Each IDPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data)         
-         XPATH: /md:EntityDescriptor[1]
-   /md:IDPSSODescriptor[1]
-    validation rule: (md:KeyDescriptor[@use='signing' or not(@use)]/ds:KeyInfo/ds:X509Data/ds:X509Certificate)
