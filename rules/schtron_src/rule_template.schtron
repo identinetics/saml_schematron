@@ -15,10 +15,5 @@
     <iso:ns prefix="idpdisc" uri="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol"/>
     <iso:ns prefix="mdattr" uri="urn:oasis:names:tc:SAML:metadata:attribute"/>
     <iso:ns prefix="init" uri="urn:oasis:names:tc:SAML:profiles:SSO:request-init"/>
-    <iso:include-set>
-        <iso:include href="rule00I.sch" />
-
-        <iso:include href="rule00I.sch" />
-
-    </iso:include-set>
+    <iso:include href="../schtron_src/||schematronrule||" />
 </iso:schema>

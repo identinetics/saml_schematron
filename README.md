@@ -46,24 +46,22 @@ Directory with saml metadata validation profiles. A profile is a set of validati
 form <profilename.json>. The  profile JSON file contains an array of rule name from the schtron
 directory (filenames wihtout extension).
 
-* rules/schtron
-
-  Directory with schematron source rules (.sch) and generated XML style sheets (.xsl)
+* rules/schtron_src
+  Directory with schematron rules (<iso:pattern>)
   Makefile (make all) and accompaning scripts and templates.
+   
+* rules/schtron_src
+  Each rule file is a expanded into a complete schematron document
+
+* rules/schtron_xsl
+  Each rule file is generated into a style scheet that ca be executed with xsltproc or xerces
 
 * rules/allrules.sch
-
   Example that executes all rules contained in sch_unit
 
-* rules/saml2int.sch
-  
-  Example that executes some rules specified by saml2int.org chapter 5
+* rules/*.json
+  Rule listing for unit tests
 
-* rules/sch_unit
-  
-  ** Elementary schematron rules for extended SAML metadata validation.
-  ** Makefile to generate xsl files (`make all`)
-  ** .xsl files
     
 #### scripts
 

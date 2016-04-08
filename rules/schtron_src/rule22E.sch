@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <iso:pattern id="Rule22_UUInfo" xmlns:iso="http://purl.oclc.org/dsdl/schematron" >
   <iso:rule context="mdui:UIInfo">
     <iso:assert test="mdui:DisplayName[string-length() &gt; 0]">
