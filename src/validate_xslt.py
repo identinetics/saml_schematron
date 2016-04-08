@@ -1,7 +1,6 @@
 import argparse
 import logging, os, re, sys
 import lxml.etree as etree
-from lxml.isoschematron import Schematron
 import abstract_invocation
 
 class CliParser(abstract_invocation.AbstractInvocation):
@@ -29,9 +28,7 @@ class ValidatorResult:
 
 
 class Validator:
-    """
-    Validate SAML Metadata according to a specified set of Schematron rules
-    """
+
     def __init__(self, invocation):
         self.args = invocation.args
         self.projdir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
@@ -40,27 +37,36 @@ class Validator:
             print('metadatafile = ' + self.args.metadatafile.name)
             print('rules: ' + ', '.join(self.args.rule))
         if getattr(self.args, 'ruledir', None):
-            self.schtrondir = self.args.ruledir
+            self.xsltdir = self.args.ruledir
         else:
-            self.schtrondir = os.path.join(self.projdir, 'rules', 'schtron_exp')
+            self.xsltdir = os.path.join(self.projdir, 'rules', 'schtron')
 
-    def validate(self) -> ValidatorResult:
+    def validate(self) -> str:
+        xslt_fname = os.path.join(self.xsltdir, self.args.rule[0] + '.xsl')
+        xslt = etree.parse(xslt_fname)
+        transform = etree.XSLT(xslt)
         md_dom = etree.parse(self.args.metadatafile.name)
         for e in md_dom.findall('{urn:oasis:names:tc:SAML:2.0:metadata}EntitiesDescriptor'):
             if self.args.verbose: print('entityID: ' + e.attrib['entityID'])
-        schtron_dom = etree.parse(os.path.join(self.schtrondir, self.args.rule[0] + '_exp.sch'))
-        schtron_val = Schematron(schtron_dom, error_finder=Schematron.ASSERTS_AND_REPORTS)
+        out_dom = transform(md_dom)
         validator_result = ValidatorResult()
-        result = schtron_val.validate(md_dom)
-        if result:
+        m_unformatted = transform.error_log.last_error.message.lstrip()
+        validator_result.message_one_line = ' '.join(m_unformatted.split())
+        if re.search('Error', m_unformatted):
+            validator_result.level = 'ERROR'
+        elif m_unformatted.startswith('Warning'):
+            validator_result.level = 'WARNING'
+        elif re.match('Info', m_unformatted ):
+            validator_result.level = 'OK'
+        elif re.match('unknown error', m_unformatted):
             validator_result.level = 'OK'
             validator_result.message_one_line = ''
-            validator_result.message_formatted = ''
         else:
-            m_dom = etree.XML(schtron_val.error_log.last_error.message)
-            validator_result.level = schtron_val.error_log.last_error.level_name
-            validator_result.message_formatted = m_dom.find('{http://purl.oclc.org/dsdl/svrl}text').text
-            validator_result.message_one_line = re.sub(r'\s+', ' ', validator_result.message_formatted)
+            print('message unformatted:')
+            print(m_unformatted )
+            raise Exception('cannot parse Schematon output message to get severity level')
+        m1 = re.sub('XPATH:', '\n    XPATH:', validator_result.message_one_line)
+        validator_result.message_formatted = re.sub('validation rule:', '\n    validation rule:', m1)
         return validator_result
 
 
