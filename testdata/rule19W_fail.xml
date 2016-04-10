@@ -8,8 +8,7 @@
             <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
                             Name="http://macedir.org/entity-category"
                             NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
-                <saml:AttributeValue>http://www.example.org/category/not-registered-here
-                </saml:AttributeValue>
+                <saml:AttributeValue>http://www.example.org/category/not-registered-here</saml:AttributeValue>
             </saml:Attribute>
         </mdattr:EntityAttributes>
     </md:Extensions>
