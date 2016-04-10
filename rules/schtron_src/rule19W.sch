@@ -2,7 +2,7 @@
 <iso:pattern id="Rule19_EAval" xmlns:iso="http://purl.oclc.org/dsdl/schematron" >
   <iso:rule context="//md:EntityDescriptor/md:Extensions/mdattr:EntityAttributes/saml:Attribute">
     <iso:assert
-          test="saml:AttributeValue[starts-with(normalize-space(text()), 'http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken')
+          test="saml:AttributeValue[normalize-space(text()) = 'http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken'
                                  or normalize-space(text()) = 'http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken-charge']">
 Warning (19): EntityCategories should be restricted to these values:
   http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken,
