@@ -2,7 +2,7 @@
 <!-- this is a minimal entity descriptor for an IDP that is XSD schema valid -->
   <md:EntityDescriptor
           xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
-          entityID="https://idp.example.org/idp.xml">
+          entityID="idp.example.org">
     <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
         <md:SingleSignOnService
             Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"

@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- this is a minimal entity descriptor for an SP that is XSD schema valid -->
 <md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
+                     xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport"
                      entityID="https://sp5.test.example.org/sp.xml">
+        <md:Extensions>
+            <alg:SigningMethod MinKeySize="1536" MaxKeySize="4096"
+                               Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+        </md:Extensions>
   <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
     <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp5.test.example.org/Shibboleth.sso/SAML2/POST" index="1"/>
    </md:SPSSODescriptor>

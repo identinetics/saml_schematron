@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<md:EntityDescriptor
+        xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
+        xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+        entityID="https://idp.example.org/idp.xml">
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <md:Extensions>
+            <mdui:UIInfo>
+                <mdui:DisplayName xml:lang="en">idp.test.example.org</mdui:DisplayName>
+                <mdui:Description xml:lang="en">
+                </mdui:Description>
+            </mdui:UIInfo>
+        </md:Extensions>
+        <md:SingleSignOnService
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+                Location="https://idp.example.org/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+</md:EntityDescriptor>

@@ -54,11 +54,14 @@ class TestValidator(unittest.TestCase):
         logging.info('  -- Test schematron rules with a test file each to succeed and to fail')
         PROJROOT = os.path.dirname(os.path.dirname(__file__))
         with open(re.sub('.py$', '.json', os.path.realpath(__file__))) as f:
-            testcases = json.loads(f.read())
+            try:
+                testcases = json.loads(f.read())
+            except Exception:
+                print("error when loading " + f.name)
+                raise
         for tc in testcases:
-            tc_id = tc[0]
-            print(tc_id, end=' ')
-            (rule, test_type) = tc_id.split('/')
+            rule = tc[0]
+            print(rule, end=' ')
             expected_severity = tc[1][0]
             testfile = tc[1][1]
             print('testing: ' + rule + ' ' + expected_severity + ', ' + testfile)

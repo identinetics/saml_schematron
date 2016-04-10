@@ -27,7 +27,7 @@
                 <mdui:GeolocationHint>geo:48.3308,16.0516</mdui:GeolocationHint>
             </mdui:DiscoHints>
         </md:Extensions>       
-        <md:KeyDescriptor>
+        <md:KeyDescriptor use="signing">
             <ds:KeyInfo>
                 <ds:X509Data>
                     <ds:X509Certificate>MIIGgTCCBWmgAwIBAgIDDUogMA0GCSqGSIb3DQEBBQUAMIGMMQswCQYDVQQGEwJJ

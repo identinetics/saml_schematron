@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- this is a minimal entity descriptor for an SP that is XSD schema valid -->
 <md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
-                     entityID="https://sp5.test.example.org/sp.xml">
+                     entityID="https://sp5.test.example.org/sp.xml/this-is-a-long-uniform-resource-locator-forming-an-entityid-longer-than-eighty-characters">
   <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
     <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp5.test.example.org/Shibboleth.sso/SAML2/POST" index="1"/>
    </md:SPSSODescriptor>

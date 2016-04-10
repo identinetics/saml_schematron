@@ -3,9 +3,9 @@
   <md:EntityDescriptor
           xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
           entityID="https://idp.example.org/idp.xml">
-    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
         <md:SingleSignOnService
-            Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
-            Location="https://idp.example.org/idp/profile/SAML2/Redirect/SSO"/>
+            Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding"
+            Location="https://idp.example.org/idp/dummy"/>
     </md:IDPSSODescriptor>
   </md:EntityDescriptor>

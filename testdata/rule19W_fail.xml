@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
+                     xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute"
+                     xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+                     entityID="https://sp.test.example.org/sp.xml">
+    <md:Extensions>
+        <mdattr:EntityAttributes>
+            <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+                            Name="http://macedir.org/entity-category"
+                            NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+                <saml:AttributeValue>http://www.example.org/category/not-registered-here
+                </saml:AttributeValue>
+            </saml:Attribute>
+        </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+                                     Location="https://sp.test.example.org/Shibboleth.sso/SAML2/POST"
+                                     index="1"/>
+    </md:SPSSODescriptor>
+</md:EntityDescriptor>
