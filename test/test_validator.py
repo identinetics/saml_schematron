@@ -14,7 +14,7 @@ def execute_a_test(rule, expected_severity, testfile, PROJROOT):
     validator_result = validator.validate()
     fname = os.path.join(PROJROOT, 'work', rule + '_' + expected_severity + '.err')
     with open(fname, 'w') as fd:
-        fd.write(validator_result.messagerefac)
+        fd.write(validator_result.message)
     # pyunit test not useful to have multiple assertions in a test becuase it does not continue
     #assert validator_result.level == expected_severity, ('expected severity level ' +
     #    expected_severity + ' but test returned ' + validator_result.level + '. rule: ' + rule +
@@ -61,5 +61,5 @@ class TestValidator(unittest.TestCase):
             (rule, test_type) = tc_id.split('/')
             expected_severity = tc[1][0]
             testfile = tc[1][1]
-            print('testing: ' + rule + expected_severity + testfile)
+            print('testing: ' + rule + ' ' + expected_severity + ', ' + testfile)
             execute_a_test(rule, expected_severity, testfile, PROJROOT)

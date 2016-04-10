@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- this is a minimal entity descriptor for an IDP that is XSD schema valid -->
+<md:EntitiesDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
+                       xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+    <md:EntityDescriptor entityID="https://idp.example.org/idp.xml">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+            <md:Extensions>
+                <mdattr:EntityAttributes>
+                    <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+                                    Name="http://macedir.org/entity-category"
+                                    NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+                        <saml:AttributeValue>http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken
+                        </saml:AttributeValue>
+                    </saml:Attribute>
+                </mdattr:EntityAttributes>
+            </md:Extensions>
+            <md:SingleSignOnService
+                    Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+                    Location="https://idp.example.org/idp/profile/SAML2/Redirect/SSO"/>
+        </md:IDPSSODescriptor>
+    </md:EntityDescriptor>
+</md:EntitiesDescriptor>
