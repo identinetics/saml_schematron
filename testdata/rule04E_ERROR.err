@@ -1,1 +1,3 @@
-Error (04): Each IDPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data) XPATH: /md:EntitiesDescriptor[1] /md:EntityDescriptor[1] /md:IDPSSODescriptor[1] validation rule: (md:KeyDescriptor[@use='signing' or not(@use)]/ds:KeyInfo/ds:X509Data/ds:X509Certificate)
+Error (04): Each IDPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data)         
+        
+INFO: 0, WARNING: 0, ERROR: 1

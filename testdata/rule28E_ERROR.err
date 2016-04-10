@@ -1,0 +1,3 @@
+Error (28): MinKeySize must be greater or equal to 256 if Algorithm starts with "http://www.w3.org/2001/04/xmldsig-more#ecdsa"
+    
+INFO: 0, WARNING: 0, ERROR: 1

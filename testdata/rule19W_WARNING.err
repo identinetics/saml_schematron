@@ -1,0 +1,5 @@
+Warning (19): EntityCategories should be restricted to these values:
+  http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken,
+  http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken-charge
+    
+INFO: 0, WARNING: 1, ERROR: 0

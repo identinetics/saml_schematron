@@ -1,0 +1,3 @@
+Error (27): MinKeySize must be greater or equal to 2048 if Algorithm starts with "http://www.w3.org/2001/04/xmldsig-more#rsa"
+    
+INFO: 0, WARNING: 0, ERROR: 1

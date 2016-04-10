@@ -1,0 +1,3 @@
+Warning (26): SigningMethod element should not contain @Algorithm value http://www.w3.org/2000/09/xmldsig#rsa-sha1
+    
+INFO: 0, WARNING: 1, ERROR: 0

@@ -1,0 +1,3 @@
+Warning (01): @entityID values should start with “http://”, “https://” or “urn:”
+    
+INFO: 0, WARNING: 1, ERROR: 0

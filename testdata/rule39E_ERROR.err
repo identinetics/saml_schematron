@@ -1,0 +1,6 @@
+Error (39): alg:DigestMethod element may only contain following @Algorithm values:
+    http://www.w3.org/2001/04/xmlenc#sha256
+    http://www.w3.org/2001/04/xmlenc#sha512 
+    http://www.w3.org/2001/04/xmlenc#ripemd160
+    
+INFO: 0, WARNING: 0, ERROR: 1

@@ -1,0 +1,3 @@
+Error (18a): EntityAttributes containing an EntityCategory need to be direct descendants of EntitDescriptor (found http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken)
+    
+INFO: 0, WARNING: 0, ERROR: 1

@@ -1,0 +1,3 @@
+Error (12): IDPSSODescriptor must contain alg:DigestMethod
+    
+INFO: 0, WARNING: 0, ERROR: 1

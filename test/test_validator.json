@@ -1,5 +1,5 @@
 [
-  ["rule00I", ["OK", "idp_valid.xml"]],
+  ["rule00I", ["INFO", "idp_valid.xml"]],
   ["rule01W", ["OK", "idp_valid.xml"]],
   ["rule01W", ["OK", "rule01W_OK_1.xml"]],
   ["rule01W", ["OK", "rule01W_OK_2.xml"]],

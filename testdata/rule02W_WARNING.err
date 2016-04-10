@@ -1,0 +1,6 @@
+Warning (02): This NameIDFormat may not be supported. Supported values for NameIDFormat are:
+    urn:oasis:names:tc:SAML:2.0:nameid-format:persistent 
+    urn:oasis:names:tc:SAML:2.0:nameid-format:transient 
+    urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified
+    
+INFO: 0, WARNING: 1, ERROR: 0

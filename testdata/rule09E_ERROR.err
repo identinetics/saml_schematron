@@ -1,0 +1,3 @@
+Error (09): IDPSSODescriptor must contain a SingleSignOnService with Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect“
+    
+INFO: 0, WARNING: 0, ERROR: 1

@@ -24,11 +24,11 @@ def execute_a_test(rule, expected_severity, testfile, PROJROOT):
                validator_result.level + '. (' + rule + ' | ' + testfile + ')')
     else:
         print()
-    #if validator_result.level != 'OK':
-    #    try:
-    #        assertNoDiff(fname)
-    #    except (AssertionError, FileNotFoundError) as e:
-    #        print(e)
+    if validator_result.level != 'OK':
+        try:
+            assertNoDiff(fname)
+        except (AssertionError, FileNotFoundError) as e:
+            print(e)
 
 
 class TestValidator(unittest.TestCase):
