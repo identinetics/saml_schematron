@@ -23,7 +23,9 @@
   "rule22E",
   "rule23E",
   "rule24E",
+  "rule25E",
   "rule25W",
+  "rule26E",
   "rule26W",
   "rule27E",
   "rule28E",
@@ -35,5 +37,8 @@
   "rule34W",
   "rule35E",
   "rule36E",
-  "rule37E"
+  "rule37E",
+  "rule38E",
+  "rule39E",
+  "rule40E"
 ]

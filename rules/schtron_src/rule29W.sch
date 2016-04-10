@@ -2,7 +2,7 @@
 <iso:pattern id="Rule29_maxkeysize" xmlns:iso="http://purl.oclc.org/dsdl/schematron">
   <iso:rule context="alg:SigningMethod">
     <iso:assert test="@MaxKeySize">
-Error (29): alg:SigningMethod must have an attribute MaxKeySize
+Warning (29): alg:SigningMethod must have an attribute MaxKeySize
     </iso:assert>
   </iso:rule>
 </iso:pattern>

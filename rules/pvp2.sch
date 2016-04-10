@@ -47,22 +47,21 @@
   <iso:include href="schtron/rule22E.sch"/>
 
   <iso:include href="schtron/rule23E.sch"/>
-  <iso:include href="schtron/rule24E.sch"/>
   <iso:include href="schtron/rule25W.sch"/>
   <iso:include href="schtron/rule26W.sch"/>
-
   <iso:include href="schtron/rule27E.sch"/>
-  <iso:include href="schtron/rule28E.sch"/>
-  <iso:include href="schtron/rule29W.sch"/>
-  <iso:include href="schtron/rule30W.sch"/>
 
+  <iso:include href="schtron/rule28E.sch"/>
+  <iso:include href="schtron/rule30W.sch"/>
   <iso:include href="schtron/rule31W.sch"/>
   <iso:include href="schtron/rule32E.sch"/>
+
   <iso:include href="schtron/rule33W.sch"/>
   <iso:include href="schtron/rule34W.sch"/>
-
   <iso:include href="schtron/rule35W.sch"/>
   <iso:include href="schtron/rule36E.sch"/>
+
   <iso:include href="schtron/rule37E.sch"/>
+  <iso:include href="schtron/rule38E.sch"/>
 
 </iso:schema>
