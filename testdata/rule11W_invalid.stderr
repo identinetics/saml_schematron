@@ -1,6 +1,0 @@
-
-Warning (11): SPSSODescriptor should contain an AssertionConsumerService with Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
-     XPATH: /md:EntitiesDescriptor[1]
-   /md:EntityDescriptor[1]
-   /md:SPSSODescriptor[1]
-    validation rule: (md:AssertionConsumerService[normalize-space(@Binding)='urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'])
