@@ -7,12 +7,14 @@ import json
 
 class ApiArgs():
     """ Structure to pass arguments to validator for API calls """
-    def __init__(self, md_xml, rule=None, profile=None):
+    def __init__(self, md_xml='dummy', rule=None, profile=None, listprofiles=False):
         cli = [md_xml, ]
         if profile is not None:
             cli = ['--profile', profile] + cli
         if rule is not None:
             cli = ['--rule', rule] + cli
+        if listprofiles:
+            cli = ['--listprofiles'] + cli
         self.cliInvocation = CliInvocation(cli)
 
 
@@ -27,20 +29,23 @@ class CliInvocation():
             help='JSON file containing a list of rules for a SAML profile (relative path to cwd')
         self.parser.add_argument('-r', '--rule', dest='rule',
             help='rule name (schematron rule file name, without extension')
+        self.parser.add_argument('-l', '--listprofiles', dest='proflist', action="store_true",
+            help='list available profiles (and ignore check of metadatafile - provide a dummy name)')
         self.parser.add_argument('metadatafile', help='metadata file name')
 
         if (testargs):
             self.args = self.parser.parse_args(testargs)  # for unit test
         else:
             self.args = self.parser.parse_args()  # regular case: use sys.argv
-        if self.args.profile is None and self.args.rule is None:
-            self.parser.error('Missing argument: must specify either -profile or -rule')
-        if self.args.profile is not None and self.args.rule is not None:
-            self.parser.error('Mutually exclusive arguments: cannot specify both -profile and -rule')
-        if not os.access(self.args.metadatafile, os.R_OK):
-            self.parser.error('Metadata file not found or not readable:' + self.args.metadatafile)
-        if self.args.profile is not None and not os.access(self.args.profile, os.R_OK):
-            self.parser.error('Profile file not found or not readable:' + self.args.profile)
+        if not self.args.proflist:
+            if self.args.profile is None and self.args.rule is None:
+                self.parser.error('Missing argument: must specify either -profile or -rule')
+            if self.args.profile is not None and self.args.rule is not None:
+                self.parser.error('Mutually exclusive arguments: cannot specify both -profile and -rule')
+            if not os.access(self.args.metadatafile, os.R_OK):
+                self.parser.error('Metadata file not found or not readable:' + self.args.metadatafile)
+            if self.args.profile is not None and not os.access(self.args.profile, os.R_OK):
+                self.parser.error('Profile file not found or not readable:' + self.args.profile)
 
 
 class ValidatorResult:
@@ -71,13 +76,26 @@ class Validator:
             self.schtrondir = os.path.join(self.projdir, 'rules', 'schtron_exp')
         if invocation.args.rule is not None:
             self.rules = [invocation.args.rule]
-        else:
+        elif invocation.args.profile is not None:
             with open(invocation.args.profile) as fd:
                 profile = json.load(fd)
                 self.rules = profile['rules']
                 if invocation.args.verbose: print(profile['profile'])
             assert isinstance(self.rules, (list, tuple))
 
+    def get_profiles(self):
+        profiles = []
+        prof_dir = os.path.join(self.projdir, 'rules', 'profiles')
+        for fname in os.listdir(path=prof_dir):
+            if fname[-5:] != '.json':
+                continue
+            if fname == 'allrules.json':
+                continue
+            with open(os.path.join(prof_dir, fname)) as fd:
+                profile = json.load(fd)
+            if 'profile' in profile:
+                profiles.append({'file': fname, 'name': profile['profile']})
+        return profiles
 
     def validate(self) -> ValidatorResult:
         validator_result = ValidatorResult()
@@ -131,7 +149,13 @@ def run_me(testrunnerInvocation=None):
     else:
         invocation = CliInvocation()
     validator = Validator(invocation)
-    return validator.validate()
+    if invocation.args.proflist:
+        print('File | Profile')
+        for profile in validator.get_profiles():
+            print(profile['file'] + ' | ' + profile['name'])
+        exit(0)
+    else:
+        return validator.validate()
 
 
 if __name__ == '__main__':
