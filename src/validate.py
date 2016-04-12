@@ -26,7 +26,7 @@ class CliInvocation():
         self.parser.add_argument('-R', '--ruledir', dest='ruledir',
             help='path for (expanded) schematron rule file(s). Default: "rules/schtron_exp"')
         self.parser.add_argument('-p', '--profile', dest='profile',
-            help='JSON file containing a list of rules for a SAML profile (relative path to cwd')
+            help='JSON file containing a list of rules for a SAML profile (basename only, no dir')
         self.parser.add_argument('-r', '--rule', dest='rule',
             help='rule name (schematron rule file name, without extension')
         self.parser.add_argument('-l', '--listprofiles', dest='proflist', action="store_true",
@@ -46,6 +46,8 @@ class CliInvocation():
                 self.parser.error('Metadata file not found or not readable:' + self.args.metadatafile)
             if self.args.profile is not None and not os.access(self.args.profile, os.R_OK):
                 self.parser.error('Profile file not found or not readable:' + self.args.profile)
+        if self.args.ruledir is None:
+            self.args.ruledir = 'rules/schtron_exp'
 
 
 class ValidatorResult:
@@ -70,10 +72,7 @@ class Validator:
             print('self.projdir = ' + self.projdir)
             print('metadatafile = ' + self.metadatafile)
             print('rules: ' + ', '.join(invocation.args.rule))
-        if getattr(invocation.args, 'ruledir', None):
-            self.schtrondir = invocation.args.ruledir
-        else:
-            self.schtrondir = os.path.join(self.projdir, 'rules', 'schtron_exp')
+        self.ruledir = invocation.args.ruledir
         if invocation.args.rule is not None:
             self.rules = [invocation.args.rule]
         elif invocation.args.profile is not None:
@@ -83,15 +82,15 @@ class Validator:
                 if invocation.args.verbose: print(profile['profile'])
             assert isinstance(self.rules, (list, tuple))
 
-    def get_profiles(self):
+    def get_profiles(self) -> list:
         profiles = []
-        prof_dir = os.path.join(self.projdir, 'rules', 'profiles')
-        for fname in os.listdir(path=prof_dir):
+        profiledir = os.path.join(self.projdir, 'rules', 'profiles')
+        for fname in os.listdir(path=profiledir):
             if fname[-5:] != '.json':
                 continue
             if fname == 'allrules.json':
                 continue
-            with open(os.path.join(prof_dir, fname)) as fd:
+            with open(os.path.join(profiledir, fname)) as fd:
                 profile = json.load(fd)
             if 'profile' in profile:
                 profiles.append({'file': fname, 'name': profile['profile']})
@@ -110,7 +109,7 @@ class Validator:
         validator_result.message = ''
         tracker = {'OK': 0, 'INFO': 0, 'WARNING': 0, 'ERROR': 0}
         for rule in self.rules:
-            schtron_dom = etree.parse(os.path.join(self.schtrondir, rule + '_exp.sch'))
+            schtron_dom = etree.parse(os.path.join(self.projdir, self.ruledir, rule + '_exp.sch'))
             schtron_val = Schematron(schtron_dom, error_finder=Schematron.ASSERTS_AND_REPORTS)
             if schtron_val.validate(md_dom):
                 tracker['OK'] += 1
