@@ -1,0 +1,26 @@
+Info (00): Validating entityID https://idpsp.test.example.org/idp.xml
+Warning (03): Each SPSSODescriptor should contain NameIDFormat with one or more values
+      
+Error (04): Each SPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data)
+        
+Warning (05): EntityDescriptor should contain an Organization
+    
+Warning (06): EntityDescriptor should contain ContactPerson with a contactType of "support" and at least one EmailAddress
+    
+Warning (07): EntityDescriptor should contain ContactPerson with a contactType of "technical" and at least one EmailAddress
+     
+Error (12): SPSSODescriptor must contain alg:DigestMethod
+    
+Error (13): SPSSODescriptor must contain SigningMethod
+    
+Warning (15): SPSSODescriptor should contain SingleLogoutService
+    
+Warning (17): SPSSODescriptor should include Extensions/DiscoveryResponse
+    
+Warning (20): SPSSODescriptor should include init:RequestInitiator
+    
+Warning (21): SPSSODescriptor should include a mdui:UIInfo element
+    
+Error (32): IDPSSODescriptor  must contain a mdui:UIInfo element
+    
+INFO: 1, WARNING: 8, ERROR: 4
