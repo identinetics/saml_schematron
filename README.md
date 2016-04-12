@@ -16,6 +16,7 @@ xml-coreutils (only for the generation of doc/messages.txt)
 cd $PROJROOT
 python src/validate.py --rule rule11W testdata/sp_valid.xml  # test against a single rule 
 python src/validate.py --profile webssored testdata/sp_valid.xml  # test against a profile (set of rules)
+python src/validate.py --listprofiles dummy # list available profiles
 
 ### Python API
 Validating an EntityDescriptor against a single rule:
@@ -52,6 +53,18 @@ Validate using either xsltproc of Xalan:
        -j  use Java/Xalan instead of libxml2/xsltproc
        -s  output short form (message text only, no xpath and document location)
        -v  verbose
+
+
+
+### Web Application
+
+Build a docker container as in docker/Dockerfile, or use the Dockerfile for your custom 
+installation. It executes the simple web application in the webapp directory (currently only German).
+The default configuration assumes the you connect the container's webserver to a HTTP reverse 
+proxy such as Apache/mod_proxy or nginx.
+Configure your settings in docker/conf.sh
+Execute the container using docker/run.sh
+      
 
 ## Contents
 
@@ -126,33 +139,6 @@ simple stand-alon web server to upload files for xsd and schematron validation
     SAML metdata schema files modified to be read from local directory instead of URLs.
 
 ## Usage
-
-### Run the validator as a web application
-
-Build a docker container as in docker/Dockerfile, or use the Dockerfile for your custom 
-installation. It execute the simple web application in the webapp directory currently only German).
-The default configuration assumes the you connect the container's webserver to a HTTP reverse 
-proxy such as Apache/mod_proxy or nginx.
-Configure your settings in conf.sh
-Execute the container using run.sh
-      
-### Run the validator using libxslt (encapsulated in make)
-
-1. Generate the validation style sheet from schematron rules
-   cd rules/schtron_src && make 
-2. Execute the validation style sheet 
-   xsltproc ../schtron_xsl/rule19W.xsl ../../testdata/rule19W_fail.xml
-      
-### Run the validator using xalan
-
-1. Generate the validation stylesheet from schematron rules 
-   java -jar xalan.jar -OUT validate/allrules.xsl -IN profiles/allrules.sch -XSL lib/message.xsl
-2. Execute the validation stylesheet
-   java -jar xalan.jar -XSL validate/allrules.xsl -IN testdata/idp_invalid.xml 
-
-### Use the validator using the Python API
-
-    t.b.d.
 
 ##  Reference
 
