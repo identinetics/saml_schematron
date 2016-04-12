@@ -11,6 +11,48 @@ These schematron rules were tested with xalan and libxslt.
 
 xml-coreutils (only for the generation of doc/messages.txt)
 
+## Usage
+### Command Line
+cd $PROJROOT
+python src/validate.py --rule rule11W testdata/sp_valid.xml  # test against a single rule 
+python src/validate.py --profile webssored testdata/sp_valid.xml  # test against a profile (set of rules)
+
+### Python API
+Validating an EntityDescriptor against a single rule:
+
+    from validate import ApiArgs, Validator
+    md_file = "testdata/idp_incomplete.xml"
+    rule='rule06W'
+    validator = Validator(ApiArgs(md_file, rule=rule).cliInvocation)
+    validator_result = validator.validate()
+    print(validator_result.message)
+    
+    > 'Warning (06): EntityDescriptor should contain ContactPerson with a contactType of "support" and at least one EmailAddress\n    \nINFO: 0, WARNING: 1, ERROR: 0'
+
+Validating an EntityDescriptor against a profile:
+
+    sys.path.append('src')
+    from validate import ApiArgs, Validator
+    md_file = "testdata/idp_incomplete.xml"
+    profile='rules/saml2int.json'
+    validator = Validator(ApiArgs(md_file, profile=profile).cliInvocation)
+    validator_result = validator.validate()
+    print(validator_result.message)
+    
+    > Error (04): Each IDPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data)         
+    > Warning (06): EntityDescriptor should contain ContactPerson with a contactType of "support" and at least one EmailAddress
+    > Warning (07): EntityDescriptor should contain ContactPerson with a contactType of "technical" and at least one EmailAddress
+    > INFO: 0, WARNING: 2, ERROR: 1
+
+
+### XSL Processor
+Validate using either xsltproc of Xalan:
+
+    scripts/val_schtron.sh [-j] xslt-file xml-file
+       -j  use Java/Xalan instead of libxml2/xsltproc
+       -s  output short form (message text only, no xpath and document location)
+       -v  verbose
+
 ## Contents
 
 #### lib/base.xsl

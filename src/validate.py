@@ -73,7 +73,9 @@ class Validator:
             self.rules = [invocation.args.rule]
         else:
             with open(invocation.args.profile) as fd:
-                self.rules = json.load(fd)
+                profile = json.load(fd)
+                self.rules = profile['rules']
+                if invocation.args.verbose: print(profile['profile'])
             assert isinstance(self.rules, (list, tuple))
 
 

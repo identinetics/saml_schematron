@@ -1,0 +1,31 @@
+{
+  "profile": "WebSSO Federation Best Practice",
+  "rules": [
+    "rule00I",
+    "rule01W",
+    "rule03W",
+    "rule04E",
+    "rule05W",
+    "rule06W",
+    "rule07W",
+    "rule08W",
+    "rule09E",
+    "rule10W",
+    "rule11W",
+    "rule12E",
+    "rule13E",
+    "rule15W",
+    "rule17W",
+    "rule18E",
+    "rule20W",
+    "rule21W",
+    "rule22E",
+    "rule23E",
+    "rule27E",
+    "rule28E",
+    "rule31W",
+    "rule32E",
+    "rule35W",
+    "rule40E"
+  ]
+}

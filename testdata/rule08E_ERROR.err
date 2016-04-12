@@ -1,3 +1,0 @@
-Error (08): EntityDescriptor created by the entity operator must not contain elements from the mdrpi namespace (urn:oasis:names:tc:SAML:metadata:rpi); this is reserved for metadata publishers.
-    
-INFO: 0, WARNING: 0, ERROR: 1

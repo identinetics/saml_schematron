@@ -15,7 +15,8 @@ def execute_a_test(rule, expected_severity, testfile, PROJROOT):
     fname = os.path.join(PROJROOT, 'work', rule + '_' + expected_severity + '.err')
     with open(fname, 'w') as fd:
         fd.write(validator_result.message)
-    # pyunit test not useful to have multiple assertions in a test becuase it does not continue
+    # pyunit test not useful to have multiple assertions in a test because it does not continue
+    # all unittests run as a single pyunit test
     #assert validator_result.level == expected_severity, ('expected severity level ' +
     #    expected_severity + ' but test returned ' + validator_result.level + '. rule: ' + rule +
     #    ', testdata: ' + testfile)
@@ -33,24 +34,8 @@ def execute_a_test(rule, expected_severity, testfile, PROJROOT):
 
 class TestValidator(unittest.TestCase):
 
-    # def test_xslt_service(self):
-    #     logging.info('  -- Test basic lxml/xslt functionality with simple copy template')
-    #     PROJROOT = os.path.dirname(os.path.dirname(__file__))
-    #     logging.debug('PROJROOT: ' + PROJROOT)
-    #
-    #     df_in = os.path.join(PROJROOT, 'testdata/test00.xml')
-    #     df_out = os.path.join(PROJROOT, 'work/test00.xml')
-    #     sf = os.path.join(PROJROOT, 'testdata/copy_all.xsl')
-    #     md_dom  = etree.parse(df_in)
-    #     xslt = etree.fromstring(open(sf).read())
-    #     transform = etree.XSLT(xslt)
-    #     out_dom = transform(md_dom)
-    #     out_bytes = etree.tostring(out_dom, xml_declaration=False, encoding='utf-8')
-    #     with open(df_out, 'w') as fd:
-    #         fd.write(out_bytes.decode('utf-8'))
-    #     assertNoDiff(df_out)
-
-    def test_validate(self):
+    def test_validate_rules(self):
+        """ test all rules """
         logging.info('  -- Test schematron rules with a test file each to succeed and to fail')
         PROJROOT = os.path.dirname(os.path.dirname(__file__))
         with open(re.sub('.py$', '.json', os.path.realpath(__file__))) as f:
@@ -64,5 +49,29 @@ class TestValidator(unittest.TestCase):
             print(rule, end=' ')
             expected_severity = tc[1][0]
             testfile = tc[1][1]
-            print('testing: ' + rule + ' ' + expected_severity + ', ' + testfile)
             execute_a_test(rule, expected_severity, testfile, PROJROOT)
+
+
+    def test_validate_webssofed(self):
+        """ test API with a profile"""
+        logging.info('  -- Testing profile webssofed')
+        print('Profile webssofed')
+        PROJROOT = os.path.dirname(os.path.dirname(__file__))
+        md_fname = os.path.join(PROJROOT, 'testdata', 'idp_sp_incomplete.xml')
+        profile_fname = os.path.join(PROJROOT, 'rules', 'profiles', 'webssofed.json')
+        validator = Validator(ApiArgs(md_fname, profile=profile_fname).cliInvocation)
+        validator_result = validator.validate()
+        fname = os.path.join(PROJROOT, 'work', 'webssofed.err')
+        with open(fname, 'w') as fd:
+            fd.write(validator_result.message)
+        if validator_result.level != 'ERROR':
+            print ('expected severity level ERROR but test returned ' +
+                   validator_result.level + '.\n (' + profile_fname + ' \n ' + md_fname + ')')
+        else:
+            print()
+        if validator_result.level != 'OK':
+            try:
+                assertNoDiff(fname)
+            except (AssertionError, FileNotFoundError) as e:
+                print(e)
+
