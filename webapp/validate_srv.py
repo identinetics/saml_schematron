@@ -22,29 +22,31 @@ import os
 import random
 import subprocess
 from config import Config
+from validate import ApiArgs, Validator
+
 
 def get_handler(req):
-    return BaseResponse(req_template.render(), mimetype='text/html')
+    return BaseResponse(req_template.render(profileoptions=config.profileoptions),
+                        mimetype='text/html')
 
 def post_handler(req):
     file = req.files['md_instance']
     fname = file.filename
     if not fname:
         return BaseResponse('no file uploaded', status=400)
-    tmpfile = config.tempdir + fname + '_' + str(random.randrange(99999999))
+    tmpfile = os.path.join(config.tempdir, fname + '_' + str(random.randrange(99999999)))
     file.save(tmpfile)
-    profile_display_text = req.form['md_profile']
-    if not profile_display_text in config.profiles.keys():
-        return BaseResponse('invalid metadata profile: ' + profile_display_text, status=400)
-    profile_key = config.profiles[profile_display_text]
-    try:
-        val_out = subprocess.check_output([config.val_script, tmpfile, profile_key]).decode('utf-8')
-    except subprocess.CalledProcessError:
-        val_out = 'validation failed'
+    profile_display_name = req.form['md_profile']
+    if not profile_display_name in config.profiles.keys():
+        return BaseResponse('invalid metadata profile: ' + profile_display_name, status=400)
+
+    profile_file = config.profiles[profile_display_name]
+    validator = Validator(ApiArgs(tmpfile, profile=profile_file).cliInvocation)
+    validator_result = validator.validate()
     os.remove(tmpfile)
-    html = res_template.render(validationType=profile_display_text,
+    html = res_template.render(validationType=profile_display_name,
                                fname=fname,
-                               val_out=val_out.replace("\n", "<br/>"))
+                               val_out=validator_result.message.replace("\n", "<br/>"))
     return BaseResponse(html,
                         mimetype='text/html',
                         direct_passthrough=False)

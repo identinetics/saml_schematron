@@ -81,9 +81,6 @@ class TestValidator(unittest.TestCase):
         """ test API with a profile"""
         logging.info('  -- List profiles')
         print('List profiles')
-        PROJROOT = os.path.dirname(os.path.dirname(__file__))
-        md_fname = os.path.join(PROJROOT, 'testdata', 'idp_sp_incomplete.xml')  # dummy
-        profile_fname = os.path.join(PROJROOT, 'rules', 'profiles', 'webssofed.json')
         validator = Validator(ApiArgs(listprofiles=True).cliInvocation)
         print('File | Profile')
         for profile in validator.get_profiles():
