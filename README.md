@@ -96,19 +96,17 @@ Execute the container using run.sh
       
 ### Run the validator using libxslt (encapsulated in make)
 
-1. Generate the validation style sheet from schematron rules (see Makefile for other make targets)
-   make genall
+1. Generate the validation style sheet from schematron rules
+   cd rules/schtron_src && make 
 2. Execute the validation style sheet 
-   make valall IN=testdata/idp5_valid.xml
-Note: if all validation rules pass, the output will contain "Validating entityID https://idp5.test.example.org/idp.xml"
-if the ruleset includes reportEntity.sch; otherwise it will be empty.
+   xsltproc ../schtron_xsl/rule19W.xsl ../../testdata/rule19W_fail.xml
       
 ### Run the validator using xalan
 
 1. Generate the validation stylesheet from schematron rules 
    java -jar xalan.jar -OUT validate/allrules.xsl -IN profiles/allrules.sch -XSL lib/message.xsl
 2. Execute the validation stylesheet
-   java -jar xalan.jar -XSL validate/allrules.xsl -IN testdata/idp5_invalid.xml 
+   java -jar xalan.jar -XSL validate/allrules.xsl -IN testdata/idp_invalid.xml 
 
 ### Use the validator using the Python API
 
