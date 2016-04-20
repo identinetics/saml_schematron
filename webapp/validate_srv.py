@@ -22,7 +22,7 @@ import os
 import random
 import subprocess
 from config import Config
-from validate import ApiArgs, Validator
+from saml_schtron.validate import ApiArgs, Validator
 
 
 def get_handler(req):
@@ -65,7 +65,7 @@ def application(environ, start_response):
 
 
 # start server
-if __name__ == '__main__':
+def main():
     config = Config()
 
     with open(config.templatedir + '/validate_srv_req.html', 'r', encoding="utf-8") as f:
@@ -73,8 +73,11 @@ if __name__ == '__main__':
     with open(config.templatedir + '/validate_srv_res.html', 'r', encoding="utf-8") as f:
         res_template = jinja2.Template(f.read())
 
-
     werkzeug.serving.run_simple(config.HttpServer['listen'],
                config.HttpServer['port'],
                application,
                use_debugger=True)
+
+
+if __name__ == '__main__':
+    main()

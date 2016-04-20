@@ -3,7 +3,7 @@ MAINTAINER r2h2 <rainer@hoerbe.at>
 
 # CentOS7 + prerequsites
 RUN yum -y install epel-release \
- && yum -y install curl git ip lsof net-tools unzip xmlstarlet \
+ && yum -y install curl git ip lsof make net-tools unzip xmlstarlet \
  && yum -y install gcc libxslt-devel python-pip python34-devel \
  && yum -y install java-1.8.0-openjdk-devel.x86_64
 RUN yum -y clean all \
@@ -18,18 +18,16 @@ RUN groupadd -g $UID $USERNAME \
  && mkdir -p /opt/saml_schematron
 
 WORKDIR /opt/saml_schematron
-
 RUN git clone https://github.com/rhoerbe/saml_schematron.git . \
  && curl -O https://www-eu.apache.org/dist/xalan/xalan-j/binaries/xalan-j_2_7_2-bin-2jars.tar.gz \
  && tar -xzf xalan-j_2_7_2-bin-2jars.tar.gz \
  && rm xalan-j_2_7_2-bin-2jars.tar.gz
 
-RUN ./scripts/make_schtron.sh rules/allrules.sch \
- && ./scripts/make_schtron.sh rules/pvp2.sch \
- && ./scripts/make_schtron.sh rules/saml2int.sch
+WORKDIR /opt/saml_schematron/rules/schtron_src
+#RUN mkdir -p ../schtron_xsl && make
 
-ENV XMLSECARC xmlsectool-1.2.0-bin.zip
 WORKDIR /opt/saml_schematron/lib
+ENV XMLSECARC xmlsectool-1.2.0-bin.zip
 RUN curl -O http://shibboleth.net/downloads/tools/xmlsectool/latest/$XMLSECARC \
  && unzip $XMLSECARC \
  && chown -R $USERNAME:$USERNAME /opt/saml_schematron \

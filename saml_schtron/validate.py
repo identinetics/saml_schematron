@@ -146,7 +146,7 @@ class Validator:
         return validator_result
 
 
-def run_me(testrunnerInvocation=None):
+def main(testrunnerInvocation=None):
     if testrunnerInvocation:
         # CLI args and logger set by unit test
         invocation = testrunnerInvocation
@@ -165,6 +165,6 @@ def run_me(testrunnerInvocation=None):
 if __name__ == '__main__':
     if sys.version_info < (3, 4):
         raise "must use python 3.4 or higher"
-    val_result = run_me()
+    val_result = main()
     print('max. severity: ' + val_result.level)
     print(val_result.message)

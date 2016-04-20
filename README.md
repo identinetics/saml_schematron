@@ -21,7 +21,7 @@ python src/validate.py --listprofiles dummy # list available profiles
 ### Python API
 Validating an EntityDescriptor against a single rule:
 
-    from validate import ApiArgs, Validator
+    from saml_schtron.validate import ApiArgs, Validator
     md_file = "testdata/idp_incomplete.xml"
     rule='rule06W'
     validator = Validator(ApiArgs(md_file, rule=rule).cliInvocation)
@@ -33,7 +33,7 @@ Validating an EntityDescriptor against a single rule:
 Validating an EntityDescriptor against a profile:
 
     sys.path.append('src')
-    from validate import ApiArgs, Validator
+    from saml_schtron.validate import ApiArgs, Validator
     md_file = "testdata/idp_incomplete.xml"
     profile='rules/saml2int.json'
     validator = Validator(ApiArgs(md_file, profile=profile).cliInvocation)
