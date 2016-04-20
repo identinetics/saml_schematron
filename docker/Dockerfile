@@ -20,6 +20,7 @@ RUN groupadd -g $UID $USERNAME \
 WORKDIR /opt/saml_schematron
 RUN mkdir -p /opt/saml_schematron  # dummy to invalidate cache
 RUN git clone https://github.com/rhoerbe/saml_schematron.git . \
+ && python3.4 setup.py install \
  && curl -O https://www-eu.apache.org/dist/xalan/xalan-j/binaries/xalan-j_2_7_2-bin-2jars.tar.gz \
  && tar -xzf xalan-j_2_7_2-bin-2jars.tar.gz \
  && rm xalan-j_2_7_2-bin-2jars.tar.gz
@@ -34,7 +35,7 @@ RUN curl -O http://shibboleth.net/downloads/tools/xmlsectool/latest/$XMLSECARC \
  && chown -R $USERNAME:$USERNAME /opt/saml_schematron \
  && chmod -R 750 /opt/saml_schematron
 COPY start.sh /
-RUN chmod +x /start.sh /opt/saml_schematron/scripts/*.sh /opt/saml_schematron/webapp/*.py
+RUN chmod +x /start.sh /opt/saml_schematron/scripts/*.sh
 
 # === startup backend system
 USER $USERNAME
