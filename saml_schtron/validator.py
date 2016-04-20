@@ -47,6 +47,8 @@ class CliInvocation():
             if not os.access(self.args.metadatafile, os.R_OK):
                 self.parser.error('Metadata file not found or not readable:' + self.args.metadatafile)
             if self.args.profile is not None:
+                if not self.args.profile.endswith('.json'):
+                    self.args.profile += '.json'
                 profile_abspath = os.path.join(projdir, 'rules', 'profiles', self.args.profile)
                 if not os.access(profile_abspath, os.R_OK):
                     self.parser.error('Profile file not found or not readable:' + profile_abspath)

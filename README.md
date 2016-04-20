@@ -4,21 +4,27 @@ SAML-Schematron provides additional rules to OASIS SSTC XML schemas to validate 
 profiles. Users may want to define their own profile-specific rule set reusing existing rules.
 In addition it makes standard XSD validation easy.
 
-## Prerequisites
+## Installation
+Use the provided docker installation (see below), or install using these steps:
 
-XML style sheet processor compliant to XSLT version 1, with support for the exsl:node-set extension.
-These schematron rules were tested with xalan and libxslt.
+Prepare a python environment >= 3.4
 
-xml-coreutils (only for the generation of doc/messages.txt)
+    git clone https://github.com/rhoerbe/saml_schematron.git
+    cd saml_schematron
+    python setup.py install
+
 
 ## Usage
+
 ### Command Line
-cd $PROJROOT
-python src/validate.py --rule rule11W testdata/sp_valid.xml  # test against a single rule 
-python src/validate.py --profile webssored testdata/sp_valid.xml  # test against a profile (set of rules)
-python src/validate.py --listprofiles dummy # list available profiles
+
+    cd $PROJROOT
+    validate.py --rule rule11W testdata/sp_valid.xml  # test against a single rule 
+    validate.py --listprofiles dummy # list available profiles
+    validate.py --profile webssofed testdata/sp_valid.xml  # test against a profile (set of rules)
 
 ### Python API
+
 Validating an EntityDescriptor against a single rule:
 
     from saml_schtron.validate import ApiArgs, Validator
@@ -64,7 +70,7 @@ The default configuration assumes the you connect the container's webserver to a
 proxy such as Apache/mod_proxy or nginx.
 Configure your settings in docker/conf.sh
 Execute the container using docker/run.sh
-      
+
 
 ## Contents
 
@@ -117,10 +123,17 @@ directory (filenames wihtout extension).
 * rules/*.json
   Rule listing for unit tests
 
-    
+#### saml_schtron
+ 
+The python application (API, CLI, web)   
+
+##### xmlschema
+    SAML metdata schema files modified to be read from local directory instead of URLs.
+
+   
 #### scripts
 
-Sample command line invocations and script called from the webapp
+Sample command line invocations 
     
 #### test
 
@@ -131,15 +144,6 @@ Unit tests
 SAML metadata instance documents that are valid to XML Schema. Some contain violations of 
 schematron rules to be used for testing.
     
-#### webapp
-
-simple stand-alon web server to upload files for xsd and schematron validation
-    
-#### xmlschema
-    SAML metdata schema files modified to be read from local directory instead of URLs.
-
-## Usage
-
 ##  Reference
 
 Following files were used as a template:

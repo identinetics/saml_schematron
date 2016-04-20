@@ -1,8 +1,9 @@
-import saml_schtron.validator as validator
+import sys
+from  saml_schtron.validator import CliInvocation, Validator
 
-def main(testrunnerInvocation=None):
-    invocation = validator.CliInvocation()
-    validator = validator.Validator(invocation)
+def main():
+    invocation = CliInvocation()
+    validator = Validator(invocation)
     if invocation.args.proflist:
         print('File | Profile')
         for profile in validator.get_profiles():
