@@ -18,7 +18,7 @@ RUN groupadd -g $UID $USERNAME \
  && mkdir -p /opt/saml_schematron
 
 WORKDIR /opt/saml_schematron
-RUN mkdir -p /opt/saml_schematron  # dummy to invalidate cache
+#RUN mkdir -p /opt/saml_schematron  # dummy to invalidate cache
 RUN git clone https://github.com/rhoerbe/saml_schematron.git . \
  && python3.4 setup.py install \
  && curl -O https://www-eu.apache.org/dist/xalan/xalan-j/binaries/xalan-j_2_7_2-bin-2jars.tar.gz \
