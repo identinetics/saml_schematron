@@ -2,7 +2,7 @@ import json, logging, os.path, re
 import lxml.etree as etree
 import unittest
 from assertNoDiff import assertNoDiff
-from validate import ApiArgs, Validator
+from saml_schtron.validator import ApiArgs, Validator
 
 __author__ = 'r2h2'
 

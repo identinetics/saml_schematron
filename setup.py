@@ -40,15 +40,5 @@ setup(name = 'SAMLSchtron',
           'lxml',
           'Werkzeug',
       ],
-      entry_points = {
-          'console_scripts': [
-              'saml_schtron = validate:main',
-              'saml_schtron_srv = validate_srv:main',
-          ],
-      },
-      )
-
-#,
-#                        'xmlschema/*.xml',
-#                        '#  'rules/schtron_exp/*.sch',
-#                    'rules/profiles/*.*'
+      scripts=["scripts/validate.py", "scripts/start_srv.py"],
+)
