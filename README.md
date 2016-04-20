@@ -9,6 +9,11 @@ Use the provided docker installation (see below), or install using these steps:
 
 Prepare a python environment >= 3.4
 
+    
+    pip install saml_schematron
+    
+or
+    
     git clone https://github.com/rhoerbe/saml_schematron.git
     cd saml_schematron
     python setup.py install
