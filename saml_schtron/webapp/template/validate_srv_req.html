@@ -1,0 +1,71 @@
+﻿<html>
+<head>
+    <meta charset="utf-8">
+    <title>PVP2 SAML Metadata Validation Service</title>
+    <link type="text/css" href="/static/css/reset.css" rel="Stylesheet" />
+    <link type="text/css" href="/static/css/layout.css" rel="Stylesheet" />
+    <link type="text/css" href="/static/css/color.css" rel="Stylesheet" />
+   <style type="text/css">
+      h1 {color: #1631BC; font-size: 200%}
+      h2 {color: #1631BC; font-size: 200%}
+    </style>
+</head>
+<body>
+    <header id="header">
+      <hgroup>
+        <h1><a href="/">Portalverbund Test Federation</a></h1>
+        <h2><a href="/">Metadata Validation Service</a></h2>
+      </hgroup>
+      <ul id="user-actions">
+            <!--li><a class="button" href="/accounts/register/">Sign up</a></li-->
+      </ul>
+    </header>
+    <p>Dieser Dienst validiert einen SAML2 EntityDescriptor nach folgenden Kriterien:<br>
+        1. XML Schema (mit den unten angeführten Schemadefinitionen)<br>
+        2. SAML Schematron (auswählbarer Satz von Regeln)
+    </p>
+    <hr style="margin-top: 1em">
+    <p></p>
+    <form action="" method="post" enctype="multipart/form-data" name="upload">
+        <table border="0">
+          <tr>
+            <td>File to be validated:</td>
+            <td><input type="file" name="md_instance"></td>
+          </tr><tr>
+            <td>Metadata profile:</td>
+            <td>
+              <select name="md_profile">
+{{ profileoptions }}
+              </select>
+            </td>
+          </tr><tr>
+            <td span="2"><input type="submit" value="Validate"></td>
+          </tr>
+        </table>
+    </form>
+    <input action="action" type="button" value="Home" onclick="window.location.href='/'"  />
+    <hr style="margin-top: 5em">
+    <h3>XML Schema Definitions</h3>
+<pre>
+saml-metadata-rpi-v1.0.xsd
+saml-schema-assertion-2.0.xsd
+saml-schema-authn-context-2.0.xsd
+saml-schema-authn-context-ip-2.0.xsd
+saml-schema-authn-context-types-2.0.xsd
+saml-schema-dce-2.0.xsd
+saml-schema-ecp-2.0.xsd
+saml-schema-metadata-2.0.xsd
+saml-schema-protocol-2.0.xsd
+saml-schema-x500-2.0.xsd
+saml-schema-xacml-2.0.xsd
+sstc-metadata-attr.xsd
+sstc-request-initiation.xsd
+sstc-saml-channel-binding-ext-v1.0.xsd
+sstc-saml-idp-discovery.xsd
+sstc-saml-metadata-algsupport.xsd
+sstc-saml-metadata-ext-query.xsd
+sstc-saml-metadata-ui-v1.0.xsd
+xenc-schema.xsd
+xmldsig-core-schema.xsd
+</pre>
+</body>
