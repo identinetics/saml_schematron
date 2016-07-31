@@ -5,12 +5,11 @@ profiles. Users may want to define their own profile-specific rule set reusing e
 In addition it makes standard XSD validation easy.
 
 ## Installation
-Use the provided docker installation (see below), or install using these steps:
+Use the separate docker project (identinetics/docker-samlschematon@github), or install using these steps:
 
 Prepare a python environment >= 3.4
-
     
-    pip install saml_schematron
+    pip install SAMLschtron
     
 or
     
