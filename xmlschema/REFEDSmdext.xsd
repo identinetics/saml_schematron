@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://refeds.org/metadata"
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified"
+  blockDefault="substitution"
+  version="2.0">
+  <xs:annotation>
+    <xs:documentation>
+      Document title: Schema for REFEDS metadata extensions
+      Document identifier: Metadata Extension Schema
+      Location: "https://wiki.refeds.org/display/stan/metadata+extension+schema"
+      Revision history:
+      V1.0 (29 March 2016):
+      Initial version with contactType attribute.
+    </xs:documentation>
+  </xs:annotation>
+  <xs:attribute name="contactType" type="xs:anyURI"/>
+</xs:schema>
