@@ -4,11 +4,8 @@
     ~~~~~~~~~~~~~~~~~~~~~~~~
     
     This script starts up a web server with a page where a SAML metadata file can be uploaded.
-    The uploaded file will be validated and returned together with the validation report.
+    The uploaded file will be validated and the validation report is returned.
 
-    This service is intended for well-behaved users. To service it in the wild you should add appropriate controls,
-    e.g. against DOS and malicious inputs.
-   
     Rainer Hoerbe, 2014-02-21
 
 """
@@ -16,6 +13,7 @@ __author__ = "rhoerbe"
 
 from werkzeug.wrappers import BaseRequest, BaseResponse
 from werkzeug.exceptions import HTTPException, NotFound
+from werkzeug.utils import secure_filename
 import jinja2
 import os
 import random
@@ -36,7 +34,7 @@ class AppHandler():
 
     def post_handler(self, req):
         file = req.files['md_instance']
-        fname = file.filename
+        fname = filename = secure_filename(file.filename)
         if not fname:
             return BaseResponse('no file uploaded', status=400)
         tmpfile = os.path.join(self.config.tempdir, fname + '_' + str(random.randrange(99999999)))
