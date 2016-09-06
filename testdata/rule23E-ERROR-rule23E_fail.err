@@ -1,4 +1,4 @@
-Error (23): alg:DigestMethod element may only contain following @Algorithm values: 
+Error (23): alg:DigestMethod element may only contain following @Algorithm values:
     http://www.w3.org/2000/09/xmldsig#sha1 
     http://www.w3.org/2001/04/xmlenc#sha256 
     http://www.w3.org/2001/04/xmlenc#sha512 
