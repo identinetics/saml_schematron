@@ -13,7 +13,7 @@ Prepare a python environment >= 3.4
     
 or
     
-    git clone https://github.com/rhoerbe/saml_schematron.git
+    git clone https://github.com/identinetics/saml_schematron.git
     cd saml_schematron
     python setup.py install
 

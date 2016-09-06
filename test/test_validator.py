@@ -18,6 +18,7 @@ def execute_a_test(rule, expected_severity, testfile, PROJROOT):
         fd.write(validator_result.message)
     # pyunit test not useful to have multiple assertions in a test because it does not continue
     # all unittests run as a single pyunit test
+
     #assert validator_result.level == expected_severity, ('expected severity level ' +
     #    expected_severity + ' but test returned ' + validator_result.level + '. rule: ' + rule +
     #    ', testdata: ' + testfile)

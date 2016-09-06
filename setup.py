@@ -3,16 +3,18 @@ from distutils.core import setup
 from setuptools import find_packages
 import sys, os
 
-here = os.path.abspath(os.path.dirname(__file__))
-README = open(os.path.join(here, 'README.md')).read()
+readme = '''SAML-Schematron provides additional rules to OASIS SSTC XML schemas to validate metadata against specific
+profiles. Users may want to define their own profile-specific rule set reusing existing rules.
+The package provides an API, CLI and webs erver.
+'''
 
 __author__ = 'Rainer Hörbe'
-__version__ = '0.3.0'
+__version__ = '0.3.1'
 
 print('sys.prefix: ' + sys.prefix)
 setup(name = 'SAMLSchtron',
       description = 'SAML Metadata Schematron Validator: CLI, API & Web Server',
-      long_description = README,
+      long_description = readme,
       classifiers = [
           "Development Status :: 4 - Beta",
           "Intended Audience :: Information Technology",
