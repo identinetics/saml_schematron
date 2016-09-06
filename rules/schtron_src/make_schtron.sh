@@ -1,7 +1,7 @@
 #!/bin/sh
 # to be called from the project root
 SCRIPTDIR=$(cd $(dirname $BASH_SOURCE[0]) && pwd)
-source $SCRIPTDIR/init.sh
+source $SCRIPTDIR/../../scripts/init.sh
 
 runopt='xsltproc'
 verbose=false
