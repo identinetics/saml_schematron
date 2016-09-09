@@ -3,14 +3,16 @@
    <iso:rule context="//md:IDPSSODescriptor">                                  
       <iso:assert 
          test="md:NameIDFormat[text() != '']">
-Warning (03): Each IDPSSODescriptor should contain NameIDFormat with one or more values
+"03a": { "Severity": "Warning",
+         "Message": "Each IDPSSODescriptor should contain NameIDFormat with one or more values",
       </iso:assert>   
    </iso:rule>
         
    <iso:rule context="//md:SPSSODescriptor">                                  
       <iso:assert 
          test="md:NameIDFormat[text() != '']">
-Warning (03): Each SPSSODescriptor should contain NameIDFormat with one or more values
+"03b": { "Severity": "Warning",
+         "Message": "Each SPSSODescriptor should contain NameIDFormat with one or more values",
       </iso:assert>  
    </iso:rule>
 </iso:pattern>

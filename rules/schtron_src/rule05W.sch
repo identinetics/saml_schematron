@@ -3,7 +3,8 @@
   <iso:rule context="md:EntityDescriptor">                                  
     <iso:assert 
          test="md:Organization">
-Warning (05): EntityDescriptor should contain an Organization
+"05": { "Severity": "Warning",
+         "Message": "EntityDescriptor should contain an Organization",
     </iso:assert> 
   </iso:rule>
 </iso:pattern>

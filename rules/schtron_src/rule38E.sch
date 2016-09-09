@@ -6,11 +6,8 @@
                     or @Algorithm='http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256'
                     or @Algorithm='http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512'
     ">
-Error (28): Each alg:SigningMethod may only contain following @Algorithm values:
-http://www.w3.org/2001/04/xmldsig-more#rsa-sha256
-http://www.w3.org/2001/04/xmldsig-more#rsa-sha512
-http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256
-http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512
+"38": { "Severity": "Error",
+         "Message": "Each alg:SigningMethod may only contain following @Algorithm values:\n    http://www.w3.org/2001/04/xmldsig-more#rsa-sha256\n    http://www.w3.org/2001/04/xmldsig-more#rsa-sha512\n    http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256\nhttp://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512",
     </iso:assert>
   </iso:rule>
 </iso:pattern>

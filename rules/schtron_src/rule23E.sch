@@ -9,11 +9,8 @@
                    or normalize-space(@alg:Algorithm)='http://www.w3.org/2001/04/xmlenc#sha512'
                    or normalize-space(@Algorithm)='http://www.w3.org/2001/04/xmlenc#ripemd160'
                    or normalize-space(@alg:Algorithm)='http://www.w3.org/2001/04/xmlenc#ripemd160' ">
-Error (23): alg:DigestMethod element may only contain following @Algorithm values:
-    http://www.w3.org/2000/09/xmldsig#sha1 
-    http://www.w3.org/2001/04/xmlenc#sha256 
-    http://www.w3.org/2001/04/xmlenc#sha512 
-    http://www.w3.org/2001/04/xmlenc#ripemd160
+"23": { "Severity": "Error",
+         "Message": "alg:DigestMethod element may only contain following @Algorithm values:\n    http://www.w3.org/2000/09/xmldsig#sha1\n    http://www.w3.org/2001/04/xmlenc#sha256\n    http://www.w3.org/2001/04/xmlenc#sha512\n    http://www.w3.org/2001/04/xmlenc#ripemd160",
     </iso:assert>
   </iso:rule>
 </iso:pattern>

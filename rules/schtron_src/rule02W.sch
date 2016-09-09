@@ -4,12 +4,9 @@
     <iso:assert 
          test="normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent' 
                or normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient'
-               or normalize-space(text()) = 'urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified'
                or normalize-space(text()) = '' ">
-Warning (02): This NameIDFormat may not be supported. Supported values for NameIDFormat are:
-    urn:oasis:names:tc:SAML:2.0:nameid-format:persistent 
-    urn:oasis:names:tc:SAML:2.0:nameid-format:transient 
-    urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified
+"02": { "Severity": "Warning",
+         "Message": "This NameIDFormat may not be supported. Supported values for NameIDFormat are:\n    urn:oasis:names:tc:SAML:2.0:nameid-format:persistent\n    urn:oasis:names:tc:SAML:2.0:nameid-format:transient",
     </iso:assert>                
   </iso:rule>
 </iso:pattern>

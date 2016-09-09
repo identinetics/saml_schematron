@@ -2,7 +2,8 @@
 <iso:pattern id="Rule14_discoHint" xmlns:iso="http://purl.oclc.org/dsdl/schematron" >
   <iso:rule context="//md:IDPSSODescriptor">                                  
     <iso:assert test="md:Extensions/mdui:DiscoHints">
-Warning (14): IDPSSODescriptor should contain discovery hints
+"14": { "Severity": "Warning",
+         "Message": "IDPSSODescriptor should contain discovery hints",
     </iso:assert>
   </iso:rule>
 </iso:pattern>

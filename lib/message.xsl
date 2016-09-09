@@ -26,22 +26,23 @@
 <!-- Schematron message -->
 
 <xsl:stylesheet
-   version="1.0"
-   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-   xmlns:axsl="http://www.w3.org/1999/XSL/TransformAlias">
+  version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:axsl="http://www.w3.org/1999/XSL/TransformAlias">
 
 <xsl:import href="base.xsl"/>
 
 <xsl:param name="output_reason" select="'yes'"/>
 <xsl:template name="process-prolog">
-   <axsl:output method="text" />
+  <axsl:output method="text" />
     <axsl:template name="xpathgetter">
-     <axsl:variable name="name" select="name()"/>
-     <axsl:apply-templates select="parent::*" mode="xpathgetter"/>/<axsl:value-of select="$name"/>[<axsl:value-of select="count(preceding-sibling::*[name() = $name]) + 1"/>]
-   </axsl:template>
-   <axsl:template match="*" mode="xpathgetter">
-     <axsl:call-template name="xpathgetter"/>
-   </axsl:template>
+      <axsl:variable name="name" select="name()"/>
+      <axsl:variable name="index" select="count(preceding-sibling::*[name() = $name]) + 1"/>
+      <axsl:apply-templates select="parent::*" mode="xpathgetter"/><axsl:value-of select="normalize-space(concat('/', $name, '[', $index, ']'))"/>
+    </axsl:template>
+  <axsl:template match="*" mode="xpathgetter">
+    <axsl:call-template name="xpathgetter"/>
+  </axsl:template>
 </xsl:template>
 
 <!-- use default rule for process-root:  copy contens / ignore title -->
@@ -55,11 +56,12 @@
    <xsl:param name="role" />
    
    <axsl:message>
-      <xsl:apply-templates mode="text"  
-      /> XPATH: <axsl:call-template name="xpathgetter"/><xsl:text> </xsl:text>
-      <xsl:if test="$output_reason='yes'">validation rule: (<xsl:value-of select="$pattern" />
-      <xsl:if test="$role"> / <xsl:value-of select="$role" />
-      </xsl:if>)</xsl:if></axsl:message>
+      <xsl:apply-templates mode="text" /> "<axsl:call-template name="xpathgetter"/>",
+        <xsl:if test="$output_reason='yes'"> "rule": "<xsl:value-of select="$pattern" />
+          <xsl:if test="$role"> / <xsl:value-of select="$role" /></xsl:if>"
+       }
+        </xsl:if>
+   </axsl:message>
 </xsl:template>
 
 </xsl:stylesheet>
