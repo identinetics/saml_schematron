@@ -12,7 +12,7 @@
         <md:Extensions>
             <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
             <alg:SigningMethod MinKeySize="256" MaxKeySize="511" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256" />
-            <alg:SigningMethod MinKeySize="2048" MaxKeySize="4096" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+            <alg:SigningMethod MinKeySize="2048" MaxKeySize="4096" alg:Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
             <!-- blacklisted: http://www.w3.org/2000/09/xmldsig#rsa-sha1 -->
             <mdui:UIInfo>
                 <mdui:DisplayName xml:lang="de">idp5.test.example.org</mdui:DisplayName>
