@@ -1,0 +1,25 @@
+# Installation and Configuration
+
+## Docker
+Use the docker project https://github.com/identinetics/docker-samlschematon.git
+
+
+## PyPi
+
+Prepare a python environment >= 3.4
+
+    pip install SAMLschtron
+    # install xalan and xmlsectool into $PROJHOME/lib (see Dockerfile for details)
+
+
+## From Source
+
+    git clone https://github.com/identinetics/saml_schematron.git
+    cd saml_schematron
+    python setup.py install
+    # install xalan and xmlsectool into $PROJHOME/lib (see Dockerfile for details)
+
+
+## Configuraton
+
+Edit scripts/init.sh to adapt to the target environment

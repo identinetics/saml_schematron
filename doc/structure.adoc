@@ -1,0 +1,77 @@
+# Contents
+
+## lib
+
+### lib/base.xsl
+
+Extension of iso_schematron_skeleton_for_xslt1.xsl. Note that the extensions will definitely require
+an xslt processor with support for exsl:node-set, although this is pretty universal for xslt 1.0 processors.
+
+### lib/svrl.xsl
+
+Outputs SVRL (schematron validation report language) report of validation results - a renderer for
+the report format can be found at http://code.google.com/p/schematron/source/browse/trunk/converters/code/FromSVRL/SVRLReportRender.xsl?r=9eb8e4e286619a1dfb9c21a7e1010f07a5e73975
+svrl.xsl can be used from the command line to output a validating stylesheet in the same way as
+the other xslt implementations of schematron, so the step would be to
+1. run svrl.xsl as the xslt against a schematron schema and output a validating xslt.
+   java -jar xalan.jar -OUT validate/svrlval.xsl -IN profiles/allrules.sch -XSL lib/svrl.xsl
+2. after which you would run svrlval.xsl against a saml file to output the schematron validation rules language report.
+   java -jar xalan.jar -OUT reports/svrl2014_03_27_299949.xml -IN samldocument.saml -XSL validate/svrlval.xsl
+
+### lib/message.xsl
+
+Modified version of iso_schematron_message.xsl, outputting messages and xpath for the elements in the
+instance document causing the message.
+
+### lib/xalan, lib/xmlsectool
+Library dependencies installed here
+
+
+## rules
+Directory with saml metadata validation profiles. A profile is a set of validation rules in the
+form <profilename.json>. The  profile JSON file contains an array of rule name from the schtron
+directory (filenames wihtout extension).
+
+* rules/schtron_src
+  Directory with schematron rules (<iso:pattern>)
+  Makefile (make all) and accompaning scripts and templates.
+
+* rules/schtron_xsl
+  Each rule file is generated into a style scheet that ca be executed with xsltproc or xerces
+
+* rules/allrules.sch
+  Example that executes all rules contained in sch_unit
+
+* rules/*.json
+  Rule listing for unit tests
+
+## saml_schtron
+
+The python application (API, CLI, web)
+
+## scripts
+
+Command line interface
+
+## test
+
+Unit tests
+
+## testdata
+
+SAML metadata instance documents used for testing.
+
+## xmlschema
+    SAML metdata schema files modified to be read from local directory instead of URLs.
+
+'''
+
+##  Reference
+
+Following files were used as a template:
+
+[[iso_schematron_message.xsl]]
+    ISO Schematron validators, generating XSLT1 from Schematron (http://code.google.com/p/schematron/)
+
+[[iso_schematron_skeleton_for_xslt1.xsl]]
+    'skeleton' XSLT scripts which implements Schematron (http://code.google.com/p/schematron/)

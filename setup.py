@@ -9,7 +9,7 @@ The package provides an API, CLI and webs erver.
 '''
 
 __author__ = 'Rainer Hörbe'
-__version__ = '0.3.2'
+__version__ = '0.3.2dev'
 
 print('sys.prefix: ' + sys.prefix)
 setup(name = 'SAMLSchtron',
@@ -40,9 +40,10 @@ setup(name = 'SAMLSchtron',
       version = __version__,
       zip_safe = False,
       install_requires = [
-          'Jinja2',
-          'lxml',
-          'Werkzeug',
+          'Jinja2>=2.8',
+          'lxml>=3.6.0',
+          'MarkupSafe>=0.23'.
+          'Werkzeug>=0.11.4',
       ],
       scripts=["scripts/validate.py", "scripts/start_srv.py"],
 )

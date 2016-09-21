@@ -1,0 +1,14 @@
+## SAML Metadata Validator
+
+SAML-Schematron provides XSD validation for SAML Metadata. In addtion is the original schema 
+OASIS SSTC XML Schema specification, Schematron rules perform further tests generating error and 
+warning messages. Each single rule is quite trivial, typically requiring elements that are optional 
+in the schema, or warning about deprecated or unwanted elements.
+Validate can be defined against specific profiles. Users may want to define their own 
+profile-specific rule set reusing existing rules.
+
+
+- link:doc/install.adoc[Install and configure]
+- link:doc/usage.adoc[Usage]
+- link:doc/build.adoc[Build]
+- link:doc/structure.adoc[Project structure]

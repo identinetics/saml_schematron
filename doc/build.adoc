@@ -1,0 +1,9 @@
+# Build
+
+## Changing / Adding Schematron Rules
+
+After changing rules in rules/schtron_src the xlst must be regenerated with `make`.
+
+New rules shall be added to rules/allrules.sch, and related testcases to test_validator.json.
+
+
