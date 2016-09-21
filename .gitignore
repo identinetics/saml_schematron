@@ -4,4 +4,6 @@
 /*.egg-info
 /build
 /dist
+/lib/xalan*
+/lib/xmlsectool*
 /work/*
