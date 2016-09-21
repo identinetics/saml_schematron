@@ -33,7 +33,7 @@ else
     exit 1
 fi
 
-workdir=$(dirname "$0")
+workdir=$(dirname "$BASH_SOURCE")
 export PROJROOT=$(dirname "$workdir")
 export SAMLMETAXMLSCHEMAPATH='../xmlschema/'
 export XALAN_JAR=$PROJROOT/lib/xalan-j_2_7_2/xalan.jar
