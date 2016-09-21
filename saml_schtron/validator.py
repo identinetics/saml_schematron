@@ -1,7 +1,7 @@
 import argparse
 import logging, os, re, sys
 import lxml.etree as etree
-from lxml.isoschematron import Schematron
+#from lxml.isoschematron import Schematron
 import json
 
 class ApiArgs():
@@ -24,7 +24,7 @@ class CliInvocation():
         self.parser = argparse.ArgumentParser(description='SAML metadata validation')
         self.parser.add_argument('-v', '--verbose', dest='verbose', action="store_true")
         self.parser.add_argument('-R', '--ruledir', dest='ruledir',
-            help='path for (expanded) schematron rule file(s). Default: "rules/schtron_exp"')
+            help='path for xslt rule file(s) (converted from schematron). Default: "rules/schtron_xsl"')
         self.parser.add_argument('-p', '--profile', dest='profile',
             help='JSON file containing a list of rules for a SAML profile (basename only, no dir')
         self.parser.add_argument('-r', '--rule', dest='rule',
@@ -38,7 +38,7 @@ class CliInvocation():
         else:
             self.args = self.parser.parse_args()  # regular case: use sys.argv
         if self.args.ruledir is None:
-            self.args.ruledir = os.path.join('rules', 'schtron_exp')
+            self.args.ruledir = os.path.join('rules', 'schtron_xsl')
         if not self.args.proflist:
             if self.args.profile is None and self.args.rule is None:
                 self.parser.error('Missing argument: must specify either -profile or -rule')
@@ -115,15 +115,21 @@ class Validator:
         validator_result.message = ''
         tracker = {'OK': 0, 'INFO': 0, 'WARNING': 0, 'ERROR': 0}
         for rule in self.rules:
-            schtron_dom = etree.parse(os.path.join(self.projdir, self.ruledir, rule + '_exp.sch'))
-            schtron_val = Schematron(schtron_dom, error_finder=Schematron.ASSERTS_AND_REPORTS)
-            if schtron_val.validate(md_dom):
+            #with open(os.path.join(self.projdir, self.ruledir, rule + '.xsl')) as fd:
+            with open('rules/schtron_xsl/rule00I.xsl') as fd:
+                transform = etree.XSLT(etree.XML(''.join(fd.readlines())))
+            with open('testdata/idp_valid.xml') as fd:
+                md_dom = etree.parse(fd)
+            result = str(transform(md_dom))
+            print(result)
+            if len(result == 0):
                 tracker['OK'] += 1
             else:
                 validator_result.code = False
-                m_dom = etree.XML(schtron_val.error_log.last_error.message)
-                last_msg = m_dom.find('{http://purl.oclc.org/dsdl/svrl}text').text.lstrip()
-                validator_result.message += last_msg + '\n'
+                m_dom = etree.XML('')
+                #last_msg = m_dom.find('{http://purl.oclc.org/dsdl/svrl}text').text.lstrip()
+                #validator_result.message += last_msg + '\n'
+                validator_result.message += 'last_msg' + '\n'
                 last_level = ''
                 if re.match('Info', last_msg):
                     last_level = 'INFO'
