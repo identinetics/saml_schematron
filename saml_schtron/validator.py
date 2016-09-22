@@ -115,11 +115,8 @@ class Validator:
         validator_result.message = ''
         tracker = {'OK': 0, 'INFO': 0, 'WARNING': 0, 'ERROR': 0}
         for rule in self.rules:
-            #with open(os.path.join(self.projdir, self.ruledir, rule + '.xsl')) as fd:
-            with open('rules/schtron_xsl/rule00I.xsl') as fd:
+            with open(os.path.join(self.projdir, self.ruledir, rule + '.xsl')) as fd:
                 transform = etree.XSLT(etree.XML(''.join(fd.readlines())))
-            with open('testdata/idp_valid.xml') as fd:
-                md_dom = etree.parse(fd)
             result = str(transform(md_dom))
             print(result)
             if len(result == 0):

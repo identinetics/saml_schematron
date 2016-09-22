@@ -4,4 +4,4 @@ with open('rules/schtron_xsl/rule00I.xsl') as fd:
 with open('testdata/idp_valid.xml') as fd:
     md_dom = etree.parse(fd)
 result_xml = (transform(md_dom))
-print(etree.tostring(result_xml))
+print(bytes(result_xml))

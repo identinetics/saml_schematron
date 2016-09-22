@@ -6,5 +6,5 @@
 /dist
 /lib/xalan*
 /lib/xmlsectool*
-/rules/unused
+/rules/unused/*
 /work/*
