@@ -27,10 +27,11 @@ class TestValidator(unittest.TestCase):
 
     def test_validate_single_rule(self):
         """ -- Test a single schematron rule """
+        # this one helps to debug a specific rule; otherwise it is covered by test_validate_rules()
         logging.info(TestValidator.test_validate_single_rule.__doc__)
         print(TestValidator.test_validate_single_rule.__doc__)
         PROJROOT = os.path.dirname(os.path.dirname(__file__))
-        rule = "rule12E"
+        rule = "rule60E"
         testfile = "idp_incomplete.xml"
         expected_severity = "ERROR"
         execute_a_test(rule, expected_severity, testfile, PROJROOT)
@@ -77,5 +78,6 @@ class TestValidator(unittest.TestCase):
         validator = Validator(ApiArgs(listprofiles=True).cliInvocation)
         print('File | Profile')
         for profile in validator.get_profiles():
-            print(profile['file'] + ' | ' + profile['name'])
+            # print(profile['file'] + ' | ' + profile['name'])
+            pass
 

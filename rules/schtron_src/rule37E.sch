@@ -4,17 +4,10 @@ Enforce "use" attribute in KeyDescriptor (Requirement in PVP profile)
 -->
 
 <iso:pattern id="Rule37" xmlns:iso="http://purl.oclc.org/dsdl/schematron" >
-    <iso:rule context="//md:IDPSSODescriptor">
+    <iso:rule context="//md:IDPSSODescriptor|//md:SPSSODescriptor">
          <iso:assert test="md:KeyDescriptor[@use='signing']">
-"rule37aE": { "Severity": "Error",
-         "Message": "Each IDPSSODescriptor must contain at least one KeyDescriptor with a use=\"signing\" attribute",
-        </iso:assert>
-    </iso:rule>
-
-    <iso:rule context="//md:SPSSODescriptor">
-         <iso:assert test="md:KeyDescriptor[@use='signing']">
-"rule37bE": { "Severity": "Error",
-         "Message": "Each SPSSODescriptor must contain at least one KeyDescriptor with a use=\"signing\" attribute",
+"rule37E": { "Severity": "Error",
+         "Message": "Each IDPSSODescriptor/SPSSODescriptor must contain at least one KeyDescriptor with a use=\"signing\" attribute",
         </iso:assert>
     </iso:rule>
 </iso:pattern>
