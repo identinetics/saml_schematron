@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- this is a minimal entity descriptor for an IDP that is XSD schema valid -->
+<!-- this is a minimal entity descriptor for an IDP that is XSD schema valid (but not with the enhanced schema testing for empty xs:string/xs:anyURI -->
   <md:EntityDescriptor
           xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
           entityID="https://idpsp.test.example.org/idp.xml">
@@ -9,6 +9,11 @@
             Location="https://idp.test.example.org/idp/profile/SAML2/Redirect/SSO"/>
     </md:IDPSSODescriptor>
   <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
-    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp.test.example.org/Shibboleth.sso/SAML2/POST" index="1"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="" index="1"/>
    </md:SPSSODescriptor>
+      <md:ContactPerson contactType="support">
+        <md:GivenName> </md:GivenName>
+        <md:SurName/>
+    </md:ContactPerson>
+
   </md:EntityDescriptor>
