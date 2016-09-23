@@ -30,9 +30,25 @@
             Revision history:
               V2.0 (March, 2005):
                 Schema for SAML metadata, first published in SAML 2.0.
+
+            Extension: replace xs:string with md:NonEmptyString and xs:anyURI with md:NenEmptyAnyURI
         </documentation>
     </annotation>
 
+    <!-- Non-empty string (as mandated by SAML core 1.3.1) -->
+    <simpleType name="NonEmptyString">
+        <restriction base="string">
+            <minLength value="1"/>
+            <pattern value=".*[^\s].*"/>
+        </restriction>
+    </simpleType>
+    <!-- Non-empty anyURI (as mandated by SAML core 1.3.2) -->
+    <simpleType name="NonEmptyAnyURI">
+        <restriction base="anyURI">
+            <minLength value="1"/>
+            <pattern value=".*[^\s].*"/>
+        </restriction>
+    </simpleType>
     <simpleType name="entityIDType">
         <restriction base="anyURI">
             <maxLength value="1024"/>
@@ -40,14 +56,14 @@
     </simpleType>
     <complexType name="localizedNameType">
         <simpleContent>
-            <extension base="string">
+            <extension base="md:NonEmptyString">
                 <attribute ref="xml:lang" use="required"/>
             </extension>
         </simpleContent>
     </complexType>
     <complexType name="localizedURIType">
         <simpleContent>
-            <extension base="anyURI">
+            <extension base="md:NonEmptyAnyURI">
                 <attribute ref="xml:lang" use="required"/>
             </extension>
         </simpleContent>
@@ -148,11 +164,11 @@
         <attribute name="contactType" type="md:ContactTypeType" use="required"/>
         <anyAttribute namespace="##other" processContents="lax"/>
     </complexType>
-    <element name="Company" type="string"/>
-    <element name="GivenName" type="string"/>
-    <element name="SurName" type="string"/>
-    <element name="EmailAddress" type="anyURI"/>
-    <element name="TelephoneNumber" type="string"/>
+    <element name="Company" type="md:NonEmptyString"/>
+    <element name="GivenName" type="md:NonEmptyString"/>
+    <element name="SurName" type="md:NonEmptyString"/>
+    <element name="EmailAddress" type="md:NonEmptyAnyURI"/>
+    <element name="TelephoneNumber" type="md:NonEmptyString"/>
     <simpleType name="ContactTypeType">
         <restriction base="string">
             <enumeration value="technical"/>
@@ -166,8 +182,8 @@
     <element name="AdditionalMetadataLocation" type="md:AdditionalMetadataLocationType"/>
     <complexType name="AdditionalMetadataLocationType">
         <simpleContent>
-            <extension base="anyURI">
-                <attribute name="namespace" type="anyURI" use="required"/>
+            <extension base="md:NonEmptyAnyURI">
+                <attribute name="namespace" type="md:NonEmptyAnyURI" use="required"/>
             </extension>
         </simpleContent>
     </complexType>
@@ -185,11 +201,11 @@
         <attribute name="validUntil" type="dateTime" use="optional"/>
         <attribute name="cacheDuration" type="duration" use="optional"/>
         <attribute name="protocolSupportEnumeration" type="md:anyURIListType" use="required"/>
-        <attribute name="errorURL" type="anyURI" use="optional"/>
+        <attribute name="errorURL" type="md:NonEmptyAnyURI" use="optional"/>
         <anyAttribute namespace="##other" processContents="lax"/>
     </complexType>
     <simpleType name="anyURIListType">
-        <list itemType="anyURI"/>
+        <list itemType="md:NonEmptyAnyURI"/>
     </simpleType>
 
     <element name="KeyDescriptor" type="md:KeyDescriptorType"/>
@@ -223,7 +239,7 @@
     <element name="ArtifactResolutionService" type="md:IndexedEndpointType"/>
     <element name="SingleLogoutService" type="md:EndpointType"/>
     <element name="ManageNameIDService" type="md:EndpointType"/>
-    <element name="NameIDFormat" type="anyURI"/>
+    <element name="NameIDFormat" type="md:NonEmptyAnyURI"/>
 
     <element name="IDPSSODescriptor" type="md:IDPSSODescriptorType"/>
     <complexType name="IDPSSODescriptorType">
@@ -243,7 +259,7 @@
     <element name="SingleSignOnService" type="md:EndpointType"/>
     <element name="NameIDMappingService" type="md:EndpointType"/>
     <element name="AssertionIDRequestService" type="md:EndpointType"/>
-    <element name="AttributeProfile" type="anyURI"/>
+    <element name="AttributeProfile" type="md:NonEmptyAnyURI"/>
     
     <element name="SPSSODescriptor" type="md:SPSSODescriptorType"/>
     <complexType name="SPSSODescriptorType">
