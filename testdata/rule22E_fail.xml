@@ -6,9 +6,8 @@
     <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
         <md:Extensions>
             <mdui:UIInfo>
-                <mdui:DisplayName xml:lang="en">idp.test.example.org</mdui:DisplayName>
-                <mdui:Description xml:lang="en">
-                </mdui:Description>
+                <mdui:DisplayName xml:lang="en"> </mdui:DisplayName>
+                <mdui:Description xml:lang="en">idp.test.example.org</mdui:Description>
             </mdui:UIInfo>
         </md:Extensions>
         <md:SingleSignOnService
