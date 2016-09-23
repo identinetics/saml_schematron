@@ -1,9 +1,10 @@
 {
   "profile": "saml2int V0.2",
   "rules": [
-    "rule04E",
     "rule06W",
     "rule07W",
-    "rule10W"
+    "rule10W",
+    "rule60E",
+    "rule61E"
   ]
 }

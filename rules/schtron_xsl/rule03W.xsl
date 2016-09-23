@@ -46,49 +46,21 @@
 
 
 	<!--RULE -->
-<axsl:template match="//md:IDPSSODescriptor" priority="1001" mode="M0">
+<axsl:template match="//md:IDPSSODescriptor" priority="1000" mode="M0">
 
 		<!--ASSERT -->
-<axsl:choose><axsl:when test="md:NameIDFormat[text() != '']"/><axsl:otherwise><axsl:message>
-"03a": { "Severity": "Warning",
+<axsl:choose><axsl:when test="md:NameIDFormat[text() != '']"/><axsl:otherwise><axsl:message>"rule03W": { "Severity": "Warning",
          "Message": "Each IDPSSODescriptor should contain NameIDFormat with one or more values",
-               "Context", "<axsl:call-template name="xpathgetter"/>",
-             "Rule": "md:NameIDFormat[text() != '']"
-           }
-        </axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M0"/></axsl:template>
-
-	<!--RULE -->
-<axsl:template match="//md:SPSSODescriptor" priority="1000" mode="M0">
-
-		<!--ASSERT -->
-<axsl:choose><axsl:when test="md:NameIDFormat[text() != '']"/><axsl:otherwise><axsl:message>
-"03b": { "Severity": "Warning",
-         "Message": "Each SPSSODescriptor should contain NameIDFormat with one or more values",
-               "Context", "<axsl:call-template name="xpathgetter"/>",
-             "Rule": "md:NameIDFormat[text() != '']"
-           }
+               "Context": "<axsl:call-template name="xpathgetter"/>",
+             "Rule": "md:NameIDFormat[text() != '']"}
         </axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M0"/></axsl:template><axsl:template match="text()" priority="-1" mode="M0"/><axsl:template match="@*|node()" priority="-2" mode="M0"><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M0"/></axsl:template>
 
 	<!--RULE -->
-<axsl:template match="//md:IDPSSODescriptor" priority="1001" mode="M0">
+<axsl:template match="//md:IDPSSODescriptor" priority="1000" mode="M0">
 
 		<!--ASSERT -->
-<axsl:choose><axsl:when test="md:NameIDFormat[text() != '']"/><axsl:otherwise><axsl:message>
-"03a": { "Severity": "Warning",
+<axsl:choose><axsl:when test="md:NameIDFormat[text() != '']"/><axsl:otherwise><axsl:message>"rule03W": { "Severity": "Warning",
          "Message": "Each IDPSSODescriptor should contain NameIDFormat with one or more values",
-               "Context", "<axsl:call-template name="xpathgetter"/>",
-             "Rule": "md:NameIDFormat[text() != '']"
-           }
-        </axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M0"/></axsl:template>
-
-	<!--RULE -->
-<axsl:template match="//md:SPSSODescriptor" priority="1000" mode="M0">
-
-		<!--ASSERT -->
-<axsl:choose><axsl:when test="md:NameIDFormat[text() != '']"/><axsl:otherwise><axsl:message>
-"03b": { "Severity": "Warning",
-         "Message": "Each SPSSODescriptor should contain NameIDFormat with one or more values",
-               "Context", "<axsl:call-template name="xpathgetter"/>",
-             "Rule": "md:NameIDFormat[text() != '']"
-           }
+               "Context": "<axsl:call-template name="xpathgetter"/>",
+             "Rule": "md:NameIDFormat[text() != '']"}
         </axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M0"/></axsl:template></axsl:stylesheet>

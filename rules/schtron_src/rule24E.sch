@@ -10,7 +10,7 @@
                     or @Algorithm='http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384'
                     or @Algorithm='http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512'
     ">
-"24": { "Severity": "Error",
+"rule24E": { "Severity": "Error",
          "Message": "Each alg:SigningMethod may only contain following @Algorithm values: \n    http://www.w3.org/2001/04/xmldsig-more#rsa-sha256 \n    http://www.w3.org/2000/09/xmldsig#rsa-sha1 \n    http://www.w3.org/2001/04/xmldsig-more#rsa-sha384 \n    http://www.w3.org/2001/04/xmldsig-more#rsa-sha512 \n    http://www.w3.org/2001/04/xmldsig-more#rsa-ripemd160\n    http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256 \n    http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384 \n    http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512",
     </iso:assert>
   </iso:rule>

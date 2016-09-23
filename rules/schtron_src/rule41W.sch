@@ -3,8 +3,8 @@
   <iso:rule context="//md:EntityDescriptor/md:Extensions/mdattr:EntityAttributes/saml:Attribute">
     <iso:assert
           test="saml:AttributeValue[normalize-space(text()) = 'http://wirtschaftsportalverbund.at/ns/ec/attributebundle-wkis']">
-"41": { "Severity": "Warning",
-         "Message": "EntityCategories should be restricted to these values:\n    http://wirtschaftsportalverbund.at/ns/ec/attributebundle-wkis",
+"rule41W": { "Severity": "Warning",
+         "Message": "EntityCategories understood in this federation are:\n    http://wirtschaftsportalverbund.at/ns/ec/attributebundle-wkis",
     </iso:assert>
   </iso:rule>
 </iso:pattern>

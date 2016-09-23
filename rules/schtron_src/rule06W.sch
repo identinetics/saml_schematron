@@ -3,7 +3,7 @@
   <iso:rule context="md:EntityDescriptor">                                  
     <iso:assert 
          test="md:ContactPerson[normalize-space(@contactType)='support'][md:EmailAddress]">
-"06": { "Severity": "Warning",
+"rule06W": { "Severity": "Warning",
          "Message": "EntityDescriptor should contain ContactPerson with a contactType of \"support\" and at least one EmailAddress",
     </iso:assert>
   </iso:rule>

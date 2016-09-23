@@ -4,7 +4,7 @@
     <iso:assert
           test="saml:AttributeValue[normalize-space(text()) = 'http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken'
                                  or normalize-space(text()) = 'http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken-charge']">
-"19": { "Severity": "Warning",
+"rule19W": { "Severity": "Warning",
          "Message": "EntityCategories should be restricted to these values:\n  http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken,\n  http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken-charge",
     </iso:assert>
   </iso:rule>

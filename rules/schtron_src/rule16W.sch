@@ -3,7 +3,7 @@
   <iso:rule context="//md:EntityDescriptor">
     <iso:report test="md:SPSSODescriptor/md:AttributeConsumingService and //saml:AttributeValue[normalize-space(text()) = 'http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken'
                                  or normalize-space(text()) = 'http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken-charge']">
-"16": { "Severity": "Warning",
+"rule16W": { "Severity": "Warning",
          "Message": "AttributeConsumingService is deprecated if EntityCategory has an fixed set of RequestedAttributes.",
     </iso:report>
   </iso:rule>

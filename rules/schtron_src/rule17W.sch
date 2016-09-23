@@ -3,7 +3,7 @@
   <iso:rule context="//md:SPSSODescriptor">                                  
     <iso:report test="not(md:Extensions) or 
                       md:Extensions[not(idpdisc:DiscoveryResponse)]">
-"17": { "Severity": "Warning",
+"rule17W": { "Severity": "Warning",
          "Message": "SPSSODescriptor should include Extensions/DiscoveryResponse",
     </iso:report>
   </iso:rule>

@@ -49,22 +49,18 @@
 <axsl:template match="md:EntityDescriptor" priority="1000" mode="M0">
 
 		<!--REPORT -->
-<axsl:if test="@entityID"><axsl:message>
-"00": { "Severity": "Info",
-         "Message": "Validating entityID <axsl:text/><axsl:value-of select="@entityID"/><axsl:text/>",
-             "Context", "<axsl:call-template name="xpathgetter"/>",
-             "Rule": "@entityID"
-           }
+<axsl:if test="@entityID"><axsl:message>"rule00I": {"Severity": "Info",
+             "Message": "Validating entityID <axsl:text/><axsl:value-of select="@entityID"/><axsl:text/>",
+             "Context": "<axsl:call-template name="xpathgetter"/>",
+             "Rule": "@entityID"}
         </axsl:message></axsl:if><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M0"/></axsl:template><axsl:template match="text()" priority="-1" mode="M0"/><axsl:template match="@*|node()" priority="-2" mode="M0"><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M0"/></axsl:template>
 
 	<!--RULE -->
 <axsl:template match="md:EntityDescriptor" priority="1000" mode="M0">
 
 		<!--REPORT -->
-<axsl:if test="@entityID"><axsl:message>
-"00": { "Severity": "Info",
-         "Message": "Validating entityID <axsl:text/><axsl:value-of select="@entityID"/><axsl:text/>",
-             "Context", "<axsl:call-template name="xpathgetter"/>",
-             "Rule": "@entityID"
-           }
+<axsl:if test="@entityID"><axsl:message>"rule00I": {"Severity": "Info",
+             "Message": "Validating entityID <axsl:text/><axsl:value-of select="@entityID"/><axsl:text/>",
+             "Context": "<axsl:call-template name="xpathgetter"/>",
+             "Rule": "@entityID"}
         </axsl:message></axsl:if><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M0"/></axsl:template></axsl:stylesheet>

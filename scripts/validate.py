@@ -18,4 +18,4 @@ if __name__ == '__main__':
         raise "must use python 3.4 or higher"
     val_result = main()
     print('max. severity: ' + val_result.level)
-    print(val_result.message)
+    print(val_result.json)

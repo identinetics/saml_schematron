@@ -7,7 +7,7 @@
                    or normalize-space(@alg:Algorithm)='http://www.w3.org/2001/04/xmlenc#sha512'
                    or normalize-space(@Algorithm)='http://www.w3.org/2001/04/xmlenc#ripemd160'
                    or normalize-space(@alg:Algorithm)='http://www.w3.org/2001/04/xmlenc#ripemd160' ">
-"39": { "Severity": "Error",
+"rule39E": { "Severity": "Error",
          "Message": "alg:DigestMethod element may only contain following @Algorithm values:\n    http://www.w3.org/2001/04/xmlenc#sha256\n    http://www.w3.org/2001/04/xmlenc#sha512 \n    http://www.w3.org/2001/04/xmlenc#ripemd160",
     </iso:assert>
   </iso:rule>

@@ -5,7 +5,7 @@
     "rule01W",
     "rule02W",
     "rule03W",
-    "rule04E",
+    "rule04W",
     "rule05W",
     "rule06W",
     "rule07W",
@@ -31,6 +31,8 @@
     "rule37E",
     "rule38E",
     "rule39E",
-    "rule40E"
+    "rule40E",
+    "rule60E",
+    "rule61E"
   ]
 }

@@ -49,22 +49,18 @@
 <axsl:template match="md:EntityDescriptor" priority="1000" mode="M0">
 
 		<!--ASSERT -->
-<axsl:choose><axsl:when test="starts-with(@entityID,'https://') or starts-with(@entityID,'http://') or starts-with(@entityID,'urn:')"/><axsl:otherwise><axsl:message>
-"01": { "Severity": "Warning",
+<axsl:choose><axsl:when test="starts-with(@entityID,'https://') or starts-with(@entityID,'http://') or starts-with(@entityID,'urn:')"/><axsl:otherwise><axsl:message>"rule01W": { "Severity": "Warning",
          "Message": "@entityID values should be a URI starting with http://, https:// or urn:",
-             "Context", "<axsl:call-template name="xpathgetter"/>",
-             "Rule": "starts-with(@entityID,'https://') or starts-with(@entityID,'http://') or starts-with(@entityID,'urn:')"
-           }
+             "Context": "<axsl:call-template name="xpathgetter"/>",
+             "Rule": "starts-with(@entityID,'https://') or starts-with(@entityID,'http://') or starts-with(@entityID,'urn:')"}
         </axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M0"/></axsl:template><axsl:template match="text()" priority="-1" mode="M0"/><axsl:template match="@*|node()" priority="-2" mode="M0"><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M0"/></axsl:template>
 
 	<!--RULE -->
 <axsl:template match="md:EntityDescriptor" priority="1000" mode="M0">
 
 		<!--ASSERT -->
-<axsl:choose><axsl:when test="starts-with(@entityID,'https://') or starts-with(@entityID,'http://') or starts-with(@entityID,'urn:')"/><axsl:otherwise><axsl:message>
-"01": { "Severity": "Warning",
+<axsl:choose><axsl:when test="starts-with(@entityID,'https://') or starts-with(@entityID,'http://') or starts-with(@entityID,'urn:')"/><axsl:otherwise><axsl:message>"rule01W": { "Severity": "Warning",
          "Message": "@entityID values should be a URI starting with http://, https:// or urn:",
-             "Context", "<axsl:call-template name="xpathgetter"/>",
-             "Rule": "starts-with(@entityID,'https://') or starts-with(@entityID,'http://') or starts-with(@entityID,'urn:')"
-           }
+             "Context": "<axsl:call-template name="xpathgetter"/>",
+             "Rule": "starts-with(@entityID,'https://') or starts-with(@entityID,'http://') or starts-with(@entityID,'urn:')"}
         </axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M0"/></axsl:template></axsl:stylesheet>

@@ -60,7 +60,7 @@ class ValidatorResult:
     """ Attributes:
     result (bool): False if an assertion failed, True otherwise
     level (str): Severity level (extracted from svrl message text): INFO/WARNING/ERROR
-    message (str): svrl message text
+    json (str): svrl message(s)
     """
     def __init__(self):
         pass
@@ -112,30 +112,35 @@ class Validator:
             return validator_result
         if self.verbose: print('entityID: ' + eds[0].attrib['entityID'])
         validator_result.code = True
-        validator_result.message = ''
+        validator_result.json = '{\n'
         tracker = {'OK': 0, 'INFO': 0, 'WARNING': 0, 'ERROR': 0}
         for rule in self.rules:
             with open(os.path.join(self.projdir, self.ruledir, rule + '.xsl')) as fd:
                 transform = etree.XSLT(etree.XML(''.join(fd.readlines())))
-            result = str(transform(md_dom))
-            print(result)
-            if len(result == 0):
+            transform(md_dom)
+            result_jsonsnippet = str(transform.error_log).replace('<string>:0:0:ERROR:XSLT:ERR_OK:', '')
+            # print('result_json: ' + result_json)  # debug
+            # print('loading msg from ' + rule + ' for ' + self.metadatafile)
+            try:
+                result = json.loads('{' + result_jsonsnippet + '}')
+            except ValueError as e:
+                print('ValueError: Decoding JSON string from ' + rule + ':\n{' + result_jsonsnippet + '}')
+            if rule not in result:
                 tracker['OK'] += 1
             else:
+                if not validator_result.code:
+                    validator_result.json += ',\n'
                 validator_result.code = False
-                m_dom = etree.XML('')
-                #last_msg = m_dom.find('{http://purl.oclc.org/dsdl/svrl}text').text.lstrip()
-                #validator_result.message += last_msg + '\n'
-                validator_result.message += 'last_msg' + '\n'
+                validator_result.json += result_jsonsnippet
                 last_level = ''
-                if re.match('Info', last_msg):
+                if result[rule]['Severity'] == 'Info':
                     last_level = 'INFO'
-                elif re.match('Warning', last_msg):
+                elif result[rule]['Severity'] == 'Warning':
                     last_level = 'WARNING'
-                elif re.match('Error', last_msg):
+                elif result[rule]['Severity'] == 'Error':
                     last_level = 'ERROR'
                 else:
-                    print('could not get severity level:\n', last_msg)
+                    print('could not get severity level from ', result_jsonsnippet)
                     last_level = 'ERROR'
                 tracker[last_level] += 1
 
@@ -143,8 +148,7 @@ class Validator:
             if tracker[l] > 0:
                 validator_result.level = l
         if validator_result.level != 'OK':
-            validator_result.message += \
-                'INFO: ' + str(tracker['INFO']) + ', ' + \
-                'WARNING: ' + str(tracker['WARNING']) + ', ' + \
-                'ERROR: ' + str(tracker['ERROR'])
+            validator_result.json += ',\n"Summary": {"OK": %d, "INFO": %d, "WARNING": %d, "ERROR": %d}' % \
+                                     (tracker['OK'], tracker['INFO'], tracker['WARNING'], tracker['ERROR'])
+            validator_result.json += '\n}'
         return validator_result

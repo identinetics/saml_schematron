@@ -56,10 +56,9 @@
    <xsl:param name="role" />
    
    <axsl:message>
-      <xsl:apply-templates mode="text" />         "Context", "<axsl:call-template name="xpathgetter"/>",
+      <xsl:apply-templates mode="text" />         "Context": "<axsl:call-template name="xpathgetter"/>",
         <xsl:if test="$output_reason='yes'">     "Rule": "<xsl:value-of select="$pattern" />
-          <xsl:if test="$role"> / <xsl:value-of select="$role" /></xsl:if>"
-           }
+          <xsl:if test="$role"> / <xsl:value-of select="$role" /></xsl:if>"}
         </xsl:if>
    </axsl:message>
 </xsl:template>

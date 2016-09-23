@@ -7,12 +7,9 @@
   ["rule02W", ["OK", "idp_valid.xml"]],
   ["rule02W", ["WARNING", "rule02W_fail.xml"]],
   ["rule03W", ["OK", "idp_valid.xml"]],
-  ["rule03W", ["OK", "sp_valid.xml"]],
   ["rule03W", ["WARNING", "rule03W_idp_fail.xml"]],
-  ["rule03W", ["WARNING", "rule03W_sp_fail.xml"]],
-  ["rule04E", ["OK", "idp_valid.xml"]],
-  ["rule04E", ["OK", "sp_valid.xml"]],
-  ["rule04E", ["ERROR", "idp_incomplete.xml"]],
+  ["rule04W", ["OK", "sp_valid.xml"]],
+  ["rule04W", ["WARNING", "rule03W_sp_fail.xml"]],
   ["rule05W", ["OK", "idp_valid.xml"]],
   ["rule05W", ["WARNING", "idp_incomplete.xml"]],
   ["rule06W", ["OK", "idp_valid.xml"]],
@@ -91,7 +88,13 @@
   ["rule39E", ["OK", "sp_valid.xml"]],
   ["rule39E", ["ERROR", "rule39E_fail.xml"]],
   ["rule40E", ["OK", "sp_valid.xml"]],
-  ["rule40E", ["ERROR", "rule40E_fail.xml"]]
+  ["rule40E", ["ERROR", "rule40E_fail.xml"]],
+  ["rule41W", ["WARNING", "sp_valid.xml"]],
+  ["rule42W", ["WARNING", "rule42W_fail.xml"]],
+  ["rule60E", ["OK", "idp_valid.xml"]],
+  ["rule60E", ["ERROR", "idp_incomplete.xml"]],
+  ["rule61E", ["OK", "sp_valid.xml"]],
+  ["rule61E", ["ERROR", "sp_incomplete.xml"]]
 ]
 
 

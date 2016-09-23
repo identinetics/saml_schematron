@@ -2,13 +2,13 @@
 <iso:pattern id="Rule33_ALGdigest" xmlns:iso="http://purl.oclc.org/dsdl/schematron" >
   <iso:rule context="//md:IDPSSODescriptor">                                  
     <iso:assert test="md:Extensions/alg:DigestMethod">
-"33a": { "Severity": "Warning",
+"rule33aW": { "Severity": "Warning",
          "Message": "IDPSSODescriptor should contain alg:DigestMethod",
     </iso:assert>
  </iso:rule>
   <iso:rule context="//md:SPSSODescriptor">                                  
     <iso:assert test="md:Extensions/alg:DigestMethod">
-"33b": { "Severity": "Warning",
+"rule33bW": { "Severity": "Warning",
          "Message": "SPSSODescriptor should contain alg:DigestMethod",
     </iso:assert>
  </iso:rule>

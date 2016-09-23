@@ -49,46 +49,38 @@
 <axsl:template match="//md:IDPSSODescriptor" priority="1001" mode="M0">
 
 		<!--ASSERT -->
-<axsl:choose><axsl:when test="md:KeyDescriptor[@use='signing' or not(@use)]/ds:KeyInfo/ds:X509Data/ds:X509Certificate"/><axsl:otherwise><axsl:message>
-"04a": { "Severity": "Error",
+<axsl:choose><axsl:when test="md:KeyDescriptor[@use='signing' or not(@use)]/ds:KeyInfo/ds:X509Data/ds:X509Certificate"/><axsl:otherwise><axsl:message>"rule04aE": { "Severity": "Error",
          "Message": "Each IDPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data)",
-                 "Context", "<axsl:call-template name="xpathgetter"/>",
-             "Rule": "md:KeyDescriptor[@use='signing' or not(@use)]/ds:KeyInfo/ds:X509Data/ds:X509Certificate"
-           }
+                 "Context": "<axsl:call-template name="xpathgetter"/>",
+             "Rule": "md:KeyDescriptor[@use='signing' or not(@use)]/ds:KeyInfo/ds:X509Data/ds:X509Certificate"}
         </axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M0"/></axsl:template>
 
 	<!--RULE -->
 <axsl:template match="//md:SPSSODescriptor" priority="1000" mode="M0">
 
 		<!--ASSERT -->
-<axsl:choose><axsl:when test="descendant::ds:X509Data/ds:X509Certificate"/><axsl:otherwise><axsl:message>
-"04b": { "Severity": "Error",
+<axsl:choose><axsl:when test="descendant::ds:X509Data/ds:X509Certificate"/><axsl:otherwise><axsl:message>"rule04bE": { "Severity": "Error",
          "Message": "Each SPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data)",
-                 "Context", "<axsl:call-template name="xpathgetter"/>",
-             "Rule": "descendant::ds:X509Data/ds:X509Certificate"
-           }
+                 "Context": "<axsl:call-template name="xpathgetter"/>",
+             "Rule": "descendant::ds:X509Data/ds:X509Certificate"}
         </axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M0"/></axsl:template><axsl:template match="text()" priority="-1" mode="M0"/><axsl:template match="@*|node()" priority="-2" mode="M0"><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M0"/></axsl:template>
 
 	<!--RULE -->
 <axsl:template match="//md:IDPSSODescriptor" priority="1001" mode="M0">
 
 		<!--ASSERT -->
-<axsl:choose><axsl:when test="md:KeyDescriptor[@use='signing' or not(@use)]/ds:KeyInfo/ds:X509Data/ds:X509Certificate"/><axsl:otherwise><axsl:message>
-"04a": { "Severity": "Error",
+<axsl:choose><axsl:when test="md:KeyDescriptor[@use='signing' or not(@use)]/ds:KeyInfo/ds:X509Data/ds:X509Certificate"/><axsl:otherwise><axsl:message>"rule04aE": { "Severity": "Error",
          "Message": "Each IDPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data)",
-                 "Context", "<axsl:call-template name="xpathgetter"/>",
-             "Rule": "md:KeyDescriptor[@use='signing' or not(@use)]/ds:KeyInfo/ds:X509Data/ds:X509Certificate"
-           }
+                 "Context": "<axsl:call-template name="xpathgetter"/>",
+             "Rule": "md:KeyDescriptor[@use='signing' or not(@use)]/ds:KeyInfo/ds:X509Data/ds:X509Certificate"}
         </axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M0"/></axsl:template>
 
 	<!--RULE -->
 <axsl:template match="//md:SPSSODescriptor" priority="1000" mode="M0">
 
 		<!--ASSERT -->
-<axsl:choose><axsl:when test="descendant::ds:X509Data/ds:X509Certificate"/><axsl:otherwise><axsl:message>
-"04b": { "Severity": "Error",
+<axsl:choose><axsl:when test="descendant::ds:X509Data/ds:X509Certificate"/><axsl:otherwise><axsl:message>"rule04bE": { "Severity": "Error",
          "Message": "Each SPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data)",
-                 "Context", "<axsl:call-template name="xpathgetter"/>",
-             "Rule": "descendant::ds:X509Data/ds:X509Certificate"
-           }
+                 "Context": "<axsl:call-template name="xpathgetter"/>",
+             "Rule": "descendant::ds:X509Data/ds:X509Certificate"}
         </axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M0"/></axsl:template></axsl:stylesheet>

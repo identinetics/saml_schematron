@@ -49,22 +49,18 @@
 <axsl:template match="md:NameIDFormat" priority="1000" mode="M0">
 
 		<!--ASSERT -->
-<axsl:choose><axsl:when test="normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent'                 or normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient'                or normalize-space(text()) = '' "/><axsl:otherwise><axsl:message>
-"02": { "Severity": "Warning",
+<axsl:choose><axsl:when test="normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent'                 or normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient'                or normalize-space(text()) = '' "/><axsl:otherwise><axsl:message>"rule02W": { "Severity": "Warning",
          "Message": "This NameIDFormat may not be supported. Supported values for NameIDFormat are:\n    urn:oasis:names:tc:SAML:2.0:nameid-format:persistent\n    urn:oasis:names:tc:SAML:2.0:nameid-format:transient",
-             "Context", "<axsl:call-template name="xpathgetter"/>",
-             "Rule": "normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent' or normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient' or normalize-space(text()) = ''"
-           }
+             "Context": "<axsl:call-template name="xpathgetter"/>",
+             "Rule": "normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent' or normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient' or normalize-space(text()) = ''"}
         </axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M0"/></axsl:template><axsl:template match="text()" priority="-1" mode="M0"/><axsl:template match="@*|node()" priority="-2" mode="M0"><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M0"/></axsl:template>
 
 	<!--RULE -->
 <axsl:template match="md:NameIDFormat" priority="1000" mode="M0">
 
 		<!--ASSERT -->
-<axsl:choose><axsl:when test="normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent'                 or normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient'                or normalize-space(text()) = '' "/><axsl:otherwise><axsl:message>
-"02": { "Severity": "Warning",
+<axsl:choose><axsl:when test="normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent'                 or normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient'                or normalize-space(text()) = '' "/><axsl:otherwise><axsl:message>"rule02W": { "Severity": "Warning",
          "Message": "This NameIDFormat may not be supported. Supported values for NameIDFormat are:\n    urn:oasis:names:tc:SAML:2.0:nameid-format:persistent\n    urn:oasis:names:tc:SAML:2.0:nameid-format:transient",
-             "Context", "<axsl:call-template name="xpathgetter"/>",
-             "Rule": "normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent' or normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient' or normalize-space(text()) = ''"
-           }
+             "Context": "<axsl:call-template name="xpathgetter"/>",
+             "Rule": "normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent' or normalize-space(text()) = 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient' or normalize-space(text()) = ''"}
         </axsl:message></axsl:otherwise></axsl:choose><axsl:apply-templates select="*|comment()|processing-instruction()" mode="M0"/></axsl:template></axsl:stylesheet>
