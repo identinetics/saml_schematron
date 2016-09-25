@@ -1,5 +1,9 @@
 # Build
 
+## obtain non-python dependencies
+
+./build_prepare.sh
+
 ## Changing / Adding Schematron Rules
 
 After changing rules in rules/schtron_src the xlst must be regenerated with `make`.

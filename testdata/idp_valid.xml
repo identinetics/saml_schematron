@@ -18,8 +18,7 @@
         <!-- blacklisted: http://www.w3.org/2000/09/xmldsig#rsa-sha1 -->
         <mdui:UIInfo>
           <mdui:DisplayName xml:lang="de">idp5.test.example.org</mdui:DisplayName>
-          <mdui:Description xml:lang="de"
-            >
+          <mdui:Description xml:lang="de">
                     Simple Shibboleth testidp in der Domäne test.example.org
                 </mdui:Description>
           <mdui:Logo xml:lang="en" height="70" width="79">http://md.example.org/logo.png</mdui:Logo>

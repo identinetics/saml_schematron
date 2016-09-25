@@ -39,3 +39,8 @@ export SAMLMETAXMLSCHEMAPATH='../xmlschema/'
 export XALAN_JAR=$PROJROOT/lib/xalan-j_2_7_2/xalan.jar
 export XMLSECTOOLDIR="$PROJROOT/lib/xmlsectool-1.2.0"
 export XMLSECTOOL="${XMLSECTOOLDIR}/xmlsectool.sh"
+export DYLD_LIBRARY_PATH=$JAVA_HOME/jre/lib/server
+export CLASSPATH=$PROJROOT/lib/pvzdValidateXsd.jar
+
+# switch between javabridge and pyjnius
+export PYJNIUS_ACTIVATE=

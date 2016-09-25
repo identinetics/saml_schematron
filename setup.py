@@ -29,6 +29,7 @@ setup(name = 'SAMLSchtron',
       packages = find_packages(),
       package_data = {
           'rules': ['profiles/*.json', 'schtron_exp/*.sch', 'schtron_src/*.sch'],
+          'lib': ['lib/pvzdValidateXsd.jar'],
           'testdata': ['testdata/*'],
           'xmlschema': ['*.xsd'],
       },
@@ -39,7 +40,9 @@ setup(name = 'SAMLSchtron',
       url = 'https://github.com/rhoerbe/saml_schematron',
       version = __version__,
       zip_safe = False,
+      # javabridge only required if pyjnius is not used (PYJNIUS_ACTIVATE not set -> fallback)
       install_requires = [
+          'javabridge',
           'Jinja2>=2.8',
           'lxml>=3.6.0',
           'MarkupSafe>=0.23'.

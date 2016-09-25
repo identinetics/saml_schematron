@@ -6,5 +6,7 @@
 /dist
 /lib/xalan*
 /lib/xmlsectool*
+/lib/pvzdValidateXsd.jar
 /rules/unused/*
 /work/*
+/scripts/simple_xsd_val.py

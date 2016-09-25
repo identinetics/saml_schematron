@@ -15,6 +15,7 @@ Prepare a python environment >= 3.4
 ## From Source
 
     git clone https://github.com/identinetics/saml_schematron.git
+    ./build_prepare.sh
     cd saml_schematron
     python setup.py install
     # install xalan and xmlsectool into $PROJHOME/lib (see Dockerfile for details)
