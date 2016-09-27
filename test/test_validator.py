@@ -72,11 +72,11 @@ class TestValidator(unittest.TestCase):
                    validator_result.level + '.\n (' + profile_fname + ' \n ' + md_fname + ')')
 
     def test_list_profiles(self):
-        """   -- List profiles """
+        """ -- List profiles """
         logging.info(TestValidator.test_list_profiles.__doc__)
         print(TestValidator.test_list_profiles.__doc__)
         validator = Validator(ApiArgs(listprofiles=True).cliInvocation)
-        print('File | Profile')
+        #print('File | Profile')
         for profile in validator.get_profiles():
             # print(profile['file'] + ' | ' + profile['name'])
             pass
