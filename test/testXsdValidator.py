@@ -11,6 +11,7 @@ __author__ = 'r2h2'
 def setUpModule():
     try:
         os.environ['PYJNIUS_ACTIVATE']
+        from jnius import autoclass
     except KeyError:
         import javabridge
         try:
@@ -51,21 +52,23 @@ def make_dirs(path, dir=False) -> str:
 class Test01_xsdval_valid(unittest.TestCase):
     def runTest(self):
         logging.info('  -- Test XSD01: testing schema validation/expecting OK')
-        from jnius import autoclass
-        self.assertIsNone(retmsg, msg=retmsg)
         #print ('need pvzdValidateXsd.jar: CLASSPATH=' + os.environ['CLASSPATH'])
         pvzd_verify_sig = 'at/wien/ma14/pvzd/validatexsd/XSDValidator'
+        from jnius import autoclass   # TODO: move to setup class
         pyjnius_xsdvalidator = autoclass(pvzd_verify_sig)
         saml_xsd_validator = pyjnius_xsdvalidator('xmlschema', False)
-        saml_xsd_validator.validateSchema('testdata/idp_incomplete.xml')
+        retmsg = saml_xsd_validator.validateSchema('testdata/idp_valid.xml')
+        self.assertIsNone(retmsg, msg=retmsg)
 
 class Test02_xsdval_invalid(unittest.TestCase):
     def runTest(self):
         logging.info('  -- Test XSD02: test calling schema validation/expecting invalid schema')
-        with self.assertRaises(InputValueError) as context:
-            with open(os.path.abspath('testdata/idp_invomplete.xml')) as f:
-                ed = SAMLEntityDescriptor(f)
-                retmsg = ed.validate_xsd()
+        pvzd_verify_sig = 'at/wien/ma14/pvzd/validatexsd/XSDValidator'
+        from jnius import autoclass   # TODO: move to setup class
+        pyjnius_xsdvalidator = autoclass(pvzd_verify_sig)
+        saml_xsd_validator = pyjnius_xsdvalidator('xmlschema', False)
+        retmsg = saml_xsd_validator.validateSchema('testdata/idp_not_schema_valid.xml')
+        self.assert_(str(retmsg).startswith('ERROR: Validation of testdata/idp_not_schema_valid.xml failed'), retmsg)
 
 if __name__ == '__main__':
     unittest.main()
