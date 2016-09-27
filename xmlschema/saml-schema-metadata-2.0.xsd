@@ -39,7 +39,7 @@
     <simpleType name="NonEmptyString">
         <restriction base="string">
             <minLength value="1"/>
-            <pattern value=".*[^\s].*"/>
+            <pattern value="[\s\S]*\S[\s\S]*"/>  <!-- allow multi-line strings-->
         </restriction>
     </simpleType>
     <!-- Non-empty anyURI (as mandated by SAML core 1.3.2) -->

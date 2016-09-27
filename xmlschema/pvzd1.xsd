@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://egov.gv.at/pvzd1.xsd"
+        xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
+        xmlns:pvzd="http://egov.gv.at/pvzd1.xsd"
+        elementFormDefault="qualified">
+    <annotation>
+        <documentation>
+            Document title: PVZD XMl Schema extension
+            Document identifier: pvzd1.xsd
+            Location: http://reference.e-government.gv.at/ path to be defined
+            Revision history:
+            2015-11-29
+            Initial Submission
+        </documentation>
+    </annotation>
+
+    <import namespace="urn:oasis:names:tc:SAML:2.0:metadata" schemaLocation="saml-schema-metadata-2.0.xsd"/>
+
+    <attribute name="disposition">
+        <!-- This attribute indicates with an EntityDescriptor that it shall be deleted from the journal. -->
+        <simpleType>
+            <restriction base="string">
+                <pattern value="add_or_update|delete"/>
+            </restriction>
+        </simpleType>
+    </attribute>
+
+    <attribute name="pvptype">
+        <simpleType>
+            <restriction base="string">
+                <pattern value="R-Profile|S-Profile|any"/>
+            </restriction>
+        </simpleType>
+    </attribute>
+
+</schema>
