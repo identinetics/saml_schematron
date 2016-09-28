@@ -2,6 +2,7 @@
   "profile": "All rules",
   "rules":
   [
+    "rule00I",
     "rule01E",
     "rule02W",
     "rule03W",

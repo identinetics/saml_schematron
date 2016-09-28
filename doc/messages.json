@@ -1,0 +1,138 @@
+{
+"rule00I": {
+        "Severity": "Info",
+             "Message": "Validating entityID "},
+"rule01W": {
+         "Severity": "Warning",
+         "Message": "@entityID values should be a URI starting with http://, https:// or urn:"},
+"rule02W": {
+         "Severity": "Warning",
+         "Message": "This NameIDFormat may not be supported. Supported values for NameIDFormat are:\n    urn:oasis:names:tc:SAML:2.0:nameid-format:persistent\n    urn:oasis:names:tc:SAML:2.0:nameid-format:transient"},
+"rule03W": {
+         "Severity": "Warning",
+         "Message": "Each IDPSSODescriptor should contain NameIDFormat with one or more values"},
+"rule04W": {
+         "Severity": "Warning",
+         "Message": "Each SPSSODescriptor should contain NameIDFormat with one or more values"},
+"rule05W": {
+         "Severity": "Warning",
+         "Message": "EntityDescriptor should contain an Organization"},
+"rule06W": {
+         "Severity": "Warning",
+         "Message": "EntityDescriptor should contain ContactPerson with a contactType of \"support\" and at least one EmailAddress"},
+"rule07W": {
+         "Severity": "Warning",
+         "Message": "EntityDescriptor should contain ContactPerson with a contactType of \"technical\" and at least one EmailAddress"},
+"rule08W": {
+         "Severity": "Warning",
+         "Message": "EntityDescriptor created by the entity operator should not contain elements from the mdrpi namespace (urn:oasis:names:tc:SAML:metadata:rpi); this is reserved for metadata publishers."},
+"rule09E": {
+         "Severity": "Error",
+         "Message": "IDPSSODescriptor must contain a SingleSignOnService with Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect\""},
+"rule10W": {
+         "Severity": "Warning",
+         "Message": "IDPSSODescriptor contains saml2:Attribute elements; but some implementations may not understand this."},
+"rule11W": {
+         "Severity": "Warning",
+         "Message": "SPSSODescriptor should contain an AssertionConsumerService with Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\""},
+"rule12E": {
+         "Severity": "Error",
+         "Message": "IDPSSODescriptor/SPSSODescriptor must contain alg:DigestMethod"},
+"rule13E": {
+         "Severity": "Error",
+         "Message": "IDPSSODescriptor/SPSSODescriptor must contain SigningMethod"},
+"rule14W": {
+         "Severity": "Warning",
+         "Message": "IDPSSODescriptor should contain discovery hints"},
+"rule15W": {
+         "Severity": "Warning",
+         "Message": "IDPSSODescriptor/SPSSODescriptor should contain SingleLogoutService"},
+"rule16W": {
+         "Severity": "Warning",
+         "Message": "AttributeConsumingService is deprecated if EntityCategory has an fixed set of RequestedAttributes."},
+"rule17W": {
+         "Severity": "Warning",
+         "Message": "SPSSODescriptor should include Extensions/DiscoveryResponse"},
+"rule18E": {
+         "Severity": "Error",
+         "Message": "EntityAttributes containing an EntityCategory need to be direct descendants of EntityDescriptor"},
+"rule19W": {
+         "Severity": "Warning",
+         "Message": "EntityCategories should be restricted to these values:\n  http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken,\n  http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken-charge"},
+"rule20W": {
+         "Severity": "Warning",
+         "Message": "SPSSODescriptor should include init:RequestInitiator"},
+"rule21W": {
+         "Severity": "Warning",
+         "Message": "SPSSODescriptor should include a mdui:UIInfo element"},
+"rule22E": {
+         "Severity": "Error",
+         "Message": "UIInfo must include a non-empty DisplayName"},
+"rule23E": {
+         "Severity": "Error",
+         "Message": "alg:DigestMethod element may only contain following @Algorithm values:\n    http://www.w3.org/2000/09/xmldsig#sha1\n    http://www.w3.org/2001/04/xmlenc#sha256\n    http://www.w3.org/2001/04/xmlenc#sha512\n    http://www.w3.org/2001/04/xmlenc#ripemd160"},
+"rule24E": {
+         "Severity": "Error",
+         "Message": "Each alg:SigningMethod may only contain following @Algorithm values: \n    http://www.w3.org/2001/04/xmldsig-more#rsa-sha256 \n    http://www.w3.org/2000/09/xmldsig#rsa-sha1 \n    http://www.w3.org/2001/04/xmldsig-more#rsa-sha384 \n    http://www.w3.org/2001/04/xmldsig-more#rsa-sha512 \n    http://www.w3.org/2001/04/xmldsig-more#rsa-ripemd160\n    http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256 \n    http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384 \n    http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512"},
+"rule25W": {
+         "Severity": "Warning",
+         "Message": "DigestMethod element should not contain @Algorithm value http://www.w3.org/2000/09/xmldsig#sha1"},
+"rule26W": {
+         "Severity": "Warning",
+         "Message": "SigningMethod element should not contain @Algorithm value http://www.w3.org/2000/09/xmldsig#rsa-sha1"},
+"rule27E": {
+         "Severity": "Error",
+         "Message": "MinKeySize must be greater or equal to 2048 if Algorithm starts with http://www.w3.org/2001/04/xmldsig-more#rsa"},
+"rule28E": {
+         "Severity": "Error",
+         "Message": "MinKeySize must be greater or equal to 256 if Algorithm starts with http://www.w3.org/2001/04/xmldsig-more#ecdsa"},
+"rule29W": {
+         "Severity": "Warning",
+         "Message": "alg:SigningMethod must have an attribute MaxKeySize"},
+"rule30W": {
+         "Severity": "Warning",
+         "Message": "AssertionConsumerService Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact is deprecated\""},
+"rule31W": {
+         "Severity": "Warning",
+         "Message": "@entityID length should not exceed 80 characters"},
+"rule32E": {
+         "Severity": "Error",
+         "Message": "IDPSSODescriptor  must contain a mdui:UIInfo element"},
+"rule33W": {
+         "Severity": "Warning",
+         "Message": "IDPSSODescriptor/SPSSODescriptor should contain alg:DigestMethod"},
+"rule34W": {
+         "Severity": "Warning",
+         "Message": "IDPSSODescriptor/SPSSODescriptor should contain alg:SigningMethod"},
+"rule35W": {
+         "Severity": "Warning",
+         "Message": "protocolSupportEnumeration should contain only \"urn:oasis:names:tc:SAML:2.0:protocol\" (-&gt; remove support for legacy protocols)"},
+"rule36E": {
+         "Severity": "Error",
+         "Message": "IDPSSODescriptor must contain a SingleSignOnService with Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\""},
+"rule37E": {
+         "Severity": "Error",
+         "Message": "Each IDPSSODescriptor/SPSSODescriptor must contain at least one KeyDescriptor with a use=\"signing\" attribute"},
+"rule38E": {
+         "Severity": "Error",
+         "Message": "Each alg:SigningMethod may only contain following @Algorithm values:\n    http://www.w3.org/2001/04/xmldsig-more#rsa-sha256\n    http://www.w3.org/2001/04/xmldsig-more#rsa-sha512\n    http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256\nhttp://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512"},
+"rule39E": {
+         "Severity": "Error",
+         "Message": "alg:DigestMethod element may only contain following @Algorithm values:\n    http://www.w3.org/2001/04/xmlenc#sha256\n    http://www.w3.org/2001/04/xmlenc#sha512 \n    http://www.w3.org/2001/04/xmlenc#ripemd160"},
+"rule40E": {
+         "Severity": "Error",
+         "Message": "md:EncryptionMethod element may only contain following  values:\n    http://www.w3.org/2001/04/xmlenc#aes128-cbc\n    http://www.w3.org/2001/04/xmlenc#aes256-cbc\n    http://www.w3.org/2009/xmlenc11#aes128-gcm\n    http://www.w3.org/2009/xmlenc11#aes256-gcm\n    http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p\n    http://www.w3.org/2009/xmlenc11#ECDH-ES"},
+"rule41W": {
+         "Severity": "Warning",
+         "Message": "EntityCategories understood in this federation are:\n    http://wirtschaftsportalverbund.at/ns/ec/attributebundle-wkis"},
+"rule42W": {
+         "Severity": "Warning",
+         "Message": "This NameIDFormat may not be supported. Recommended values for NameIDFormat are:\n    urn:oasis:names:tc:SAML:2.0:nameid-format:persistent \n    urn:oasis:names:tc:SAML:2.0:nameid-format:transient"},
+"rule60E": {
+         "Severity": "Error",
+         "Message": "Each IDPSSODescriptor/SPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data)"},
+"rule61E": {
+         "Severity": "Error",
+         "Message": "Each SPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data)"},
+"end of listing": {}
+}

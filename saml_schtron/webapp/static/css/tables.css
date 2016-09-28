@@ -1,0 +1,51 @@
+/* derivative work from https://github.com/yahoo/pure. Licence: see http://purecss.io/start/ */
+.pure-table {
+    /* Remove spacing between table cells (from Normalize.css) */
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid red;
+}
+
+.pure-table td,
+.pure-table th {
+    border-left: 1px solid #cbcbcb;/*  inner column border */
+    border-right: 1px solid #cbcbcb;/*  inner column border */
+    border-width: 1px 1px 1px 1px;
+    font-size: inherit;
+    margin: 0;
+    text-align: left;
+    vertical-align: top;
+    padding: 0.5em 1em; /* cell padding */
+}
+
+.pure-table th{
+    max-width: 40em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.pure-table  td>ul>li {
+    max-width: 40em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.pure-table thead {
+    background-color: #e0e0e0;
+    color: #000;
+    text-align: left;
+    vertical-align: top;
+}
+
+.pure-table-odd td {
+    background-color: #f2f2f2;
+}
+
+/* nth-child selector for modern browsers */
+.pure-table tr:nth-child(2n-1) td {
+    background-color: #f2f2f2;
+}
+

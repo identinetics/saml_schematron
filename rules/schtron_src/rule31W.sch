@@ -3,7 +3,7 @@
   <iso:rule context="md:EntityDescriptor">                                  
     <iso:assert test="string-length(@entityID) &lt; 81">
 "rule31W": { "Severity": "Warning",
-         "Message": "@entityID length should not exceed 80 characters”",
+         "Message": "@entityID length should not exceed 80 characters",
     </iso:assert>  
   </iso:rule>     
 </iso:pattern>

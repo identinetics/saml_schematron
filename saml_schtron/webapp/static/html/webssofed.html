@@ -1,0 +1,38 @@
+<html><head><meta charset="UTF-8"><link rel="stylesheet" type="text/css" href="../css/tables.css"></head><body><h1>SAML Schematron Rules for profile "WebSSO Federation Best Practice"</h1><table class="pure-table"><tr><td>rule00I</td><td>Info</td><td>Validating entityID </td></tr>
+<tr><td>rule01W</td><td>Warning</td><td>@entityID values should be a URI starting with http://, https:// or urn:</td></tr>
+<tr><td>rule03W</td><td>Warning</td><td>Each IDPSSODescriptor should contain NameIDFormat with one or more values</td></tr>
+<tr><td>rule04W</td><td>Warning</td><td>Each SPSSODescriptor should contain NameIDFormat with one or more values</td></tr>
+<tr><td>rule05W</td><td>Warning</td><td>EntityDescriptor should contain an Organization</td></tr>
+<tr><td>rule06W</td><td>Warning</td><td>EntityDescriptor should contain ContactPerson with a contactType of "support" and at least one EmailAddress</td></tr>
+<tr><td>rule07W</td><td>Warning</td><td>EntityDescriptor should contain ContactPerson with a contactType of "technical" and at least one EmailAddress</td></tr>
+<tr><td>rule08W</td><td>Warning</td><td>EntityDescriptor created by the entity operator should not contain elements from the mdrpi namespace (urn:oasis:names:tc:SAML:metadata:rpi); this is reserved for metadata publishers.</td></tr>
+<tr><td>rule09E</td><td>Error</td><td>IDPSSODescriptor must contain a SingleSignOnService with Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"</td></tr>
+<tr><td>rule10W</td><td>Warning</td><td>IDPSSODescriptor contains saml2:Attribute elements; but some implementations may not understand this.</td></tr>
+<tr><td>rule11W</td><td>Warning</td><td>SPSSODescriptor should contain an AssertionConsumerService with Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"</td></tr>
+<tr><td>rule12E</td><td>Error</td><td>IDPSSODescriptor/SPSSODescriptor must contain alg:DigestMethod</td></tr>
+<tr><td>rule13E</td><td>Error</td><td>IDPSSODescriptor/SPSSODescriptor must contain SigningMethod</td></tr>
+<tr><td>rule15W</td><td>Warning</td><td>IDPSSODescriptor/SPSSODescriptor should contain SingleLogoutService</td></tr>
+<tr><td>rule17W</td><td>Warning</td><td>SPSSODescriptor should include Extensions/DiscoveryResponse</td></tr>
+<tr><td>rule18E</td><td>Error</td><td>EntityAttributes containing an EntityCategory need to be direct descendants of EntityDescriptor</td></tr>
+<tr><td>rule20W</td><td>Warning</td><td>SPSSODescriptor should include init:RequestInitiator</td></tr>
+<tr><td>rule21W</td><td>Warning</td><td>SPSSODescriptor should include a mdui:UIInfo element</td></tr>
+<tr><td>rule22E</td><td>Error</td><td>UIInfo must include a non-empty DisplayName</td></tr>
+<tr><td>rule27E</td><td>Error</td><td>MinKeySize must be greater or equal to 2048 if Algorithm starts with http://www.w3.org/2001/04/xmldsig-more#rsa</td></tr>
+<tr><td>rule28E</td><td>Error</td><td>MinKeySize must be greater or equal to 256 if Algorithm starts with http://www.w3.org/2001/04/xmldsig-more#ecdsa</td></tr>
+<tr><td>rule31W</td><td>Warning</td><td>@entityID length should not exceed 80 characters</td></tr>
+<tr><td>rule32E</td><td>Error</td><td>IDPSSODescriptor  must contain a mdui:UIInfo element</td></tr>
+<tr><td>rule35W</td><td>Warning</td><td>protocolSupportEnumeration should contain only "urn:oasis:names:tc:SAML:2.0:protocol" (-&gt; remove support for legacy protocols)</td></tr>
+<tr><td>rule39E</td><td>Error</td><td>alg:DigestMethod element may only contain following @Algorithm values:
+    http://www.w3.org/2001/04/xmlenc#sha256
+    http://www.w3.org/2001/04/xmlenc#sha512 
+    http://www.w3.org/2001/04/xmlenc#ripemd160</td></tr>
+<tr><td>rule40E</td><td>Error</td><td>md:EncryptionMethod element may only contain following  values:
+    http://www.w3.org/2001/04/xmlenc#aes128-cbc
+    http://www.w3.org/2001/04/xmlenc#aes256-cbc
+    http://www.w3.org/2009/xmlenc11#aes128-gcm
+    http://www.w3.org/2009/xmlenc11#aes256-gcm
+    http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p
+    http://www.w3.org/2009/xmlenc11#ECDH-ES</td></tr>
+<tr><td>rule60E</td><td>Error</td><td>Each IDPSSODescriptor/SPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data)</td></tr>
+<tr><td>rule61E</td><td>Error</td><td>Each SPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data)</td></tr>
+</table></body></html>
