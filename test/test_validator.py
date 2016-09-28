@@ -2,6 +2,7 @@ import json, logging, os.path, re
 import lxml.etree as etree
 import unittest
 from saml_schtron.validator import ApiArgs, Validator
+from assertNoDiff import assertNoDiff
 
 __author__ = 'r2h2'
 
@@ -13,7 +14,7 @@ def execute_a_test(rule, expected_severity, testfile, PROJROOT):
     validator_result = validator.validate()
 
     # pyunit test not useful to have multiple assertions in a test because it does not continue
-    # all unittests run as a single pyunit test
+    # all unittests in a loop run as a single pyunit test
 
     #assert validator_result.level == expected_severity, ('expected severity level ' +
     #    expected_severity + ' but test returned ' + validator_result.level + '. rule: ' + rule +
@@ -63,13 +64,19 @@ class TestValidator(unittest.TestCase):
         md_fname = os.path.join(PROJROOT, 'testdata', 'idp_incomplete.xml')
         profile_fname = os.path.join(PROJROOT, 'rules', 'profiles', 'webssofed.json')
         validator = Validator(ApiArgs(md_xml=md_fname, profile=profile_fname).cliInvocation)
-        validator_result = validator.validate()
-        fname = os.path.join(PROJROOT, 'work', 'webssofed.err')
+        val_result = validator.validate()
+
+        val_result.messages.append({"Summary": val_result.summary})
+        msg_json = json.dumps(val_result.messages, sort_keys=True, indent=4)
+
+        fname = os.path.join(PROJROOT, 'work', 'webssofed.json')
         with open(fname, 'w') as fd:
-            fd.write(validator_result.json)
-        if validator_result.level != 'ERROR':
-            print ('expected severity level ERROR but test returned ' +
-                   validator_result.level + '.\n (' + profile_fname + ' \n ' + md_fname + ')')
+            fd.write(msg_json)
+        try:
+            assertNoDiff(fname)
+        except (AssertionError, FileNotFoundError) as e:
+            print(e)
+
 
     def test_list_profiles(self):
         """ -- List profiles """

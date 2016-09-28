@@ -1,7 +1,6 @@
 import argparse
 import logging, os, re, sys
 import lxml.etree as etree
-#from lxml.isoschematron import Schematron
 import json
 
 class ApiArgs():
@@ -59,11 +58,18 @@ class CliInvocation():
 class ValidatorResult:
     """ Attributes:
     result (bool): False if an assertion failed, True otherwise
-    level (str): Severity level (extracted from svrl message text): INFO/WARNING/ERROR
-    json (str): svrl message(s)
+    level (str): Severity level (extracted from svrl message text): OK/INFO/WARNING/ERROR
+    messages (list): svrl message(s)
+    summary (dict): message count per severity level
+
+    'OK' in the context of a severity level means that a rule was executed but no message reported
+
     """
     def __init__(self):
-        pass
+        self.code = True
+        self.level='OK'
+        self.messages = []
+        self.summary = {'OK': 0, 'INFO': 0, 'WARNING': 0, 'ERROR': 0}
 
 
 class Validator:
@@ -102,53 +108,50 @@ class Validator:
                 profiles.append({'file': fname, 'name': profile['profile']})
         return profiles
 
-    def validate(self) -> ValidatorResult:
-        validator_result = ValidatorResult()
+    def validate_schtron(self) -> ValidatorResult:
+        val_result = ValidatorResult()
         md_dom = etree.parse(self.metadatafile)
         eds = md_dom.findall('{urn:oasis:names:tc:SAML:2.0:metadata}EntityDescriptor')
         if len(eds) > 1:
-            validator_result.level = 'ERROR'
-            validator_result.message = 'Cannot validate files with multiple entities'
-            return validator_result
+            val_result.level = 'ERROR'
+            val_result.message = 'Cannot validate files with multiple entities'
+            return val_result
         if self.verbose: print('entityID: ' + eds[0].attrib['entityID'])
-        validator_result.code = True
-        validator_result.json = '{\n'
-        tracker = {'OK': 0, 'INFO': 0, 'WARNING': 0, 'ERROR': 0}
         for rule in self.rules:
             with open(os.path.join(self.projdir, self.ruledir, rule + '.xsl')) as fd:
                 transform = etree.XSLT(etree.XML(''.join(fd.readlines())))
             transform(md_dom)
             result_jsonsnippet = str(transform.error_log).replace('<string>:0:0:ERROR:XSLT:ERR_OK:', '')
-            # print('result_json: ' + result_json)  # debug
-            # print('loading msg from ' + rule + ' for ' + self.metadatafile)
             try:
-                result = json.loads('{' + result_jsonsnippet + '}')
+                result_dict = json.loads('{' + result_jsonsnippet + '}')
             except ValueError as e:
                 print('ValueError: Decoding JSON string from ' + rule + ':\n{' + result_jsonsnippet + '}')
-            if rule not in result:
-                tracker['OK'] += 1
+                raise
+            if rule not in result_dict:
+                val_result.summary['OK'] += 1
             else:
-                if not validator_result.code:
-                    validator_result.json += ',\n'
-                validator_result.code = False
-                validator_result.json += result_jsonsnippet
+                val_result.code = False
+                val_result.messages.append(result_dict)
                 last_level = ''
-                if result[rule]['Severity'] == 'Info':
-                    last_level = 'INFO'
-                elif result[rule]['Severity'] == 'Warning':
-                    last_level = 'WARNING'
-                elif result[rule]['Severity'] == 'Error':
-                    last_level = 'ERROR'
+                if result_dict[rule]['Severity'] == 'Info':
+                    val_result.summary['INFO'] += 1
+                elif result_dict[rule]['Severity'] == 'Warning':
+                    val_result.summary['WARNING'] += 1
+                elif result_dict[rule]['Severity'] == 'Error':
+                    val_result.summary['ERROR'] += 1
                 else:
                     print('could not get severity level from ', result_jsonsnippet)
-                    last_level = 'ERROR'
-                tracker[last_level] += 1
+                    val_result.summary['CRITICAL'] += 1
 
         for l in ('OK', 'INFO', 'WARNING', 'ERROR'):  # return highest severity
-            if tracker[l] > 0:
-                validator_result.level = l
-        if validator_result.level != 'OK':
-            validator_result.json += ',\n"Summary": {"OK": %d, "INFO": %d, "WARNING": %d, "ERROR": %d}' % \
-                                     (tracker['OK'], tracker['INFO'], tracker['WARNING'], tracker['ERROR'])
-            validator_result.json += '\n}'
-        return validator_result
+            if val_result.summary[l] > 0:
+                val_result.level = l
+#        if val_result.level != 'OK':
+#            val_result.json += ',\n"Summary": {"OK": %d, "INFO": %d, "WARNING": %d, "ERROR": %d}' % \
+#                               (val_result.summary['OK'], val_result.summary['INFO'],
+#                                val_result.summary['WARNING'], val_result.summary['ERROR'])
+#            val_result.json += '\n}'
+        return val_result
+
+    def validate(self) -> ValidatorResult:
+        return self.validate_schtron()
