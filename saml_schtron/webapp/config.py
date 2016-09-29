@@ -12,7 +12,7 @@ class Config(object):
         # setup list of available profiles
         self.profiles = {}
         validator = Validator(ApiArgs(listprofiles=True).cliInvocation)
-        self.profileoptions = ''
+        self.profileoptions = '<option disabled selected value> -- select an option -- </option>'
         for display_name in Validator.get_profiles().values():
             self.profileoptions += '<option>' + display_name +  '</option>'
 
