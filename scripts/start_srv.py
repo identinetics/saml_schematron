@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import sys
+import os, sys
 print('\n'.join(sys.path))
 import saml_schtron.webapp.config
 import saml_schtron.webapp.app_handler
@@ -13,6 +13,8 @@ def main():
     werkzeug.serving.run_simple(config.HttpServer['listen'],
                config.HttpServer['port'],
                app_handler.application,
+               static_files={'/static': os.path.join(os.path.dirname(__file__), '../saml_schtron/webapp/static'),
+                             '/xmlschema': os.path.join(os.path.dirname(__file__), '../xmlschema')},
                use_debugger=True)
 
 

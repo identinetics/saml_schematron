@@ -26,13 +26,9 @@
 body {
     width: 1024px;
     padding: 0 30px;
-    margin: 0 auto;
     font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    font-size: 12px;
+    font-size: 110%;
     font-weight: 300;
-    background-image: url(../images/light_content_bg.png), url(../images/body_bg.png);
-    background-position: center 90px, left top;
-    background-repeat: no-repeat, repeat;
 }
 
 #header {
@@ -54,13 +50,13 @@ strong {
 }
 
 h1 {
-    font-size: 16pt;
+    font-size: 200%;
     margin: 0.5em 0;
     font-weight: 300;
 }
 
 h2 {
-    font-size: 12pt;
+    font-size: 120%t;
     margin: 0.5em 0 0.3em;
     font-weight: 300;
     letter-spacing: 0.6px;
@@ -289,7 +285,7 @@ header#header h1 a {
     font-size: 17px;
     padding: 40px 0 27px 100px;
     letter-spacing: 0.8px;
-    background: transparent url(/staticcustom/draftPvpLogo_60px.png) no-repeat left 29px;
+    background: transparent url(/static/logo.png) no-repeat left 29px;
 }
 
 header#header h2 a {
@@ -842,54 +838,4 @@ input.ui-autocomplete-input {
 
 .ui-autocomplete a {
     background-color: #DEDEDE;
-}
-
-/* paginator */
-
-.paginator {
-    float: left;
-    width: 100%;
-    margin: 1em;
-}
-
-.paginator a,
-.paginator span {
-    float: left;
-    margin: 0 0.5em;
-}
-
-.paginator .first,
-.paginator .previous {
-    display: block;
-    width: 0;
-    height: 0;
-    border-top: 5px solid transparent;
-    border-right: 5px solid #b2b3b5;
-    border-bottom: 5px solid transparent;
-    border-left: 5px solid transparent;
-}
-
-.paginator .first {
-    border-left-width: 0px;
-    box-shadow: -1px 0 0  #b2b3b5;
-    -moz-box-shadow: -1px 0 0 #b2b3b5;
-    -webkit-box-shadow: -1px 0 0 #b2b3b5;
-}
-
-.paginator .next,
-.paginator .last {
-    display: block;
-    width: 0;
-    height: 0;
-    border-top: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-left: 5px solid #b2b3b5;
-}
-
-.paginator .last {
-    border-right-width: 0px;
-    box-shadow: 1px 0 0  #b2b3b5;
-    -moz-box-shadow: 1px 0 0 #b2b3b5;
-    -webkit-box-shadow: 1px 0 0 #b2b3b5;
 }

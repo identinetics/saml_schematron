@@ -1,6 +1,7 @@
 <html><head><meta charset="UTF-8"><link rel="stylesheet" type="text/css" href="../css/tables.css"></head><body><h1>SAML Schematron Rules for profile "saml2int V0.2"</h1><table class="pure-table"><tr><td>rule06W</td><td>Warning</td><td>EntityDescriptor should contain ContactPerson with a contactType of "support" and at least one EmailAddress</td></tr>
 <tr><td>rule07W</td><td>Warning</td><td>EntityDescriptor should contain ContactPerson with a contactType of "technical" and at least one EmailAddress</td></tr>
 <tr><td>rule10W</td><td>Warning</td><td>IDPSSODescriptor contains saml2:Attribute elements; but some implementations may not understand this.</td></tr>
+<tr><td>rule43W</td><td>Warning</td><td>@entityID values should not containe whitespace (some implementations may not normalize this)</td></tr>
 <tr><td>rule60E</td><td>Error</td><td>Each IDPSSODescriptor/SPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data)</td></tr>
 <tr><td>rule61E</td><td>Error</td><td>Each SPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data)</td></tr>
 </table></body></html>

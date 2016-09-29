@@ -1,28 +1,20 @@
 ﻿<html>
 <head>
     <meta charset="utf-8">
-    <title>PVP2 SAML Metadata Validation Service</title>
+    <title>SAML Metadata Validation Service</title>
     <link type="text/css" href="/static/css/reset.css" rel="Stylesheet" />
     <link type="text/css" href="/static/css/layout.css" rel="Stylesheet" />
     <link type="text/css" href="/static/css/color.css" rel="Stylesheet" />
-   <style type="text/css">
-      h1 {color: #1631BC; font-size: 200%}
-      h2 {color: #1631BC; font-size: 200%}
-    </style>
+    <link type="text/css" href="/static/css/table.css" rel="Stylesheet" />
 </head>
 <body>
     <header id="header">
-      <hgroup>
-        <h1><a href="/">Portalverbund Test Federation</a></h1>
-        <h2><a href="/">Metadata Validation Service</a></h2>
-      </hgroup>
-      <ul id="user-actions">
-            <!--li><a class="button" href="/accounts/register/">Sign up</a></li-->
-      </ul>
+      <h1 style="margin-top: 1em">SAML Metadata Validation Service</h1>
     </header>
-    <p>Dieser Dienst validiert einen SAML2 EntityDescriptor nach folgenden Kriterien:<br>
-        1. XML Schema (mit den unten angeführten Schemadefinitionen)<br>
-        2. SAML Schematron (auswählbarer Satz von Regeln)
+    <!--h2 style="margin-bottom: 1em">Validation Service</h2-->
+    <p>This service validates a SAML metadata document containing a single EntityDescriptor element using following rules:<br>
+        1. XML Schema (see XSD-files below)<br>
+        2. SAML Schematron rules (selected using profiles)
     </p>
     <hr style="margin-top: 1em">
     <p></p>
@@ -44,28 +36,39 @@
         </table>
     </form>
     <input action="action" type="button" value="Home" onclick="window.location.href='/'"  />
-    <hr style="margin-top: 5em">
-    <h3>XML Schema Definitions</h3>
-<pre>
-saml-metadata-rpi-v1.0.xsd
-saml-schema-assertion-2.0.xsd
-saml-schema-authn-context-2.0.xsd
-saml-schema-authn-context-ip-2.0.xsd
-saml-schema-authn-context-types-2.0.xsd
-saml-schema-dce-2.0.xsd
-saml-schema-ecp-2.0.xsd
-saml-schema-metadata-2.0.xsd
-saml-schema-protocol-2.0.xsd
-saml-schema-x500-2.0.xsd
-saml-schema-xacml-2.0.xsd
-sstc-metadata-attr.xsd
-sstc-request-initiation.xsd
-sstc-saml-channel-binding-ext-v1.0.xsd
-sstc-saml-idp-discovery.xsd
-sstc-saml-metadata-algsupport.xsd
-sstc-saml-metadata-ext-query.xsd
-sstc-saml-metadata-ui-v1.0.xsd
-xenc-schema.xsd
-xmldsig-core-schema.xsd
-</pre>
+    <hr style="margin-top: 2em">
+    <h2 style="margin-bottom: 1em">XML Schema Definitions</h2>
+    <table>
+        <tr><td>OASIS SSTC</td><td><a href="/xmlschema/saml-schema-metadata-2.0.xsd">saml-schema-metadata-2.0 (extended to test for non-empty string and anyURL types)</a></td></tr>
+        <tr><td>OASIS SSTC</td><td><a href="/xmlschema/saml-metadata-rpi-v1.0.xsd">saml-metadata-rpi-v1.0</a></td></tr>
+        <tr><td>OASIS SSTC</td><td><a href="/xmlschema/saml-schema-assertion-2.0.xsd">saml-schema-assertion-2.0</a></td></tr>
+        <tr><td>OASIS SSTC</td><td><a href="/xmlschema/saml-schema-authn-context-2.0.xsd">saml-schema-authn-context-2.0</a></td></tr>
+        <tr><td>OASIS SSTC</td><td><a href="/xmlschema/saml-schema-authn-context-ip-2.0.xsd">saml-schema-authn-context-ip-2.0</a></td></tr>
+        <tr><td>OASIS SSTC</td><td><a href="/xmlschema/saml-schema-authn-context-types-2.0.xsd">saml-schema-authn-context-types-2.0</a></td></tr>
+        <tr><td>OASIS SSTC</td><td><a href="/xmlschema/saml-schema-dce-2.0.xsd">saml-schema-dce-2.0</a></td></tr>
+        <tr><td>OASIS SSTC</td><td><a href="/xmlschema/saml-schema-ecp-2.0.xsd">saml-schema-ecp-2.0</a></td></tr>
+        <tr><td>OASIS SSTC</td><td><a href="/xmlschema/saml-schema-protocol-2.0.xsd">saml-schema-protocol-2.0</a></td></tr>
+        <tr><td>OASIS SSTC</td><td><a href="/xmlschema/saml-schema-x500-2.0.xsd">saml-schema-x500-2.0</a></td></tr>
+        <tr><td>OASIS SSTC</td><td><a href="/xmlschema/saml-schema-xacml-2.0.xsd">saml-schema-xacml-2.0</a></td></tr>
+        <tr><td>OASIS SSTC</td><td><a href="/xmlschema/sstc-metadata-attr.xsd">sstc-metadata-attr.xsd</a></td></tr>
+        <tr><td>OASIS SSTC</td><td><a href="/xmlschema/sstc-request-initiation.xsd">sstc-request-initiation</a></td></tr>
+        <tr><td>OASIS SSTC</td><td><a href="/xmlschema/sstc-saml-channel-binding-ext-v1.0.xsd">sstc-saml-channel-binding-ext-v1.0</a></td></tr>
+        <tr><td>OASIS SSTC</td><td><a href="/xmlschema/sstc-saml-idp-discovery.xsd">sstc-saml-idp-discovery</a></td></tr>
+        <tr><td>OASIS SSTC</td><td><a href="/xmlschema/sstc-saml-metadata-algsupport.xsd">sstc-saml-metadata-algsupport</a></td></tr>
+        <tr><td>OASIS SSTC</td><td><a href="/xmlschema/sstc-saml-metadata-ext-query.xsd">sstc-saml-metadata-ext-query</a></td></tr>
+        <tr><td>OASIS SSTC</td><td><a href="/xmlschema/sstc-saml-metadata-ui-v1.0.xsd">sstc-saml-metadata-ui-v1.0</a></td></tr>
+        <tr><td>W3C</td><td><a href="/xmlschema/xenc-schema.xsd">xenc-schema</a></td></tr>
+        <tr><td>W3C</td><td><a href="/xmlschema/xmldsig-core-schema.xsd">xmldsig-core-schema</a></td></tr>
+        <tr><td>AT Gov</td><td><a href="/xmlschema/pvzd1.xsd">pvzd1</a></td></tr>
+        <tr><td>REFEDS.org</td><td><a href="/xmlschema/REFEDSmdext.xsd">REFEDSmdext</a></td></tr>
+        <tr><td>REFEDS.org</td><td><a href="/xmlschema/refeds_metadata_extension_schema.xsd">refeds_metadata_extension_schema.xsd (SIRTIFI extension)</a></td></tr>
+    </table>
+    <hr style="margin: 2em 0 1em 0">
+    <h2 style="margin-bottom: 1em">Schematron Rules</h2>
+        <ul>
+            <li><a href="/static/html/pvp2.html">PVP 2</a></li>
+            <li><a href="/static/html/saml2int.html">saml2int v0.2</a></li>
+            <li><a href="/static/html/wpv.html">WPV 1.0</a></li>
+            <li><a href="/static/html/allrules.html">All available rules</a></li>
+        </ul>
 </body>
