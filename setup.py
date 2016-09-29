@@ -9,7 +9,7 @@ The package provides an API, CLI and webs erver.
 '''
 
 __author__ = 'Rainer Hörbe'
-__version__ = '0.3.3dev0'
+__version__ = '0.3.3'
 
 print('sys.prefix: ' + sys.prefix)
 setup(name = 'SAMLSchtron',

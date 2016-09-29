@@ -63,5 +63,7 @@ a POST form with 2 parameters:
     md_instance      XML file upload
     md_profile_key   profile key (saml2int, pvp2, ..) as rules/profiles without .json
 
+Providing the md_profile_key parameter will cause the service to return a JSON output.
+
 See the example in scripts/web_validate.sh
 
