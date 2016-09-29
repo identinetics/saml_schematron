@@ -56,20 +56,20 @@ class TestValidator(unittest.TestCase):
             execute_a_test(rule, expected_severity, testfile, PROJROOT)
 
 
-    def test_validate_webssofed(self):
-        """ -- Test API with profile webssofed against idp_incomplete.xml """
-        logging.info(TestValidator.test_validate_webssofed.__doc__)
-        print(TestValidator.test_validate_webssofed.__doc__)
+    def test_validate_saml2int(self):
+        """ -- Test API with profile saml2int against idp_incomplete.xml """
+        logging.info(TestValidator.test_validate_saml2int.__doc__)
+        print(TestValidator.test_validate_saml2int.__doc__)
         PROJROOT = os.path.dirname(os.path.dirname(__file__))
         md_fname = os.path.join(PROJROOT, 'testdata', 'idp_incomplete.xml')
-        profile_fname = os.path.join(PROJROOT, 'rules', 'profiles', 'webssofed.json')
+        profile_fname = os.path.join(PROJROOT, 'rules', 'profiles', 'saml2int.json')
         validator = Validator(ApiArgs(md_xml=md_fname, profile=profile_fname).cliInvocation)
         val_result = validator.validate()
 
         val_result.messages.append({"Summary": val_result.summary})
         msg_json = json.dumps(val_result.messages, sort_keys=True, indent=4)
 
-        fname = os.path.join(PROJROOT, 'work', 'webssofed.json')
+        fname = os.path.join(PROJROOT, 'work', 'saml2int.json')
         with open(fname, 'w') as fd:
             fd.write(msg_json)
         try:

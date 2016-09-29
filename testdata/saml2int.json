@@ -1,0 +1,34 @@
+[
+    {
+        "rule06W": {
+            "Context": "/md:EntityDescriptor[1]",
+            "Message": "EntityDescriptor should contain ContactPerson with a contactType of \"support\" and at least one EmailAddress",
+            "Rule": "md:ContactPerson[normalize-space(@contactType)='support'][md:EmailAddress]",
+            "Severity": "Warning"
+        }
+    },
+    {
+        "rule07W": {
+            "Context": "/md:EntityDescriptor[1]",
+            "Message": "EntityDescriptor should contain ContactPerson with a contactType of \"technical\" and at least one EmailAddress",
+            "Rule": "md:ContactPerson[normalize-space(@contactType)='technical'][md:EmailAddress]",
+            "Severity": "Warning"
+        }
+    },
+    {
+        "rule60E": {
+            "Context": "/md:EntityDescriptor[1]/md:IDPSSODescriptor[1]",
+            "Message": "Each IDPSSODescriptor/SPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data)",
+            "Rule": "md:KeyDescriptor[@use='signing' or not(@use)]/ds:KeyInfo/ds:X509Data/ds:X509Certificate",
+            "Severity": "Error"
+        }
+    },
+    {
+        "Summary": {
+            "ERROR": 1,
+            "INFO": 0,
+            "OK": 3,
+            "WARNING": 2
+        }
+    }
+]
