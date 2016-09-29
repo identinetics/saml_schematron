@@ -7,6 +7,10 @@
 /lib/xalan*
 /lib/xmlsectool*
 /lib/pvzdValidateXsd.jar
+/log
 /rules/unused/*
+/test/log
 /work/*
 /scripts/simple_xsd_val.py
+/worklog.txt
+

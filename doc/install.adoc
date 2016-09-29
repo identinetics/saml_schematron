@@ -21,6 +21,26 @@ Prepare a python environment >= 3.4
     # install xalan and xmlsectool into $PROJHOME/lib (see Dockerfile for details)
 
 
+## Dependencies for the command-line interface (optional)
+
+    xalan (used in scripts/val_schtron.sh)
+    xmlsectool (used in scripts/val_xsd.sh)
+    xmlstarlet (used in listrules.sh)
+
 ## Configuraton
 
-Edit scripts/init.sh to adapt to the target environment
+Set following environment variables (default values shown for Centos 7):
+
+# PROJROOT is the SAMLSchtron package in your site-packages directory
+
+export JAVA_HOME=/etc/alternatives/java_sdk_1.8.0
+export DYLD_LIBRARY_PATH=$JAVA_HOME/jre/lib/server
+export CLASSPATH=$PROJROOT/lib/pvzdValidateXsd.jar
+export RUNXSLTPROC='/usr/bin/xsltproc'
+export RUNXMLLINT='/usr/bin/xmllint'
+export XMLSTARLET='xmlstarlet'
+export XALAN_JAR=$PROJROOT/lib/xalan-j_2_7_2/xalan.jar
+export XMLSECTOOLDIR="$PROJROOT/lib/xmlsectool-1.2.0"
+export XMLSECTOOL="${XMLSECTOOLDIR}/xmlsectool.sh"
+export SAMLMETAXMLSCHEMAPATH="$PROJROOT/xmlschema/"
+export PYJNIUS_ACTIVATE=   # unset to use javabridge instead of pyjnius

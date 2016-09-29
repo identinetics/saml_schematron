@@ -27,6 +27,12 @@ class AppHandler():
         with open(os.path.join(config.templatedir, 'validate_srv_res.html'), 'r', encoding="utf-8") as f:
             self.res_template = jinja2.Template(f.read())
         self.config = config
+        self.p_dict = Validator.get_profiles()
+        self.p_keys = Validator.get_profiles().keys()
+        self.p_reverse = {}
+        for (k, v) in Validator.get_profiles().items():
+            self.p_reverse[v] = k
+
 
     def get_handler(self, req):
         return BaseResponse(self.req_template.render(profileoptions=self.config.profileoptions),
@@ -39,20 +45,37 @@ class AppHandler():
             return BaseResponse('no file uploaded', status=400)
         tmpfile = os.path.join(self.config.tempdir, fname + '_' + str(random.randrange(99999999)))
         file.save(tmpfile)
-        profile_display_name = req.form['md_profile']
-        if not profile_display_name in self.config.profiles.keys():
-            return BaseResponse('invalid metadata profile: ' + profile_display_name, status=400)
-
-        profile_file = self.config.profiles[profile_display_name]
+        # webservice client uses md_profile_key; browser uses md_profile
+        if 'md_profile_key' in req.form:
+            profile_key = secure_filename(req.form['md_profile_key'])
+            profile_display_name = self.p_dict[profile_key]
+            api_call = True
+        elif 'md_profile' in req.form:
+            profile_display_name = req.form['md_profile']
+            if not profile_display_name in self.p_reverse:
+                return BaseResponse('invalid metadata profile: ' + profile_display_name, status=400)
+            profile_key = self.p_reverse[profile_display_name]
+            api_call = False
+        else:
+            return BaseResponse('missing argument profile key', status=400)
+        profile_file = profile_key + '.json'
         validator = Validator(ApiArgs(tmpfile, profile=profile_file).cliInvocation)
+        if profile_key not in self.p_dict.keys():
+            return BaseResponse('invalid profile key: ' + profile_key + ', need: ' + ', '.join(self.p_keys), status=400)
         validator_result = validator.validate()
         os.remove(tmpfile)
-        html = self.res_template.render(validationType=profile_display_name,
-                                       fname=fname,
-                                       val_out=validator_result.message.replace("\n", "<br/>"))
-        return BaseResponse(html,
-                            mimetype='text/html',
-                            direct_passthrough=False)
+        json = ''.join(validator_result.get_json()) + '\n'
+        if api_call:
+            return BaseResponse(json,
+                                mimetype='application/json',
+                                direct_passthrough=False)
+        else:
+            html = self.res_template.render(validationType=profile_display_name,
+                                           fname=fname,
+                                           val_out=json.replace("\n", "<br/>"))
+            return BaseResponse(html,
+                                mimetype='text/html',
+                                direct_passthrough=False)
 
     # WSGI handler
     def application(self, environ, start_response):

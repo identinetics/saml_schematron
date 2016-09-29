@@ -1,5 +1,11 @@
 #!/bin/bash
-# define system-dependend file locations
+# define system-dependend file locations (development only - in prod user needs to set this)
+# all-or-nothing: set only if SAMLSCHTRON_SETTINGS is not set
+
+
+if [[ ! -z ${SAMLSCHTRON_SETTINGS+x} ]]; then
+    exit 0
+fi
 
 ostype=${OSTYPE//[0-9.]/}
 if [[ "$ostype" == "linux-gnu" ]]; then
@@ -35,7 +41,7 @@ fi
 
 workdir=$(dirname "$BASH_SOURCE")
 export PROJROOT=$(dirname "$workdir")
-export SAMLMETAXMLSCHEMAPATH='../xmlschema/'
+export SAMLMETAXMLSCHEMAPATH="$PROJROOT/xmlschema/"
 export XALAN_JAR=$PROJROOT/lib/xalan-j_2_7_2/xalan.jar
 export XMLSECTOOLDIR="$PROJROOT/lib/xmlsectool-1.2.0"
 export XMLSECTOOL="${XMLSECTOOLDIR}/xmlsectool.sh"
@@ -44,3 +50,6 @@ export CLASSPATH=$PROJROOT/lib/pvzdValidateXsd.jar
 
 # switch between javabridge and pyjnius
 export PYJNIUS_ACTIVATE=
+
+# uncomment this if installing the package from pypi
+#export SAMLSCHTRON_SETTINGS=

@@ -12,9 +12,7 @@ class Config(object):
         # setup list of available profiles
         self.profiles = {}
         validator = Validator(ApiArgs(listprofiles=True).cliInvocation)
-        for profile in validator.get_profiles():
-            self.profiles[profile['name']] = profile['file']
         self.profileoptions = ''
-        for profile in validator.get_profiles():
-            self.profileoptions += '<option>' + profile['name'] +  '</option>'
+        for display_name in Validator.get_profiles().values():
+            self.profileoptions += '<option>' + display_name +  '</option>'
 

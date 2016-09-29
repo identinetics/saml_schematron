@@ -3,7 +3,7 @@ import logging.config
 import loggingconfig
 import os
 import re
-import shutil
+import sys
 import unittest
 
 __author__ = 'r2h2'
@@ -50,25 +50,23 @@ def make_dirs(path, dir=False) -> str:
 
 
 class Test01_xsdval_valid(unittest.TestCase):
-    def runTest(self):
-        logging.info('  -- Test XSD01: testing schema validation/expecting OK')
-        #print ('need pvzdValidateXsd.jar: CLASSPATH=' + os.environ['CLASSPATH'])
+
+    def setUp(self):
         pvzd_verify_sig = 'at/wien/ma14/pvzd/validatexsd/XSDValidator'
         from jnius import autoclass   # TODO: move to setup class
+        #print ('need pvzdValidateXsd.jar: CLASSPATH=' + os.environ['CLASSPATH'])
         pyjnius_xsdvalidator = autoclass(pvzd_verify_sig)
-        saml_xsd_validator = pyjnius_xsdvalidator('xmlschema', False)
-        retmsg = saml_xsd_validator.validateSchema('testdata/idp_valid.xml')
+        self.saml_xsd_validator = pyjnius_xsdvalidator('xmlschema', False)
+
+    def test_OK(self):
+        logging.info('  -- Test XSD01: testing schema validation/expecting OK')
+        retmsg = self.saml_xsd_validator.validateSchema('testdata/idp_valid.xml')
         self.assertIsNone(retmsg, msg=retmsg)
 
-class Test02_xsdval_invalid(unittest.TestCase):
-    def runTest(self):
+    def test_NotOK(self):
         logging.info('  -- Test XSD02: test calling schema validation/expecting invalid schema')
-        pvzd_verify_sig = 'at/wien/ma14/pvzd/validatexsd/XSDValidator'
-        from jnius import autoclass   # TODO: move to setup class
-        pyjnius_xsdvalidator = autoclass(pvzd_verify_sig)
-        saml_xsd_validator = pyjnius_xsdvalidator('xmlschema', False)
-        retmsg = saml_xsd_validator.validateSchema('testdata/idp_not_schema_valid.xml')
-        self.assert_(str(retmsg).startswith('ERROR: Validation of testdata/idp_not_schema_valid.xml failed'), retmsg)
+        retmsg = self.saml_xsd_validator.validateSchema('testdata/idp_not_schema_valid.xml')
+        self.assertTrue(str(retmsg).startswith('ERROR: Validation of testdata/idp_not_schema_valid.xml failed'), retmsg)
 
 if __name__ == '__main__':
-    unittest.main()
+    sys.exit(unittest.main())

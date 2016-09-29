@@ -71,6 +71,11 @@ class ValidatorResult:
         self.messages = []
         self.summary = {'OK': 0, 'INFO': 0, 'WARNING': 0, 'ERROR': 0}
 
+    def get_json(self):
+        m = self.messages
+        m.append({"Summary": self.summary})
+        return json.dumps(m, sort_keys=True, indent=4)
+
 
 class Validator:
     """
@@ -94,9 +99,12 @@ class Validator:
                 if invocation.args.verbose: print(profile['profile'])
             assert isinstance(self.rules, (list, tuple))
 
-    def get_profiles(self) -> list:
-        profiles = []
-        profiledir = os.path.join(self.projdir, 'rules', 'profiles')
+    @staticmethod
+    def get_profiles() -> dict:
+        """ return a dict of key : displayname pairs for each profile """
+        profiles = {}
+        projdir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+        profiledir = os.path.join(projdir, 'rules', 'profiles')
         for fname in os.listdir(path=profiledir):
             if fname[-5:] != '.json':
                 continue
@@ -105,7 +113,7 @@ class Validator:
             with open(os.path.join(profiledir, fname)) as fd:
                 profile = json.load(fd)
             if 'profile' in profile:
-                profiles.append({'file': fname, 'name': profile['profile']})
+                profiles[fname[:-5]] = profile['profile']   # filename minus ext : display name
         return profiles
 
     def validate_schtron(self) -> ValidatorResult:

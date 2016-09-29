@@ -66,12 +66,9 @@ class TestValidator(unittest.TestCase):
         validator = Validator(ApiArgs(md_xml=md_fname, profile=profile_fname).cliInvocation)
         val_result = validator.validate()
 
-        val_result.messages.append({"Summary": val_result.summary})
-        msg_json = json.dumps(val_result.messages, sort_keys=True, indent=4)
-
         fname = os.path.join(PROJROOT, 'work', 'saml2int.json')
         with open(fname, 'w') as fd:
-            fd.write(msg_json)
+            fd.write(val_result.get_json())
         try:
             assertNoDiff(fname)
         except (AssertionError, FileNotFoundError) as e:
@@ -82,9 +79,8 @@ class TestValidator(unittest.TestCase):
         """ -- List profiles """
         logging.info(TestValidator.test_list_profiles.__doc__)
         print(TestValidator.test_list_profiles.__doc__)
-        validator = Validator(ApiArgs(listprofiles=True).cliInvocation)
-        #print('File | Profile')
-        for profile in validator.get_profiles():
-            # print(profile['file'] + ' | ' + profile['name'])
+        # print('Profile Key | Profile Display Name')
+        for (profile, display_name) in Validator.get_profiles().items():
+            # print(profile + ' | ' + display_name)
             pass
 

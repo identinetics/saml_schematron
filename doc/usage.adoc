@@ -55,4 +55,13 @@ proxy such as Apache/mod_proxy or nginx.
 Configure your settings in docker/conf.sh
 Execute the container using docker/run.sh
 
+## Web Service
+
+Validation using a REST-style call using the same service as the web application. It requires
+a POST form with 2 parameters:
+
+    md_instance      XML file upload
+    md_profile_key   profile key (saml2int, pvp2, ..) as rules/profiles without .json
+
+See the example in scripts/web_validate.sh
 
