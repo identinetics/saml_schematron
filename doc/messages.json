@@ -128,6 +128,9 @@
 "rule42W": {
          "Severity": "Warning",
          "Message": "This NameIDFormat may not be supported. Recommended values for NameIDFormat are:\n    urn:oasis:names:tc:SAML:2.0:nameid-format:persistent \n    urn:oasis:names:tc:SAML:2.0:nameid-format:transient"},
+"rule43W": {
+         "Severity": "Warning",
+         "Message": "@entityID values should not containe whitespace (some implementations may not normalize this)"},
 "rule60E": {
          "Severity": "Error",
          "Message": "Each IDPSSODescriptor/SPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data)"},

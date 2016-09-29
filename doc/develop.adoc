@@ -1,0 +1,10 @@
+# Develop
+
+## Adding Schematron Rules
+
+1. Add the rule in $PROJHOME/rules/schtron_src
+2. Add testdata for OK/fail tests in $PROJHOME/testdata
+3. Add the testcases to $PROJHOME/test/test_validator.json
+4. Add the rule to allrules.json and the appropriate profiles in $PROJHOME/profile
+
+Then build and unittest.
