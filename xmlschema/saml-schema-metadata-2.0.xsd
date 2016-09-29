@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
  
-<!--  hacked for local file reference, otherwise unmodified -->
+<!--  hacked for local file reference, extended for test on non-empty string and anyURL types -->
  
 
 <schema
