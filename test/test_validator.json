@@ -91,6 +91,8 @@
   ["rule40E", ["ERROR", "rule40E_fail.xml"]],
   ["rule41W", ["WARNING", "sp_valid.xml"]],
   ["rule42W", ["WARNING", "rule42W_fail.xml"]],
+  ["rule43W", ["OK", "idp_valid.xml"]],
+  ["rule43W", ["WARNING", "rule43W_fail.xml"]],
   ["rule60E", ["OK", "idp_valid.xml"]],
   ["rule60E", ["ERROR", "idp_incomplete.xml"]],
   ["rule61E", ["OK", "sp_valid.xml"]],
