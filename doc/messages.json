@@ -131,6 +131,9 @@
 "rule43W": {
          "Severity": "Warning",
          "Message": "@entityID values should not containe whitespace (some implementations may not normalize this)"},
+"rule44W": {
+         "Severity": "Warning",
+         "Message": "EntityDescriptor should contain an EntityCategory of this list:\n  http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken,\n  http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken-charge"},
 "rule60E": {
          "Severity": "Error",
          "Message": "Each IDPSSODescriptor/SPSSODescriptor must contain a signing key as X509Certificate (child element of X509Data)"},
