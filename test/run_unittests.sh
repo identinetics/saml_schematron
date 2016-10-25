@@ -2,7 +2,12 @@
 
 export PYTHONPATH=test:saml_schtron
 
-set -e
-python test/test_validator.py
-python test/testXsdValidator.py
+sum=0
 
+python test/test_validator.py
+sum=$(($sum+$?))
+
+python test/testXsdValidator.py
+sum=$(($sum+$?))
+
+exit $sum
