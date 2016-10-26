@@ -73,12 +73,18 @@ class TestValidator(unittest.TestCase):
         logging.info(TestValidator.test_validate_saml2int.__doc__)
         print(TestValidator.test_validate_saml2int.__doc__)
         PROJROOT = os.path.dirname(os.path.dirname(__file__))
+        logging.info('PROJROOT=' + PROJROOT)
         md_fname = os.path.join(PROJROOT, 'testdata', 'idp_incomplete.xml')
-        profile_fname = os.path.join(PROJROOT, 'rules', 'profiles', 'saml2int.json')
+        #profile_fname = os.path.join(PROJROOT, 'rules', 'profiles', 'saml2int.json')
+        import pkgdata
+        profile_fname =  pkgdata.get_path('rules', os.path.join('profiles', 'saml2int.json'))
         validator = Validator(ApiArgs(md_xml=md_fname, profile=profile_fname).cliInvocation)
         val_result = validator.validate()
 
-        fname = os.path.join(PROJROOT, 'work', 'saml2int.json')
+        workdir = os.path.join(PROJROOT, 'work')
+        if not os.path.exists(workdir):
+            os.makedirs(workdir)
+        fname = os.path.join(workdir, 'saml2int.json')
         with open(fname, 'w') as fd:
             fd.write(val_result.get_json())
         try:
