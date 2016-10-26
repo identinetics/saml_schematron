@@ -38,6 +38,10 @@ def tearDownModule():
 logbasename = re.sub(r'\.py$', '', os.path.basename(__file__))
 logging_config = loggingconfig.LoggingConfig(logbasename)
 logging.info('DEBUG log: ' + logging_config.LOGFILENAME)
+here = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+version = open(os.path.join(here, 'VERSION')).read()
+projname = open(os.path.join(here, 'PROJNAME')).read()
+logging.info(projname + ' V' + version)
 
 
 def make_dirs(path, dir=False) -> str:
@@ -69,4 +73,4 @@ class Test01_xsdval_valid(unittest.TestCase):
         self.assertTrue(str(retmsg).startswith('ERROR: Validation of testdata/idp_not_schema_valid.xml failed'), retmsg)
 
 if __name__ == '__main__':
-    sys.exit(unittest.main())
+    unittest.main(warnings='ignore')

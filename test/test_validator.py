@@ -1,10 +1,22 @@
 import json, logging, os.path, re
+import logging.config
+import loggingconfig
 import lxml.etree as etree
 import unittest
 from saml_schtron.validator import ApiArgs, Validator
 from assertNoDiff import assertNoDiff
 
 __author__ = 'r2h2'
+
+# Logging setup for unit tests
+logbasename = re.sub(r'\.py$', '', os.path.basename(__file__))
+logging_config = loggingconfig.LoggingConfig(logbasename)
+logging.info('DEBUG log: ' + logging_config.LOGFILENAME)
+here = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+version = open(os.path.join(here, 'VERSION')).read()
+projname = open(os.path.join(here, 'PROJNAME')).read()
+logging.info(projname + ' V' + version)
+
 
 def execute_a_test(rule, expected_severity, testfile, PROJROOT):
     """ assert that severity level matches the expected value """
@@ -84,3 +96,6 @@ class TestValidator(unittest.TestCase):
             # print(profile + ' | ' + display_name)
             pass
 
+
+if __name__ == '__main__':
+    unittest.main(warnings='ignore')
