@@ -50,7 +50,6 @@ setup(name=projname,
     ],
     include_package_data = True,
     url = 'https://github.com/rhoerbe/saml_schematron',
-    version = __version__,
     zip_safe = False,
     install_requires = [
         #'jnius', # py3.x version need to be installed from pyjnius repo -> see docker_samlschematron@github
