@@ -2,7 +2,7 @@
 
 # define system-dependend file locations (development only - in prod user needs to set this)
 # all-or-nothing: set only if SAMLSCHTRON_SETTINGS is not set
-if [[ ! -z ${SAMLSCHTRON_SETTINGS+x} ]]; then
+if [[ ! -z "${SAMLSCHTRON_SETTINGS+x}" ]]; then
     exit 0
 fi
 
@@ -11,10 +11,10 @@ if [[ "$HOSTNAME" == "samlschtron" ]]; then
     # container from docker-samlschtron project
     export JAVA_HOME=/etc/alternatives/java_sdk_1.8.0_openjdk
     export PROJ_HOME=/opt/PVZDpolman
-    if [[ ! -x "$PYTHON" ]]; then
+    if [[ -z "$PYTHON" ]]; then
         echo "PYTHON must point to an excutable; but value=$PYTHON"
     fi
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
+elif [[ "$OSTYPE" == "linux-gnu" ]]; then
     #  tested with CentOS7
     export JAVA_HOME=/etc/alternatives/java_sdk_1.8.0
     export RUNXSLTPROC='/usr/bin/xsltproc'
