@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
 
+SCRIPTDIR=$(cd $(dirname $BASH_SOURCE[0]) && pwd)
+PROJ_HOME=$(cd $(dirname $SCRIPTDIR) && pwd)
+source $PROJ_HOME/scripts/init.sh
 export PYTHONPATH=test:saml_schtron
 
 sum=0
 
-python test/test_validator.py
+$PYTHON test/test_validator.py
 sum=$(($sum+$?))
 
-python test/testXsdValidator.py
+$PYTHON test/testXsdValidator.py
 sum=$(($sum+$?))
 
 exit $sum
