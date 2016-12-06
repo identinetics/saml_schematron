@@ -183,6 +183,6 @@ class Validator:
 
     def validate(self) -> ValidatorResult:
         val_result = self.validate_xsd()
-        if val_result is not None:
+        if val_result.level != 'OK':
             return val_result
         return self.validate_schtron()

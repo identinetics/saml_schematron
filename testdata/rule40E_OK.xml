@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<md:EntityDescriptor entityID="https://wpv-dev.compass.at/sp.xml" cacheDuration="PT5H" xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" ID="_25f24df82e853b51ff6a62c0ce83024f376591d9"
+                     xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute"
+                     xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:xrd="http://docs.oasis-open.org/ns/xri/xrd-1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                     xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:pyff="http://pyff.io/NS" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+  <md:Extensions xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport">
+    <mdattr:EntityAttributes>
+      <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+        <saml:AttributeValue>http://wirtschaftsportalverbund.at/ns/ec/attributebundle-wkis</saml:AttributeValue>
+      </saml:Attribute>
+    </mdattr:EntityAttributes>
+  </md:Extensions>
+
+  <md:SPSSODescriptor AuthnRequestsSigned="1" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:Extensions>
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <alg:SigningMethod MinKeySize="256" MaxKeySize="511" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/>
+      <alg:SigningMethod MinKeySize="2048" MaxKeySize="4096" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init"
+                             Location="https://daten-dev.compass.at/Shibboleth.sso/Login"/>
+      <mdui:UIInfo>
+        <mdui:DisplayName xml:lang="en">WPV Compass Testumgebung</mdui:DisplayName>
+        <mdui:Description xml:lang="en">WPV Compass Test Service</mdui:Description>
+        <mdui:Logo xml:lang="en" height="75" width="200">https://idp1.test.wpv.portalverbund.at/idp/images/wpvlogo.png</mdui:Logo>
+      </mdui:UIInfo>
+      <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://wpv-dev.compass.at/Shibboleth.sso/Login"/>
+      <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://wpv-dev.compass.at/Shibboleth.sso/Login" index="1"
+                                 xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol"/>
+    </md:Extensions>
+    <md:KeyDescriptor>
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyName>82f7a8302f48</ds:KeyName>
+        <ds:X509Data>
+          <ds:X509SubjectName>CN=82f7a8302f48</ds:X509SubjectName>
+          <ds:X509Certificate>MIIC6zCCAdOgAwIBAgIJAIkSELDiPK60MA0GCSqGSIb3DQEBBQUAMBcxFTATBgNV
+            BAMTDDgyZjdhODMwMmY0ODAeFw0xNjAyMjgxNjE1MjdaFw0yNjAyMjUxNjE1Mjda
+            MBcxFTATBgNVBAMTDDgyZjdhODMwMmY0ODCCASIwDQYJKoZIhvcNAQEBBQADggEP
+            ADCCAQoCggEBAMOWMUhYcym8FSGzOedG9suMS+aK/culEXn04B84a/zlm9Dxv8wk
+            ZXLT071OtQm6Rz9hdkC3e7AqkTeGnLzkpkzvgEjx/ManNoPFBnqfqgL9KE0t+FS2
+            gRscy7VKDxdkMvzmXO+3+JjYYqnVVpbFUMFeOMaC74skFhKI8gc/j4a/8DH6TrPd
+            SsyKi/k7QeRwP8QfnCapLbsGVTW4G+EuMcP6/Wl2zDcelpxh/dHv325yKCBbPvPC
+            +k/donPsw8OV4ItzehyOrtjWNCsQscgY+wWCidIMCPOkI3WRIGkeClJoz/dg8gSx
+            HWkYacN6lze/xPYELR6WlzB9r2WOKjuHbRcCAwEAAaM6MDgwFwYDVR0RBBAwDoIM
+            ODJmN2E4MzAyZjQ4MB0GA1UdDgQWBBQzGCch3EXA37qX6W3AtkE4KBzWSTANBgkq
+            hkiG9w0BAQUFAAOCAQEAQP46xsyGllK/xk3Y7PCPkj28KrVwMsKeR8geRq8UswB2
+            TQ+qhvWPZs5qUlNc1UGZat4nEu7T837ozJ7OeVNtgaLDLElfnerzss/ip/I0at5U
+            g6g+/memzdipXb/5AF76353nK82dRmhO5M6EmVBdeAF1LGQkonmxBRRdMJ1OtGfq
+            C9WdsDb3FQWX62QlBFuzf/sq1M/DSn9FHDlLHqtTyFFwGBqX6mlOa1u8e3cpCBpk
+            o4WHxK0EHAKWMiSisR+VXm7BHqe6Qg6cnu9sipc3rkL3mXNvcWD4ktpkuxL9zEsd
+            dMe4TwGTdA/GjVIW3ia5ouIVVuEaXrw8MlhsUoiIZQ==
+          </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#aes128-gcm"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#ECDH-ES"/>
+    </md:KeyDescriptor>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://daten-dev.compass.at/Shibboleth.sso/SAML2/POST" index="1"/>
+  </md:SPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">Compass Datenbank GmbH</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Compass Datenbank GmbH</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">https://www.compass.at</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Philipp</md:GivenName>
+    <md:SurName>Griess</md:SurName>
+  </md:ContactPerson>
+</md:EntityDescriptor>
