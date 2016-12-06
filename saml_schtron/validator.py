@@ -44,7 +44,7 @@ class CliInvocation():
             if self.args.profile is not None and self.args.rule is not None:
                 self.parser.error('Mutually exclusive arguments: cannot specify both -profile and -rule')
             if not os.access(self.args.metadatafile, os.R_OK):
-                self.parser.error('Metadata file not found or not readable:' + self.args.metadatafile)
+                self.parser.error('Metadata file not found or not readable:' + os.path.abspath(self.args.metadatafile))
             if self.args.profile is not None:
                 if not self.args.profile.endswith('.json'):
                     self.args.profile += '.json'
@@ -57,7 +57,7 @@ class CliInvocation():
 
 class ValidatorResult:
     """ Attributes:
-    result (bool): False if an assertion failed, True otherwise
+    code (bool): False if an assertion failed, True otherwise
     level (str): Severity level (extracted from svrl message text): OK/INFO/WARNING/ERROR
     messages (list): svrl message(s)
     summary (dict): message count per severity level
@@ -98,6 +98,14 @@ class Validator:
                 self.rules = profile['rules']
                 if invocation.args.verbose: print(profile['profile'])
             assert isinstance(self.rules, (list, tuple))
+        # prepare xsd validation
+        pvzd_verify_sig = 'at/wien/ma14/pvzd/validatexsd/XSDValidator'
+        from jnius import autoclass   # TODO: move to setup class
+        #print ('need pvzdValidateXsd.jar: CLASSPATH=' + os.environ['CLASSPATH'])
+        pyjnius_xsdvalidator = autoclass(pvzd_verify_sig)
+        self.saml_xsd_validator = pyjnius_xsdvalidator(os.path.join(self.projdir, 'xmlschema'), False)
+
+
 
     @staticmethod
     def get_profiles() -> dict:
@@ -115,6 +123,18 @@ class Validator:
             if 'profile' in profile:
                 profiles[fname[:-5]] = profile['profile']   # filename minus ext : display name
         return profiles
+
+    def validate_xsd(self) -> ValidatorResult:
+        val_result = ValidatorResult()
+        retmsg = self.saml_xsd_validator.validateSchema(self.metadatafile)
+        if retmsg is not None:
+            val_result.code = False
+            val_result.summary['ERROR'] = 1
+            val_result.level = 'ERROR'
+            val_result.messages.append(retmsg)
+        else:
+            val_result.summary['OK'] = 1
+        return val_result
 
     def validate_schtron(self) -> ValidatorResult:
         val_result = ValidatorResult()
@@ -162,4 +182,7 @@ class Validator:
         return val_result
 
     def validate(self) -> ValidatorResult:
+        val_result = self.validate_xsd()
+        if val_result is not None:
+            return val_result
         return self.validate_schtron()

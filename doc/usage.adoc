@@ -2,10 +2,17 @@
 
 ## Command Line
 
+### Schematron validation
+
     cd $PROJROOT
     validate.py --rule rule11W testdata/sp_valid.xml  # test against a single rule 
     validate.py --listprofiles dummy # list available profiles
     validate.py --profile webssofed testdata/sp_valid.xml  # test against a profile (set of rules)
+
+### XSD-only Validation
+
+    cd $PROJROOT
+    scripts/val_xsd.sh  <SAML Metadata XMl document>
 
 ## Python API
 

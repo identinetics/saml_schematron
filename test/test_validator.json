@@ -87,7 +87,7 @@
   ["rule39E", ["OK", "idp_valid.xml"]],
   ["rule39E", ["OK", "sp_valid.xml"]],
   ["rule39E", ["ERROR", "rule39E_fail.xml"]],
-  ["rule40E", ["OK", "sp_valid.xml"]],
+  ["rule40E", ["OK", "rule40E_OK.xml"]],
   ["rule40E", ["ERROR", "rule40E_fail.xml"]],
   ["rule41W", ["WARNING", "sp_valid.xml"]],
   ["rule42W", ["WARNING", "rule42W_fail.xml"]],

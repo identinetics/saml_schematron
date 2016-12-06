@@ -8,31 +8,31 @@ import unittest
 
 __author__ = 'r2h2'
 
-def setUpModule():
-    try:
-        os.environ['PYJNIUS_ACTIVATE']
-        from jnius import autoclass
-    except KeyError:
-        import javabridge
-        try:
-            # include user added classpath
-            classpath = os.environ['CLASSPATH']
-            classpath = classpath.split(os.pathsep)
-            javabridge.JARS.extend(classpath)
-        except KeyError:
-            None
-
-        javabridge.start_vm()
-        javabridge.attach()
-
-
-def tearDownModule():
-    try:
-        os.environ['PYJNIUS_ACTIVATE']
-    except KeyError:
-        import javabridge
-        javabridge.detach()
-        javabridge.kill_vm()
+# def setUpModule():
+#     try:
+#         os.environ['PYJNIUS_ACTIVATE']
+#         from jnius import autoclass
+#     except KeyError:
+#         import javabridge
+#         try:
+#             # include user added classpath
+#             classpath = os.environ['CLASSPATH']
+#             classpath = classpath.split(os.pathsep)
+#             javabridge.JARS.extend(classpath)
+#         except KeyError:
+#             None
+#
+#         javabridge.start_vm()
+#         javabridge.attach()
+#
+#
+# def tearDownModule():
+#     try:
+#         os.environ['PYJNIUS_ACTIVATE']
+#     except KeyError:
+#         import javabridge
+#         javabridge.detach()
+#         javabridge.kill_vm()
 
 # Logging setup for unit tests
 logbasename = re.sub(r'\.py$', '', os.path.basename(__file__))
@@ -67,10 +67,19 @@ class Test01_xsdval_valid(unittest.TestCase):
         retmsg = self.saml_xsd_validator.validateSchema('testdata/idp_valid.xml')
         self.assertIsNone(retmsg, msg=retmsg)
 
-    def test_NotOK(self):
+    def test_NotOK1(self):
         logging.info('  -- Test XSD02: test calling schema validation/expecting invalid schema')
         retmsg = self.saml_xsd_validator.validateSchema('testdata/idp_not_schema_valid.xml')
         self.assertTrue(str(retmsg).startswith('ERROR: Validation of testdata/idp_not_schema_valid.xml failed'), retmsg)
+
+
+    def test_NotOK2(self):
+        logging.info('  -- Test XSD03: test calling schema validation/expecting invalid schema')
+        retmsg = self.saml_xsd_validator.validateSchema('testdata/sp_not_schema_valid.xml')
+        self.assertTrue(
+            str(retmsg).startswith('ERROR: Validation of testdata/sp_not_schema_valid.xml failed'),
+            retmsg)
+
 
 if __name__ == '__main__':
     unittest.main(warnings='ignore')

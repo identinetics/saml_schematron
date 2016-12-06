@@ -1,0 +1,72 @@
+<!-- Missing default namespace (or namespace prefix on Organization, ContactPerson  -->
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" ID="_bb70253849ddead17eac56d01a355937b4730a7b"
+                     entityID="https://shib-lms-1-dev.example.org/shibboleth">
+  <md:Extensions xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport">
+    <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512"/>
+  </md:Extensions>
+
+  <md:SPSSODescriptor AuthnRequestsSigned="1" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+    <md:Extensions>
+      <init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init"
+                             Location="https://shib-lms-1-dev.example.org/Shibboleth.sso/Login"/>
+      <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol"
+                                 Location="https://shib-lms-1-dev.example.org/Shibboleth.sso/Login" index="1"/>
+    </md:Extensions>
+    <md:KeyDescriptor>
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyName>example.org</ds:KeyName>
+        <ds:KeyName>Active</ds:KeyName>
+        <ds:KeyName>https://example.org/shibboleth</ds:KeyName>
+        <ds:X509Data>
+          <ds:X509SubjectName>CN=example.org</ds:X509SubjectName>
+          <ds:X509Certificate>MIIDODCCAiCgAwIBAgIJALvt+/stKGtBMA0GCSqGSIb3DQEBBQUAMCIxIDAeBgNV
+            BAMTF3NoaWItbG1zLTEtZGV2LmttLmNvLmF0MB4XDTE2MTExODEyNDc1NloXDTE5
+            MTExODEyNDc1NlowIjEgMB4GA1UEAxMXc2hpYi1sbXMtMS1kZXYua20uY28uYXQw
+            ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCm1p1gCzRtZDR4mz+ZPqgT
+            z/F4o9RJpkRw5rSlZgT5BJamfUqmaEr41m6WXkRNsG3jCHULJUd6sXY32U6ehYna
+            /0F1zrZdqB1TFJHGl4I53OcfnHcY8F1ZlskF3nif6tGWCnUTirNcb/vKop06ynZ+
+            l3WCJR+HTOuLO7IcrNIbftifMTGtHyarD5pctZ+rRK62/dz4e3Nzy5GrAfphU4gM
+            4JtNKPyVXU9wvvrOlycUzzGQ8HtKFRd+UoWVDaIVUQKK6D9OBayP17OPREApqn8C
+            8IrNIlS/JOgtM8L2uHU4AQh08tdwyvLvPuuejRTsvc1Lw+h9PANkPbKHwGC1ORsR
+            AgMBAAGjcTBvME4GA1UdEQRHMEWCF3NoaWItbG1zLTEtZGV2LmttLmNvLmF0hipo
+            dHRwczovL3NoaWItbG1zLTEtZGV2LmttLmNvLmF0L3NoaWJib2xldGgwHQYDVR0O
+            BBYEFBUKDNR713s1BuvpDO+XfBSn4XIRMA0GCSqGSIb3DQEBBQUAA4IBAQB/crJk
+            7p/+Erwi/4gei8oqG2O5BEjUb/WkbwZhtPtPKyninamtzydJqCiFZWV5xgnnidfT
+            rnZT8UdZw4vQV9YL8tQQOtdsn3Ieo9mdmAouPy8iYAdrP+vAFuc9bANb5t8KUJ2F
+            4aYcd79hHSqnGlIMSZzwkS0plEzJggco7LoaYuPWEtWob59KedzrH2RiiEDObaoD
+            ecgxK3mC3mKbM5yPBqFt7Qy+l2pyhD/OFeIU2dWaw5RVcGXblg9JQgnUmXMJhSiY
+            urg1byOy1Bg0r6FN1+iUMqhy64tM6R/OT8CsxYx6PabZKr5na+SA9g2GB7j2v8Ap
+            9HEN2p1VJ79QcZR2
+          </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib-lms-1-dev.example.org/Shibboleth.sso/Artifact/SOAP" index="1"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib-lms-1-dev.example.org/Shibboleth.sso/SLO/SOAP"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib-lms-1-dev.example.org/Shibboleth.sso/SLO/Redirect"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib-lms-1-dev.example.org/Shibboleth.sso/SLO/POST"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shib-lms-1-dev.example.org/Shibboleth.sso/SLO/Artifact"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib-lms-1-dev.example.org/Shibboleth.sso/SAML2/POST" index="1"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib-lms-1-dev.example.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shib-lms-1-dev.example.org/Shibboleth.sso/SAML2/Artifact" index="3"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://shib-lms-1-dev.example.org/Shibboleth.sso/SAML2/ECP" index="4"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shib-lms-1-dev.example.org/Shibboleth.sso/SAML/POST" index="5"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://shib-lms-1-dev.example.org/Shibboleth.sso/SAML/Artifact" index="6"/>
+  </md:SPSSODescriptor>
+  <Organization>
+    <OrganizationName xml:lang="de">Knowledge Markets</OrganizationName>
+    <OrganizationName
+        xml:lang="en">Knowledge Markets
+    </OrganizationName>
+    <OrganizationDisplayName xml:lang="de">Knowledge Markets</OrganizationDisplayName>
+    <OrganizationDisplayName xml:lang="en">Knowledge Markets</OrganizationDisplayName>
+    <OrganizationURL xml:lang="de">https://www.example.org</OrganizationURL>
+    <OrganizationURL xml:lang="en">https://www.example.org</OrganizationURL>
+  </Organization>
+  <ContactPerson contactType="technical">
+    <GivenName>firstname</GivenName>
+    <Surname>lastname</Surname>
+    <EmailAddress>first.last@example.org</EmailAddress>
+  </ContactPerson>
+</md:EntityDescriptor>
