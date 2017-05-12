@@ -1,0 +1,88 @@
+<md:EntityDescriptor cacheDuration="PT5H" ID="_7326c7d35ff46bf38a9b7972c4a0d8fd182c61a6" entityID="https://wpv.compass.at/sp.xml" validUntil="2017-06-11T12:28:01Z"
+                     xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+                     xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:pyff="http://pyff.io/NS" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0"
+                     xmlns:xrd="http://docs.oasis-open.org/ns/xri/xrd-1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- This ED triggers rule 38 several times, causing multiple json snippets in the output  -->
+  <md:Extensions xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport">
+    <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+    <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384"/>
+    <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+    <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224"/>
+    <alg:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha224"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha1"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+    <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+  </md:Extensions>
+
+  <md:SPSSODescriptor AuthnRequestsSigned="1" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:Extensions>
+      <init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init"
+                             Location="https://wpv.compass.at/Shibboleth.sso/Login"/>
+      <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol"
+                                 Location="https://wpv.compass.at/Shibboleth.sso/Login" index="1"/>
+    </md:Extensions>
+    <md:KeyDescriptor>
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyName>wpv.compass.at</ds:KeyName>
+        <ds:X509Data>
+          <ds:X509SubjectName>emailAddress=operator@compass.at,CN=wpv.compass.at,O=Compass-Datenbank GmbH,L=Vienna,ST=Vienna,C=AT</ds:X509SubjectName>
+          <ds:X509Certificate>MIID7zCCAtegAwIBAgIJALrab0lS2g2mMA0GCSqGSIb3DQEBCwUAMIGNMQswCQYD
+            VQQGEwJBVDEPMA0GA1UECAwGVmllbm5hMQ8wDQYDVQQHDAZWaWVubmExHzAdBgNV
+            BAoMFkNvbXBhc3MtRGF0ZW5iYW5rIEdtYkgxFzAVBgNVBAMMDndwdi5jb21wYXNz
+            LmF0MSIwIAYJKoZIhvcNAQkBFhNvcGVyYXRvckBjb21wYXNzLmF0MB4XDTE3MDUw
+            ODA5MTkzOFoXDTIwMDUwNzA5MTkzOFowgY0xCzAJBgNVBAYTAkFUMQ8wDQYDVQQI
+            DAZWaWVubmExDzANBgNVBAcMBlZpZW5uYTEfMB0GA1UECgwWQ29tcGFzcy1EYXRl
+            bmJhbmsgR21iSDEXMBUGA1UEAwwOd3B2LmNvbXBhc3MuYXQxIjAgBgkqhkiG9w0B
+            CQEWE29wZXJhdG9yQGNvbXBhc3MuYXQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
+            ggEKAoIBAQCo0sZAE/m9JtHnNGc/IsTH2NAQQZ8pfCFI8xMUkNo+xCcSZhDez25o
+            1ojemHRgn2bfQQzCMArdDs/HKeld6fi1M0wkjAsDuhionmDWuL0Hwc8qIV/z2e8D
+            WHuKil/f8WlNb6CqIwIA1ziD4g78syvEkhgT1j19OIiDgX4d8RER83bZ60c2yBeL
+            cqTgTY6IrYrur+D47sD1ejcTf2C0821WlpD6qO2kVDADOFtrAh2Y5VGtG7JzEmu5
+            9K1UA+fTQPdp8+0cTtgbuFZsHPXK/8QiFNLpfp9DIxU5EkQBBTpZJswLmaDhhrKE
+            zl7uziEEijF8R/gpv/zKMq3twSl5bxMdAgMBAAGjUDBOMB0GA1UdDgQWBBQ5Wr5O
+            Jw369p3foPpXkyQ97l9NCzAfBgNVHSMEGDAWgBQ5Wr5OJw369p3foPpXkyQ97l9N
+            CzAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQBsDdvDDnI2CLJxM5SS
+            aOHagDvzOLiLSFKnv+LNKr1O3NIfX39k1bByZJ7bwScfEeWScZOu2MuRWrME1MeR
+            yvJ/WmB9DyWD/DQL0m5QZxzyc5pbttP0fimoGyhLKwYHE2B2AAmPmKfifUySG6oD
+            JLB/9YmaxacXTMtz7meYxm9cghMHe0QUlTki/CIRUt9IMwaGN3q9/Vfvdxl2KTpd
+            bAwgK4xRGdknrEO1oFOBdzjQPNXpriJddh87w1+nz8lA5HvkrQDJfabr/udMQmNz
+            1HeaLtQvC1LJ708F+PcEUCXcTCyofWz47HAOSqcNK+Sja0O/b99ZeZ3gtKsVYPPW
+            iREr
+          </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#aes128-gcm"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#ECDH-ES"/>
+    </md:KeyDescriptor>
+    <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://wpv.compass.at/Shibboleth.sso/Artifact/SOAP" index="1"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://wpv.compass.at/Shibboleth.sso/SLO/SOAP"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://wpv.compass.at/Shibboleth.sso/SLO/Redirect"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wpv.compass.at/Shibboleth.sso/SLO/POST"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://wpv.compass.at/Shibboleth.sso/SLO/Artifact"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wpv.compass.at/Shibboleth.sso/SAML2/POST" index="1"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://wpv.compass.at/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://wpv.compass.at/Shibboleth.sso/SAML2/Artifact" index="3"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://wpv.compass.at/Shibboleth.sso/SAML2/ECP" index="4"/>
+  </md:SPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">Compass Datenbank GmbH</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Compass Datenbank GmbH</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">https://www.compass.at</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Philipp</md:GivenName>
+    <md:SurName>Griess</md:SurName>
+  </md:ContactPerson>
+</md:EntityDescriptor>
