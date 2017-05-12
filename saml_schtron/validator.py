@@ -150,9 +150,11 @@ class Validator:
                 transform = etree.XSLT(etree.XML(''.join(fd.readlines())))
             transform(md_dom)
             result_jsonsnippet = str(transform.error_log).replace('<string>:0:0:ERROR:XSLT:ERR_OK:', '')
+            result_jsonsnippet = self.get_first_message(result_jsonsnippet)
             try:
                 result_dict = json.loads('{' + result_jsonsnippet + '}')
-            except ValueError as e:
+            #except (ValueError, json.decoder.JSONDecodeError) as e:
+            except Exception as e:
                 print('ValueError: Decoding JSON string from ' + rule + ':\n{' + result_jsonsnippet + '}')
                 raise
             if rule not in result_dict:
@@ -180,6 +182,18 @@ class Validator:
 #                                val_result.summary['WARNING'], val_result.summary['ERROR'])
 #            val_result.json += '\n}'
         return val_result
+
+    def get_first_message(self, result_jsonsnippet):
+        ''' when detecting the first line of the second message stop and return the text parsed so far '''
+        result = []
+        match_count = 0
+        for line in result_jsonsnippet.splitlines():
+            if re.search(r'rule.+": \{ "Severity": ', line):
+                match_count += 1
+                if match_count == 2:
+                    break
+            result.append(line)
+        return '\n'.join(result)
 
     def validate(self) -> ValidatorResult:
         val_result = self.validate_xsd()
