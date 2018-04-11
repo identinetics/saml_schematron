@@ -32,7 +32,7 @@
   </annotation>
 
   <import namespace="http://schemas.xmlsoap.org/soap/envelope/"
-      schemaLocation="http://schemas.xmlsoap.org/soap/envelope/"/>
+      schemaLocation="xmlsoap-envelope-V1_1.xsd"/>
 
   <element name="ChannelBindings" type="cb:ChannelBindingsType"/>
   <complexType name="ChannelBindingsType">
