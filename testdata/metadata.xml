@@ -1,0 +1,1082 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<md:EntitiesDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:xrd="http://docs.oasis-open.org/ns/xri/xrd-1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:pyff="http://pyff.io/NS" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Name="/etc/pyff/md_aggregator" ID="TestWpvSignedMetadata_" validUntil="2018-10-23T18:20:14Z" cacheDuration="PT4H"><ds:Signature><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/><ds:Reference URI="#TestWpvSignedMetadata_"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#WithComments"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>Sch+SHP/0FH+gQTDkWGODSZAfsq68qaGhcfe5NTS0ck=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>scs0yiIr/BFE5/YArKwejoOxSMZXXtFhdVG43yrqIlNUJsrMjx/d3oy+ayqWsPJ1CgQzAaqxo52sgFmIT61tDfAAfFoDqF2WmewlGV+9hCqguflUuwwyO3CzQ+5XxGRx5iCPpxnALhVqIEy3D7rQq0+kL0BYQOZRTUHlKC0PKZo=</ds:SignatureValue><ds:KeyInfo><ds:X509Data><ds:X509Certificate>MIICIzCCAYwCAXcwDQYJKoZIhvcNAQELBQAwWjELMAkGA1UEBhMCc2UxCzAJBgNV
+BAgTAmFjMQ0wCwYDVQQHEwRVbWVhMQwwCgYDVQQKEwNJVFMxDTALBgNVBAsTBERJ
+UkcxEjAQBgNVBAMTCWxvY2FsaG9zdDAeFw0xNDAzMTkxNzE5MzlaFw0yNDAzMTYx
+NzE5MzlaMFoxCzAJBgNVBAYTAnNlMQswCQYDVQQIEwJhYzENMAsGA1UEBxMEVW1l
+YTEMMAoGA1UEChMDSVRTMQ0wCwYDVQQLEwRESVJHMRIwEAYDVQQDEwlsb2NhbGhv
+c3QwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBALswQbMz6dKL4FEKu+O3GYDf
+aniyxcfizsHaiehuh5jufrlGZw/zMMttteTRhpjtTFN2/R68d1kh8pmO+HV7u+53
+h+C33I178ZsOquSovGe1AWmzDzp2j6CRdQYdZaMCc4YxtwEXs7570YmnPLKhz8aH
+diQRHhtx1cqdPPStkz67AgMBAAEwDQYJKoZIhvcNAQELBQADgYEApQ5znEdhsJBs
++ew81X9pkUKZ/ruu/p2OPfYmKzdFnK6mq9bF5CEIaIkvbSJjpECicmGCNw9ATJXy
+lnwFLnfxw6d+YGi4XPuo64NSG00ycnMSTMJ8OR5ForcF89v72BLRDYo6yXeNDw72
+2ul0lPzH54CNQzsm4N/5w5iStnOT1TQ=</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds:Signature><md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" entityID="https://idp1.test.wpv.portalverbund.at/idp/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+        <saml:AttributeValue>http://wirtschaftsportalverbund.at/ns/ec/attributebundle-wkis</saml:AttributeValue>
+       </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+       <md:Extensions>
+          <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+          <alg:SigningMethod MinKeySize="256" MaxKeySize="511" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/>
+          <alg:SigningMethod MinKeySize="2048" MaxKeySize="4096" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+          <mdui:UIInfo>
+              <mdui:DisplayName xml:lang="en">Austria Pro WPV Testumgebung (1)</mdui:DisplayName>
+              <mdui:Description xml:lang="en">Austria Pro WPV Test IdP 1 (Shibboleth V3)</mdui:Description>
+              <mdui:Logo xml:lang="en" height="85" width="124">https://www.test.wpv.portalverbund.at/images/wpvlogo_idp1.png</mdui:Logo>
+          </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing"> <!-- new key waiting for rollover (see idp-signing1.crt) -->
+          <ds:KeyInfo>
+              <ds:X509Data>
+                  <ds:X509Certificate>
+MIIDXTCCAkWgAwIBAgIVAP3cEGJtBC/wDjTIK5Wy3rM6hvQFMA0GCSqGSIb3DQEB
+CwUAMCkxJzAlBgNVBAMMHmlkcDEudGVzdC53cHYucG9ydGFsdmVyYnVuZC5hdDAe
+Fw0xNzAyMjcyMDIxMTlaFw0yMjAyMjcyMDIxMTlaMCkxJzAlBgNVBAMMHmlkcDEu
+dGVzdC53cHYucG9ydGFsdmVyYnVuZC5hdDCCASIwDQYJKoZIhvcNAQEBBQADggEP
+ADCCAQoCggEBALp9P2Q1TtoPPczR75BXZTPH5FwWec6x9jupcYxlVaeORWTYjStM
+wyiqrXKNqMlGTTh5hhW9uwz2xp4Bo8UIGEsP171L4qLU5EVg6vwAJ6WXVQoLJmS3
+ge6smUkO+i1BVxNZxZlG0A4yA+X+CxG2iBw0TAn9vyNfy268tYVsQy8gnoRxkrTy
+9HpPQxkdXWfjtNIv5AgzASXtSBcaWDPfSGzUhMW7f4JXvNyLwAue3nv1C+s7t2+V
+JFLilY039I3OU0jdkAyPGYj0oCDvu6cj+snepDTQ7F/Ru2Yiz4E4HpcnB+l/yELm
+eg/wCQY8+KKuSBGDoVRYnkfnZz2tUX2pj60CAwEAAaN8MHowHQYDVR0OBBYEFNGV
+c++nDnMTHVLyN2PZ6ddoFBY8MFkGA1UdEQRSMFCCHmlkcDEudGVzdC53cHYucG9y
+dGFsdmVyYnVuZC5hdIYuaHR0cHM6Ly9pZHAxLnRlc3Qud3B2LnBvcnRhbHZlcmJ1
+bmQuYXQvaWRwLnhtbDANBgkqhkiG9w0BAQsFAAOCAQEAPyiXXfUp6vLSqVDH2jJk
+ts15Img/5DFlXT6qYuaR3OQdmyrODd29mK2aBcT/u3/F9MwIXwPUWq/ieFRHtI76
+57/U4DRrKyLLtMg1n4MFW71lKtgKHxfaNTTrsBjzdHgqi6665G8wxaSImaOXFuVu
+Cane+Z2bw0dZetiaZvE5LOlPqIhLuyT8zG3fHoa/XnxO/JMcUK1RLpxpg0ZL1v/L
+96JRMq6QoePDOfTQBX0cHqwGXvejybDU3DBVykIslkNVaV2n9DriClpGvt1RkPXQ
+HIJt5yeDxH0pOsh4iC+rsGD7EmnNZUf6nyZUfBZWzFoBkFn2t4bzHm8m1qPT/eZ5
+qQ==
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        <md:KeyDescriptor use="signing">  <!-- active key -->
+            <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+MIIDZTCCAk2gAwIBAgIUTMaFU3su5h9xBQJPalVsbOR7DBMwDQYJKoZIhvcNAQEL
+BQAwKTEnMCUGA1UEAwweaWRwMS50ZXN0Lndwdi5wb3J0YWx2ZXJidW5kLmF0MB4X
+DTE2MDMwOTA5MjUwOVoXDTM2MDMwOTA5MjUwOVowKTEnMCUGA1UEAwweaWRwMS50
+ZXN0Lndwdi5wb3J0YWx2ZXJidW5kLmF0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+MIIBCgKCAQEA6PRWhTPw8jDeIs0KNHxFe8vBTKgGJLtTBGz/I2qbHtvzQjDwy7l7
+t3VhC4bvCHU6q6LhprG1yblTs4mZOxNG3FgBSXfnlAz7LYaTksXGHLLrtcrfODJg
+gg+SDac6OaOLlN7HuvVIZMeGenQOL82av5FEB1SWl8YEnWx+jWBf4OiHGtUGqJ9F
+bFfvmMRUtBEil0xT53gBkNWcZ3T0IvRioVcCrr+mcoxHNH3JHuGmQ8xqZWZ27Iod
+dTILEl5MXH9Kc5M3Pc/75lXCDahQsqG1d40gzE3mEG2OmtlTb+FfJB4sXsH3y3pf
+O9hTNo/B7PfCv9wNdFk1moa8J2SLX/xCwwIDAQABo4GEMIGBMB0GA1UdDgQWBBQj
+GS9lXXW7CryQS/nTjb9mywvR8zBgBgNVHREEWTBXgh5pZHAxLnRlc3Qud3B2LnBv
+cnRhbHZlcmJ1bmQuYXSGNWh0dHBzOi8vaWRwMS50ZXN0Lndwdi5wb3J0YWx2ZXJi
+dW5kLmF0L2lkcC9zaGliYm9sZXRoMA0GCSqGSIb3DQEBCwUAA4IBAQDI0+RooeNe
+Mr5lYOTE55kRFy8iWyx3szlsUw5qm27w8Mmu+lRBMPpwkDnDQ+TyUApOiU41i4EZ
+XNwywEnwQGCFp8R42Is2ECYqM6OIpW+Cf5HwsjwkeEj+Vr5o29mEAzzQFBVINF0F
+NPEV4xBdyRWI06E4B1FXW5zdn9sB8qIWwO3TpxvMQbQhvgQXva0OryhhmJ8qIaHq
+aR3owMZvu6lD7R7ei5z6NEgOlKcbp6K+B79nv8yz8DNvV303f9fn3V29TDVm8O5b
+vAFOND6uWGNOG1xQJMeyV8hZMDFWfjp4Q5y/P1JIa7WVwv8dSTuwHbehCp85eKIv
+xkaknQcJ1Ksh
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        <md:KeyDescriptor use="encryption">
+            <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+MIIDZjCCAk6gAwIBAgIVALbYcCosw/d/7xolDLM6db8FUQ/AMA0GCSqGSIb3DQEB
+CwUAMCkxJzAlBgNVBAMMHmlkcDEudGVzdC53cHYucG9ydGFsdmVyYnVuZC5hdDAe
+Fw0xNjAzMDkwOTI1MTBaFw0zNjAzMDkwOTI1MTBaMCkxJzAlBgNVBAMMHmlkcDEu
+dGVzdC53cHYucG9ydGFsdmVyYnVuZC5hdDCCASIwDQYJKoZIhvcNAQEBBQADggEP
+ADCCAQoCggEBAMa4SR/cBRG8S8c/BndYvzcP6ArKj0hZ7TIbRFQ7z3blfJY8boAy
+sPEcxKfB6NJp1lza3090L9rcKoEhM2lBeuUWjpL0pzcP9kNPU2T9s4ubgz/oXg6h
+K+XHI6z/Lt7RuV1gsJ+3OSxbt1kkWKsEl6/bd9qu+GHeXwaZjcrwZCJ5MgeypVuw
+fUw1HSCVtYGkkDl/VY91iH3z2QyN7cxGQ3lSghy6/A1HXoAK5If4hsgJL+fuaGWm
+k6M/tt7G1SSreIaLB6fflCL8uc2y6/SyN1KKyTwo1lkeWKRpzcQr9lHXeX8U8S4/
+G7xtg3oNZP0d+SJNzPTbuEVr9ZONzZRKhAsCAwEAAaOBhDCBgTAdBgNVHQ4EFgQU
+FoOzwiTGMmsqLd64Y8CUaywWuR0wYAYDVR0RBFkwV4IeaWRwMS50ZXN0Lndwdi5w
+b3J0YWx2ZXJidW5kLmF0hjVodHRwczovL2lkcDEudGVzdC53cHYucG9ydGFsdmVy
+YnVuZC5hdC9pZHAvc2hpYmJvbGV0aDANBgkqhkiG9w0BAQsFAAOCAQEAguamnFjA
+fbIGFU6QNl3ZTBW0OakGfdbLEhYQ2xefFBEUf1LFtWua1qL6gzxI4PkPAY9NT+17
+ABN0TY+87MrAzTNHvI/V51W4hCI+0Z7H6zGS/zaJzRsxtL2E8Yi+vue3dkz/o9g8
+Jq01XbTMcSukcmNcPkzEH+65apAwyNP3nv09G7cmBUrgEi0gb3dQ1IvZFQVua4H6
+h0vYbUtWi7r/Epb+6AeCreEF8lW2qxjIEkYocxVt7AoEHLCbUmswBADrYhN+WrNE
+WcCNbuQhJZTQZMk2CtUtu7SAEkxTT9jkRq6PVF0jfaGVuN7vErE4zsFyT6FKIHYd
+GD7P2VPtNN4/2w==
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp1.test.wpv.portalverbund.at/idp/profile/SAML2/Redirect/SLO"/>
+        <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp1.test.wpv.portalverbund.at/idp/profile/SAML2/POST/SLO"/>
+        <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp1.test.wpv.portalverbund.at/idp/profile/SAML2/POST-SimpleSign/SLO"/>
+        <!--md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp1.test.wpv.portalverbund.at:9443/idp/profile/SAML2/SOAP/SLO"/-->
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp1.test.wpv.portalverbund.at/idp/profile/Shibboleth/SSO"/>
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp1.test.wpv.portalverbund.at/idp/profile/SAML2/POST/SSO"/>
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp1.test.wpv.portalverbund.at/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp1.test.wpv.portalverbund.at/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+        <md:OrganizationName xml:lang="en">Austria Pro / AK WPV</md:OrganizationName>
+        <md:OrganizationDisplayName xml:lang="en">Austria Pro / AK WPV</md:OrganizationDisplayName>
+        <md:OrganizationURL xml:lang="en">https://www.wirtschaftsportalverbund.at/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+        <md:GivenName>Rainer</md:GivenName>
+        <md:SurName>Hörbe</md:SurName>
+    </md:ContactPerson>
+</md:EntityDescriptor><md:EntityDescriptor entityID="https://idp.pflaeging.net/auth/realms/pflaeging.net">
+    <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol http://schemas.xmlsoap.org/ws/2003/07/secext">
+        <md:Extensions>
+          <mdui:UIInfo>
+            <mdui:DisplayName xml:lang="en">Testeinbindung Stickie-Box (temporär)</mdui:DisplayName>
+            <mdui:Description xml:lang="en">Testeinbindung Stickie-Box (WPV als Authentizierungsmethode am lokalen IDP)</mdui:Description>
+            <mdui:Logo xml:lang="en" height="85" width="124">https://www.test.wpv.portalverbund.at/images/wpvlogo_sp1.png</mdui:Logo>
+          </mdui:UIInfo>
+        </md:Extensions>
+        <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.pflaeging.net/auth/realms/pflaeging.net/broker/WPV/endpoint"/>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+        <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.pflaeging.net/auth/realms/pflaeging.net/broker/WPV/endpoint" index="1" isDefault="true"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+        <md:OrganizationName xml:lang="en">Pfläging.net</md:OrganizationName>
+        <md:OrganizationDisplayName xml:lang="en">Pfläging.net</md:OrganizationDisplayName>
+        <md:OrganizationURL xml:lang="en">https://pflaeging.net/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+        <md:GivenName>Peter</md:GivenName>
+        <md:SurName>Pfäging</md:SurName>
+    </md:ContactPerson>
+    </md:EntityDescriptor><md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" entityID="https://wpv-dev.compass.at/sp.xml">
+
+  <md:Extensions>
+    <mdattr:EntityAttributes>
+      <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+        <saml:AttributeValue>http://wirtschaftsportalverbund.at/ns/ec/attributebundle-wkis</saml:AttributeValue>
+      </saml:Attribute>
+    </mdattr:EntityAttributes>
+  </md:Extensions>
+
+  <md:SPSSODescriptor AuthnRequestsSigned="1" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:Extensions>
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256" MaxKeySize="511" MinKeySize="256"/>
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" MaxKeySize="4096" MinKeySize="2048"/>
+      <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://wpv-dev.compass.at/Shibboleth.sso/Login"/>
+      <mdui:UIInfo>
+        <mdui:DisplayName xml:lang="en">WPV Compass Testumgebung</mdui:DisplayName>
+        <mdui:Description xml:lang="en">WPV Compass Test Service</mdui:Description>
+        <mdui:Logo xml:lang="en" height="85" width="124">https://www.test.wpv.portalverbund.at/images/wpvlogo_idp1.png</mdui:Logo>
+      </mdui:UIInfo>
+      <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://wpv-dev.compass.at/Shibboleth.sso/Login"/>
+      <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://wpv-dev.compass.at/Shibboleth.sso/Login" index="1"/>
+    </md:Extensions>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:KeyName>82f7a8302f48</ds:KeyName>
+        <ds:X509Data>
+          <ds:X509SubjectName>CN=82f7a8302f48</ds:X509SubjectName>
+          <ds:X509Certificate>MIIC6zCCAdOgAwIBAgIJAIkSELDiPK60MA0GCSqGSIb3DQEBBQUAMBcxFTATBgNV
+            BAMTDDgyZjdhODMwMmY0ODAeFw0xNjAyMjgxNjE1MjdaFw0yNjAyMjUxNjE1Mjda
+            MBcxFTATBgNVBAMTDDgyZjdhODMwMmY0ODCCASIwDQYJKoZIhvcNAQEBBQADggEP
+            ADCCAQoCggEBAMOWMUhYcym8FSGzOedG9suMS+aK/culEXn04B84a/zlm9Dxv8wk
+            ZXLT071OtQm6Rz9hdkC3e7AqkTeGnLzkpkzvgEjx/ManNoPFBnqfqgL9KE0t+FS2
+            gRscy7VKDxdkMvzmXO+3+JjYYqnVVpbFUMFeOMaC74skFhKI8gc/j4a/8DH6TrPd
+            SsyKi/k7QeRwP8QfnCapLbsGVTW4G+EuMcP6/Wl2zDcelpxh/dHv325yKCBbPvPC
+            +k/donPsw8OV4ItzehyOrtjWNCsQscgY+wWCidIMCPOkI3WRIGkeClJoz/dg8gSx
+            HWkYacN6lze/xPYELR6WlzB9r2WOKjuHbRcCAwEAAaM6MDgwFwYDVR0RBBAwDoIM
+            ODJmN2E4MzAyZjQ4MB0GA1UdDgQWBBQzGCch3EXA37qX6W3AtkE4KBzWSTANBgkq
+            hkiG9w0BAQUFAAOCAQEAQP46xsyGllK/xk3Y7PCPkj28KrVwMsKeR8geRq8UswB2
+            TQ+qhvWPZs5qUlNc1UGZat4nEu7T837ozJ7OeVNtgaLDLElfnerzss/ip/I0at5U
+            g6g+/memzdipXb/5AF76353nK82dRmhO5M6EmVBdeAF1LGQkonmxBRRdMJ1OtGfq
+            C9WdsDb3FQWX62QlBFuzf/sq1M/DSn9FHDlLHqtTyFFwGBqX6mlOa1u8e3cpCBpk
+            o4WHxK0EHAKWMiSisR+VXm7BHqe6Qg6cnu9sipc3rkL3mXNvcWD4ktpkuxL9zEsd
+            dMe4TwGTdA/GjVIW3ia5ouIVVuEaXrw8MlhsUoiIZQ==
+          </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#aes128-gcm"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#ECDH-ES"/>
+    </md:KeyDescriptor>
+    <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://wpv-dev.compass.at/Shibboleth.sso/Artifact/SOAP" index="1"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://wpv-dev.compass.at/Shibboleth.sso/SLO/SOAP"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://wpv-dev.compass.at/Shibboleth.sso/SLO/Redirect"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wpv-dev.compass.at/Shibboleth.sso/SLO/POST"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://wpv-dev.compass.at/Shibboleth.sso/SLO/Artifact"/>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wpv-dev.compass.at/Shibboleth.sso/SAML2/POST" index="1"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://wpv-dev.compass.at/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://wpv-dev.compass.at/Shibboleth.sso/SAML2/Artifact" index="3"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://wpv-dev.compass.at/Shibboleth.sso/SAML2/ECP" index="4"/>
+  </md:SPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">Compass Datenbank GmbH</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Compass Datenbank GmbH</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">https://www.compass.at</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Philipp</md:GivenName>
+    <md:SurName>Griess</md:SurName>
+  </md:ContactPerson>
+</md:EntityDescriptor><md:EntityDescriptor entityID="http://wkis.play.wko.at/adfs/services/trust">
+  <md:Extensions>
+    <mdattr:EntityAttributes>
+      <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+        <saml:AttributeValue>http://wirtschaftsportalverbund.at/ns/ec/attributebundle-wkis</saml:AttributeValue>
+      </saml:Attribute>
+    </mdattr:EntityAttributes>
+  </md:Extensions>
+  <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:Extensions>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" MinKeySize="256" MaxKeySize="511" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" MinKeySize="2048" MaxKeySize="4096" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <mdui:UIInfo>
+        <mdui:DisplayName xml:lang="en">WKO Inhouse GmbH - IdP Play</mdui:DisplayName>
+        <mdui:Description xml:lang="en">Spielumgebung der WKO</mdui:Description>
+      </mdui:UIInfo>
+    </md:Extensions>
+    <md:KeyDescriptor use="encryption">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIC4jCCAcqgAwIBAgIQJVacDyfkgZlP/uiLoiPwNzANBgkqhkiG9w0BAQsFADAtMSswKQYDVQQDEyJBREZTIEVuY3J5cHRpb24gLSB3a2lzLnBsYXkud2tvLmF0MB4XDTE3MDkyODEyMjgxNVoXDTE4MDkyODEyMjgxNVowLTErMCkGA1UEAxMiQURGUyBFbmNyeXB0aW9uIC0gd2tpcy5wbGF5Lndrby5hdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKAjdqjX+7hR6VLcxJJwpVtBHoJPvzcuA0u3YEDNyINmyRDT2xG9BoG8zk/lVxUAWu3XUPCnnLmKoGW7HlOA6+Ot2RbKwWkcbPpFhukkb/6oF1XPkQ3x9T4rbHDkuIDW1lCEKHzHvYDdh5jU1rSc7lywew794j68OT6+p867/p3la98RTvX8g1rc/KThpzS2Iuw6Mz9LsqWzYBty2MTGA6kvlL7qRCz4H4Xo/j3ConGzDfDKr2GuHVrEZJHR8CjmdelQ46khAWp6Pog6YBkvY5jtIfk0xS/+n0KICHNyjCiaWJR/Oqud81d5YFNKY9RRszdaZSJwQ5v5NATGCa3s7CUCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEATZF5AtHUjq5NSdnVEFRY10Uxgwy6oxiME9yls/hdBITz3ssZmIg/Y+S6xsP5I6JbBi2BZ+jy+60+RXtQEZjfbFz+nyhv0QAny2DTAp45/5O5ewZL0n6ck/xprANN3L0cyiMhTmzCHlnszw3WJFea4lbfn4tVYUTB8ePzSq3aJVRkHu08Y90PktWv/UjJqQK61QEymea+JwkCH/Ey8Pyj7kpGgBAdeGm42wfKtccg60RSZkgEFO7cYr19GhBLQ3OhG36Wx3IUxFv5v7i/AwT4wJt8c8VHjqNDufNY61BgMd1Alc1TSzVOLbMWoe4cy08ADzK33WlRJpAyLkHhgWuBEg==</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIC3DCCAcSgAwIBAgIQagrRGsOO+ZpNuWMoCO14zzANBgkqhkiG9w0BAQsFADAqMSgwJgYDVQQDEx9BREZTIFNpZ25pbmcgLSB3a2lzLnBsYXkud2tvLmF0MB4XDTE3MDkyODEyMjgxNVoXDTE4MDkyODEyMjgxNVowKjEoMCYGA1UEAxMfQURGUyBTaWduaW5nIC0gd2tpcy5wbGF5Lndrby5hdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALf0c1wha4ZvQRy3hlfCZnlHPbWWSpMXZ219eNJLe+vi/8Apsio8lEMDsNhC+vMIEpvo3sAiHS6kas3I4OgEYSAuoXDqhYrfUqdYeMa27wHIK2yEKs5i7FHvgakTaJ39Kt5H9lE2Xp0bm4SMxeniuNwrw7A38HWQ+77qV7/fG1qBBojPIC+Xeh4YywHHkRzRV1rWDBeOL97Wou4srSDJIk59Z200BfBTJ1Nc/bhnUhCtievLjv8DF0SRypYJzvAiXFtoFyM5TYoTQAWNVr4BD7riOH2gLOY92EypCgBHm87t0JoPCTVWzcfmlUt1MKTNC5Z3EgckxIddWu3x/WhPtuUCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEALyWBTubwPg1j9GXUgcWS5ELK+auigCg6yh/a5bn5Yt4Ah6ITEyUUOkxQepoG8rg9gJA6BiEajlEVcydknNBRYBYoq+OUw9cnEeLoElPYv06ZpKWy/fIyPtWJ5o49RFppKZiLXFGHZPz1nQi0cm53LtCZbEW6ZsUy2BSdCTw1sHELfa49Uutuwci3L5pTdfX1Yy8euTtbiFz0WvOoD3/dTpQAyvONd9K9JwsI3ZyZJ3DTSzwx0CTW7ju191ijFQ8WXEbZH1y7CxEv5U2WytEjopu0yxZyVbTrdJgSiFg7tMmwJrAKD4C4fCduQwreYfF+6fMyX9Ke1wyIHFEdcJK/BA==</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://wkis.play.wko.at/adfs/ls/"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wkis.play.wko.at/adfs/ls/"/>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://wkis.play.wko.at/adfs/ls/"/>
+    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wkis.play.wko.at/adfs/ls/"/>
+  </md:IDPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="de-AT">WKO Inhouse GmbH</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="de-AT">WKO Inhouse GmbH</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="de-AT">https://wko.at/</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="administrative">
+    <md:GivenName>Philip</md:GivenName>
+    <md:SurName>Kastenberger</md:SurName>
+    <md:EmailAddress>mailto:philip.kastenberger@inhouse.wko.at</md:EmailAddress>
+  </md:ContactPerson>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Dominik</md:GivenName>
+    <md:SurName>Amon</md:SurName>
+    <md:EmailAddress>mailto:dominik.amon@inhouse.wko.at</md:EmailAddress>
+  </md:ContactPerson>
+  <md:ContactPerson contactType="support">
+    <md:GivenName>Inhouse WKO IT Team SW Qualität &amp; Support</md:GivenName>
+    <md:EmailAddress>mailto:QuS@inhouse.wko.at</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor><md:EntityDescriptor entityID="http://wkis.qss.wko.at/adfs/services/trust">
+  <md:Extensions>
+    <mdattr:EntityAttributes>
+      <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+        <saml:AttributeValue>http://wirtschaftsportalverbund.at/ns/ec/attributebundle-wkis</saml:AttributeValue>
+      </saml:Attribute>
+    </mdattr:EntityAttributes>
+  </md:Extensions>
+  <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:Extensions>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" MinKeySize="256" MaxKeySize="511" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" MinKeySize="2048" MaxKeySize="4096" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <mdui:UIInfo>
+        <mdui:DisplayName xml:lang="en">WKO Inhouse GmbH - IdP QSS</mdui:DisplayName>
+        <mdui:Description xml:lang="en">Qualitätssicherungumgebung der WKO</mdui:Description>
+      </mdui:UIInfo>
+    </md:Extensions>
+    <md:KeyDescriptor use="encryption">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>
+            MIIC4DCCAcigAwIBAgIQGY9HZVsGPJBAQ47FdVQanTANBgkqhkiG9w0BAQsFADAsMSowKAYDVQQDEyFBREZTIEVuY3J5cHRpb24gLSB3a2lzLnFzcy53a28uYXQwHhcNMTcwMzAzMDgzNTAxWhcNMTgwMzAzMDgzNTAxWjAsMSowKAYDVQQDEyFBREZTIEVuY3J5cHRpb24gLSB3a2lzLnFzcy53a28uYXQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCE1kGv0pCyEbollSrOwpyQHQOKkUYZE4JKPl6xRwJzFhVeks7PQxJdwbJRbjaguQkgDYwRKTsnwKLzHdOq5GH5Th4o/CAIDVlIChHbHBpdvBwMtT9OUarxdcDWvni5vT8toSlRTqv9KVAd3AxKsOb5l6MgtbggH4Yy/RrDn0fIVIpjbV/Vucvfz5Jqoy27knBRxSywUp9q9XE15UMJ3dVzxx8LVtcYnQraW/qB1sK1NrZw2s+oS9sqsf6uZs3vOLs+FMEyoHnDKoG9PHiUSNjygAcbFiCNiSpEIsUjk2mDsVMuJx2THqK5sbYSlp8T1Z6SHe0apxXVYcuz/HRu9Y23AgMBAAEwDQYJKoZIhvcNAQELBQADggEBAHTCLHeMroNwypBL3tPLBIL38fztcDM6PkAuFjorFqSlWBSvBdkFC6Waqam85WYulEH1vxQU2reEHZsJ7be8rEEMyreomASPbsjl716wR/h8d6npoykkAnMSZkoR7tCXC6x81znSvDEL6CGIed/RNHRrbhLQgH1f2JbyXIIbnL8ZnHkSMraFSIUwPqu/rpo50Sqbj/Nl/WW5ffInnjIpm1pPHr5V9Y3/oIgqJnAIcCL0PQNjb76KQ5lezKkbH6Wet+InoUQOy7x8GlcK4H2yKdDFap8VxynlAaZkDNR5nKN6lEBaEj1Lxh90BW9ibwrPaziD9o6f0NG4qsujV7QySPA=
+          </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>
+            MIIC2jCCAcKgAwIBAgIQYFdZnMa3sY1EOkv9ape3KjANBgkqhkiG9w0BAQsFADApMScwJQYDVQQDEx5BREZTIFNpZ25pbmcgLSB3a2lzLnFzcy53a28uYXQwHhcNMTYwNDA2MDc0NDEyWhcNMTcwNDA2MDc0NDEyWjApMScwJQYDVQQDEx5BREZTIFNpZ25pbmcgLSB3a2lzLnFzcy53a28uYXQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDFGQunjXb4wr+ZUJE7Q2+f1E3zd8b0r6aT4AIkKLiMmIDyN4l9PDr9EuJb2FTR14daxEjzCrNQUOOMr3Ry41Zt4lr4S5Tw3heuwE7FHVJH1RfDsiv1QEFvKmbtGUOiPj6TwU7FS9FH7NLyHIc2rhHBgcgIQU2yBJW2DLFhfPkuqCpKFkgTMS952o4yUjBfbWrnf1iOv3nL8727jmV1PAa7/b5o5/S0iUdDh6z4K7wOW+59X7LEz01ucZ+Po36QukYNJyy1pja2QuO+PIC4YHu2iElOKQRL6jrGf+KDFnkVKzTDM6Ivx8rU2l7+cUPNQoNxf9YEHDoL5gawQZ9E2tn5AgMBAAEwDQYJKoZIhvcNAQELBQADggEBAMPUj/5+hzzrqT+/+IxZMzt0qLahJ+d2UNIWODh/G/5Fhcpf5WDrXSDkVqiU6TnJAZdGRPruQX/if/drj3qng58YGtEy09StBBMi7ZOzJz4C56KZYqCyldjSjT6IzjbDmfRt5qpQU8QLd5l8QhVBTlcTdtkzHoJPRp71UWKkTsNLf8GuBhSs3tj+DACSJiyPNTKJRENv+gdgZBjiWn+3+3Jx5j559sjdjhnE+zjx6CsSsh7dvxm1qmzotxG+m+gBIkiniEZI6yDPyw9H1mPOw/hYnwlXiXB2yqSsuulejizn433XleAACF1oe9RCIOE1IXe4ei5JhBdQyR4OElMMI7k=
+          </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>
+            MIIC2jCCAcKgAwIBAgIQU6Yff0NmrZpAWPasqkVs9TANBgkqhkiG9w0BAQsFADApMScwJQYDVQQDEx5BREZTIFNpZ25pbmcgLSB3a2lzLnFzcy53a28uYXQwHhcNMTcwMzAzMDgzNDMzWhcNMTgwMzAzMDgzNDMzWjApMScwJQYDVQQDEx5BREZTIFNpZ25pbmcgLSB3a2lzLnFzcy53a28uYXQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC5YRKIx2tOEUiJMnbg9ITfcfkDc1QrWX5BA6mVfTqiZyoIT/eYxoXnJ1yO9sOoXAZtXODJgrYY04qiSgmxaVtO1yKPyQ8+W7CT4hHaEfQ4p/vSkVGxsLUEg6xw6iBIYhqbFayp3zc0ZiPV+8rWqMzvz45Kbjz6I3/Viu/l1xa4srEZizB0wOwcLysGkznfZT8DQTU4ijBQdQ0pUO+u8B/ribemBTgTEVr/TuTuOVNC5bopYq5u9Pogn5DvcvwRekXEKSnXSAtxEjMZRUBOz2/lawMoK/Sfyl/JLUTvBM08bNqDq0AnaSaC9mqyJ2xLststi8gxXe6Ete9rnfXsBm75AgMBAAEwDQYJKoZIhvcNAQELBQADggEBAKbzvphvcPsFSqNe6zJanLiZosgwQNavw/Lr5bJdewYvk4D4I3MAoQMhu5Jky/JXCCzZUgWma2tqjxlIEfwGV837C1pBqeju9peTUQyQLyG0dIm/0gTHCFWklMO93/MmquiCXrJAsNtJ5De8k99cYyvZkYER+7tj2Rfql4TpTmSG/e2nbde1qxqGAUfeCLGgbibDXiKG0IDvBsJgUP5LxVXWnKw5KfRrqc7ic5guzfGNjwMImlxbUgBTpJd9GSsT3QX+yNq0y7eL/w82hgNBAkn8LFgavz+EtyotH3t8UpzvZTKWsyqfWdmXnCJznluKV1eOQodBokqat17e1ptW2KY=
+          </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://wkis.qss.wko.at/adfs/ls/"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wkis.qss.wko.at/adfs/ls/"/>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://wkis.qss.wko.at/adfs/ls/"/>
+    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wkis.qss.wko.at/adfs/ls/"/>
+  </md:IDPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="de-AT">WKO Inhouse GmbH</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="de-AT">WKO Inhouse GmbH</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="de-AT">https://wko.at/</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="administrative">
+    <md:GivenName>Inhouse WKO IT Team SW Qualität &amp; Support</md:GivenName>
+    <md:SurName>WKO Inhouse GmbH</md:SurName>
+    <md:EmailAddress>mailto:QuS@inhouse.wko.at</md:EmailAddress>
+  </md:ContactPerson>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Inhouse WKO IT Team SW Qualität &amp; Support</md:GivenName>
+    <md:SurName>WKO Inhouse GmbH</md:SurName>
+    <md:EmailAddress>mailto:QuS@inhouse.wko.at</md:EmailAddress>
+  </md:ContactPerson>
+  <md:ContactPerson contactType="support">
+    <md:GivenName>Inhouse WKO IT Team SW Qualität &amp; Support</md:GivenName>
+    <md:EmailAddress>mailto:QuS@inhouse.wko.at</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor><md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" entityID="https://idp2.test.wpv.portalverbund.at/idp/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+        <saml:AttributeValue>http://wirtschaftsportalverbund.at/ns/ec/attributebundle-wkis</saml:AttributeValue>
+       </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+         <md:Extensions>
+            <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+            <alg:SigningMethod MinKeySize="256" MaxKeySize="511" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/>
+            <alg:SigningMethod MinKeySize="2048" MaxKeySize="4096" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+            <mdui:UIInfo>
+              <mdui:DisplayName xml:lang="en">Austria Pro WPV Testumgebung (2)</mdui:DisplayName>
+              <mdui:Description xml:lang="en">Austria Pro WPV Test IdP 2 (Shibboleth V3)</mdui:Description>
+        <mdui:Logo xml:lang="en" height="85" width="124">https://www.test.wpv.portalverbund.at/images/wpvlogo_idp2.png</mdui:Logo>
+            </mdui:UIInfo>
+        </md:Extensions>
+        <md:KeyDescriptor use="signing">
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDZjCCAk6gAwIBAgIVAN63M7mMfFBjceFtOvDl6SQ8xfhxMA0GCSqGSIb3DQEB
+CwUAMCkxJzAlBgNVBAMMHmlkcDEudGVzdC53cHYucG9ydGFsdmVyYnVuZC5hdDAe
+Fw0xNjAzMDkwOTI1MTFaFw0zNjAzMDkwOTI1MTFaMCkxJzAlBgNVBAMMHmlkcDEu
+dGVzdC53cHYucG9ydGFsdmVyYnVuZC5hdDCCASIwDQYJKoZIhvcNAQEBBQADggEP
+ADCCAQoCggEBAJtpaS4L0KA8D3r3PDGSgbBtqu4OxRX1hxU+7jVZLEIISsIpfHuW
+jOhtY2tuHpegiyiUgQrV+mIDooGuxmr3hxFQJgdhvIjFWkHO2SxqUFPpwoHDs1UV
+1O3WUGEWejypcalMRWhbNSwiG54PwXTyHdcgYVjDqirL8dy6iioV0W/G7xI66acz
+yipf8yoiaJINaRiM85PMB98FY+Xtsr+1M5zysWWx0HsC7ruAnwXUS5X3AIhBVu1H
+j8CmhCxCdaJHheSr5gmxa96SrLL2FmNU5fhu2Md09R6k3ccbS05AzdzfrTONkDVo
+5H71DeiA83DiykESucqykm88up2Q8sLPe1UCAwEAAaOBhDCBgTAdBgNVHQ4EFgQU
+KD55ApKpSoKOF8pqqebtGX7gy2UwYAYDVR0RBFkwV4IeaWRwMS50ZXN0Lndwdi5w
+b3J0YWx2ZXJidW5kLmF0hjVodHRwczovL2lkcDEudGVzdC53cHYucG9ydGFsdmVy
+YnVuZC5hdC9pZHAvc2hpYmJvbGV0aDANBgkqhkiG9w0BAQsFAAOCAQEAb8zD0oK8
+/vc6JZuvgXDthq474fLaZELopee5wQXQntXkYAkmrpdVvAiOmBKeAJZpBsIbIR6p
+WKOavaj1yqBM3xXV7CjXFhihmpEaCvHO1aYA6w1Pn7+XtAHn4p5pd7u9JZYyYBpM
+QF9HmEl57tvXdZb0Y7eNYud9KGSuNciUFSOvDN8lKr6EVBP+Ym4NSVbKslHXq4kw
+meYD0No3y96EoNIMHX6ZmgfA5h8d5Uyuf3q6MHQE4XgNrLyJvCObrcSIeVTidvoJ
+/TnbeBVWyB0F8l9ycTfyQyz08XHWAsrgjgQY/wrOC5GXMWDJjfWdBIhga2qChykE
+9cTCyixjghpGSA==
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        <md:KeyDescriptor use="signing">
+            <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+MIIDZTCCAk2gAwIBAgIUTMaFU3su5h9xBQJPalVsbOR7DBMwDQYJKoZIhvcNAQEL
+BQAwKTEnMCUGA1UEAwweaWRwMS50ZXN0Lndwdi5wb3J0YWx2ZXJidW5kLmF0MB4X
+DTE2MDMwOTA5MjUwOVoXDTM2MDMwOTA5MjUwOVowKTEnMCUGA1UEAwweaWRwMS50
+ZXN0Lndwdi5wb3J0YWx2ZXJidW5kLmF0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+MIIBCgKCAQEA6PRWhTPw8jDeIs0KNHxFe8vBTKgGJLtTBGz/I2qbHtvzQjDwy7l7
+t3VhC4bvCHU6q6LhprG1yblTs4mZOxNG3FgBSXfnlAz7LYaTksXGHLLrtcrfODJg
+gg+SDac6OaOLlN7HuvVIZMeGenQOL82av5FEB1SWl8YEnWx+jWBf4OiHGtUGqJ9F
+bFfvmMRUtBEil0xT53gBkNWcZ3T0IvRioVcCrr+mcoxHNH3JHuGmQ8xqZWZ27Iod
+dTILEl5MXH9Kc5M3Pc/75lXCDahQsqG1d40gzE3mEG2OmtlTb+FfJB4sXsH3y3pf
+O9hTNo/B7PfCv9wNdFk1moa8J2SLX/xCwwIDAQABo4GEMIGBMB0GA1UdDgQWBBQj
+GS9lXXW7CryQS/nTjb9mywvR8zBgBgNVHREEWTBXgh5pZHAxLnRlc3Qud3B2LnBv
+cnRhbHZlcmJ1bmQuYXSGNWh0dHBzOi8vaWRwMS50ZXN0Lndwdi5wb3J0YWx2ZXJi
+dW5kLmF0L2lkcC9zaGliYm9sZXRoMA0GCSqGSIb3DQEBCwUAA4IBAQDI0+RooeNe
+Mr5lYOTE55kRFy8iWyx3szlsUw5qm27w8Mmu+lRBMPpwkDnDQ+TyUApOiU41i4EZ
+XNwywEnwQGCFp8R42Is2ECYqM6OIpW+Cf5HwsjwkeEj+Vr5o29mEAzzQFBVINF0F
+NPEV4xBdyRWI06E4B1FXW5zdn9sB8qIWwO3TpxvMQbQhvgQXva0OryhhmJ8qIaHq
+aR3owMZvu6lD7R7ei5z6NEgOlKcbp6K+B79nv8yz8DNvV303f9fn3V29TDVm8O5b
+vAFOND6uWGNOG1xQJMeyV8hZMDFWfjp4Q5y/P1JIa7WVwv8dSTuwHbehCp85eKIv
+xkaknQcJ1Ksh
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        <md:KeyDescriptor use="encryption">
+            <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+MIIDZjCCAk6gAwIBAgIVALbYcCosw/d/7xolDLM6db8FUQ/AMA0GCSqGSIb3DQEB
+CwUAMCkxJzAlBgNVBAMMHmlkcDEudGVzdC53cHYucG9ydGFsdmVyYnVuZC5hdDAe
+Fw0xNjAzMDkwOTI1MTBaFw0zNjAzMDkwOTI1MTBaMCkxJzAlBgNVBAMMHmlkcDEu
+dGVzdC53cHYucG9ydGFsdmVyYnVuZC5hdDCCASIwDQYJKoZIhvcNAQEBBQADggEP
+ADCCAQoCggEBAMa4SR/cBRG8S8c/BndYvzcP6ArKj0hZ7TIbRFQ7z3blfJY8boAy
+sPEcxKfB6NJp1lza3090L9rcKoEhM2lBeuUWjpL0pzcP9kNPU2T9s4ubgz/oXg6h
+K+XHI6z/Lt7RuV1gsJ+3OSxbt1kkWKsEl6/bd9qu+GHeXwaZjcrwZCJ5MgeypVuw
+fUw1HSCVtYGkkDl/VY91iH3z2QyN7cxGQ3lSghy6/A1HXoAK5If4hsgJL+fuaGWm
+k6M/tt7G1SSreIaLB6fflCL8uc2y6/SyN1KKyTwo1lkeWKRpzcQr9lHXeX8U8S4/
+G7xtg3oNZP0d+SJNzPTbuEVr9ZONzZRKhAsCAwEAAaOBhDCBgTAdBgNVHQ4EFgQU
+FoOzwiTGMmsqLd64Y8CUaywWuR0wYAYDVR0RBFkwV4IeaWRwMS50ZXN0Lndwdi5w
+b3J0YWx2ZXJidW5kLmF0hjVodHRwczovL2lkcDEudGVzdC53cHYucG9ydGFsdmVy
+YnVuZC5hdC9pZHAvc2hpYmJvbGV0aDANBgkqhkiG9w0BAQsFAAOCAQEAguamnFjA
+fbIGFU6QNl3ZTBW0OakGfdbLEhYQ2xefFBEUf1LFtWua1qL6gzxI4PkPAY9NT+17
+ABN0TY+87MrAzTNHvI/V51W4hCI+0Z7H6zGS/zaJzRsxtL2E8Yi+vue3dkz/o9g8
+Jq01XbTMcSukcmNcPkzEH+65apAwyNP3nv09G7cmBUrgEi0gb3dQ1IvZFQVua4H6
+h0vYbUtWi7r/Epb+6AeCreEF8lW2qxjIEkYocxVt7AoEHLCbUmswBADrYhN+WrNE
+WcCNbuQhJZTQZMk2CtUtu7SAEkxTT9jkRq6PVF0jfaGVuN7vErE4zsFyT6FKIHYd
+GD7P2VPtNN4/2w==
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp2.test.wpv.portalverbund.at/idp/profile/SAML2/Redirect/SLO"/>
+        <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp2.test.wpv.portalverbund.at/idp/profile/SAML2/POST/SLO"/>
+        <!--md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp2.test.wpv.portalverbund.at:9443/idp/profile/SAML2/SOAP/SLO"/-->
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp2.test.wpv.portalverbund.at/idp/profile/Shibboleth/SSO"/>
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp2.test.wpv.portalverbund.at/idp/profile/SAML2/POST/SSO"/>
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp2.test.wpv.portalverbund.at/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+        <md:OrganizationName xml:lang="en">Austria Pro / AK WPV</md:OrganizationName>
+        <md:OrganizationDisplayName xml:lang="en">Austria Pro / AK WPV</md:OrganizationDisplayName>
+        <md:OrganizationURL xml:lang="en">https://www.wirtschaftsportalverbund.at/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+        <md:GivenName>Rainer</md:GivenName>
+        <md:SurName>Hörbe</md:SurName>
+    </md:ContactPerson>
+</md:EntityDescriptor><md:EntityDescriptor entityID="https://useradmin-staging.austrian-standards.at/saml/metadata/alias/austrian-standards-staging-wpv">
+  <md:SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationInstant="20016-09-27T15:23:47Z" registrationAuthority="https://www.test.wpv.portalverbund.at">
+        <mdrpi:RegistrationPolicy xml:lang="de">https://www.test.wpv.portalverbund.at/metadataupload.html</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <idpdisco:DiscoveryResponse xmlns:idpdisco="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://useradmin-staging.austrian-standards.at/saml/login/alias/austrian-standards-staging-wpv?disco=true" index="1"/>
+      <alg:DigestMethod xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <alg:SigningMethod xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <mdui:UIInfo>
+        <mdui:DisplayName xml:lang="en">Austrian Standards</mdui:DisplayName>
+        <mdui:Description xml:lang="en">Standards are created by those who need them and they are only developed if there is a concrete need for regulation. As an independent service provider,
+          Austrian Standards makes available the infrastructure and a network to representatives of business, administration, science and research as well as consumers so that they can contribute to
+          shaping standards.
+        </mdui:Description>
+        <mdui:Logo height="39" width="150">https://www.austrian-standards.at/fileadmin/templates/img/logo_austrian_standards.png</mdui:Logo>
+      </mdui:UIInfo>
+      <init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://useradmin-staging.austrian-standards.at/saml/login/alias/austrian-standards-staging-wpv"/>
+    </md:Extensions>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIF7TCCA9WgAwIBAgIEGBu/9jANBgkqhkiG9w0BAQsFADCBpjELMAkGA1UEBhMCQVQxDzANBgNV
+            BAgTBlZpZW5uYTEPMA0GA1UEBxMGVmllbm5hMUUwQwYDVQQKDDxBdXN0cmlhbiBTdGFuZGFyZHMg
+            SW5zdGl0dXRlLyDDlnN0ZXJyZWljaGlzY2hlcyBOb3JtdW5nc2luc3QxIDAeBgNVBAsTF0F1c3Ry
+            aWFuIFN0YW5kYXJkcyBTQU1MMQwwCgYDVQQDEwNuL2EwHhcNMTYwMjAyMTQ0MzUwWhcNMzUxMDIw
+            MTQ0MzUwWjCBpjELMAkGA1UEBhMCQVQxDzANBgNVBAgTBlZpZW5uYTEPMA0GA1UEBxMGVmllbm5h
+            MUUwQwYDVQQKDDxBdXN0cmlhbiBTdGFuZGFyZHMgSW5zdGl0dXRlLyDDlnN0ZXJyZWljaGlzY2hl
+            cyBOb3JtdW5nc2luc3QxIDAeBgNVBAsTF0F1c3RyaWFuIFN0YW5kYXJkcyBTQU1MMQwwCgYDVQQD
+            EwNuL2EwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQCOZzkao4zIKnsR9ntNAciJlzx+
+            ajylg3UrWKPb++lazQOFgb0dYRwSTQpVddTUYczx3x2eZuMjXHUoq/iKdNO6BRrEyoYeJGn/fjX1
+            NCXz885ri58Psu1PNPsLTBc+IoMKLj9zoAjA4ScVIHhEYzQIDhfgcYG42OJYzLZQupUfWGF/VKPL
+            IHi3nOBsgEpQ2FCr8OOW7CA0phB+PCffSwyVvSMWpIUzB27+7+ynB2xVUINw5XwBDKmkPGLWuoOj
+            znhO64XhpUoJfLx2rTHCa1aes1B7xUypsfvGUOZWTRijXJJDvHW2qZK6mHafT5PUET6d1lW0uvuN
+            ja9n1jugDDHIrRdaFE40L9qRf3yr6J840vBYIZYqybpr0LaYQ14Z0TBk5TYx6Z4RltoKmxaMpjJn
+            aBsXZCmcywe+ilojVuRjFnkUPrFlpC26hECGXUGZn/Rv34JPrBZwVqw6wXYxSMln6UL7O/BCj8xK
+            7egllcvZ8vCpkh2bl+OcTpZEaUMrOh9kQ53lqVZAWSZ8LVnF+s0BUb+ghrHYwENf/cpLILKPxs59
+            fuIr583/nvUaXt0IafBDii3MnBsMOs1GJYL+fckb5B4IfWElDj8guO7ObE3XYW1DuUXjWFjA8lKM
+            +4B4cO3UltnmhlfEia51sdG8Lnaw1cQCNrH/BqXQX/KZUBwcBQIDAQABoyEwHzAdBgNVHQ4EFgQU
+            PhVKMSx6FJ0zVPECnA2zglikmsAwDQYJKoZIhvcNAQELBQADggIBAI5RcqdJAQNq29hB8uDuvdeC
+            KhSCTdNtMcnGhyd03wWuIsBtRV6QBQ3HGUDNwF4wGXKfsIoO+adWvbVoujJjZ2lDN2oTV/aXU0zp
+            NNbPxwv0DfQ5arGtmPnsT4UgxppP2d9hwNZa3mUF9pSUdWtoqKLKrGA8Zmpt00YTh24IDaodiF2Y
+            28M0gohWhyLiKiiQrDwpvyAirwq5DcQG3tPl7G+NYrJ56Va5x45z6M5opbIMkAXUXOBW33xXT5MR
+            EZpg70V6CeW+JPRkWpuHnin08dRjmOxbH744W5wz0U+r79kJ7YqocbvRbh6BOKgwgxRAcMuZDphh
+            gT3Ws7YZzmoM+PKjYGhYhI6LSzHJNsH6+O+syvfgh6ol9YPnfMRhfSZVlGWTv7niSr4G/u+RsICM
+            3VsMo9Tqsr6evL8g6qUEh2KEgUDj2kOPA8KVJQ0eMGt6Qdj2oS4GjgoHYCMdjIRIR6+05s5YDFP5
+            6A5ZeAj1/w1uH8vO7XxZySv2rOu30NEoSVUhH7Lkd8r+eFDd5MNn7CZ4d5rEQ4eXLwj4VWCbJwBH
+            9bwfHSXK0rBdwRGWzTUykS/nJV3E8IXMaGv1iKdT15C+jRMC46BdkFfAUsf3QK8KobgKdvHcDyvo
+            LmuRXCcR71+faQV9qwkpKtlKsBjJMqfM+fFBMN2ZWLGYLVlh9HEZ
+          </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:KeyDescriptor use="encryption">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIF7TCCA9WgAwIBAgIEGBu/9jANBgkqhkiG9w0BAQsFADCBpjELMAkGA1UEBhMCQVQxDzANBgNV
+            BAgTBlZpZW5uYTEPMA0GA1UEBxMGVmllbm5hMUUwQwYDVQQKDDxBdXN0cmlhbiBTdGFuZGFyZHMg
+            SW5zdGl0dXRlLyDDlnN0ZXJyZWljaGlzY2hlcyBOb3JtdW5nc2luc3QxIDAeBgNVBAsTF0F1c3Ry
+            aWFuIFN0YW5kYXJkcyBTQU1MMQwwCgYDVQQDEwNuL2EwHhcNMTYwMjAyMTQ0MzUwWhcNMzUxMDIw
+            MTQ0MzUwWjCBpjELMAkGA1UEBhMCQVQxDzANBgNVBAgTBlZpZW5uYTEPMA0GA1UEBxMGVmllbm5h
+            MUUwQwYDVQQKDDxBdXN0cmlhbiBTdGFuZGFyZHMgSW5zdGl0dXRlLyDDlnN0ZXJyZWljaGlzY2hl
+            cyBOb3JtdW5nc2luc3QxIDAeBgNVBAsTF0F1c3RyaWFuIFN0YW5kYXJkcyBTQU1MMQwwCgYDVQQD
+            EwNuL2EwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQCOZzkao4zIKnsR9ntNAciJlzx+
+            ajylg3UrWKPb++lazQOFgb0dYRwSTQpVddTUYczx3x2eZuMjXHUoq/iKdNO6BRrEyoYeJGn/fjX1
+            NCXz885ri58Psu1PNPsLTBc+IoMKLj9zoAjA4ScVIHhEYzQIDhfgcYG42OJYzLZQupUfWGF/VKPL
+            IHi3nOBsgEpQ2FCr8OOW7CA0phB+PCffSwyVvSMWpIUzB27+7+ynB2xVUINw5XwBDKmkPGLWuoOj
+            znhO64XhpUoJfLx2rTHCa1aes1B7xUypsfvGUOZWTRijXJJDvHW2qZK6mHafT5PUET6d1lW0uvuN
+            ja9n1jugDDHIrRdaFE40L9qRf3yr6J840vBYIZYqybpr0LaYQ14Z0TBk5TYx6Z4RltoKmxaMpjJn
+            aBsXZCmcywe+ilojVuRjFnkUPrFlpC26hECGXUGZn/Rv34JPrBZwVqw6wXYxSMln6UL7O/BCj8xK
+            7egllcvZ8vCpkh2bl+OcTpZEaUMrOh9kQ53lqVZAWSZ8LVnF+s0BUb+ghrHYwENf/cpLILKPxs59
+            fuIr583/nvUaXt0IafBDii3MnBsMOs1GJYL+fckb5B4IfWElDj8guO7ObE3XYW1DuUXjWFjA8lKM
+            +4B4cO3UltnmhlfEia51sdG8Lnaw1cQCNrH/BqXQX/KZUBwcBQIDAQABoyEwHzAdBgNVHQ4EFgQU
+            PhVKMSx6FJ0zVPECnA2zglikmsAwDQYJKoZIhvcNAQELBQADggIBAI5RcqdJAQNq29hB8uDuvdeC
+            KhSCTdNtMcnGhyd03wWuIsBtRV6QBQ3HGUDNwF4wGXKfsIoO+adWvbVoujJjZ2lDN2oTV/aXU0zp
+            NNbPxwv0DfQ5arGtmPnsT4UgxppP2d9hwNZa3mUF9pSUdWtoqKLKrGA8Zmpt00YTh24IDaodiF2Y
+            28M0gohWhyLiKiiQrDwpvyAirwq5DcQG3tPl7G+NYrJ56Va5x45z6M5opbIMkAXUXOBW33xXT5MR
+            EZpg70V6CeW+JPRkWpuHnin08dRjmOxbH744W5wz0U+r79kJ7YqocbvRbh6BOKgwgxRAcMuZDphh
+            gT3Ws7YZzmoM+PKjYGhYhI6LSzHJNsH6+O+syvfgh6ol9YPnfMRhfSZVlGWTv7niSr4G/u+RsICM
+            3VsMo9Tqsr6evL8g6qUEh2KEgUDj2kOPA8KVJQ0eMGt6Qdj2oS4GjgoHYCMdjIRIR6+05s5YDFP5
+            6A5ZeAj1/w1uH8vO7XxZySv2rOu30NEoSVUhH7Lkd8r+eFDd5MNn7CZ4d5rEQ4eXLwj4VWCbJwBH
+            9bwfHSXK0rBdwRGWzTUykS/nJV3E8IXMaGv1iKdT15C+jRMC46BdkFfAUsf3QK8KobgKdvHcDyvo
+            LmuRXCcR71+faQV9qwkpKtlKsBjJMqfM+fFBMN2ZWLGYLVlh9HEZ
+          </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://useradmin-staging.austrian-standards.at/saml/SingleLogout/alias/austrian-standards-staging-wpv"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://useradmin-staging.austrian-standards.at/saml/SingleLogout/alias/austrian-standards-staging-wpv"/>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://useradmin-staging.austrian-standards.at/saml/SSO/alias/austrian-standards-staging-wpv" index="0" isDefault="true"/>
+  </md:SPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">Austrian Standards</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Austrian Standards</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">https://www.austrian-standards.at</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="support">
+    <md:Company>Austrian Standards</md:Company>
+    <md:GivenName>Austrian Standards IT-Solutions</md:GivenName>
+    <md:EmailAddress>support@austrian-standards.at</md:EmailAddress>
+  </md:ContactPerson>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Austrian Standards</md:Company>
+    <md:GivenName>Austrian Standards IT-Solutions</md:GivenName>
+    <md:EmailAddress>support@austrian-standards.at</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor><md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" entityID="https://sp1.test.wpv.portalverbund.at/sp.xml">
+  <md:Extensions>
+    <mdattr:EntityAttributes>
+      <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+      <saml:AttributeValue>http://wirtschaftsportalverbund.at/ns/ec/attributebundle-wkis</saml:AttributeValue>
+     </saml:Attribute>
+    </mdattr:EntityAttributes>
+  </md:Extensions>
+  <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:Extensions>
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <alg:SigningMethod MinKeySize="256" MaxKeySize="511" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/>
+      <alg:SigningMethod MinKeySize="2048" MaxKeySize="4096" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+        <saml:AttributeValue>http://wpv.portalverbund.at/ns/names/wpv_standard_attribute_profile</saml:AttributeValue>
+       </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdui:UIInfo>
+        <mdui:DisplayName xml:lang="en">WPV Web-SSO Testumgebung Testservice 1</mdui:DisplayName>
+        <mdui:Description xml:lang="en">WPV Testumgebung Test Service (load balancer)</mdui:Description>
+        <mdui:Logo xml:lang="en" height="85" width="124">https://www.test.wpv.portalverbund.at/images/wpvlogo_sp1.png</mdui:Logo>
+      </mdui:UIInfo>
+      <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://sp1.test.wpv.portalverbund.at/Shibboleth.sso/Login"/>
+      <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sp1.test.wpv.portalverbund.at/Shibboleth.sso/Login" index="1"/>
+    </md:Extensions>
+    <md:KeyDescriptor>
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>
+MIIC6zCCAdOgAwIBAgIJAIkSELDiPK60MA0GCSqGSIb3DQEBBQUAMBcxFTATBgNV
+BAMTDDgyZjdhODMwMmY0ODAeFw0xNjAyMjgxNjE1MjdaFw0yNjAyMjUxNjE1Mjda
+MBcxFTATBgNVBAMTDDgyZjdhODMwMmY0ODCCASIwDQYJKoZIhvcNAQEBBQADggEP
+ADCCAQoCggEBAMOWMUhYcym8FSGzOedG9suMS+aK/culEXn04B84a/zlm9Dxv8wk
+ZXLT071OtQm6Rz9hdkC3e7AqkTeGnLzkpkzvgEjx/ManNoPFBnqfqgL9KE0t+FS2
+gRscy7VKDxdkMvzmXO+3+JjYYqnVVpbFUMFeOMaC74skFhKI8gc/j4a/8DH6TrPd
+SsyKi/k7QeRwP8QfnCapLbsGVTW4G+EuMcP6/Wl2zDcelpxh/dHv325yKCBbPvPC
++k/donPsw8OV4ItzehyOrtjWNCsQscgY+wWCidIMCPOkI3WRIGkeClJoz/dg8gSx
+HWkYacN6lze/xPYELR6WlzB9r2WOKjuHbRcCAwEAAaM6MDgwFwYDVR0RBBAwDoIM
+ODJmN2E4MzAyZjQ4MB0GA1UdDgQWBBQzGCch3EXA37qX6W3AtkE4KBzWSTANBgkq
+hkiG9w0BAQUFAAOCAQEAQP46xsyGllK/xk3Y7PCPkj28KrVwMsKeR8geRq8UswB2
+TQ+qhvWPZs5qUlNc1UGZat4nEu7T837ozJ7OeVNtgaLDLElfnerzss/ip/I0at5U
+g6g+/memzdipXb/5AF76353nK82dRmhO5M6EmVBdeAF1LGQkonmxBRRdMJ1OtGfq
+C9WdsDb3FQWX62QlBFuzf/sq1M/DSn9FHDlLHqtTyFFwGBqX6mlOa1u8e3cpCBpk
+o4WHxK0EHAKWMiSisR+VXm7BHqe6Qg6cnu9sipc3rkL3mXNvcWD4ktpkuxL9zEsd
+dMe4TwGTdA/GjVIW3ia5ouIVVuEaXrw8MlhsUoiIZQ==
+		  </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>      
+    </md:KeyDescriptor>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sp1.test.wpv.portalverbund.at/Shibboleth.sso/SLO/Redirect"/>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>    
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp1.test.wpv.portalverbund.at/Shibboleth.sso/SAML2/POST" index="1"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sp1.test.wpv.portalverbund.at/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://sp1.test.wpv.portalverbund.at/Shibboleth.sso/SAML2/ECP" index="3"/>
+  </md:SPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">Austria Pro / AK WPV</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Austria Pro / AK WPV</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">https://www.wirtschaftsportalverbund.at/</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Rainer</md:GivenName>
+    <md:SurName>Hörbe</md:SurName>
+  </md:ContactPerson>
+ </md:EntityDescriptor><md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" entityID="https://wpv-qs.compass.at/sp.xml">
+
+  <md:Extensions>
+    <mdrpi:RegistrationInfo registrationInstant="20016-12-09T11:34:27Z" registrationAuthority="https://www.test.wpv.portalverbund.at">
+        <mdrpi:RegistrationPolicy xml:lang="de">https://www.test.wpv.portalverbund.at/metadataupload.html</mdrpi:RegistrationPolicy>
+    </mdrpi:RegistrationInfo>
+    <mdattr:EntityAttributes>
+      <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+        <saml:AttributeValue>http://wirtschaftsportalverbund.at/ns/ec/attributebundle-wkis</saml:AttributeValue>
+      </saml:Attribute>
+    </mdattr:EntityAttributes>
+  </md:Extensions>
+
+  <md:SPSSODescriptor AuthnRequestsSigned="1" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:Extensions>
+      <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://wpv-qs.compass.at/Shibboleth.sso/Login"/>
+      <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://wpv-qs.compass.at/Shibboleth.sso/Login" index="1"/>
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256" MaxKeySize="511" MinKeySize="256"/>
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" MaxKeySize="4096" MinKeySize="2048"/>
+      <mdui:UIInfo>
+        <mdui:DisplayName xml:lang="en">WPV Compass QS</mdui:DisplayName>
+        <mdui:Description xml:lang="en">WPV Compass QS Service</mdui:Description>
+      </mdui:UIInfo>
+    </md:Extensions>
+    <md:KeyDescriptor>
+      <ds:KeyInfo>
+        <ds:KeyName>wpv-qs.compass.at</ds:KeyName>
+        <ds:X509Data>
+          <ds:X509SubjectName>emailAddress=operator@compass.at,CN=wpv-qs.compass.at,O=Compass Datenbank GmbH,L=Vienna,ST=Vienna,C=AT</ds:X509SubjectName>
+          <ds:X509Certificate>MIID9TCCAt2gAwIBAgIJAPI1GNfmZJu2MA0GCSqGSIb3DQEBCwUAMIGQMQswCQYD
+            VQQGEwJBVDEPMA0GA1UECAwGVmllbm5hMQ8wDQYDVQQHDAZWaWVubmExHzAdBgNV
+            BAoMFkNvbXBhc3MgRGF0ZW5iYW5rIEdtYkgxGjAYBgNVBAMMEXdwdi1xcy5jb21w
+            YXNzLmF0MSIwIAYJKoZIhvcNAQkBFhNvcGVyYXRvckBjb21wYXNzLmF0MB4XDTE2
+            MTIwNzE1MjQ1N1oXDTE5MTIwNzE1MjQ1N1owgZAxCzAJBgNVBAYTAkFUMQ8wDQYD
+            VQQIDAZWaWVubmExDzANBgNVBAcMBlZpZW5uYTEfMB0GA1UECgwWQ29tcGFzcyBE
+            YXRlbmJhbmsgR21iSDEaMBgGA1UEAwwRd3B2LXFzLmNvbXBhc3MuYXQxIjAgBgkq
+            hkiG9w0BCQEWE29wZXJhdG9yQGNvbXBhc3MuYXQwggEiMA0GCSqGSIb3DQEBAQUA
+            A4IBDwAwggEKAoIBAQCvpec7CGYzx/oQDR8HN74C6cmXKtRI8dIfcpWOnUy1KLC3
+            3Mlp7YlkdUC/F5Vp0hvK1y54LSNBmTTS+KnUGWB3kGq0+5SwHa7vye21DHYk8jWd
+            +NW5jAnOvmlJjFnTQo8Cf1eME00Zt+K6FFT3jcFgLE88EwqaVQuo6mfLf5vJW3nQ
+            ppEdp01mvOxN49D06HyVRy/n26hW+TT8++3PPygJWXmB0kDBH0reyAmJ8kRL3+q7
+            lhL9IKj+wbv02N5bdlxEihdsNXxEnGLhwZvEUzxTRWv2cHLGN+I/ezTcUejjP195
+            i+B4X9dFy4xbHBDVLkATy6u5TWqgiLPlX48RYqQTAgMBAAGjUDBOMB0GA1UdDgQW
+            BBQndQDe3G/jV3EFqyMo+UHd3/Or9zAfBgNVHSMEGDAWgBQndQDe3G/jV3EFqyMo
+            +UHd3/Or9zAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQCgvjt4cT6X
+            X7kEjyfmSyCSzrBHgJT+x7Xhfe2kmqXZXV5UcwP/3Vg+w2Dv7Ca/GdIh1CUIm02h
+            ZTU6ipUenZexwqK4cfsb+fl8DTXC4ObgtT2h8pek3bNtzTSIWwi0fVP1fkKy+MLc
+            NFP3QfWqndiPCsqiXw3rcBAOGjpbVI3Sb/y6Rbg8UhYkk3YVzURLTdU9qmqZDeXB
+            n6iWiPrE8UobOqOypDfOktYHOB3hQM43GQXsYCLeglDHJKdI66k7QzutnFHRmIc6
+            eg7W4CVJ/EkKDMer8GGyIjngNi3RCAc0HLCg9linlzQPVXW3H8SK4nI45c/mJbs7
+            27op7DMcUwFa
+          </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#aes128-gcm"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#ECDH-ES"/>
+    </md:KeyDescriptor>
+    <!-- Endpoints entfernt die beim automatischen Import in ADFS2.0 eine interaktive Warnung liefern -->
+    <!--md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://wpv-qs.compass.at/Shibboleth.sso/Artifact/SOAP" index="1"/-->
+    <!--md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://wpv-qs.compass.at/Shibboleth.sso/SLO/SOAP"/-->
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://wpv-qs.compass.at/Shibboleth.sso/SLO/Redirect"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wpv-qs.compass.at/Shibboleth.sso/SLO/POST"/>
+    <!--md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://wpv-qs.compass.at/Shibboleth.sso/SLO/Artifact"/-->
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wpv-qs.compass.at/Shibboleth.sso/SAML2/POST" index="1"/>
+    <!--md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://wpv-qs.compass.at/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/-->
+    <!--md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://wpv-qs.compass.at/Shibboleth.sso/SAML2/Artifact" index="3"/-->
+    <!--md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://wpv-qs.compass.at/Shibboleth.sso/SAML2/ECP" index="4"/-->
+  </md:SPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">Compass Datenbank GmbH</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Compass Datenbank GmbH</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">https://www.compass.at</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Philipp</md:GivenName>
+    <md:SurName>Griess</md:SurName>
+  </md:ContactPerson>
+
+</md:EntityDescriptor><md:EntityDescriptor xmlns:disco="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" entityID="https://staging.vemap.com/sp">
+  <md:Extensions>
+    <mdattr:EntityAttributes>
+      <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+        <saml:AttributeValue>
+          http://wirtschaftsportalverbund.at/namespaces/ecStandardAttributes/20160322
+        </saml:AttributeValue>
+      </saml:Attribute>
+    </mdattr:EntityAttributes>
+  </md:Extensions>
+  <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:Extensions>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" MinKeySize="256" MaxKeySize="511" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" MinKeySize="2048" MaxKeySize="4096" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <mdui:UIInfo>
+        <mdui:DisplayName xml:lang="en">Beschaffungsportal Vemap Staging</mdui:DisplayName>
+        <mdui:Description xml:lang="en">Beschaffungsportal Vemap Staging DESC</mdui:Description>
+      </mdui:UIInfo>
+      <disco:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://staging.vemap.com/Shibboleth.sso/DS" index="1"/>
+    </md:Extensions>
+    <md:KeyDescriptor>
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>
+            MIIEGDCCAoCgAwIBAgIJAJc4RIASWDTqMA0GCSqGSIb3DQEBCwUAMBwxGjAYBgNV
+            BAMTEXN0YWdpbmcudmVtYXAuY29tMB4XDTE3MTIxMjE0NTMyNVoXDTI3MTIxMDE0
+            NTMyNVowHDEaMBgGA1UEAxMRc3RhZ2luZy52ZW1hcC5jb20wggGiMA0GCSqGSIb3
+            DQEBAQUAA4IBjwAwggGKAoIBgQCkbR9jThdhwpQsTXGiqnyhM38p6e+ITIvja3SA
+            hsaBzyzjfXrejp2kOFmuGSBEX6tpfTutjXaPNeHbzbw1obnv/cGGOU8Z6SeI2xRr
+            9ydnIXIExQgJ9xvLILFqhaP8NC88piuuaMu++yd1pUxWq8jd6FfKHMe0cB7/HMzo
+            B278l8CvpdefxqSFvWDFNEeIQcyOwd+RkmMWrMUtWNzGzteDJ1ugY+qmPeDgLz3H
+            mb+MCfA6x7EsXmBnhh4qWfNzzQaLcFFDTFt98ab/Kph2/qYxj2PoBdN12RNodxGL
+            jNDZj9svqeXTcxv9vWBtlss7kQeGg2ZeqTjXokBkRU4YU/1yU5NSZ3crto12aKZw
+            JpUbUHuW27/ADJUPJ4gSHdXVvMu4YddDF0vW1gHsZ6Pq3locdBGFGd0iak31YuuX
+            4+to9fIr4FOJVbE4/VOL/p87ekIvzNcWXNRRqNeR9ZjzAMlDGGHF1k4nCJwXxArh
+            8845hN08rkQTUE530SPPl1FG+jECAwEAAaNdMFswOgYDVR0RBDMwMYIRc3RhZ2lu
+            Zy52ZW1hcC5jb22GHGh0dHBzOi8vc3RhZ2luZy52ZW1hcC5jb20vc3AwHQYDVR0O
+            BBYEFK6DP3Vlves5NgG/kNDN2zDg5Cr5MA0GCSqGSIb3DQEBCwUAA4IBgQA929IM
+            Go3sNcRaIOvOogoONLrTbSeDTRYrd/rRDqRxu4W4+aG8XvYs4IrtcrAhegezKjTy
+            vOfkqshrRSzqQf60628kYqvyeUOaVy5AEEi7zVVk4v00i88/tiCIb3QSVTrYoZxv
+            C0NIp6S6A6t0u23JYW4PcSl7PAEWyxzCqGqHkAVHrFms5aAc5S7IQuANejfHbMeK
+            1Zyt3b7C3waceT8gxhjTtzA9RWBsBfz/86EIZUOn8e8JZsySgWNM/3/4vL9KwN+R
+            Ryi4e6pQ5ev629v+vzP4OXmJtyu+nb2oGNs7MIMKSjSDrROCLBR13qbEVuK4byQo
+            h1xDJlD69zVHmMaL7qthAQ7KKwR3xnC6QjPI3H82AH9+6Y00RNV9quHURz8XKYMl
+            +qtLxMu0/EJmXjgy8SQGJ/f6y1ylguc2+2g7sGFiWRul4qnqGZDQdDYi7iDnnzZx
+            DseY7tbWi7r8VdfG88rv63qf+GABuL47AXcLExnsE0Q4V8yJ0xUqx/LA8N4=
+          </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://staging.vemap.com/Shibboleth.sso/SLO/Redirect"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://staging.vemap.com/Shibboleth.sso/SLO/POST"/>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://staging.vemap.com/Shibboleth.sso/SAML2/POST" index="1"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://staging.vemap.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+  </md:SPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">VEMAP</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">vemap Einkaufsmanagement GmbH</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">https://staging.vemap.com</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Clemens</md:GivenName>
+    <md:SurName>Rupprecht</md:SurName>
+    <md:EmailAddress>Clemens.Rupprecht@ontec.at</md:EmailAddress>
+  </md:ContactPerson>
+  <md:ContactPerson contactType="support">
+    <md:GivenName>Christian</md:GivenName>
+    <md:SurName>Stecker</md:SurName>
+    <md:EmailAddress>c.stecker@vemap.com</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor><md:EntityDescriptor entityID="http://wkis.dev.wko.at/adfs/services/trust">
+  <md:Extensions>
+    <mdattr:EntityAttributes>
+      <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+        <saml:AttributeValue>http://wirtschaftsportalverbund.at/ns/ec/attributebundle-wkis</saml:AttributeValue>
+      </saml:Attribute>
+    </mdattr:EntityAttributes>
+  </md:Extensions>
+  <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:Extensions>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" MinKeySize="256" MaxKeySize="511" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" MinKeySize="2048" MaxKeySize="4096" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <mdui:UIInfo>
+        <mdui:DisplayName xml:lang="en">WKO Inhouse GmbH - IdP DEV</mdui:DisplayName>
+        <mdui:Description xml:lang="en">Entwicklungsumgebung der WKO</mdui:Description>
+      </mdui:UIInfo>
+    </md:Extensions>
+    <md:KeyDescriptor use="encryption">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>
+            MIIC4DCCAcigAwIBAgIQUBPDP7BV/apMdpMuEtgl1TANBgkqhkiG9w0BAQsFADAsMSowKAYDVQQDEyFBREZTIEVuY3J5cHRpb24gLSB3a2lzLmRldi53a28uYXQwHhcNMTYwODI0MTIxMzAwWhcNMTcwODI0MTIxMzAwWjAsMSowKAYDVQQDEyFBREZTIEVuY3J5cHRpb24gLSB3a2lzLmRldi53a28uYXQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC7ndADABnjOQdtoXaAYfhsssCN2diAYXfwNsUseBmQdNCUqfvCc+woHpksr/DmKByfp/kyRmgs5exoanKa+PJTv9trMGfQz29dgjNCHwLVKy7aCNdj6che3df6p14IIx9hM5vdlv0SyDRuCk/YwRLXtsELlvvwfehh/UMSqYi9WJAJId18AhCpnlEiCsEe/Yr5/W6X7pQfG+6M0gpAUNY3cbkIH+oq7uL7mVKLyM2HxkEy/ENF5M+tbao8KGJzbI6vspJHej9BW/U29Df/0FeL+s9r564uEZXAmEYm91hp/zbg9XC0pKLSy5ZdX9t4BWi252HqnlOVZFO4JamZXLfNAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAF6xt5JLukGhbWHaW+bS5cYASwjw9kczvB40f+kfTbQq4z7wo8rCj2wLPHHLVQWGvOnv1U48jkG436R8D8qq79Ur9SdZ73lE8n/CRSNVvSF58QLOOIuAJ7myCdXbQNiL4Pu9POMLdt5VMi4T2/nLuEsOHJQ0t9osp0ibaZdhWu31/xPOAj816NmZaKJgeB9ynz6OxyaMVCVilHdiy86s7SaWV6In0ASRCL3x3HRJaNt1l9kQxq9g80OeKWzCCNDZavewoYEWHAZztGMGecRW6iLsKi6be47pr6g1JMc3XTYTGhTGvxTXOLC0JfJg4PmtRyw4oey4NJqOvj+jB1mCyCE=
+          </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>
+            MIIC2jCCAcKgAwIBAgIQEs9W9DklGatLGps2+ISsNzANBgkqhkiG9w0BAQsFADApMScwJQYDVQQDEx5BREZTIFNpZ25pbmcgLSB3a2lzLmRldi53a28uYXQwHhcNMTYwODI0MTIxMjM5WhcNMTcwODI0MTIxMjM5WjApMScwJQYDVQQDEx5BREZTIFNpZ25pbmcgLSB3a2lzLmRldi53a28uYXQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDElkMvWJ1k74fsCn0QExY9IRUva90M+Sx1HVuEhfDUNXYV9PZA2P5gEEJmHIAC6U3PDL0EvsawDMmYpremr/nEgl4xDcmd2FL8GHmhfeHa/etw7/6H1Wi+MLJdPW/+WS12DIZgdBaiZGZHB16LmAZfGz1klrsFEDFi3U8WDjT2UTH3oPa2Y4lVC9rrLScYkDQfFQB3v5FdJBtkylULYYBMVG1q6BfygtV69P51DGpNfbGE7FZpOTpMK+S/YBYUAZJ9rReAzQ/6Y/OF9uj69m/PHZU2z3G7ugd/WnAmQ4eg4orp92spyIP02V6ggLhhmj/QAFCEMjGp4pAsg4RHU/BzAgMBAAEwDQYJKoZIhvcNAQELBQADggEBALOkBwhsmpzCaa0t/DtK+L5fI0PdqfXjZzgrJUKlk0zPyGsj53W3HTUYAoplbvtuK6780QsVH1t0LeW4KE5wFU4jqItBSq7ziiAcFhQx5m7s2NR5BzNQvKemCwn5yO6hllvMz7KDxyhxT/dGsJnu3YZaMlQWRc0rIDGCxxQ3AYtfJ9so2AJnWlsg4Y5BM1oQvWVUqoS07sNB3imj84Ujoi9F1DWLYcDnTN4EUPieDBm8fhzsn9GLSxv1MkvU0C11lq9yibsm74IUG/sxM+MwGJlAxw4wKJG8YZZrEOkQNKczy5f1V2cKFAcHmmtx+mZf43bd6xLj68b3//yKjwxlIw4=
+          </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://wkis.dev.wko.at/adfs/ls/"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wkis.dev.wko.at/adfs/ls/"/>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://wkis.dev.wko.at/adfs/ls/"/>
+    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wkis.dev.wko.at/adfs/ls/"/>
+  </md:IDPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="de-AT">WKO Inhouse GmbH</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="de-AT">WKO Inhouse GmbH</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="de-AT">https://wko.at/</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="administrative">
+    <md:GivenName>Philip</md:GivenName>
+    <md:SurName>Kastenberger</md:SurName>
+    <md:EmailAddress>mailto:philip.kastenberger@inhouse.wko.at</md:EmailAddress>
+  </md:ContactPerson>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Dominik</md:GivenName>
+    <md:SurName>Amon</md:SurName>
+    <md:EmailAddress>mailto:dominik.amon@inhouse.wko.at</md:EmailAddress>
+  </md:ContactPerson>
+  <md:ContactPerson contactType="support">
+    <md:GivenName>Inhouse WKO IT Team SW Qualität &amp; Support</md:GivenName>
+    <md:EmailAddress>mailto:QuS@inhouse.wko.at</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor><md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" entityID="https://sp2.test.wpv.portalverbund.at/sp">
+  <md:Extensions>
+    <mdattr:EntityAttributes>
+      <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+      <saml:AttributeValue>http://wirtschaftsportalverbund.at/ns/ec/attributebundle-wkis</saml:AttributeValue>
+     </saml:Attribute>
+    </mdattr:EntityAttributes>
+  </md:Extensions>
+  <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+        <saml:AttributeValue>http://wpv.portalverbund.at/ns/names/wpv_standard_attribute_profile</saml:AttributeValue>
+       </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdui:UIInfo>
+        <mdui:DisplayName xml:lang="en">WPV Web-SSO Testumgebung Testservice</mdui:DisplayName>
+        <mdui:Description xml:lang="en">WPV Testumgebung Test Service 2 (direct Shibboleth SP)</mdui:Description>
+        <mdui:Logo xml:lang="en" height="85" width="124">https://www.test.wpv.portalverbund.at/images/wpvlogo_sp2.png</mdui:Logo>
+      </mdui:UIInfo>
+      <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://sp2.test.wpv.portalverbund.at/Shibboleth.sso/Login"/>
+      <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sp2.test.wpv.portalverbund.at/Shibboleth.sso/Login" index="1"/>
+    </md:Extensions>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>
+MIIESDCCArCgAwIBAgIJAOuKa155sJAcMA0GCSqGSIb3DQEBCwUAMCgxJjAkBgNV
+BAMTHXNwMi50ZXN0Lndwdi5wb3J0YWx2ZXJidW5kLmF0MB4XDTE4MDUyODEzNTkw
+OFoXDTI4MDUyNTEzNTkwOFowKDEmMCQGA1UEAxMdc3AyLnRlc3Qud3B2LnBvcnRh
+bHZlcmJ1bmQuYXQwggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQDRyHpe
+nlH0Q3LB/LcXURLYkI49gCphbxdt7cymb/mN4X87WxXsiPRZAW0Lpyy+CS6RhHAK
+IGa6ggokdkcheN1W7IK6kaG8oBXAPe9VlNiJlmLycwzfS0shqtKGkT+BmLyOw256
+9dilnqRCzLGRk2Tf7VLo9a3LNugHlO7pVZgVugVw9RDh16FeHkXi63wETXZt2DF1
+6DXDBnl4KdCh4tzso5cbs4c+OB5iagreqeXWd1TcGciPVjR436BL+2MWJJ3eZiNn
+b/8O6L3TSj4KcezUcVlW8hXYKqUD/4d+dAbm/f8Ot+5old0AflLRsaNV+CZGyM1G
+xJhlMUp9jTdrog4aBsIflu4buhrmR0I6rfF2JjF7F/vkBELkdBzNQ8WSv3Uo9rAd
+5kcxmsLoIhpn4qoSQ0Vq3uOEGhyG2ce2I+LLdl8n+7fLQ0jXIFKuadkWmrHV/1jo
+bAk7zlOOGxQDJOXbAFN4F0ZliDvhyTNZSTUqKVhq1bIYWljQbh9O/mnMco8CAwEA
+AaN1MHMwUgYDVR0RBEswSYIdc3AyLnRlc3Qud3B2LnBvcnRhbHZlcmJ1bmQuYXSG
+KGh0dHBzOi8vc3AyLnRlc3Qud3B2LnBvcnRhbHZlcmJ1bmQuYXQvc3AwHQYDVR0O
+BBYEFPW7zllqPRLHe3ZsLQwj4ZvdJKeqMA0GCSqGSIb3DQEBCwUAA4IBgQCHBnp9
+B/uYdABBKO4HopuzbEoF+qkuyNN3FkerymzCvC9I47qH1C0870sTQi1IxLZ9XCvY
+rbcs/Arhb3fkREQRLWDwjxhCtQbFyi412KY9Ir+FcJxKadNjlqg9y4tkHdoJk/13
+syKXiKTl1V0/sMiIO3GTVPtwJOpDI8fLunFJLZY3FOjRz6KQ8eVnxz9vy/iPsIB2
+wt+Ak7OCIHg5ZkPDqStzEjeUjAWxAk3Zc4imDNbi55s2/Z37PdOXvqvv7ey48C0G
+gYKbWNN4zoNAnHpEEEZ4ldhZUJEIDN5NEH50dBVV/6er1nh46mTg0lnXTWmDOuuB
+CpgeEYMgBznI6V0LhlBfimBffGw2mXUTlTSYAldwwhtPawpwwpo4ZEEC6JxLPmB7
+/gZmV4AWXuG3dwW/TyIeq7U5mU2oVk6Pu1g8jU0rsqBNqAiVTHVhxOEeCxXPWrSe
+axoGTZfo2IQ+Mgu0hwlQNfW222xB4hxxXCpFetWVPshJWUhezDzkOrFno5c=
+		  </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>      
+    </md:KeyDescriptor>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sp2.test.wpv.portalverbund.at/Shibboleth.sso/SLO/Redirect"/>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>    
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>    
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp2.test.wpv.portalverbund.at/Shibboleth.sso/SAML2/POST" index="1"/>
+  </md:SPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">Austria Pro / AK WPV</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Austria Pro / AK WPV</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">https://www.wirtschaftsportalverbund.at/</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Rainer</md:GivenName>
+    <md:SurName>Hörbe</md:SurName>
+  </md:ContactPerson>
+ </md:EntityDescriptor><md:EntityDescriptor entityID="https://sp4.test.wpv.portalverbund.at/sp"><md:Extensions><mdattr:EntityAttributes><saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue>http://edushare.at/namespaces/entitycategory/lmsuser/v1</saml:AttributeValue></saml:Attribute></mdattr:EntityAttributes></md:Extensions>
+  <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol"><md:Extensions><DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" MinKeySize="256" MaxKeySize="511" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/><SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" MinKeySize="2048" MaxKeySize="4096" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/><mdui:UIInfo><mdui:DisplayName xml:lang="en">SP4 (CI)</mdui:DisplayName><mdui:Description xml:lang="en">SP4 Express Setup CI test</mdui:Description></mdui:UIInfo></md:Extensions>
+    <md:KeyDescriptor use="signing"><ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>
+MIID2TCCAkGgAwIBAgIJAOUFUrcM8wHYMA0GCSqGSIb3DQEBCwUAMBExDzANBgNV
+BAMTBmNhbm5vdDAeFw0xODA1MjMwNzM5NTRaFw0yODA1MjAwNzM5NTRaMBExDzAN
+BgNVBAMTBmNhbm5vdDCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBALZI
+2XzUBAf0I67R4D6gK4i4tQ7FjOFlWio5SPShoORHTDnmeKi/1pW311r5IwZlIN/B
+hREqJsjruIq6pFlu9E3F2lCJZ+gWyimqRFxDFDjaJHlu9BKaec1c9BT1c6h+jxFE
+jdue+ApqwPOSVzXFlGwX5QKiaHArsYI0ciDwfIrMRKWidxXDqb4R0UZdwvT30I8D
+t5CMjS9wuKZ4vjwGjJ3Cyft/9lwk8cxE/lL5MriuR8k79ZZ7VF2VX7Avn1lmkarQ
+Z8mzosO3emD7Ha82N5ecpyJ0Fvj69WUYNE0eKRygOdbq4I7zZCBze6pXffbc9t2G
+3uMpV+NbucJvtGABri60GQsZA3coh6/tlAI+431rJwVmYGNUW0cD/272Ti+Nyynr
+EjK767+qSupNMo0lbsNERPpBAIh2foUQ12EMjpXDwEYZp5ziseibFaiG0M9Rb60Q
++X0JZoNdtXXZkiR/jiW0hHidGuR6LhpByn+bZndpIu3Ji8UCk5Q+G5AMT1MSdQID
+AQABozQwMjARBgNVHREECjAIggZjYW5ub3QwHQYDVR0OBBYEFEemyfWKdQzuSb/X
+eySHXSBsvZapMA0GCSqGSIb3DQEBCwUAA4IBgQAv4e1Z0t48Jmx3fdN+yhctb0mK
+3swUEluEsOHw71rYJmsTXGMbmNieXuUqZ9ZZ7RE/ljgNRzeAx/qfumhwUkU/D7/L
+MVrbJCelRyYfCUBILDMYSB43PvIcLdq9HczaJGeQ9Q1Scnrsc8Tm4KOrnVKLHuFT
+TcZhmazQup75ku6rk+w9GwN5crks0rp1q58dUWV6eGdWU92B4nYiGKfzd9ongWAI
+3HP7r8VAK3Ea5zDXvL9Sxo5yr+T7WOiGAR8kWrJpjBqdmfLmdalZRfwMEejhobtX
+AcA4t7IylqSaNKlsQc4lNH/RrTqMv1wY0fybazPGFkwxZE7q+G2kiKR2AjWD1QUI
+NvTcMFrA/0yyx2ZdMDOGXkyyjbsEenlJ4xntagixX13ynSNmJPJN+sLk7rKPTv1M
+oWwUmuRBbBbikwc5H1+/tiMM4/l4/fyKj2paaPEvsuO74R4wmeNU/nW3qTMG3o54
+jHJu9rK7VuoevKUz5gLPLgMAQb5cs1inHk52q+A=
+          </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo></md:KeyDescriptor>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp4.test.wpv.portalverbund.at/Shibboleth.sso/SAML2/POST" index="1"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sp4.test.wpv.portalverbund.at/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://sp4.test.wpv.portalverbund.at/Shibboleth.sso/SAML2/ECP" index="3"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://sp4.test.wpv.portalverbund.at/Shibboleth.sso/SAML/POST" index="4"/>
+  </md:SPSSODescriptor>
+<md:Organization><md:OrganizationName xml:lang="en">CI-Test</md:OrganizationName><md:OrganizationDisplayName xml:lang="en">Continuous Integration Testing</md:OrganizationDisplayName><md:OrganizationURL xml:lang="en">https://www.testdom.test</md:OrganizationURL></md:Organization><md:ContactPerson contactType="technical"><md:GivenName>Franz</md:GivenName><md:SurName>Meier</md:SurName><md:EmailAddress>fxmeier@testdom.test</md:EmailAddress></md:ContactPerson><md:ContactPerson contactType="support"><md:GivenName>Franz</md:GivenName><md:EmailAddress>fxmeier@testdom.test</md:EmailAddress></md:ContactPerson></md:EntityDescriptor><md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" entityID="https://sp3.test.wpv.portalverbund.at/sp.xml">
+  <md:Extensions>
+    <mdattr:EntityAttributes>
+      <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+      <saml:AttributeValue>http://wirtschaftsportalverbund.at/ns/ec/attributebundle-wkis</saml:AttributeValue>
+     </saml:Attribute>
+    </mdattr:EntityAttributes>
+  </md:Extensions>
+  <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+        <saml:AttributeValue>http://wpv.portalverbund.at/ns/names/wpv_standard_attribute_profile</saml:AttributeValue>
+       </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdui:UIInfo>
+        <mdui:DisplayName xml:lang="en">WPV Web-SSO Testumgebung Testservice</mdui:DisplayName>
+        <mdui:Description xml:lang="en">WPV Testumgebung Test Service 2 (Shibboleth SP with embedded IDP discovery)</mdui:Description>
+        <mdui:Logo xml:lang="en" height="85" width="124">https://www.test.wpv.portalverbund.at/images/wpvlogo_sp3.png</mdui:Logo>
+      </mdui:UIInfo>
+      <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://sp3.test.wpv.portalverbund.at/Shibboleth.sso/Login"/>
+      <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sp3.test.wpv.portalverbund.at/Shibboleth.sso/Login" index="1"/>
+    </md:Extensions>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>
+MIIC6zCCAdOgAwIBAgIJAIkSELDiPK60MA0GCSqGSIb3DQEBBQUAMBcxFTATBgNV
+BAMTDDgyZjdhODMwMmY0ODAeFw0xNjAyMjgxNjE1MjdaFw0yNjAyMjUxNjE1Mjda
+MBcxFTATBgNVBAMTDDgyZjdhODMwMmY0ODCCASIwDQYJKoZIhvcNAQEBBQADggEP
+ADCCAQoCggEBAMOWMUhYcym8FSGzOedG9suMS+aK/culEXn04B84a/zlm9Dxv8wk
+ZXLT071OtQm6Rz9hdkC3e7AqkTeGnLzkpkzvgEjx/ManNoPFBnqfqgL9KE0t+FS2
+gRscy7VKDxdkMvzmXO+3+JjYYqnVVpbFUMFeOMaC74skFhKI8gc/j4a/8DH6TrPd
+SsyKi/k7QeRwP8QfnCapLbsGVTW4G+EuMcP6/Wl2zDcelpxh/dHv325yKCBbPvPC
++k/donPsw8OV4ItzehyOrtjWNCsQscgY+wWCidIMCPOkI3WRIGkeClJoz/dg8gSx
+HWkYacN6lze/xPYELR6WlzB9r2WOKjuHbRcCAwEAAaM6MDgwFwYDVR0RBBAwDoIM
+ODJmN2E4MzAyZjQ4MB0GA1UdDgQWBBQzGCch3EXA37qX6W3AtkE4KBzWSTANBgkq
+hkiG9w0BAQUFAAOCAQEAQP46xsyGllK/xk3Y7PCPkj28KrVwMsKeR8geRq8UswB2
+TQ+qhvWPZs5qUlNc1UGZat4nEu7T837ozJ7OeVNtgaLDLElfnerzss/ip/I0at5U
+g6g+/memzdipXb/5AF76353nK82dRmhO5M6EmVBdeAF1LGQkonmxBRRdMJ1OtGfq
+C9WdsDb3FQWX62QlBFuzf/sq1M/DSn9FHDlLHqtTyFFwGBqX6mlOa1u8e3cpCBpk
+o4WHxK0EHAKWMiSisR+VXm7BHqe6Qg6cnu9sipc3rkL3mXNvcWD4ktpkuxL9zEsd
+dMe4TwGTdA/GjVIW3ia5ouIVVuEaXrw8MlhsUoiIZQ==
+		  </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep"/>
+      <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>      
+    </md:KeyDescriptor>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sp3.test.wpv.portalverbund.at/Shibboleth.sso/SLO/Redirect"/>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>    
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp3.test.wpv.portalverbund.at/Shibboleth.sso/SAML2/POST" index="1"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sp3.test.wpv.portalverbund.at/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://sp3.test.wpv.portalverbund.at/Shibboleth.sso/SAML2/ECP" index="3"/>
+  </md:SPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">Austria Pro / AK WPV</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Austria Pro / AK WPV</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">https://www.wirtschaftsportalverbund.at/</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Rainer</md:GivenName>
+    <md:SurName>Hörbe</md:SurName>
+  </md:ContactPerson>
+ </md:EntityDescriptor><md:EntityDescriptor entityID="https://mdreg.qs.portalverbund.gv.at/sp"><md:Extensions><mdattr:EntityAttributes><saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue>http://www.ref.gv.at/ns/names/agiz/pvp/egovtoken</saml:AttributeValue></saml:Attribute></mdattr:EntityAttributes></md:Extensions>
+  <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"><md:Extensions><DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" MinKeySize="256" MaxKeySize="511" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/><SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" MinKeySize="2048" MaxKeySize="4096" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/><mdui:UIInfo><mdui:DisplayName xml:lang="en">PVZD MDREG QS</mdui:DisplayName><mdui:Description xml:lang="en">PVZD Metadata ReGistry (QS)</mdui:Description></mdui:UIInfo></md:Extensions>
+    
+      
+    
+    <md:KeyDescriptor use="signing"><ds:KeyInfo xmlns:disco="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol">
+        <ds:X509Data>
+          <ds:X509Certificate>
+MIID2TCCAkGgAwIBAgIJAI7PBXymk/zMMA0GCSqGSIb3DQEBCwUAMBExDzANBgNV
+BAMTBmNhbm5vdDAeFw0xODA2MjIxMzM3MTlaFw0yODA2MTkxMzM3MTlaMBExDzAN
+BgNVBAMTBmNhbm5vdDCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBALA9
+KK1VoqgbWHqkD0Y4tuZ26Twf7//n6qdWTwvIxOl3utAPxo/rLGwrYXt7bNlmxCC5
+t7xx4eH1gU8imTW0cfGmOrqL3I65w6FH0upTvpNlprx3Y1/8+/1XLxKxQqHgzhxk
+JqJszokRvDCU1p54mzJH/elMna/sYgkgrksU3S+HODitcUn7c31juS7X+2eBT3Yl
+pumGQcGnq407V8YGIT2RrETbUdOVC2aDLjeBi5/jw/aymk1Gz9csMV1ngmyI5k/q
+OSKd/60wfz5OIioP9GrgND0awgtmevn3kVeP4gstQdEJMeybO2aXlxBgqAvyZ7Ts
+MuKfI1DFaSQZUr/9DrYMj7HzXq6exDhG6E1b6iF3nPM2xVsC2EPvisUBO4UyisyZ
+HVvRlcGUFM8miL7xI32bdX7mGMslWsAwRYUPuikTAGHe7C3ZlpKH5HDDntJALXeX
+laWQoA3fylb0Ope/R2R91PtgYVxhkoxS7yn6k/ycUAuWUa2uTbRqbFdL9+8SCwID
+AQABozQwMjARBgNVHREECjAIggZjYW5ub3QwHQYDVR0OBBYEFFmq5js0TcZ4lpgL
+iChoEL6TkkHpMA0GCSqGSIb3DQEBCwUAA4IBgQCkv8STriDbJ0v6LN+ey9E1tnYN
+o1tuEhESOlfwxmAFg5a6zUKCDTJwr+LvuJW3V9nj7ohAcvZWvJt83oBg7E4+ULPb
+eAyGZB24/m0/wOapRoclqvBHmgezuCccYOq618L0q7CHk8YzptylIYLOTbsy1nzF
+SlYKFwN7jijPMhdebi1HggNPCIRRzvuz+Cckt/n2svjBIm2tJ+IYDwqv2jpNQcvB
+iSomzZ5LaSx01sqDAUOmBgQoUwLm6zzX5Uk76QT1pjnbkCcLM4fgigdolljmJpH0
+pK/Y3e+/nw/3qlTffJLLVY6ib5RFo1ChFvFsGa8xaBzitV126eY5E5tkrViBK9Ga
+b/pr1rQ2WlCMFKzi6DMc1ViBKGPHtuPrOIvmZxRUZxvAMCj86+j6+A3iq1Bu/0B5
+41WWsBANFcp6TN/DEwruvmpipzDJNzuY5H7tFcMoyRudDfseIe/NJNLWRJ9QKARg
+Z62eVjbSgQSMWNVVH57tfC5qsKzuZheFUi2M1X4=
+          </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo></md:KeyDescriptor>
+    <md:SingleLogoutService xmlns:disco="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://mdreg.qs.portalverbund.gv.at/Shibboleth.sso/SLO/Redirect"/>
+    <md:SingleLogoutService xmlns:disco="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://mdreg.qs.portalverbund.gv.at/Shibboleth.sso/SLO/POST"/>
+    <md:NameIDFormat xmlns:disco="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol">urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    <md:NameIDFormat xmlns:disco="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol">urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    <md:AssertionConsumerService xmlns:disco="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://mdreg.qs.portalverbund.gv.at/Shibboleth.sso/SAML2/POST" index="1"/>
+    <md:AssertionConsumerService xmlns:disco="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://mdreg.qs.portalverbund.gv.at/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+    <md:AssertionConsumerService xmlns:disco="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://mdreg.qs.portalverbund.gv.at/Shibboleth.sso/SAML2/ECP" index="3"/>
+  </md:SPSSODescriptor>
+<md:Organization><md:OrganizationName xml:lang="en">Magistrat Wien</md:OrganizationName><md:OrganizationDisplayName xml:lang="en">Magistrat Wien</md:OrganizationDisplayName><md:OrganizationURL xml:lang="en">https://www.wien.gv.at</md:OrganizationURL></md:Organization><md:ContactPerson contactType="technical"><md:GivenName>Sylvia</md:GivenName><md:SurName>Weber</md:SurName><md:EmailAddress>sylvia.weber@wien.gv.at</md:EmailAddress></md:ContactPerson><md:ContactPerson contactType="support"><md:GivenName>Peter</md:GivenName><md:EmailAddress>peter.reif@wien.gv.at</md:EmailAddress></md:ContactPerson></md:EntityDescriptor></md:EntitiesDescriptor>
